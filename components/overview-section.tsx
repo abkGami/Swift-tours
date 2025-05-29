@@ -1,15 +1,16 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { MapPin, Anchor, Car, BookOpen, ArrowRight } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { motion } from "framer-motion";
+import { MapPin, Anchor, Car, BookOpen, ArrowRight, Phone } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const overviewCards = [
   {
     title: "Destinations",
-    description: "Explore breathtaking destinations across Europe and Asia with our curated travel experiences",
+    description:
+      "Explore breathtaking destinations across Europe and Asia with our curated travel experiences",
     icon: MapPin,
     image: "/placeholder.svg?height=300&width=400",
     href: "/destinations",
@@ -18,7 +19,8 @@ const overviewCards = [
   },
   {
     title: "Chartered Boats",
-    description: "Experience luxury on the water with our premium fleet of boats and yachts",
+    description:
+      "Experience luxury on the water with our premium fleet of boats and yachts",
     icon: Anchor,
     image: "/placeholder.svg?height=300&width=400",
     href: "/boats",
@@ -27,7 +29,8 @@ const overviewCards = [
   },
   {
     title: "Premium Transfers",
-    description: "Travel in style with our luxury vehicles and professional transfer services",
+    description:
+      "Travel in style with our luxury vehicles and professional transfer services",
     icon: Car,
     image: "/placeholder.svg?height=300&width=400",
     href: "/transfers",
@@ -35,15 +38,15 @@ const overviewCards = [
     stats: "24/7 Service",
   },
   {
-    title: "Travel Blog",
-    description: "Get inspired with travel tips, destination guides, and insider knowledge",
-    icon: BookOpen,
+    title: "Contact Us",
+    description: "Reach out to us for personalized travel planning and support",
+    icon: Phone,
     image: "/placeholder.svg?height=300&width=400",
-    href: "/blog",
+    href: "/contact",
     color: "from-orange-500 to-red-600",
-    stats: "100+ Articles",
+    stats: "100% Satisfaction",
   },
-]
+];
 
 export default function OverviewSection() {
   return (
@@ -55,15 +58,18 @@ export default function OverviewSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16 animate-element"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 gradient-text">Your Journey Starts Here</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 gradient-text">
+            Your Journey Starts Here
+          </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover amazing destinations, luxury accommodations, and unforgettable experiences with Swift Tours
+            Discover amazing destinations, luxury accommodations, and
+            unforgettable experiences with Swift Tours
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {overviewCards.map((card, index) => {
-            const IconComponent = card.icon
+            const IconComponent = card.icon;
             return (
               <motion.div
                 key={card.title}
@@ -81,13 +87,17 @@ export default function OverviewSection() {
                         alt={card.title}
                         className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                       />
-                      <div className={`absolute inset-0 bg-gradient-to-t ${card.color} opacity-60`} />
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-t ${card.color} opacity-60`}
+                      />
                       <div className="absolute top-4 left-4">
                         <div className="bg-white/20 backdrop-blur-sm rounded-full p-3">
                           <IconComponent className="h-6 w-6 text-white" />
                         </div>
                       </div>
-                      <div className="absolute bottom-4 right-4 text-white text-sm font-semibold">{card.stats}</div>
+                      <div className="absolute bottom-4 right-4 text-white text-sm font-semibold">
+                        {card.stats}
+                      </div>
                     </div>
 
                     <CardHeader>
@@ -109,10 +119,10 @@ export default function OverviewSection() {
                   </Card>
                 </Link>
               </motion.div>
-            )
+            );
           })}
         </div>
       </div>
     </section>
-  )
+  );
 }
