@@ -288,33 +288,33 @@ export default function Hero() {
       </motion.div>
 
       {/* Enhanced Scroll Indicator */}
-      <motion.div
+      {/* <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        // animate={{
-        //   y: [0, 15, 0],
-        //   opacity: [0.5, 1, 0.5],
-        // }}
-        // transition={{
-        //   repeat: Number.POSITIVE_INFINITY,
-        //   duration: 2,
-        //   ease: "easeInOut",
-        // }}
-        // whileHover={{ scale: 1.2 }}
+        animate={{
+          y: [0, 15, 0],
+          opacity: [0.5, 1, 0.5],
+        }}
+        transition={{
+          repeat: Number.POSITIVE_INFINITY,
+          duration: 2,
+          ease: "easeInOut",
+        }}
+        whileHover={{ scale: 1.2 }}
       >
         <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center relative overflow-hidden">
           <motion.div
             className="w-1 h-3 bg-white rounded-full mt-2"
-            // animate={{
-            //   y: [0, 16, 0],
-            // }}
-            // transition={{
-            //   repeat: Number.POSITIVE_INFINITY,
-            //   duration: 1.5,
-            //   ease: "easeInOut",
-            // }}
+            animate={{
+              y: [0, 16, 0],
+            }}
+            transition={{
+              repeat: Number.POSITIVE_INFINITY,
+              duration: 1.5,
+              ease: "easeInOut",
+            }}
           />
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Floating Action Button */}
       {/* <motion.div

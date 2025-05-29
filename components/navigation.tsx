@@ -16,6 +16,7 @@ export default function Navigation() {
   const [language, setLanguage] = useState("EN");
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState("");
+  const [activeSubDropdown, setActiveSubDropdown] = useState("");
 
   const { scrollY } = useScroll();
 
@@ -156,22 +157,22 @@ export default function Navigation() {
               className="flex items-center space-x-2 cursor-pointer"
             >
               <motion.div
-                animate={{
-                  rotate: [0, 360],
-                  scale: [1, 1.1, 1],
-                }}
-                transition={{
-                  rotate: {
-                    duration: 20,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "linear",
-                  },
-                  scale: {
-                    duration: 2,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "easeInOut",
-                  },
-                }}
+              // animate={{
+              //   rotate: [0, 360],
+              //   scale: [1, 1.1, 1],
+              // }}
+              // transition={{
+              //   rotate: {
+              //     duration: 20,
+              //     repeat: Number.POSITIVE_INFINITY,
+              //     ease: "linear",
+              //   },
+              //   scale: {
+              //     duration: 2,
+              //     repeat: Number.POSITIVE_INFINITY,
+              //     ease: "easeInOut",
+              //   },
+              // }}
               >
                 <Plane className="h-8 w-8 text-blue-600" />
               </motion.div>
@@ -184,21 +185,25 @@ export default function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <div
-                key={item.name}
-                className="relative group"
-                onMouseEnter={() => setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown("")}
-              >
-                <Link href={item.href}>
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium cursor-pointer"
-                  >
-                    <span>{item.name}</span>
-                    {item.hasDropdown && <ChevronDown className="h-4 w-4" />}
-                  </motion.div>
-                </Link>
+              <div key={item.name} className="relative group">
+                <div
+                  onClick={() =>
+                    setActiveDropdown(
+                      activeDropdown === item.name ? "" : item.name
+                    )
+                  }
+                  className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium cursor-pointer select-none"
+                >
+                  <span>{item.name}</span>
+                  {item.hasDropdown && <ChevronDown className="h-4 w-4" />}
+                </div>
+                {!item.hasDropdown && (
+                  <Link
+                    href={item.href}
+                    className="absolute inset-0"
+                    tabIndex={-1}
+                  />
+                )}
 
                 {/* Dropdown Menu */}
                 {item.hasDropdown && (
@@ -209,46 +214,69 @@ export default function Navigation() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden"
+                        className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-20"
                       >
                         {item.dropdownItems?.map((dropdownItem) => (
-                          <div
-                            key={dropdownItem.name}
-                            className="relative group/sub"
-                          >
-                            <Link href={dropdownItem.href}>
-                              <motion.div
-                                whileHover={{ backgroundColor: "#eff6ff" }}
-                                className="flex items-center justify-between px-4 py-3 hover:bg-blue-50 cursor-pointer"
+                          <div key={dropdownItem.name} className="relative">
+                            <div
+                              // onClick={(e) => {
+                              //   e.stopPropagation();
+                              //   if (dropdownItem.hasSubDropdown) {
+                              //     setActiveSubDropdown(
+                              //       activeSubDropdown === dropdownItem.name
+                              //         ? ""
+                              //         : dropdownItem.name
+                              //     );
+                              //   } else {
+                              //     setActiveDropdown(""); // close dropdown on click
+                              //   }
+                              // }}
+                              onClick={() =>
+                                setActiveSubDropdown(
+                                  activeSubDropdown === item.name
+                                    ? ""
+                                    : item.name
+                                )
+                              }
+                              className="flex items-center justify-between px-4 py-3 hover:bg-blue-50 cursor-pointer"
+                            >
+                              <div
+                                onClick={() =>
+                                  setActiveSubDropdown(
+                                    activeSubDropdown === item.name
+                                      ? ""
+                                      : item.name
+                                  )
+                                }
+                                className="flex-1"
                               >
                                 <span className="text-gray-700 hover:text-blue-600">
                                   {dropdownItem.name}
                                 </span>
-                                {dropdownItem.hasSubDropdown && (
-                                  <ChevronDown className="h-3 w-3 rotate-[-90deg]" />
-                                )}
-                              </motion.div>
-                            </Link>
+                              </div>
+                              {dropdownItem.hasSubDropdown && (
+                                <ChevronDown className="h-3 w-3 rotate-[-90deg] ml-2" />
+                              )}
+                            </div>
 
                             {/* Sub-dropdown */}
-                            {dropdownItem.hasSubDropdown && (
-                              <div className="absolute left-full top-0 w-48 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden opacity-0 group-hover/sub:opacity-100 pointer-events-none group-hover/sub:pointer-events-auto transition-opacity duration-200">
-                                {dropdownItem.subItems?.map((subItem) => (
-                                  <Link key={subItem.name} href={subItem.href}>
-                                    <motion.div
-                                      // whileHover={{
-                                      //   backgroundColor: "#eff6ff",
-                                      // }}
-                                      className="px-4 py-2 hover:bg-blue-50 cursor-pointer text-red-500"
+                            {dropdownItem.hasSubDropdown &&
+                              activeSubDropdown === dropdownItem.name && (
+                                <div className="absolute left-full top-0 w-48 mt-0 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-30">
+                                  {dropdownItem.subItems?.map((subItem) => (
+                                    <Link
+                                      key={subItem.name}
+                                      href={subItem.href}
                                     >
-                                      <span className="text-sm text-gray-700 hover:text-blue-600">
-                                        {subItem.name}
-                                      </span>
-                                    </motion.div>
-                                  </Link>
-                                ))}
-                              </div>
-                            )}
+                                      <motion.div className="px-4 py-2 hover:bg-blue-50 cursor-pointer">
+                                        <span className="text-sm text-gray-700 hover:text-blue-600">
+                                          {subItem.name}
+                                        </span>
+                                      </motion.div>
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
                           </div>
                         ))}
                       </motion.div>
