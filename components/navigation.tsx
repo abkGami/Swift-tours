@@ -51,6 +51,7 @@ export default function Navigation() {
           hasSubDropdown: true,
           subItems: [
             { name: "Tokyo, Japan", href: "/destinations/asia/tokyo" },
+            { name: "Mongolia", href: "/destinations/asia/tokyo" },
             { name: "Bali, Indonesia", href: "/destinations/asia/bali" },
             { name: "Maldives", href: "/destinations/asia/maldives" },
             { name: "Bhutan", href: "/destinations/asia/bhutan" },
