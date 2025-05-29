@@ -178,7 +178,7 @@ export default function Hero() {
         <motion.div variants={itemVariants} className="mb-6">
           <motion.h1
             ref={titleRef}
-            className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent mt-10"
+            className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent mt-10 pb-2"
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
@@ -209,8 +209,7 @@ export default function Hero() {
             <Sparkles className="h-6 w-6 text-yellow-400" />
           </motion.div>
         </motion.div>
-
-        {/* Enhanced Search Bar */}
+        Enhanced Search Bar
         <motion.div
           variants={itemVariants}
           className="search-container bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-2xl mx-auto border border-white/20"
@@ -246,7 +245,6 @@ export default function Hero() {
             </motion.div>
           </div>
         </motion.div>
-
         {/* Enhanced Stats */}
         <motion.div
           variants={itemVariants}
