@@ -127,13 +127,13 @@ export default function Hero() {
 
   return (
     <motion.section
-      ref={heroRef}
+      // ref={heroRef}
       className="relative h-screen flex items-center justify-center overflow-hidden"
       style={{}}
     >
       {/* Animated Background with Parallax */}
       <motion.div
-        ref={backgroundRef}
+        // ref={backgroundRef}
         className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-700 to-pink-600 "
         style={{
           y,
@@ -149,21 +149,21 @@ export default function Hero() {
           <motion.div
             key={i}
             className="particle absolute w-2 h-2 bg-white/30 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [-20, 20],
-              x: [-10, 10],
-              opacity: [0.3, 0.8, 0.3],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-              delay: Math.random() * 2,
-            }}
+            // style={{
+            //   left: `${Math.random() * 100}%`,
+            //   top: `${Math.random() * 100}%`,
+            // }}
+            // animate={{
+            //   y: [-20, 20],
+            //   x: [-10, 10],
+            //   opacity: [0.3, 0.8, 0.3],
+            // }}
+            // transition={{
+            //   duration: 3 + Math.random() * 2,
+            //   repeat: Number.POSITIVE_INFINITY,
+            //   ease: "easeInOut",
+            //   delay: Math.random() * 2,
+            // }}
           />
         ))}
       </motion.div>
@@ -171,36 +171,36 @@ export default function Hero() {
       {/* Content */}
       <motion.div
         className="relative z-10 text-center text-white max-w-4xl mx-auto px-4"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
+        // variants={containerVariants}
+        // initial="hidden"
+        // animate="visible"
       >
         <motion.div variants={itemVariants} className="mb-6">
           <motion.h1
-            ref={titleRef}
+            // ref={titleRef}
             className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent mt-10 pb-2"
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-            }}
+            // animate={{
+            //   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+            // }}
+            // transition={{
+            //   duration: 3,
+            //   repeat: Number.POSITIVE_INFINITY,
+            //   ease: "linear",
+            // }}
           >
             Discover the World
           </motion.h1>
 
           <motion.div
             className="flex items-center justify-center space-x-2 mb-6"
-            animate={{
-              scale: [1, 1.05, 1],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
+            // animate={{
+            //   scale: [1, 1.05, 1],
+            // }}
+            // transition={{
+            //   duration: 2,
+            //   repeat: Number.POSITIVE_INFINITY,
+            //   ease: "easeInOut",
+            // }}
           >
             <Sparkles className="h-6 w-6 text-yellow-400" />
             <span className="text-xl text-yellow-200">
@@ -209,8 +209,9 @@ export default function Hero() {
             <Sparkles className="h-6 w-6 text-yellow-400" />
           </motion.div>
         </motion.div>
-        Enhanced Search Bar
-        <motion.div
+
+        {/* Enhanced Search Bar */}
+        {/* <motion.div
           variants={itemVariants}
           className="search-container bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-2xl mx-auto border border-white/20"
         >
@@ -244,7 +245,8 @@ export default function Hero() {
               </Button>
             </motion.div>
           </div>
-        </motion.div>
+        </motion.div> */}
+
         {/* Enhanced Stats */}
         <motion.div
           variants={itemVariants}
@@ -257,25 +259,25 @@ export default function Hero() {
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
-              className="text-center"
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 300 }}
+              // className="text-center"
+              // whileHover={{ scale: 1.1 }}
+              // transition={{ type: "spring", stiffness: 300 }}
             >
               <motion.div
                 className="text-3xl font-bold stat-number"
                 data-count={stat.number}
-                animate={{
-                  textShadow: [
-                    "0 0 0px rgba(255,255,255,0.5)",
-                    "0 0 20px rgba(255,255,255,0.8)",
-                    "0 0 0px rgba(255,255,255,0.5)",
-                  ],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }}
+                // animate={{
+                //   textShadow: [
+                //     "0 0 0px rgba(255,255,255,0.5)",
+                //     "0 0 20px rgba(255,255,255,0.8)",
+                //     "0 0 0px rgba(255,255,255,0.5)",
+                //   ],
+                // }}
+                // transition={{
+                //   duration: 2,
+                //   repeat: Number.POSITIVE_INFINITY,
+                //   ease: "easeInOut",
+                // }}
               >
                 0{stat.suffix}
               </motion.div>
@@ -288,34 +290,34 @@ export default function Hero() {
       {/* Enhanced Scroll Indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{
-          y: [0, 15, 0],
-          opacity: [0.5, 1, 0.5],
-        }}
-        transition={{
-          repeat: Number.POSITIVE_INFINITY,
-          duration: 2,
-          ease: "easeInOut",
-        }}
-        whileHover={{ scale: 1.2 }}
+        // animate={{
+        //   y: [0, 15, 0],
+        //   opacity: [0.5, 1, 0.5],
+        // }}
+        // transition={{
+        //   repeat: Number.POSITIVE_INFINITY,
+        //   duration: 2,
+        //   ease: "easeInOut",
+        // }}
+        // whileHover={{ scale: 1.2 }}
       >
         <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center relative overflow-hidden">
           <motion.div
             className="w-1 h-3 bg-white rounded-full mt-2"
-            animate={{
-              y: [0, 16, 0],
-            }}
-            transition={{
-              repeat: Number.POSITIVE_INFINITY,
-              duration: 1.5,
-              ease: "easeInOut",
-            }}
+            // animate={{
+            //   y: [0, 16, 0],
+            // }}
+            // transition={{
+            //   repeat: Number.POSITIVE_INFINITY,
+            //   duration: 1.5,
+            //   ease: "easeInOut",
+            // }}
           />
         </div>
       </motion.div>
 
       {/* Floating Action Button */}
-      <motion.div
+      {/* <motion.div
         className="absolute bottom-20 right-8"
         initial={{ scale: 0, rotate: -180 }}
         animate={{ scale: 1, rotate: 0 }}
@@ -326,7 +328,7 @@ export default function Hero() {
         <Button className="rounded-full w-16 h-16 bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 shadow-2xl">
           <Sparkles className="h-6 w-6" />
         </Button>
-      </motion.div>
+      </motion.div> */}
     </motion.section>
   );
 }
