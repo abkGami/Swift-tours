@@ -214,44 +214,38 @@ export default function Navigation() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-20"
+                        className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200  z-20"
                       >
                         {item.dropdownItems?.map((dropdownItem) => (
                           <div key={dropdownItem.name} className="relative">
                             <div
-                              // onClick={(e) => {
-                              //   e.stopPropagation();
-                              //   if (dropdownItem.hasSubDropdown) {
-                              //     setActiveSubDropdown(
-                              //       activeSubDropdown === dropdownItem.name
-                              //         ? ""
-                              //         : dropdownItem.name
-                              //     );
-                              //   } else {
-                              //     setActiveDropdown(""); // close dropdown on click
-                              //   }
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                if (dropdownItem.hasSubDropdown) {
+                                  setActiveSubDropdown(
+                                    activeSubDropdown === dropdownItem.name
+                                      ? ""
+                                      : dropdownItem.name
+                                  );
+                                } else {
+                                  setActiveDropdown(""); // close dropdown on click
+                                }
+                              }}
+                              // onClick={() => {
+                              //   setActiveSubDropdown(
+                              //     activeSubDropdown === dropdownItem.name ? "" : dropdownItem.name
+                              //   );
+                              //   console.log("clicked");
                               // }}
-                              onClick={() =>
-                                setActiveSubDropdown(
-                                  activeSubDropdown === item.name
-                                    ? ""
-                                    : item.name
-                                )
-                              }
                               className="flex items-center justify-between px-4 py-3 hover:bg-blue-50 cursor-pointer"
                             >
                               <div
-                                onClick={() =>
-                                  setActiveSubDropdown(
-                                    activeSubDropdown === item.name
-                                      ? ""
-                                      : item.name
-                                  )
-                                }
                                 className="flex-1"
                               >
-                                <span className="text-gray-700 hover:text-blue-600">
-                                  {dropdownItem.name}
+                                <span
+                                  className="text-gray-700 hover:text-blue-600"
+                                >
+                                  {dropdownItem.name} continent
                                 </span>
                               </div>
                               {dropdownItem.hasSubDropdown && (
@@ -268,7 +262,10 @@ export default function Navigation() {
                                       key={subItem.name}
                                       href={subItem.href}
                                     >
-                                      <motion.div className="px-4 py-2 hover:bg-blue-50 cursor-pointer">
+                                      <motion.div  initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }} className="px-4 py-2 hover:bg-blue-50 cursor-pointer">
                                         <span className="text-sm text-gray-700 hover:text-blue-600">
                                           {subItem.name}
                                         </span>
