@@ -385,6 +385,7 @@ export default function Navigation() {
                     href={item.href}
                     className="absolute inset-0"
                     tabIndex={-1}
+                    onClick={() => setIsOpen(false)}
                   />
                 )}
             {item.hasDropdown && activeDropdown === item.name && (
