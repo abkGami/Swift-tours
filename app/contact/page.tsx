@@ -16,7 +16,7 @@ export default function ContactPage() {
 
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -36,6 +36,103 @@ export default function ContactPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+ {/* Contact Form */}
+ <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <Card className="shadow-xl border-0">
+                <CardHeader>
+                  <CardTitle className="text-2xl text-gray-900">Send us a Message</CardTitle>
+                  <p className="text-gray-600">Fill out the form below and we'll get back to you within 24 hours.</p>
+                </CardHeader>
+                <CardContent>
+                  <form className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                        <Input placeholder="John" required />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                        <Input placeholder="Doe" required />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                      <Input type="email" placeholder="john@example.com" required />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                      <Input type="tel" placeholder="+1 (555) 123-4567" />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Travel Interest *</label>
+                      <select
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required
+                      >
+                        <option value="">Select your interest</option>
+                        <option value="europe">Europe Tours</option>
+                        <option value="asia">Asia Tours</option>
+                        <option value="boats">Chartered Boats</option>
+                        <option value="transfers">Luxury Transfers</option>
+                        <option value="custom">Custom Package</option>
+                        <option value="group">Group Travel</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Travel Dates</label>
+                      <div className="grid grid-cols-2 gap-4">
+                        <Input type="date" />
+                        <Input type="date" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Budget Range</label>
+                      <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Select budget range</option>
+                        <option value="1000-2500">$1,000 - $2,500</option>
+                        <option value="2500-5000">$2,500 - $5,000</option>
+                        <option value="5000-10000">$5,000 - $10,000</option>
+                        <option value="10000+">$10,000+</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                      <Textarea
+                        placeholder="Tell us about your dream vacation, special requirements, or any questions you have..."
+                        rows={4}
+                        required
+                      />
+                    </div>
+
+                    <div className="flex items-center space-x-2">
+                      <input type="checkbox" id="newsletter" className="rounded" />
+                      <label htmlFor="newsletter" className="text-sm text-gray-600">
+                        Subscribe to our newsletter for travel tips and exclusive offers
+                      </label>
+                    </div>
+
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                      <Button className="w-full bg-blue-600 hover:bg-blue-700" size="lg">
+                        <Send className="h-5 w-5 mr-2" />
+                        Send Message
+                      </Button>
+                    </motion.div>
+                  </form>
+                </CardContent>
+              </Card>
+            </motion.div>
+
             {/* Contact Information */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -149,101 +246,7 @@ export default function ContactPage() {
               </motion.div>
             </motion.div>
 
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <Card className="shadow-xl border-0">
-                <CardHeader>
-                  <CardTitle className="text-2xl text-gray-900">Send us a Message</CardTitle>
-                  <p className="text-gray-600">Fill out the form below and we'll get back to you within 24 hours.</p>
-                </CardHeader>
-                <CardContent>
-                  <form className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
-                        <Input placeholder="John" required />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
-                        <Input placeholder="Doe" required />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
-                      <Input type="email" placeholder="john@example.com" required />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                      <Input type="tel" placeholder="+1 (555) 123-4567" />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Travel Interest *</label>
-                      <select
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        required
-                      >
-                        <option value="">Select your interest</option>
-                        <option value="europe">Europe Tours</option>
-                        <option value="asia">Asia Tours</option>
-                        <option value="boats">Chartered Boats</option>
-                        <option value="transfers">Luxury Transfers</option>
-                        <option value="custom">Custom Package</option>
-                        <option value="group">Group Travel</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Travel Dates</label>
-                      <div className="grid grid-cols-2 gap-4">
-                        <Input type="date" />
-                        <Input type="date" />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Budget Range</label>
-                      <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="">Select budget range</option>
-                        <option value="1000-2500">$1,000 - $2,500</option>
-                        <option value="2500-5000">$2,500 - $5,000</option>
-                        <option value="5000-10000">$5,000 - $10,000</option>
-                        <option value="10000+">$10,000+</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Message *</label>
-                      <Textarea
-                        placeholder="Tell us about your dream vacation, special requirements, or any questions you have..."
-                        rows={4}
-                        required
-                      />
-                    </div>
-
-                    <div className="flex items-center space-x-2">
-                      <input type="checkbox" id="newsletter" className="rounded" />
-                      <label htmlFor="newsletter" className="text-sm text-gray-600">
-                        Subscribe to our newsletter for travel tips and exclusive offers
-                      </label>
-                    </div>
-
-                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      <Button className="w-full bg-blue-600 hover:bg-blue-700" size="lg">
-                        <Send className="h-5 w-5 mr-2" />
-                        Send Message
-                      </Button>
-                    </motion.div>
-                  </form>
-                </CardContent>
-              </Card>
-            </motion.div>
+           
           </div>
 
           {/* Map and Additional Info */}
