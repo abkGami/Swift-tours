@@ -71,7 +71,7 @@ export default function MonacoPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 relative overflow-hidden">
+      <section className="pt-24 pb-12 relative overflow-hidden">
         <div className="absolute inset-0">
           <img src="/placeholder.svg?height=600&width=1200" alt="Monaco" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-purple-900/70 to-pink-900/70" />
@@ -111,6 +111,10 @@ export default function MonacoPage() {
                 <span>Best: May - September</span>
               </div>
             </div>
+
+            <Button variant="secondary" size="lg" className="bg-white text-purple-600 hover:bg-gray-100 mt-6">
+                  Book Monaco Tour 
+                </Button>
           </motion.div>
         </div>
       </section>
@@ -183,7 +187,7 @@ export default function MonacoPage() {
                       </div>
                     </div>
 
-                    <Button className="w-full bg-purple-600 hover:bg-purple-700">Add to Itinerary</Button>
+                    {/* <Button className="w-full bg-purple-600 hover:bg-purple-700">Add to Itinerary</Button> */}
                   </CardContent>
                 </Card>
               </motion.div>
@@ -204,15 +208,15 @@ export default function MonacoPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="secondary" size="lg" className="bg-white text-purple-600 hover:bg-gray-100">
-                  Book Monaco Tour - From $1,899
+                  Book Monaco Tour 
                 </Button>
-                <Button
+                {/* <Button
                   variant="outline"
                   size="lg"
-                  className="border-white text-white hover:bg-white hover:text-purple-600"
+                  className="border-white   text-purple-600"
                 >
                   Customize Itinerary
-                </Button>
+                </Button> */}
               </div>
             </div>
           </motion.div>
