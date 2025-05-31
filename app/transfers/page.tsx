@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
 import SlideshowAlbum from "@/components/slideshow-album"
+import { useRouter } from "next/navigation"
 
 const transferOptions = [
   {
@@ -85,6 +86,13 @@ const transferOptions = [
 ]
 
 export default function TransfersPage() {
+
+  const router = useRouter()
+
+  const handleClick = () => {
+    router.push('/contact')
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
@@ -220,10 +228,10 @@ export default function TransfersPage() {
                       </div>
 
                       <div className="flex space-x-2 mt-6">
-                        <Button className="flex-1 bg-blue-600 hover:bg-blue-700">Book Transfer</Button>
-                        <Button variant="outline" className="flex-1">
+                        <Button onClick={handleClick} className="flex-1 bg-blue-600 hover:bg-blue-700">Book Transfer</Button>
+                        {/* <Button variant="outline" className="flex-1">
                           Learn More
-                        </Button>
+                        </Button> */}
                       </div>
                     </CardContent>
                   </Card>
@@ -265,7 +273,7 @@ export default function TransfersPage() {
                   <div className="text-4xl font-bold mb-2">25% OFF</div>
                   <div className="text-blue-100 mb-4">Multi-transfer packages</div>
                   <Button variant="secondary" size="lg">
-                    View Packages
+                    Contact Us
                   </Button>
                 </div>
               </div>
