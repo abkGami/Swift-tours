@@ -43,7 +43,7 @@ export default function Navigation() {
               name: "Barcelona, Spain",
               href: "/destinations/europe/barcelona",
             },
-            { name: "Amsterdam", href: "/destinations/europe/amsterdam" },
+            // { name: "Amsterdam", href: "/destinations/europe/amsterdam" },
           ],
         },
         {
@@ -51,16 +51,16 @@ export default function Navigation() {
           href: "/destinations/asia",
           hasSubDropdown: true,
           subItems: [
+            { name: "Mongolia", href: "/destinations/asia/mongolia" },
             { name: "Tokyo, Japan", href: "/destinations/asia/tokyo" },
-            { name: "Mongolia", href: "/destinations/asia/tokyo" },
             { name: "Bali, Indonesia", href: "/destinations/asia/bali" },
             { name: "Maldives", href: "/destinations/asia/maldives" },
             { name: "Bhutan", href: "/destinations/asia/bhutan" },
             { name: "Seoul, South Korea", href: "/destinations/asia/seoul" },
-            {
-              name: "Chiang Mai, Thailand",
-              href: "/destinations/asia/chiang-mai",
-            },
+            // {
+            //   name: "Chiang Mai, Thailand",
+            //   href: "/destinations/asia/chiang-mai",
+            // },
           ],
         },
       ],
@@ -245,7 +245,7 @@ export default function Navigation() {
                                 <span
                                   className="text-gray-700 hover:text-blue-600"
                                 >
-                                  {dropdownItem.name} continent
+                                  {dropdownItem.name} 
                                 </span>
                               </div>
                               {dropdownItem.hasSubDropdown && (
