@@ -7,6 +7,8 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
+import { useRouter } from "next/navigation"
+import Contact from "@/components/contact"
 
 const monacoAttractions = [
   {
@@ -66,6 +68,14 @@ const monacoAttractions = [
 ]
 
 export default function MonacoPage() {
+
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push('/contact')
+  }
+  // C:\Users\user\Documents\React\Swift tours\components\contact.tsx
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
@@ -112,7 +122,7 @@ export default function MonacoPage() {
               </div>
             </div>
 
-            <Button variant="secondary" size="lg" className="bg-white text-purple-600 hover:bg-gray-100 mt-6">
+            <Button onClick={handleClick} variant="secondary" size="lg" className="bg-white text-purple-600 hover:bg-gray-100 mt-6">
                   Book Monaco Tour 
                 </Button>
           </motion.div>
@@ -207,7 +217,7 @@ export default function MonacoPage() {
                 Experience the ultimate in luxury and sophistication with our exclusive Monaco packages
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="secondary" size="lg" className="bg-white text-purple-600 hover:bg-gray-100">
+                <Button onClick={handleClick} variant="secondary" size="lg" className="bg-white text-purple-600 hover:bg-gray-100">
                   Book Monaco Tour 
                 </Button>
                 {/* <Button
