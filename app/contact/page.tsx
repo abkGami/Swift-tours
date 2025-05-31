@@ -53,17 +53,17 @@ export default function ContactPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
-                        <Input placeholder="John" required />
+                        <Input placeholder="" required />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
-                        <Input placeholder="Doe" required />
+                        <Input placeholder="" required />
                       </div>
                     </div>
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
-                      <Input type="email" placeholder="john@example.com" required />
+                      <Input type="email" placeholder="" required />
                     </div>
 
                     <div>
@@ -88,10 +88,10 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Travel Dates</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Travel Date</label>
                       <div className="grid grid-cols-2 gap-4">
                         <Input type="date" />
-                        <Input type="date" />
+                        {/* <Input type="date" /> */}
                       </div>
                     </div>
 
