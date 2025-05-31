@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Anchor, Users, Star, Waves, Calendar, MapPin } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import Navigation from "@/components/navigation"
-import Footer from "@/components/footer"
-import SlideshowAlbum from "@/components/slideshow-album"
+import { motion } from "framer-motion";
+import { Anchor, Users, Star, Waves, Calendar, MapPin } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import Navigation from "@/components/navigation";
+import Footer from "@/components/footer";
+import SlideshowAlbum from "@/components/slideshow-album";
 
 const boats = [
   {
@@ -15,8 +15,13 @@ const boats = [
     type: "Family Cruiser",
     capacity: "6-8 people",
     price: "From $299/day",
-    image: "/placeholder.svg?height=250&width=400",
-    features: ["Spacious storage", "Easy handling", "GPS Navigation", "Safety Equipment"],
+    image: "/boat/one.jpg",
+    features: [
+      "Spacious storage",
+      "Easy handling",
+      "GPS Navigation",
+      "Safety Equipment",
+    ],
     rating: 4.8,
     description: "Perfect for family outings and leisure cruising",
     specifications: {
@@ -31,8 +36,13 @@ const boats = [
     type: "Aluminum Fishing Boat",
     capacity: "4 people",
     price: "From $199/day",
-    image: "/placeholder.svg?height=250&width=400",
-    features: ["Durable construction", "VERSATRACK mounting", "Fishing equipment", "Cooler storage"],
+    image: "/boat/two.jpg",
+    features: [
+      "Durable construction",
+      "VERSATRACK mounting",
+      "Fishing equipment",
+      "Cooler storage",
+    ],
     rating: 4.7,
     description: "Ideal for fishing enthusiasts and small groups",
     specifications: {
@@ -47,8 +57,13 @@ const boats = [
     type: "Saltwater Fishing",
     capacity: "4 people",
     price: "From $349/day",
-    image: "/placeholder.svg?height=250&width=400",
-    features: ["Composite hull", "Aerated baitwell", "Rod storage", "Marine electronics"],
+    image: "/boat/three.jpg",
+    features: [
+      "Composite hull",
+      "Aerated baitwell",
+      "Rod storage",
+      "Marine electronics",
+    ],
     rating: 4.9,
     description: "Professional-grade saltwater fishing experience",
     specifications: {
@@ -64,7 +79,12 @@ const boats = [
     capacity: "10-12 people",
     price: "From $449/day",
     image: "/placeholder.svg?height=250&width=400",
-    features: ["Bimini top", "Swim platform", "Stereo system", "Comfortable seating"],
+    features: [
+      "Bimini top",
+      "Swim platform",
+      "Stereo system",
+      "Comfortable seating",
+    ],
     rating: 4.8,
     description: "Perfect for parties and large group entertainment",
     specifications: {
@@ -80,7 +100,12 @@ const boats = [
     capacity: "7 people",
     price: "From $399/day",
     image: "/placeholder.svg?height=250&width=400",
-    features: ["Center console", "Rod storage", "Live well", "Offshore capability"],
+    features: [
+      "Center console",
+      "Rod storage",
+      "Live well",
+      "Offshore capability",
+    ],
     rating: 4.9,
     description: "Built for serious offshore fishing adventures",
     specifications: {
@@ -96,7 +121,12 @@ const boats = [
     capacity: "20+ people",
     price: "From $1,299/day",
     image: "/placeholder.svg?height=250&width=400",
-    features: ["Full crew", "Gourmet catering", "Water sports equipment", "Luxury amenities"],
+    features: [
+      "Full crew",
+      "Gourmet catering",
+      "Water sports equipment",
+      "Luxury amenities",
+    ],
     rating: 5.0,
     description: "Ultimate luxury experience on the water",
     specifications: {
@@ -106,7 +136,7 @@ const boats = [
       speed: "30 mph",
     },
   },
-]
+];
 
 export default function BoatsPage() {
   return (
@@ -116,7 +146,11 @@ export default function BoatsPage() {
       {/* Hero Section */}
       <section className="pt-20 pb-16 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/placeholder.svg?height=600&width=1200" alt="Luxury boats" className="w-full h-full object-cover" />
+          <img
+            src="/placeholder.svg?height=600&width=1200"
+            alt="Luxury boats"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-cyan-900/70" />
         </div>
 
@@ -130,10 +164,13 @@ export default function BoatsPage() {
             <div className="flex items-center justify-center mb-4">
               <Anchor className="h-12 w-12 mr-3" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Chartered Boats</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              Chartered Boats
+            </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              Experience the water with our premium fleet of boats. From family cruisers to professional fishing
-              vessels, we have the perfect boat for your adventure.
+              Experience the water with our premium fleet of boats. From family
+              cruisers to professional fishing vessels, we have the perfect boat
+              for your adventure.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -167,10 +204,12 @@ export default function BoatsPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Premium Fleet</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Our Premium Fleet
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose from our carefully maintained collection of boats, each equipped with modern amenities and safety
-              equipment
+              Choose from our carefully maintained collection of boats, each
+              equipped with modern amenities and safety equipment
             </p>
           </motion.div>
 
@@ -192,19 +231,28 @@ export default function BoatsPage() {
                       className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <Badge className="absolute top-3 right-3 bg-blue-600 text-white">{boat.price}</Badge>
+                    <Badge className="absolute top-3 right-3 bg-blue-600 text-white">
+                      {boat.price}
+                    </Badge>
                     <div className="absolute bottom-3 left-3 text-white">
                       <div className="flex items-center space-x-1">
                         <Star className="h-4 w-4 text-yellow-400" />
-                        <span className="text-sm font-medium">{boat.rating}</span>
+                        <span className="text-sm font-medium">
+                          {boat.rating}
+                        </span>
                       </div>
                     </div>
                   </div>
 
                   <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">{boat.name}</CardTitle>
+                    <CardTitle className="text-xl text-gray-900">
+                      {boat.name}
+                    </CardTitle>
                     <div className="flex items-center justify-between">
-                      <Badge variant="secondary" className="bg-blue-100 text-blue-800">
+                      <Badge
+                        variant="secondary"
+                        className="bg-blue-100 text-blue-800"
+                      >
                         {boat.type}
                       </Badge>
                       <div className="flex items-center text-gray-600">
@@ -225,7 +273,10 @@ export default function BoatsPage() {
                         </h4>
                         <div className="grid grid-cols-2 gap-1">
                           {boat.features.map((feature) => (
-                            <div key={feature} className="text-sm text-gray-600 flex items-center">
+                            <div
+                              key={feature}
+                              className="text-sm text-gray-600 flex items-center"
+                            >
                               <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2" />
                               {feature}
                             </div>
@@ -234,7 +285,9 @@ export default function BoatsPage() {
                       </div>
 
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">Specifications</h4>
+                        <h4 className="font-semibold text-gray-900 mb-2">
+                          Specifications
+                        </h4>
                         <div className="grid grid-cols-2 gap-2 text-sm text-gray-600">
                           <div>Length: {boat.specifications.length}</div>
                           <div>Engine: {boat.specifications.engine}</div>
@@ -245,7 +298,9 @@ export default function BoatsPage() {
                     </div>
 
                     <div className="flex space-x-2">
-                      <Button className="flex-1 bg-blue-600 hover:bg-blue-700">Book Now</Button>
+                      <Button className="flex-1 bg-blue-600 hover:bg-blue-700">
+                        Book Now
+                      </Button>
                       <Button variant="outline" className="flex-1">
                         Details
                       </Button>
@@ -264,9 +319,12 @@ export default function BoatsPage() {
             className="text-center mt-16"
           >
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-4">Need a Custom Charter?</h3>
+              <h3 className="text-2xl font-bold mb-4">
+                Need a Custom Charter?
+              </h3>
               <p className="text-blue-100 mb-6">
-                Contact our team for personalized boat charter solutions tailored to your specific needs.
+                Contact our team for personalized boat charter solutions
+                tailored to your specific needs.
               </p>
               <Button variant="secondary" size="lg">
                 Contact Charter Specialist
@@ -281,5 +339,5 @@ export default function BoatsPage() {
 
       <Footer />
     </div>
-  )
+  );
 }
