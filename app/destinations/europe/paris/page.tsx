@@ -1,12 +1,13 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { MapPin, Star, Clock, Camera, Users, Calendar } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import Navigation from "@/components/navigation"
-import Footer from "@/components/footer"
+import { motion } from "framer-motion";
+import { MapPin, Star, Clock, Camera, Users, Calendar } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import Navigation from "@/components/navigation";
+import Footer from "@/components/footer";
+import { useRouter } from "next/navigation";
 
 const parisAttractions = [
   {
@@ -63,17 +64,26 @@ const parisAttractions = [
     category: "Activity",
     highlights: ["City Views", "Dinner Cruises", "Audio Guide"],
   },
-]
+];
 
 export default function ParisPage() {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("/contact");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 relative overflow-hidden">
+      <section className="pt-24 pb-12 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/placeholder.svg?height=600&width=1200" alt="Paris" className="w-full h-full object-cover" />
+          <img
+            src="/placeholder.svg?height=600&width=1200"
+            alt="Paris"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-purple-900/70" />
         </div>
 
@@ -88,9 +98,12 @@ export default function ParisPage() {
               <MapPin className="h-8 w-8 mr-3" />
               <span className="text-xl">Europe</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Paris, France</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              Paris, France
+            </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              The City of Light awaits with its iconic landmarks, world-class museums, and romantic atmosphere
+              The City of Light awaits with its iconic landmarks, world-class
+              museums, and romantic atmosphere
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -111,6 +124,15 @@ export default function ParisPage() {
                 <span>Year-round Destination</span>
               </div>
             </div>
+
+            <Button
+                onClick={handleClick}
+                  variant="secondary"
+                  size="lg"
+                  className="bg-white text-blue-600 hover:bg-gray-100 mt-6"
+                >
+                  Book Paris Tour
+                </Button>
           </motion.div>
         </div>
       </section>
@@ -124,9 +146,12 @@ export default function ParisPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Top Attractions in Paris</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Top Attractions in Paris
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover the most iconic landmarks and hidden gems that make Paris the world's most visited city
+              Discover the most iconic landmarks and hidden gems that make Paris
+              the world's most visited city
             </p>
           </motion.div>
 
@@ -148,17 +173,23 @@ export default function ParisPage() {
                       className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <Badge className="absolute top-3 right-3 bg-blue-600 text-white">{attraction.category}</Badge>
+                    <Badge className="absolute top-3 right-3 bg-blue-600 text-white">
+                      {attraction.category}
+                    </Badge>
                     <div className="absolute bottom-3 left-3 text-white">
                       <div className="flex items-center space-x-1">
                         <Star className="h-4 w-4 text-yellow-400" />
-                        <span className="text-sm font-medium">{attraction.rating}</span>
+                        <span className="text-sm font-medium">
+                          {attraction.rating}
+                        </span>
                       </div>
                     </div>
                   </div>
 
                   <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">{attraction.name}</CardTitle>
+                    <CardTitle className="text-xl text-gray-900">
+                      {attraction.name}
+                    </CardTitle>
                     <div className="flex items-center text-gray-600">
                       <Clock className="h-4 w-4 mr-1" />
                       <span className="text-sm">{attraction.duration}</span>
@@ -166,7 +197,9 @@ export default function ParisPage() {
                   </CardHeader>
 
                   <CardContent>
-                    <p className="text-gray-600 mb-4">{attraction.description}</p>
+                    <p className="text-gray-600 mb-4">
+                      {attraction.description}
+                    </p>
 
                     <div className="space-y-2 mb-6">
                       <h4 className="font-semibold text-gray-900 flex items-center">
@@ -175,7 +208,10 @@ export default function ParisPage() {
                       </h4>
                       <div className="grid grid-cols-1 gap-1">
                         {attraction.highlights.map((highlight) => (
-                          <div key={highlight} className="text-sm text-gray-600 flex items-center">
+                          <div
+                            key={highlight}
+                            className="text-sm text-gray-600 flex items-center"
+                          >
                             <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2" />
                             {highlight}
                           </div>
@@ -183,7 +219,9 @@ export default function ParisPage() {
                       </div>
                     </div>
 
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700">Add to Itinerary</Button>
+                    {/* <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                      Add to Itinerary
+                    </Button> */}
                   </CardContent>
                 </Card>
               </motion.div>
@@ -198,21 +236,29 @@ export default function ParisPage() {
             className="text-center mt-16"
           >
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-4">Ready to Explore Paris?</h3>
+              <h3 className="text-2xl font-bold mb-4">
+                Ready to Explore Paris?
+              </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your Paris adventure today and experience the magic of the City of Light with our expert guides
+                Book your Paris adventure today and experience the magic of the
+                City of Light with our expert guides
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="secondary" size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
-                  Book Paris Tour - From $1,299
-                </Button>
                 <Button
+                onClick={handleClick}
+                  variant="secondary"
+                  size="lg"
+                  className="bg-white text-blue-600 hover:bg-gray-100"
+                >
+                  Book Paris Tour
+                </Button>
+                {/* <Button
                   variant="outline"
                   size="lg"
                   className="border-white text-white hover:bg-white hover:text-blue-600"
                 >
                   Customize Itinerary
-                </Button>
+                </Button> */}
               </div>
             </div>
           </motion.div>
@@ -221,5 +267,5 @@ export default function ParisPage() {
 
       <Footer />
     </div>
-  )
+  );
 }

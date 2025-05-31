@@ -1,14 +1,13 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { MapPin, Star, Clock, Users, Calendar, Crown } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import Navigation from "@/components/navigation"
-import Footer from "@/components/footer"
-import { useRouter } from "next/navigation"
-import Contact from "@/components/contact"
+import { motion } from "framer-motion";
+import { MapPin, Star, Clock, Users, Calendar, Crown } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import Navigation from "@/components/navigation";
+import Footer from "@/components/footer";
+import { useRouter } from "next/navigation";
 
 const monacoAttractions = [
   {
@@ -65,15 +64,14 @@ const monacoAttractions = [
     category: "Beach",
     highlights: ["Beach Clubs", "Water Sports", "Mediterranean Views"],
   },
-]
+];
 
 export default function MonacoPage() {
-
   const router = useRouter();
 
   const handleClick = () => {
-    router.push('/contact')
-  }
+    router.push("/contact");
+  };
   // C:\Users\user\Documents\React\Swift tours\components\contact.tsx
 
   return (
@@ -83,7 +81,11 @@ export default function MonacoPage() {
       {/* Hero Section */}
       <section className="pt-24 pb-12 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/placeholder.svg?height=600&width=1200" alt="Monaco" className="w-full h-full object-cover" />
+          <img
+            src="/placeholder.svg?height=600&width=1200"
+            alt="Monaco"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-purple-900/70 to-pink-900/70" />
         </div>
 
@@ -100,7 +102,8 @@ export default function MonacoPage() {
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Monaco</h1>
             <p className="text-xl text-purple-100 max-w-3xl mx-auto mb-8">
-              Experience the glamour of the French Riviera with luxury casinos, superyachts, and Mediterranean charm
+              Experience the glamour of the French Riviera with luxury casinos,
+              superyachts, and Mediterranean charm
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -122,9 +125,14 @@ export default function MonacoPage() {
               </div>
             </div>
 
-            <Button onClick={handleClick} variant="secondary" size="lg" className="bg-white text-purple-600 hover:bg-gray-100 mt-6">
-                  Book Monaco Tour 
-                </Button>
+            <Button
+              onClick={handleClick}
+              variant="secondary"
+              size="lg"
+              className="bg-white text-purple-600 hover:bg-gray-100 mt-6"
+            >
+              Book Monaco Tour
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -138,9 +146,12 @@ export default function MonacoPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Luxury & Glamour Await</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Luxury & Glamour Await
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover the sophisticated attractions and exclusive experiences that define Monaco's legendary lifestyle
+              Discover the sophisticated attractions and exclusive experiences
+              that define Monaco's legendary lifestyle
             </p>
           </motion.div>
 
@@ -162,17 +173,23 @@ export default function MonacoPage() {
                       className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <Badge className="absolute top-3 right-3 bg-purple-600 text-white">{attraction.category}</Badge>
+                    <Badge className="absolute top-3 right-3 bg-purple-600 text-white">
+                      {attraction.category}
+                    </Badge>
                     <div className="absolute bottom-3 left-3 text-white">
                       <div className="flex items-center space-x-1">
                         <Star className="h-4 w-4 text-yellow-400" />
-                        <span className="text-sm font-medium">{attraction.rating}</span>
+                        <span className="text-sm font-medium">
+                          {attraction.rating}
+                        </span>
                       </div>
                     </div>
                   </div>
 
                   <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">{attraction.name}</CardTitle>
+                    <CardTitle className="text-xl text-gray-900">
+                      {attraction.name}
+                    </CardTitle>
                     <div className="flex items-center text-gray-600">
                       <Clock className="h-4 w-4 mr-1" />
                       <span className="text-sm">{attraction.duration}</span>
@@ -180,7 +197,9 @@ export default function MonacoPage() {
                   </CardHeader>
 
                   <CardContent>
-                    <p className="text-gray-600 mb-4">{attraction.description}</p>
+                    <p className="text-gray-600 mb-4">
+                      {attraction.description}
+                    </p>
 
                     <div className="space-y-2 mb-6">
                       <h4 className="font-semibold text-gray-900 flex items-center">
@@ -189,7 +208,10 @@ export default function MonacoPage() {
                       </h4>
                       <div className="grid grid-cols-1 gap-1">
                         {attraction.highlights.map((highlight) => (
-                          <div key={highlight} className="text-sm text-gray-600 flex items-center">
+                          <div
+                            key={highlight}
+                            className="text-sm text-gray-600 flex items-center"
+                          >
                             <div className="w-1.5 h-1.5 bg-purple-600 rounded-full mr-2" />
                             {highlight}
                           </div>
@@ -212,13 +234,21 @@ export default function MonacoPage() {
             className="text-center mt-16"
           >
             <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-4">Ready for Monaco Luxury?</h3>
+              <h3 className="text-2xl font-bold mb-4">
+                Ready for Monaco Luxury?
+              </h3>
               <p className="text-purple-100 mb-6 max-w-2xl mx-auto">
-                Experience the ultimate in luxury and sophistication with our exclusive Monaco packages
+                Experience the ultimate in luxury and sophistication with our
+                exclusive Monaco packages
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button onClick={handleClick} variant="secondary" size="lg" className="bg-white text-purple-600 hover:bg-gray-100">
-                  Book Monaco Tour 
+                <Button
+                  onClick={handleClick}
+                  variant="secondary"
+                  size="lg"
+                  className="bg-white text-purple-600 hover:bg-gray-100"
+                >
+                  Book Monaco Tour
                 </Button>
                 {/* <Button
                   variant="outline"
@@ -235,5 +265,5 @@ export default function MonacoPage() {
 
       <Footer />
     </div>
-  )
+  );
 }

@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
+import { useRouter } from "next/navigation"
 
 const swissAttractions = [
   {
@@ -66,12 +67,19 @@ const swissAttractions = [
 ]
 
 export default function SwissAlpsPage() {
+
+  const router = useRouter()
+
+  const handleClick = () => {
+    router.push('/contact')
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 relative overflow-hidden">
+      <section className="pt-24 pb-10 relative overflow-hidden">
         <div className="absolute inset-0">
           <img src="/placeholder.svg?height=600&width=1200" alt="Swiss Alps" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-cyan-900/70" />
@@ -111,6 +119,10 @@ export default function SwissAlpsPage() {
                 <span>Year-round Destination</span>
               </div>
             </div>
+
+            <Button onClick={handleClick} variant="secondary" size="lg" className="bg-white text-cyan-600 hover:bg-gray-100 mt-6">
+                  Book Swiss Alps Tour
+                </Button>
           </motion.div>
         </div>
       </section>
@@ -183,7 +195,7 @@ export default function SwissAlpsPage() {
                       </div>
                     </div>
 
-                    <Button className="w-full bg-cyan-600 hover:bg-cyan-700">Add to Itinerary</Button>
+                    {/* <Button className="w-full bg-cyan-600 hover:bg-cyan-700">Add to Itinerary</Button> */}
                   </CardContent>
                 </Card>
               </motion.div>
@@ -203,16 +215,16 @@ export default function SwissAlpsPage() {
                 Experience the magic of the Swiss Alps with luxury accommodations and unforgettable mountain adventures
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="secondary" size="lg" className="bg-white text-cyan-600 hover:bg-gray-100">
-                  Book Swiss Alps Tour - From $2,499
+                <Button onClick={handleClick} variant="secondary" size="lg" className="bg-white text-cyan-600 hover:bg-gray-100">
+                  Book Swiss Alps Tour
                 </Button>
-                <Button
+                {/* <Button
                   variant="outline"
                   size="lg"
                   className="border-white text-white hover:bg-white hover:text-cyan-600"
                 >
                   Customize Itinerary
-                </Button>
+                </Button> */}
               </div>
             </div>
           </motion.div>
