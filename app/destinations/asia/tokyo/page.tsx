@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
+import { useRouter } from "next/navigation"
 
 const tokyoAttractions = [
   {
@@ -66,12 +67,19 @@ const tokyoAttractions = [
 ]
 
 export default function TokyoPage() {
+  
+  const router = useRouter()
+
+  const handleClick = () => {
+    router.push('/contact')
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 relative overflow-hidden">
+      <section className="pt-24 pb-10 relative overflow-hidden">
         <div className="absolute inset-0">
           <img src="/placeholder.svg?height=600&width=1200" alt="Tokyo" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-red-900/70 to-pink-900/70" />
@@ -111,6 +119,10 @@ export default function TokyoPage() {
                 <span>Best: Spring & Fall</span>
               </div>
             </div>
+
+            <Button onClick={handleClick} variant="secondary" size="lg" className="bg-white mt-6 text-red-600 hover:bg-gray-100">
+                  Book Tokyo Tour
+                </Button>
           </motion.div>
         </div>
       </section>
@@ -203,16 +215,16 @@ export default function TokyoPage() {
                 Immerse yourself in Japanese culture and experience the energy of one of the world's greatest cities
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="secondary" size="lg" className="bg-white text-red-600 hover:bg-gray-100">
-                  Book Tokyo Tour - From $1,799
+                <Button onClick={handleClick} variant="secondary" size="lg" className="bg-white text-red-600 hover:bg-gray-100">
+                  Book Tokyo Tour
                 </Button>
-                <Button
+                {/* <Button
                   variant="outline"
                   size="lg"
                   className="border-white text-white hover:bg-white hover:text-red-600"
                 >
                   Customize Itinerary
-                </Button>
+                </Button> */}
               </div>
             </div>
           </motion.div>

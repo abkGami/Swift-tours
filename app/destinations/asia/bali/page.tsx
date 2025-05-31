@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
+import { useRouter } from "next/navigation"
 
 const baliAttractions = [
   {
@@ -66,12 +67,19 @@ const baliAttractions = [
 ]
 
 export default function BaliPage() {
+
+  const router = useRouter()
+
+  const handleClick = () => {
+    router.push('/contact')
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 relative overflow-hidden">
+      <section className="pt-24 pb-10 relative overflow-hidden">
         <div className="absolute inset-0">
           <img src="/placeholder.svg?height=600&width=1200" alt="Bali" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-green-900/70 to-emerald-900/70" />
@@ -112,6 +120,10 @@ export default function BaliPage() {
                 <span>Best: April - October</span>
               </div>
             </div>
+
+            <Button variant="secondary" size="lg" className="mt-6 bg-white text-green-600 hover:bg-gray-100">
+                  Book Bali Tour
+                </Button>
           </motion.div>
         </div>
       </section>
@@ -184,7 +196,7 @@ export default function BaliPage() {
                       </div>
                     </div>
 
-                    <Button className="w-full bg-green-600 hover:bg-green-700">Add to Itinerary</Button>
+                    {/* <Button className="w-full bg-green-600 hover:bg-green-700">Add to Itinerary</Button> */}
                   </CardContent>
                 </Card>
               </motion.div>
@@ -205,15 +217,15 @@ export default function BaliPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="secondary" size="lg" className="bg-white text-green-600 hover:bg-gray-100">
-                  Book Bali Tour - From $999
+                  Book Bali Tour
                 </Button>
-                <Button
+                {/* <Button
                   variant="outline"
                   size="lg"
                   className="border-white text-white hover:bg-white hover:text-green-600"
                 >
                   Customize Itinerary
-                </Button>
+                </Button> */}
               </div>
             </div>
           </motion.div>

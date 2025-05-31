@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
+import { useRouter } from "next/navigation"
 
 const romeAttractions = [
   {
@@ -66,12 +67,19 @@ const romeAttractions = [
 ]
 
 export default function RomePage() {
+
+  const router = useRouter()
+
+  const handleCLick = () => {
+    router.push('/contact')
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 relative overflow-hidden">
+      <section className="pt-24 pb-10 relative overflow-hidden">
         <div className="absolute inset-0">
           <img src="/placeholder.svg?height=600&width=1200" alt="Rome" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-orange-900/70 to-red-900/70" />
@@ -111,6 +119,10 @@ export default function RomePage() {
                 <span>Best: Spring & Fall</span>
               </div>
             </div>
+
+            <Button variant="secondary" size="lg" className="mt-6 bg-white text-orange-600 hover:bg-gray-100">
+                  Book Rome Tour
+                </Button>
           </motion.div>
         </div>
       </section>
@@ -183,7 +195,7 @@ export default function RomePage() {
                       </div>
                     </div>
 
-                    <Button className="w-full bg-orange-600 hover:bg-orange-700">Add to Itinerary</Button>
+                    {/* <Button className="w-full bg-orange-600 hover:bg-orange-700">Add to Itinerary</Button> */}
                   </CardContent>
                 </Card>
               </motion.div>
@@ -204,15 +216,15 @@ export default function RomePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="secondary" size="lg" className="bg-white text-orange-600 hover:bg-gray-100">
-                  Book Rome Tour - From $1,199
+                  Book Rome Tour
                 </Button>
-                <Button
+                {/* <Button
                   variant="outline"
                   size="lg"
                   className="border-white text-white hover:bg-white hover:text-orange-600"
                 >
                   Customize Itinerary
-                </Button>
+                </Button> */}
               </div>
             </div>
           </motion.div>
