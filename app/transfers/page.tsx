@@ -178,7 +178,7 @@ export default function TransfersPage() {
                       <div className={`h-32 bg-gradient-to-r ${option.color} flex items-center justify-center`}>
                         <IconComponent className="h-16 w-16 text-white" />
                       </div>
-                      <Badge className="absolute top-3 right-3 bg-white text-gray-900">{option.price}</Badge>
+                      {/* <Badge className="absolute top-3 right-3 bg-white text-gray-900">{option.price}</Badge> */}
                     </div>
 
                     <CardHeader>
@@ -228,7 +228,7 @@ export default function TransfersPage() {
                       </div>
 
                       <div className="flex space-x-2 mt-6">
-                        <Button onClick={handleClick} className="flex-1 bg-blue-600 hover:bg-blue-700">Book Transfer</Button>
+                        <Button onClick={handleClick} className="flex-1 bg-blue-600 hover:bg-blue-700">Book Ride </Button>
                         {/* <Button variant="outline" className="flex-1">
                           Learn More
                         </Button> */}

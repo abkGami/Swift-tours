@@ -53,14 +53,14 @@ export default function Footer() {
           </motion.div>
 
           {/* Quick Links */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {["About Us", "Destinations", "Chartered Boats", "Transfers", "Blog", "Contact"].map((link) => (
+              {["Chartered Boats", "Transfers", "Contact"].map((link) => (
                 <li key={link}>
                   <a
                     href={`#${link.toLowerCase().replace(" ", "-")}`}
@@ -71,7 +71,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </motion.div> */}
 
           {/* Services */}
           <motion.div
@@ -90,9 +90,9 @@ export default function Footer() {
                 "Group Travel",
               ].map((service) => (
                 <li key={service}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+                  <span  className="text-gray-400 hover:text-white transition-colors duration-200">
                     {service}
-                  </a>
+                  </span>
                 </li>
               ))}
             </ul>
