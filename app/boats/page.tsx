@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import SlideshowAlbum from "@/components/slideshow-album";
+import { useRouter } from "next/navigation";
 
 const boats = [
   {
@@ -78,7 +79,7 @@ const boats = [
     type: "Pontoon Boat",
     capacity: "10-12 people",
     price: "From $449/day",
-    image: "/placeholder.svg?height=250&width=400",
+    image: "/boat/four.jpg",
     features: [
       "Bimini top",
       "Swim platform",
@@ -99,7 +100,7 @@ const boats = [
     type: "Offshore Fishing",
     capacity: "7 people",
     price: "From $399/day",
-    image: "/placeholder.svg?height=250&width=400",
+    image: "/boat/five.jpg",
     features: [
       "Center console",
       "Rod storage",
@@ -115,30 +116,37 @@ const boats = [
       speed: "45 mph",
     },
   },
-  {
-    name: "Luxury Yacht Charter",
-    type: "Luxury Yacht",
-    capacity: "20+ people",
-    price: "From $1,299/day",
-    image: "/placeholder.svg?height=250&width=400",
-    features: [
-      "Full crew",
-      "Gourmet catering",
-      "Water sports equipment",
-      "Luxury amenities",
-    ],
-    rating: 5.0,
-    description: "Ultimate luxury experience on the water",
-    specifications: {
-      length: "65 feet",
-      engine: "Twin 800 HP",
-      fuel: "500 gallons",
-      speed: "30 mph",
-    },
-  },
+  // {
+  //   name: "Luxury Yacht Charter",
+  //   type: "Luxury Yacht",
+  //   capacity: "20+ people",
+  //   price: "From $1,299/day",
+  //   image: "/placeholder.svg?height=250&width=400",
+  //   features: [
+  //     "Full crew",
+  //     "Gourmet catering",
+  //     "Water sports equipment",
+  //     "Luxury amenities",
+  //   ],
+  //   rating: 5.0,
+  //   description: "Ultimate luxury experience on the water",
+  //   specifications: {
+  //     length: "65 feet",
+  //     engine: "Twin 800 HP",
+  //     fuel: "500 gallons",
+  //     speed: "30 mph",
+  //   },
+  // },
 ];
 
 export default function BoatsPage() {
+
+  const router = useRouter()
+
+  const handleClick = () => {
+    router.push('/contact')
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
@@ -298,12 +306,12 @@ export default function BoatsPage() {
                     </div>
 
                     <div className="flex space-x-2">
-                      <Button className="flex-1 bg-blue-600 hover:bg-blue-700">
+                      <Button onClick={handleClick} className="flex-1 bg-blue-600 hover:bg-blue-700">
                         Book Now
                       </Button>
-                      <Button variant="outline" className="flex-1">
+                      {/* <Button variant="outline" className="flex-1">
                         Details
-                      </Button>
+                      </Button> */}
                     </div>
                   </CardContent>
                 </Card>
