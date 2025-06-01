@@ -83,7 +83,7 @@ const italyCities = [
   {
     name: "verona",
     description:
-      "A romantic city of Roman ruins and literary fame, known for Juliet’s balcony and grand arenas.",
+      "A romantic city of literary fame, known for Juliet’s balcony and grand arenas.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.6,
     duration: "1 day",
@@ -101,7 +101,7 @@ const romeAttractions = [
   {
     name: "Cinque Terre",
     description:
-      "A UNESCO World Heritage site, featuring five colorful villages perched on cliffs along the Ligurian Sea.",
+      "A UNESCO World Heritage site, featuring five colorful villages perched on cliffs",
     image: "/placeholder.svg?height=300&width=400",
   },
   {
@@ -152,12 +152,12 @@ const romeAttractions = [
       "An island with pristine beaches, crystal-clear waters, and stunning coastal scenery. ",
     image: "/placeholder.svg?height=300&width=400",
   },
-  {
-    name: "Capri",
-    description:
-      "An island off the coast.",
-    image: "/placeholder.svg?height=300&width=400",
-  },
+  // {
+  //   name: "Capri",
+  //   description:
+  //     "An island off the coast.",
+  //   image: "/placeholder.svg?height=300&width=400",
+  // },
 ];
 
 export default function RomePage() {
