@@ -9,112 +9,114 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import SlideshowAlbum from "@/components/slideshow-album";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const boats = [
   {
-    name: "Bayliner Element E16",
-    type: "Family Cruiser",
-    capacity: "6-8 people",
-    price: "From $299/day",
+    name: "Gulet",
+    type: "Motorsailer",
+    capacity: "Up to 25 guests",
+    price: "From $222,008 to $3,017,038",
     image: "/boat/one.jpg",
-    features: [
-      "Spacious storage",
-      "Easy handling",
-      "GPS Navigation",
-      "Safety Equipment",
+  features: [
+      "Wooden classic yacht",
+      "Built in Bodrum or Marmaris",
+      "6 to 11 cabins",
+      "Luxury sailing experience"
     ],
     rating: 4.8,
-    description: "Perfect for family outings and leisure cruising",
+    description: "A traditional Turkish sailing vessel offering charm, comfort, and craftsmanship, ideal for private and charter use.",
     specifications: {
-      length: "16 feet",
-      engine: "60 HP Mercury",
-      fuel: "25 gallons",
-      speed: "35 mph",
-    },
+      length: "30 to 32 meters",
+      engine: "Not specified",
+      fuel: "Not specified",
+      speed: "Not specified"
+    }
   },
   {
-    name: "Tracker Grizzly 1648 SC",
-    type: "Aluminum Fishing Boat",
-    capacity: "4 people",
-    price: "From $199/day",
+    name: "Pershing 46",
+    type: "Performance Cruiser",
+    capacity: "Up to 6 overnight guests",
+    price: "From €310,000 (VAT paid)",
     image: "/boat/two.jpg",
     features: [
-      "Durable construction",
-      "VERSATRACK mounting",
-      "Fishing equipment",
-      "Cooler storage",
-    ],
-    rating: 4.7,
-    description: "Ideal for fishing enthusiasts and small groups",
-    specifications: {
-      length: "16 feet",
-      engine: "40 HP Mercury",
-      fuel: "12 gallons",
-      speed: "28 mph",
-    },
-  },
-  {
-    name: "Mako Pro Skiff 15 CC",
-    type: "Saltwater Fishing",
-    capacity: "4 people",
-    price: "From $349/day",
-    image: "/boat/three.jpg",
-    features: [
-      "Composite hull",
-      "Aerated baitwell",
-      "Rod storage",
-      "Marine electronics",
-    ],
-    rating: 4.9,
-    description: "Professional-grade saltwater fishing experience",
-    specifications: {
-      length: "15 feet",
-      engine: "70 HP Yamaha",
-      fuel: "18 gallons",
-      speed: "40 mph",
-    },
-  },
-  {
-    name: "Sun Tracker Party Barge",
-    type: "Pontoon Boat",
-    capacity: "10-12 people",
-    price: "From $449/day",
-    image: "/boat/four.jpg",
-    features: [
-      "Bimini top",
-      "Swim platform",
-      "Stereo system",
-      "Comfortable seating",
+      "Sleek aerodynamic form",
+      "Carbon-fiber hard-top",
+      "Dynamic open aspect",
+      "Three lower-deck cabins",
+      "Cherrywood and leather surfaces"
     ],
     rating: 4.8,
-    description: "Perfect for parties and large group entertainment",
+    description: "Three Cabins with en-suite bathrooms and remarkably spacious exterior spaces.",
     specifications: {
-      length: "22 feet",
-      engine: "90 HP Mercury",
-      fuel: "30 gallons",
-      speed: "25 mph",
-    },
+      length: "49 feet",
+      engine: "Not specified",
+      fuel: "Not specified",
+      speed: "Not specified"
+    }
   },
   {
-    name: "Pro-Line 20 Sport",
-    type: "Offshore Fishing",
-    capacity: "7 people",
-    price: "From $399/day",
+    name: "Sarnico 43",
+    type: "Open Yacht",
+    capacity: "1 guest cabin",
+    price: "Not specified",
+    image: "/boat/three.jpg",
+    features: [
+      "Fiberglass/GRP hull",
+      "CE certification class B",
+      "Speed up to 36 knots",
+      "Draft of 1.08 meters"
+    ],
+    rating: 4.8,
+    description: "A luxurious open yacht with refined style and quality execution, ideal for coastal cruising.",
+    specifications: {
+      length: "43 feet",
+      engine: "Not specified",
+      fuel: "Not specified",
+      speed: "36 knots"
+    }
+  },
+  {
+    name: "Ferretti Yachts 1000",
+    type: "Flybridge Yacht",
+    capacity: "6-8 guests",
+    price: "From $97,010 to $11,243,252",
+    image: "/boat/four.jpg",
+    features: [
+      "Twin MTU engines",
+      "3 Cabins",
+      "High-tech innovation",
+      "Luxury and comfort"
+    ],
+    rating: 4.8,
+    description: "The largest yacht ever built by Ferretti Yachts offering maximum comfort and customization.",
+    specifications: {
+      length: "64 feet",
+      engine: "Twin MTU engines",
+      fuel: "Not specified",
+      speed: "24-29 knots"
+    }
+  },
+  {
+    name: "Lagoon 46",
+    type: "Sailing Catamaran",
+    capacity: "10 guests",
+    price: "€686,800",
     image: "/boat/five.jpg",
     features: [
-      "Center console",
-      "Rod storage",
-      "Live well",
-      "Offshore capability",
+      "Fiberglass/GRP hull",
+      "CE certification class A",
+      "3 Cabins",
+      "Sail area of 140.1 m²"
     ],
-    rating: 4.9,
-    description: "Built for serious offshore fishing adventures",
+    rating: 4.8,
+    description: "A perfect long-term cruising catamaran offering easy responsive performance and functional luxury.",
     specifications: {
-      length: "20 feet",
-      engine: "150 HP Yamaha",
-      fuel: "40 gallons",
-      speed: "45 mph",
-    },
+      length: "13.99 meters",
+      engine: "Not specified",
+      fuel: "Not specified",
+      speed: "Not specified"
+    }
   },
   // {
   //   name: "Luxury Yacht Charter",
@@ -233,7 +235,9 @@ export default function BoatsPage() {
               >
                 <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 shadow-lg">
                   <div className="relative overflow-hidden">
-                    <img
+                    <Image  //change to img and remove height and width
+                    width={1200}
+                    height={12}
                       src={boat.image || "/placeholder.svg"}
                       alt={boat.name}
                       className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
