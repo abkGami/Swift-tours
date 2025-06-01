@@ -287,6 +287,8 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
+      
+
       {/* Enhanced Scroll Indicator */}
       {/* <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"

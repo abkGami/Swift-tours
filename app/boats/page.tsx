@@ -243,9 +243,9 @@ export default function BoatsPage() {
                       className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <Badge className="absolute top-3 right-3 bg-blue-600 text-white">
+                    {/* <Badge className="absolute top-3 right-3 bg-blue-600 text-white">
                       {boat.price}
-                    </Badge>
+                    </Badge> */}
                     <div className="absolute bottom-3 left-3 text-white">
                       <div className="flex items-center space-x-1">
                         <Star className="h-4 w-4 text-yellow-400" />

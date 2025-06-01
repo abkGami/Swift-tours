@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "Explore Europe and Asia with luxury tours, chartered boats, and premium transfers. Book your dream vacation today.",
   keywords: "luxury Europe tours, Asia travel packages, boat charters, travel agency",
-    generator: 'v0.dev'
+    generator: 'abk'
 }
 
 export default function RootLayout({

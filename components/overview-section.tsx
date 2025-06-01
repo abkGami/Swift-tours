@@ -10,7 +10,7 @@ const overviewCards = [
   {
     title: "Destinations",
     description:
-      "Explore breathtaking destinations across Europe and Asia with our curated travel experiences",
+      "Explore destinations across Europe and Asia with our travel experiences",
     icon: MapPin,
     image: "/placeholder.svg?height=300&width=400",
     href: "/destinations",
@@ -73,14 +73,14 @@ export default function OverviewSection() {
             return (
               <motion.div
                 key={card.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
+                // initial={{ opacity: 0, y: 50 }}
+                // whileInView={{ opacity: 1, y: 0 }}
+                // transition={{ duration: 0.6, delay: index * 0.1 }}
+                // whileHover={{ y: -10, scale: 1.02 }}
                 className="group animate-element"
               >
-                <Link href={card.href}>
-                  <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg h-full cursor-pointer">
+                <div >
+                  <Card className="overflow-hidden transition-all duration-500 border-0 shadow-lg h-full cursor-pointer">
                     <div className="relative overflow-hidden">
                       <motion.img
                         src={card.image}
@@ -108,20 +108,46 @@ export default function OverviewSection() {
 
                     <CardContent>
                       <p className="text-gray-600 mb-4">{card.description}</p>
-                      <Button
+                      {/* <Button
                         variant="ghost"
-                        className="w-full justify-between group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors"
+                        className="w-full justify-between transition-colors"
                       >
                         Explore
                         <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
+                      </Button> */}
                     </CardContent>
                   </Card>
-                </Link>
+                </div>
+
+                
               </motion.div>
             );
           })}
+
         </div>
+
+      
+        {/* About Section */}
+        {/* <div className="about-section mt-12">
+          <h2 className="text-4xl font-bold mb-4">About Us</h2>
+          <p className="text-lg mb-6">Discover our services and explore the top visited places.</p>
+          <div className="services mb-6">
+            <h3 className="text-3xl font-semibold mb-2">Our Services</h3>
+            <ul className="list-disc list-inside">
+              <li>Guided Tours</li>
+              <li>Custom Itineraries</li>
+              <li>Travel Assistance</li>
+            </ul>
+          </div>
+          <div className="top-places">
+            <h3 className="text-3xl font-semibold mb-2">Top Visited Places</h3>
+            <ul className="list-disc list-inside">
+              <li>Place 1</li>
+              <li>Place 2</li>
+              <li>Place 3</li>
+            </ul>
+          </div>
+        </div> */}
       </div>
     </section>
   );
