@@ -9,6 +9,117 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { useRouter } from "next/navigation";
 
+const franceCities = [
+  {
+    name: "Paris",
+    description: "The city of lights, known for its iconic Eiffel Tower, art museums, and romantic ambiance.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.8,
+    duration: "3-4 days",
+    category: "Cultural Capital",
+    highlights: ["eiffel tower", "louvre museum", "notre-dame cathedral", "montmartre"],
+  },
+  {
+    name: "Bordeaux",
+    description: "Famous for its wine, Bordeaux offers stunning architecture and a vibrant cultural scene.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.7,
+    duration: "2-3 days",
+    category: "Wine Region",
+    highlights: ["place de la bourse", "cité du vin", "bordeaux cathedral", "pont de pierre"],
+  },
+  {
+    name: "Lyon",
+    description: "Known for its historical and architectural landmarks, Lyon is a UNESCO World Heritage Site.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.6,
+    duration: "2-3 days",
+    category: "Historical City",
+    highlights: ["basilica of notre-dame de fourvière", "old lyon", "traboules", "lyon cathedral"],
+  },
+  {
+    name: "Nice",
+    description: "A beautiful coastal city on the French Riviera, known for its beaches and vibrant nightlife.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.5,
+    duration: "2-3 days",
+    category: "Coastal City",
+    highlights: ["promenade des anglais", "castle hill", "matisse museum", "old town"],
+  },
+  {
+    name: "Marseille",
+    description: "A port city in southern France, known for its maritime heritage and multicultural atmosphere.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.4,
+    duration: "2-3 days",
+    category: "Port City",
+    highlights: ["old port", "notre-dame de la garde", "calanques national park", "mucem"],
+  },
+  {
+    name: "Strasbourg",
+    description: "A city with a unique blend of French and German cultures, known for its medieval architecture.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.6,
+    duration: "2-3 days",
+    category: "Cultural City",
+    highlights: ["strasbourg cathedral", "petite france", "european parliament", "palais rohan"],
+  },
+  {
+    name: "Toulouse",
+    description: "Known as the 'Pink City' due to its terracotta buildings, Toulouse is a hub for aerospace industry.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.5,
+    duration: "2-3 days",
+    category: "Industrial City",
+    highlights: ["capitole de toulouse", "basilica of saint-sernin", "cité de l'espace", "pont neuf"],
+  },
+  {
+    name: "Lille",
+    description: "A vibrant city with a rich history, known for its beautiful architecture and lively cultural scene.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.4,
+    duration: "2-3 days",
+    category: "Cultural City",
+    highlights: ["grand place", "palais des beaux-arts", "old stock exchange", "lille citadel"],
+  },
+  {
+    name: "Nantes",
+    description: "A city with a rich maritime history, known for its innovative art installations and green spaces.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.5,
+    duration: "2-3 days",
+    category: "Artistic City",
+    highlights: ["machines of the isle of nantes", "château des ducs de bretagne", "jardin des plantes", "passage pommeraye"],
+  },
+  {
+    name: "Montpellier",
+    description: "A vibrant city with a mix of medieval and modern architecture, known for its lively student population.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.5,
+    duration: "2-3 days",
+    category: "University City",
+    highlights: ["place de la comédie", "fabre museum", "saint-pierre cathedral", "montpellier zoo"],
+  },
+  {
+    name: "Dijon",
+    description: "Famous for its mustard, Dijon is a city with a rich history and beautiful medieval architecture.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.4,
+    duration: "2-3 days",
+    category: "Gastronomic City",
+    highlights: ["palace of the dukes", "dijon cathedral", "musée des beaux-arts", "rue des forges"],
+  },
+  {
+    name: "French Alps",
+    description: "A stunning mountain range offering breathtaking views and a variety of outdoor activities.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.9,
+    duration: "3-5 days",
+    category: "Mountain Region",
+    highlights: ["mont blanc", "chamonix", "annecy", "megeve"],
+  }
+];
+
 const parisAttractions = [
   {
     name: "Eiffel Tower",
@@ -99,7 +210,7 @@ export default function ParisPage() {
               <span className="text-xl">Europe</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Paris, France
+            France
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
               The City of Light awaits with its iconic landmarks, world-class
@@ -131,7 +242,7 @@ export default function ParisPage() {
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-gray-100 mt-6"
                 >
-                  Book Paris Tour
+                  Book France Tour
                 </Button>
           </motion.div>
         </div>
@@ -147,7 +258,7 @@ export default function ParisPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Top Attractions in Paris
+              Top Attractions in France
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Discover the most iconic landmarks and hidden gems that make Paris
@@ -156,7 +267,7 @@ export default function ParisPage() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {parisAttractions.map((attraction, index) => (
+            {franceCities.map((attraction, index) => (
               <motion.div
                 key={attraction.name}
                 initial={{ opacity: 0, y: 50 }}
@@ -237,10 +348,10 @@ export default function ParisPage() {
           >
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Explore Paris?
+                Ready to Explore France?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your Paris adventure today and experience the magic of the
+                Book your France adventure today and experience the magic of the
                 City of Light with our expert guides
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -250,12 +361,96 @@ export default function ParisPage() {
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-gray-100"
                 >
-                  Book Paris Tour
+                  Book France Tour
                 </Button>
                 {/* <Button
                   variant="outline"
                   size="lg"
                   className="border-white text-white hover:bg-white hover:text-blue-600"
+                >
+                  Customize Itinerary
+                </Button> */}
+              </div>
+            </div>
+          </motion.div>
+
+
+           {/* tourist attractions  */}
+
+           <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-9 mt-14"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+             Tourist Attractions in Italy
+            </h2>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
+            {parisAttractions.map((attraction, index) => (
+              <motion.div
+                key={attraction.name}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="group"
+              >
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={attraction.image || "/placeholder.svg"}
+                      alt={attraction.name}
+                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    </div>
+
+                  <CardHeader>
+                    <CardTitle className="text-xl text-gray-900 first-letter:uppercase">
+                      {attraction.name}
+                    </CardTitle>
+                  </CardHeader>
+
+                  <CardContent>
+                    <p className="text-gray-600 mb-4">
+                      {attraction.description}
+                    </p>
+
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Call to Action */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-center mt-16"
+          >
+            <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl p-8 text-white">
+              <h3 className="text-2xl font-bold mb-4">
+                Ready to Explore Italy?
+              </h3>
+              <p className="text-orange-100 mb-6 max-w-2xl mx-auto">
+                Discover the eternal city with our expert guides and experience
+                the magic of ancient Italy
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  onClick={handleClick}
+                  variant="secondary"
+                  size="lg"
+                  className="bg-white text-orange-600 hover:bg-gray-100"
+                >
+                  Book Italy Tour
+                </Button>
+                {/* <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-white text-white hover:bg-white hover:text-orange-600"
                 >
                   Customize Itinerary
                 </Button> */}
