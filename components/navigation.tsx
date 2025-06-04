@@ -37,6 +37,7 @@ export default function Navigation() {
           subItems: [
             { name: "Italy", href: "/destinations/europe/rome" },
             { name: "France", href: "/destinations/europe/paris" },
+            { name: "Portugal", href: "/destinations/europe/portugal" },
             { name: "Swiss Alps", href: "/destinations/europe/swiss-alps" },
             { name: "Monaco", href: "/destinations/europe/monaco" },
             {
