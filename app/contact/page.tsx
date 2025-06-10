@@ -35,6 +35,7 @@ export default function ContactPage() {
     email: "",
     phone: "",
     interest: "",
+    destination: "",
     startDate: "",
     stopDate: "",
     budget: "",
@@ -52,6 +53,7 @@ export default function ContactPage() {
     email: string;
     phone: string;
     interest: string;
+    destination: string;
     startDate: string;
     stopDate: string;
     budget: string;
@@ -101,6 +103,7 @@ export default function ContactPage() {
           email: form.email,
           phone: form.phone,
           interest: form.interest,
+          destination: form.destination,
           startDate: form.startDate,
           stopDate: form.stopDate,
           budget: form.budget,
@@ -364,6 +367,43 @@ export default function ContactPage() {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Destination *
+                      </label>
+                      <select
+                        name="destination"
+                        value={form.destination}
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required
+                      >
+                        <option value="">Select your Destination</option>
+                        <optgroup label="Europe">
+                          <option value="Italy">Italy</option>
+                          <option value="France">France</option>
+                          <option value="Portugal">Portugal</option>
+                          <option value="Greece">Greece</option>
+                          <option value="London">London</option>
+                          <option value="Malta">Malta</option>
+                          <option value="Spain">Spain</option>
+                          <option value="Sweden">Sweden</option>
+                          <option value="Croatia">Croatia</option>
+                          <option value="Austria">Austria</option>
+                        </optgroup>
+                        <optgroup label="Asia">
+                          <option value="Mongolia">Mongolia</option>
+                          <option value="Japan">Japan</option>
+                          <option value="Maldives">Maldives</option>
+                          <option value="Bhutan">Bhutan</option>
+                        </optgroup>
+                        <optgroup label="Africa">
+                          <option value="Morocco">Morocco</option>
+                          <option value="Egypt">Egypt</option>
+                        </optgroup>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
                         Travel Interest *
                       </label>
                       <select
@@ -375,6 +415,7 @@ export default function ContactPage() {
                       >
                         <option value="">Select your interest</option>
                         <option value="boats">Chartered Boats</option>
+                        <option value="Tours">Tours</option>
                         <option value="boats">Boats Trip</option>
                         <option value="transfers">Luxury Transfers</option>
                         <option value="custom">Custom Package</option>
