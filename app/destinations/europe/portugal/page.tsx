@@ -9,213 +9,218 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { useRouter } from "next/navigation";
 
-const franceCities = [
+const portugalCities = [
   {
-    name: "Paris",
+    name: "Lisbon",
     description:
-      "The city of lights, known for its iconic Eiffel Tower, art museums, and romantic ambiance.",
+      "Portugal's vibrant capital, known for its historic neighborhoods, tram rides, and stunning river views.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.8,
     duration: "3-4 days",
-    category: "Cultural Capital",
+    category: "Capital City",
     highlights: [
-      "eiffel tower",
-      "louvre museum",
-      "notre-dame cathedral",
-      "montmartre",
+      "Belém Tower",
+      "Alfama District",
+      "Jerónimos Monastery",
+      "Tram 28",
     ],
   },
   {
-    name: "Bordeaux",
+    name: "Porto",
     description:
-      "Famous for its wine, Bordeaux offers stunning architecture and a vibrant cultural scene.",
+      "Famous for its port wine, colorful riverside, and charming old town.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.7,
     duration: "2-3 days",
-    category: "Wine Region",
+    category: "Wine City",
     highlights: [
-      "place de la bourse",
-      "cité du vin",
-      "bordeaux cathedral",
-      "pont de pierre",
+      "Dom Luís I Bridge",
+      "Ribeira District",
+      "Livraria Lello",
+      "Port Wine Cellars",
     ],
   },
   {
-    name: "Lyon",
+    name: "Sintra",
     description:
-      "Known for its historical and architectural landmarks, Lyon is a UNESCO World Heritage Site.",
+      "A fairy-tale town with palaces, castles, and lush gardens nestled in the hills.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.6,
-    duration: "2-3 days",
-    category: "Historical City",
+    duration: "1-2 days",
+    category: "Historic Town",
     highlights: [
-      "basilica of notre-dame de fourvière",
-      "old lyon",
-      "traboules",
-      "lyon cathedral",
+      "Pena Palace",
+      "Quinta da Regaleira",
+      "Moorish Castle",
+      "Sintra National Palace",
     ],
   },
   {
-    name: "Nice",
+    name: "Faro",
     description:
-      "A beautiful coastal city on the French Riviera, known for its beaches and vibrant nightlife.",
+      "Gateway to the Algarve, known for its old town, beaches, and natural parks.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.5,
     duration: "2-3 days",
     category: "Coastal City",
     highlights: [
-      "promenade des anglais",
-      "castle hill",
-      "matisse museum",
-      "old town",
+      "Old Town",
+      "Ria Formosa",
+      "Faro Cathedral",
+      "Praia de Faro",
     ],
   },
   {
-    name: "Marseille",
+    name: "Coimbra",
     description:
-      "A port city in southern France, known for its maritime heritage and multicultural atmosphere.",
+      "A historic city famous for its ancient university and lively student atmosphere.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.4,
-    duration: "2-3 days",
-    category: "Port City",
-    highlights: [
-      "old port",
-      "notre-dame de la garde",
-      "calanques national park",
-      "mucem",
-    ],
-  },
-  {
-    name: "Strasbourg",
-    description:
-      "A city with a unique blend of French and German cultures, known for its medieval architecture.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.6,
-    duration: "2-3 days",
-    category: "Cultural City",
-    highlights: [
-      "strasbourg cathedral",
-      "petite france",
-      "european parliament",
-      "palais rohan",
-    ],
-  },
-  {
-    name: "Toulouse",
-    description:
-      "Known as the 'Pink City' due to its terracotta buildings, Toulouse is a hub for aerospace industry.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "Industrial City",
-    highlights: [
-      "capitole de toulouse",
-      "basilica of saint-sernin",
-      "cité de l'espace",
-      "pont neuf",
-    ],
-  },
-  {
-    name: "Lille",
-    description:
-      "A vibrant city with a rich history, known for its beautiful architecture and lively cultural scene.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.4,
-    duration: "2-3 days",
-    category: "Cultural City",
-    highlights: [
-      "grand place",
-      "palais des beaux-arts",
-      "old stock exchange",
-      "lille citadel",
-    ],
-  },
-  {
-    name: "Nantes",
-    description:
-      "A city with a rich maritime history, known for its innovative art installations and green spaces.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "Artistic City",
-    highlights: [
-      "machines of the isle of nantes",
-      "château des ducs de bretagne",
-      "jardin des plantes",
-      "passage pommeraye",
-    ],
-  },
-  {
-    name: "Montpellier",
-    description:
-      "A vibrant city with a mix of medieval and modern architecture, known for its lively student population.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
+    duration: "1-2 days",
     category: "University City",
     highlights: [
-      "place de la comédie",
-      "fabre museum",
-      "saint-pierre cathedral",
-      "montpellier zoo",
+      "University of Coimbra",
+      "Joanina Library",
+      "Mondego River",
+      "Old Cathedral",
     ],
   },
   {
-    name: "Dijon",
+    name: "Évora",
     description:
-      "Famous for its mustard, Dijon is a city with a rich history and beautiful medieval architecture.",
+      "A UNESCO World Heritage city with Roman ruins, medieval streets, and whitewashed houses.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.5,
+    duration: "1-2 days",
+    category: "Historic City",
+    highlights: [
+      "Roman Temple",
+      "Chapel of Bones",
+      "Évora Cathedral",
+      "Praça do Giraldo",
+    ],
+  },
+  {
+    name: "Braga",
+    description:
+      "Known as the 'Portuguese Rome' for its abundance of churches and religious festivals.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.4,
-    duration: "2-3 days",
-    category: "Gastronomic City",
+    duration: "1-2 days",
+    category: "Religious City",
     highlights: [
-      "palace of the dukes",
-      "dijon cathedral",
-      "musée des beaux-arts",
-      "rue des forges",
+      "Bom Jesus do Monte",
+      "Braga Cathedral",
+      "Sanctuary of Sameiro",
+      "Historic Center",
     ],
   },
   {
-    name: "French Alps",
+    name: "Aveiro",
     description:
-      "A stunning mountain range offering breathtaking views and a variety of outdoor activities.",
+      "The 'Venice of Portugal', famous for its canals, colorful boats, and Art Nouveau buildings.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.3,
+    duration: "1 day",
+    category: "Canal City",
+    highlights: [
+      "Moliceiro Boats",
+      "Aveiro Canals",
+      "Costa Nova",
+      "Aveiro Museum",
+    ],
+  },
+  {
+    name: "Madeira",
+    description:
+      "A lush island paradise with dramatic cliffs, hiking trails, and botanical gardens.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.9,
     duration: "3-5 days",
-    category: "Mountain Region",
-    highlights: ["mont blanc", "chamonix", "annecy", "megeve"],
+    category: "Island",
+    highlights: [
+      "Cabo Girão",
+      "Laurisilva Forest",
+      "Funchal",
+      "Levada Walks",
+    ],
+  },
+  {
+    name: "Lagos",
+    description:
+      "A lively Algarve town known for its stunning beaches, sea caves, and vibrant nightlife.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.7,
+    duration: "2-3 days",
+    category: "Beach Town",
+    highlights: [
+      "Ponta da Piedade",
+      "Praia Dona Ana",
+      "Old Town",
+      "Forte da Ponta da Bandeira",
+    ],
+  },
+  {
+    name: "Guimarães",
+    description:
+      "The birthplace of Portugal, with a well-preserved medieval center and historic castle.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.5,
+    duration: "1-2 days",
+    category: "Medieval City",
+    highlights: [
+      "Guimarães Castle",
+      "Palace of the Dukes",
+      "Largo da Oliveira",
+      "Historic Center",
+    ],
+  },
+  {
+    name: "Óbidos",
+    description:
+      "A charming walled town with cobbled streets, whitewashed houses, and a medieval castle.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.6,
+    duration: "1 day",
+    category: "Walled Town",
+    highlights: [
+      "Óbidos Castle",
+      "Town Walls",
+      "Ginja Liqueur",
+      "Medieval Market",
+    ],
   },
 ];
 
-const parisAttractions = [
+const potrugalAttractions = [
   {
-    name: "Eiffel Tower",
-    description: "Iconic iron lattice tower and symbol of Paris",
+    name: "Belém Tower",
+    description: "Iconic riverside fortress and UNESCO World Heritage Site in Lisbon.",
     image: "/placeholder.svg?height=300&width=400"
   },
   {
-    name: "Louvre Museum",
-    description: "World's largest art museum and home to the Mona Lisa",
+    name: "Pena Palace",
+    description: "Colorful Romanticist palace perched on a hilltop in Sintra.",
     image: "/placeholder.svg?height=300&width=400"
   },
   {
-    name: "Mont Saint-Michel",
-    description: "Stunning island commune with a medieval abbey off the Normandy coast",
+    name: "Dom Luís I Bridge",
+    description: "Double-deck iron bridge spanning the Douro River in Porto.",
     image: "/placeholder.svg?height=300&width=400"
   },
   {
-    name: "Palace of Versailles",
-    description: "Lavish royal palace known for its gardens and Hall of Mirrors",
+    name: "Benagil Cave",
+    description: "Spectacular sea cave with a natural skylight on the Algarve coast.",
     image: "/placeholder.svg?height=300&width=400"
   },
   {
-    name: "Château de Chambord",
-    description: "Renaissance castle in the Loire Valley, famous for its distinctive French architecture",
+    name: "University of Coimbra",
+    description: "One of the oldest universities in Europe, known for its historic campus.",
     image: "/placeholder.svg?height=300&width=400"
   },
   {
-    name: "French Riviera (Côte d'Azur)",
-    description: "Glamorous Mediterranean coastline known for beaches, resorts, and festivals",
+    name: "Cabo Girão",
+    description: "One of the highest sea cliffs in Europe, offering breathtaking views on Madeira.",
     image: "/placeholder.svg?height=300&width=400"
   }
 ];
@@ -252,10 +257,9 @@ export default function ParisPage() {
               <MapPin className="h-8 w-8 mr-3" />
               <span className="text-xl">Europe</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">France</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">Portugal</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              France awaits with its breathtaking landmarks, world-class
-              museums, and enchanting atmosphere.
+            Portugal awaits with its breathtaking coastlines, historic cities, and vibrant culture.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -283,7 +287,7 @@ export default function ParisPage() {
               size="lg"
               className="bg-white text-blue-600 hover:bg-gray-100 mt-6"
             >
-              Book France Tour
+              Book Portugal Tour
             </Button>
           </motion.div>
         </div>
@@ -299,16 +303,15 @@ export default function ParisPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Cities in France
+              Cities in Portugal
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore the most iconic landmarks and hidden gems that make France
-              a top destination for travelers worldwide.
+            Explore the most iconic landmarks and hidden gems that make Portugal a top destination for travelers worldwide.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {franceCities.map((attraction, index) => (
+            {portugalCities.map((attraction, index) => (
               <motion.div
                 key={attraction.name}
                 initial={{ opacity: 0, y: 50 }}
@@ -389,10 +392,10 @@ export default function ParisPage() {
           >
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Explore France?
+                Ready to Explore Portugal?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your France adventure today and experience the magic of the
+                Book your Portugal adventure today and experience the magic of the
                 destination with breathtaking landmarks and world-class museum
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -402,7 +405,7 @@ export default function ParisPage() {
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-gray-100"
                 >
-                  Book France Tour
+                  Book Portugal Tour
                 </Button>
                 {/* <Button
                   variant="outline"
@@ -424,11 +427,11 @@ export default function ParisPage() {
             className="text-center mb-9 mt-14"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Tourist Attractions in France
+              Tourist Attractions in Portugal
             </h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
-            {parisAttractions.map((attraction, index) => (
+            {potrugalAttractions.map((attraction, index) => (
               <motion.div
                 key={attraction.name}
                 initial={{ opacity: 0, y: 50 }}
@@ -471,10 +474,10 @@ export default function ParisPage() {
           >
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Explore France?
+                Ready to Explore Portugal?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your France adventure today and experience the magic of the
+                Book your Portugal adventure today and experience the magic of the
                 destination with breathtaking landmarks and world-class museum
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -484,7 +487,7 @@ export default function ParisPage() {
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-gray-100"
                 >
-                  Book France Tour
+                  Book Portugal Tour
                 </Button>
                 {/* <Button
                   variant="outline"
