@@ -308,14 +308,6 @@ export default function ContactPage() {
                   </form> */}
 
                   <form className="space-y-6" onSubmit={handleSubmit}>
-                    {/* ...other fields... */}
-                    <Input
-                      name="firstName"
-                      value={form.firstName}
-                      onChange={handleChange}
-                      placeholder=""
-                      required
-                    />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -369,62 +361,136 @@ export default function ContactPage() {
                         placeholder="+1 (555) 123-4567"
                       />
                     </div>
-                    {/* Repeat for all other fields, e.g.: */}
-                    {/* <Input name="lastName" value={form.lastName} onChange={handleChange} ... /> */}
-                    {/* <Input name="email" value={form.email} onChange={handleChange} ... /> */}
-                    {/* ... */}
-                    <select
-                      name="budget"
-                      value={form.budget}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Travel Interest *
+                      </label>
+                      <select
+                        name="interest"
+                        value={form.interest}
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required
+                      >
+                        <option value="">Select your interest</option>
+                        <option value="boats">Chartered Boats</option>
+                        <option value="boats">Boats Trip</option>
+                        <option value="transfers">Luxury Transfers</option>
+                        <option value="custom">Custom Package</option>
+                        {/* <option value="group">Group Travel</option> */}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Preferred Travel Date
+                      </label>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Start Date
+                          </label>
+                          <Input
+                            name="startDate"
+                            value={form.startDate}
+                            onChange={handleChange}
+                            type="date"
+                            required
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Stop Date
+                          </label>
+                          <Input
+                            name="stopDate"
+                            value={form.stopDate}
+                            onChange={handleChange}
+                            type="date"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Budget Range
+                      </label>
+                      <select
+                        name="budget"
+                        value={form.budget}
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      >
+                        <option value="">Select budget range</option>
+                        {budgetOptions.map((opt) => {
+                          const minConverted = Math.round(
+                            opt.min * conversionRate
+                          );
+                          const maxConverted = opt.max
+                            ? Math.round(opt.max * conversionRate)
+                            : null;
+                          const label = maxConverted
+                            ? `$${opt.min} - $${opt.max}  (${currencySymbol}${minConverted} - ${currencySymbol}${maxConverted}) `
+                            : ` $${opt.min}+  (${currencySymbol}${minConverted}+) `;
+                          return (
+                            <option key={opt.value} value={opt.value}>
+                              {label}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Message *
+                      </label>
+                      <Textarea
+                        name="message"
+                        value={form.message}
+                        onChange={handleChange}
+                        placeholder="Tell us about your dream vacation, special requirements, or any questions you have..."
+                        rows={4}
+                        required
+                      />
+                    </div>
+
+                    <div className="flex items-center space-x-2">
+                      <input
+                        name="newsletter"
+                        checked={form.newsletter}
+                        onChange={handleChange}
+                        type="checkbox"
+                        id="newsletter"
+                        className="rounded"
+                      />
+                      <label
+                        htmlFor="newsletter"
+                        className="text-sm text-gray-600"
+                      >
+                        Subscribe to our newsletter for travel tips and
+                        exclusive offers
+                      </label>
+                    </div>
+
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      <option value="">Select budget range</option>
-                      {budgetOptions.map((opt) => {
-                        const minConverted = Math.round(
-                          opt.min * conversionRate
-                        );
-                        const maxConverted = opt.max
-                          ? Math.round(opt.max * conversionRate)
-                          : null;
-                        const label = maxConverted
-                          ? `(${currencySymbol}${minConverted} - ${currencySymbol}${maxConverted}) $${opt.min} - $${opt.max}`
-                          : `(${currencySymbol}${minConverted}+) $${opt.min}+`;
-                        return (
-                          <option key={opt.value} value={label}>
-                            {label}
-                          </option>
-                        );
-                      })}
-                    </select>
-                    {/* ... */}
-                    <Textarea
-                      name="message"
-                      value={form.message}
-                      onChange={handleChange}
-                      placeholder="Tell us about your dream vacation, special requirements, or any questions you have..."
-                      rows={4}
-                      required
-                    />
-                    {/* ... */}
-                    <input
-                      type="checkbox"
-                      name="newsletter"
-                      checked={form.newsletter}
-                      onChange={handleChange}
-                      id="newsletter"
-                      className="rounded"
-                    />
-                    {/* ... */}
-                    <Button
-                      className="w-full bg-blue-600 hover:bg-blue-700"
-                      size="lg"
-                      type="submit"
-                      disabled={sending}
-                    >
-                      <Send className="h-5 w-5 mr-2" />
-                      {sending ? "Sending..." : "Send Message"}
-                    </Button>
+                      <Button
+                        className="w-full bg-blue-600 hover:bg-blue-700"
+                        size="lg"
+                        type="submit"
+                        disabled={sending}
+                      >
+                        <Send className="h-5 w-5 mr-2" />
+                        {sending ? "Sending..." : "Send Message"}
+                      </Button>
+                    </motion.div>
+
                     {sent && (
                       <div className="text-green-600 mt-2">
                         Message sent successfully!
