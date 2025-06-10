@@ -11,213 +11,129 @@ import { useRouter } from "next/navigation";
 
 const franceCities = [
   {
-    name: "Paris",
+    name: "Dubrovnik",
     description:
-      "The city of lights, known for its iconic Eiffel Tower, art museums, and romantic ambiance.",
+      "A stunning coastal city known as the 'Pearl of the Adriatic', famous for its medieval walls and scenic views.",
     image: "/placeholder.svg?height=300&width=400",
-    rating: 4.8,
-    duration: "3-4 days",
-    category: "Cultural Capital",
-    highlights: [
-      "eiffel tower",
-      "louvre museum",
-      "notre-dame cathedral",
-      "montmartre",
-    ],
+    rating: 4.9,
+    duration: "2-3 days",
+    category: "Historic Coastal City",
+    highlights: ["city walls", "old town", "lokrum island", "rector's palace"],
   },
   {
-    name: "Bordeaux",
+    name: "Zagreb",
     description:
-      "Famous for its wine, Bordeaux offers stunning architecture and a vibrant cultural scene.",
+      "The capital of Croatia, offering a mix of 18th-century Austro-Hungarian architecture, lively squares, and rich museums.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.7,
     duration: "2-3 days",
-    category: "Wine Region",
+    category: "Cultural Capital",
     highlights: [
-      "place de la bourse",
-      "cité du vin",
-      "bordeaux cathedral",
-      "pont de pierre",
+      "ban jelačić square",
+      "zagreb cathedral",
+      "museum of broken relationships",
+      "maksimir park",
     ],
   },
   {
-    name: "Lyon",
+    name: "Split",
     description:
-      "Known for its historical and architectural landmarks, Lyon is a UNESCO World Heritage Site.",
+      "A bustling port city built around the Roman Emperor Diocletian’s Palace, blending ancient history with beach life.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.8,
+    duration: "2-3 days",
+    category: "Historic Port City",
+    highlights: [
+      "diocletian's palace",
+      "riva promenade",
+      "marjan hill",
+      "cathedral of st. domnius",
+    ],
+  },
+  {
+    name: "Zadar",
+    description:
+      "A seaside city with Roman and Venetian ruins, known for its Sea Organ and unique sunset views.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.6,
-    duration: "2-3 days",
-    category: "Historical City",
+    duration: "1-2 days",
+    category: "Cultural Coastline",
     highlights: [
-      "basilica of notre-dame de fourvière",
-      "old lyon",
-      "traboules",
-      "lyon cathedral",
+      "sea organ",
+      "greetings to the sun",
+      "roman forum",
+      "st. donatus church",
     ],
   },
   {
-    name: "Nice",
+    name: "Rovinj",
     description:
-      "A beautiful coastal city on the French Riviera, known for its beaches and vibrant nightlife.",
+      "A picturesque town on the Istrian Peninsula, known for its Venetian old town, colorful harbor, and art galleries.",
     image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "Coastal City",
+    rating: 4.7,
+    duration: "1-2 days",
+    category: "Romantic Escape",
     highlights: [
-      "promenade des anglais",
-      "castle hill",
-      "matisse museum",
       "old town",
+      "st. euphemia's basilica",
+      "rovinj harbor",
+      "batana eco-museum",
     ],
   },
   {
-    name: "Marseille",
+    name: "Pula",
     description:
-      "A port city in southern France, known for its maritime heritage and multicultural atmosphere.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.4,
-    duration: "2-3 days",
-    category: "Port City",
-    highlights: [
-      "old port",
-      "notre-dame de la garde",
-      "calanques national park",
-      "mucem",
-    ],
-  },
-  {
-    name: "Strasbourg",
-    description:
-      "A city with a unique blend of French and German cultures, known for its medieval architecture.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.6,
-    duration: "2-3 days",
-    category: "Cultural City",
-    highlights: [
-      "strasbourg cathedral",
-      "petite france",
-      "european parliament",
-      "palais rohan",
-    ],
-  },
-  {
-    name: "Toulouse",
-    description:
-      "Known as the 'Pink City' due to its terracotta buildings, Toulouse is a hub for aerospace industry.",
+      "A coastal city in Istria best known for its remarkably preserved Roman amphitheater and ancient ruins.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.5,
-    duration: "2-3 days",
-    category: "Industrial City",
+    duration: "1-2 days",
+    category: "Ancient City",
     highlights: [
-      "capitole de toulouse",
-      "basilica of saint-sernin",
-      "cité de l'espace",
-      "pont neuf",
+      "pula arena",
+      "temple of augustus",
+      "arch of the sergii",
+      "kastel fortress",
     ],
-  },
-  {
-    name: "Lille",
-    description:
-      "A vibrant city with a rich history, known for its beautiful architecture and lively cultural scene.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.4,
-    duration: "2-3 days",
-    category: "Cultural City",
-    highlights: [
-      "grand place",
-      "palais des beaux-arts",
-      "old stock exchange",
-      "lille citadel",
-    ],
-  },
-  {
-    name: "Nantes",
-    description:
-      "A city with a rich maritime history, known for its innovative art installations and green spaces.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "Artistic City",
-    highlights: [
-      "machines of the isle of nantes",
-      "château des ducs de bretagne",
-      "jardin des plantes",
-      "passage pommeraye",
-    ],
-  },
-  {
-    name: "Montpellier",
-    description:
-      "A vibrant city with a mix of medieval and modern architecture, known for its lively student population.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "University City",
-    highlights: [
-      "place de la comédie",
-      "fabre museum",
-      "saint-pierre cathedral",
-      "montpellier zoo",
-    ],
-  },
-  {
-    name: "Dijon",
-    description:
-      "Famous for its mustard, Dijon is a city with a rich history and beautiful medieval architecture.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.4,
-    duration: "2-3 days",
-    category: "Gastronomic City",
-    highlights: [
-      "palace of the dukes",
-      "dijon cathedral",
-      "musée des beaux-arts",
-      "rue des forges",
-    ],
-  },
-  {
-    name: "French Alps",
-    description:
-      "A stunning mountain range offering breathtaking views and a variety of outdoor activities.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.9,
-    duration: "3-5 days",
-    category: "Mountain Region",
-    highlights: ["mont blanc", "chamonix", "annecy", "megeve"],
   },
 ];
 
 const parisAttractions = [
   {
-    name: "Eiffel Tower",
-    description: "Iconic iron lattice tower and symbol of Paris",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Dubrovnik City Walls",
+    description:
+      "Iconic medieval walls surrounding the Old Town of Dubrovnik, offering panoramic sea views",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Louvre Museum",
-    description: "World's largest art museum and home to the Mona Lisa",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Diocletian’s Palace",
+    description:
+      "A massive Roman palace complex in Split, forming the city's historic center",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Mont Saint-Michel",
-    description: "Stunning island commune with a medieval abbey off the Normandy coast",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Plitvice Lakes National Park",
+    description:
+      "UNESCO-listed park famous for its cascading lakes, turquoise waters, and scenic hiking trails",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Palace of Versailles",
-    description: "Lavish royal palace known for its gardens and Hall of Mirrors",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Pula Arena",
+    description:
+      "A remarkably preserved Roman amphitheater in Pula, still used for concerts and events",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Château de Chambord",
-    description: "Renaissance castle in the Loire Valley, famous for its distinctive French architecture",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Sea Organ",
+    description:
+      "Architectural sound art in Zadar that creates music from sea waves and wind",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "French Riviera (Côte d'Azur)",
-    description: "Glamorous Mediterranean coastline known for beaches, resorts, and festivals",
-    image: "/placeholder.svg?height=300&width=400"
-  }
+    name: "St. Mark’s Church",
+    description:
+      "Colorful tiled-roof church in Zagreb known for its unique coat of arms and Gothic architecture",
+    image: "/placeholder.svg?height=300&width=400",
+  },
 ];
 
 export default function ParisPage() {
@@ -252,9 +168,9 @@ export default function ParisPage() {
               <MapPin className="h-8 w-8 mr-3" />
               <span className="text-xl">Europe</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">France</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">Croatia</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              France awaits with its breathtaking landmarks, world-class
+              Croatia awaits with its breathtaking landmarks, world-class
               museums, and enchanting atmosphere.
             </p>
 
@@ -283,7 +199,7 @@ export default function ParisPage() {
               size="lg"
               className="bg-white text-blue-600 hover:bg-gray-100 mt-6"
             >
-              Book France Tour
+              Book Croatia Tour
             </Button>
           </motion.div>
         </div>
@@ -299,11 +215,11 @@ export default function ParisPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Cities in France
+              Cities in Croatia
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore the most iconic landmarks and hidden gems that make France
-              a top destination for travelers worldwide.
+              Explore the most iconic landmarks and hidden gems that make
+              Croatia a top destination for travelers worldwide.
             </p>
           </motion.div>
 
@@ -389,11 +305,12 @@ export default function ParisPage() {
           >
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Explore France?
+                Ready to Explore Croatia?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your France adventure today and experience the magic of the
-                destination with breathtaking landmarks and world-class museum
+                Book your Croatia adventure today and experience the magic of
+                the destination with breathtaking landmarks and world-class
+                museum
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -402,7 +319,7 @@ export default function ParisPage() {
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-gray-100"
                 >
-                  Book France Tour
+                  Book Croatia Tour
                 </Button>
                 {/* <Button
                   variant="outline"
@@ -424,7 +341,7 @@ export default function ParisPage() {
             className="text-center mb-9 mt-14"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Tourist Attractions in France
+              Tourist Attractions in Croatia
             </h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
@@ -471,11 +388,12 @@ export default function ParisPage() {
           >
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Explore France?
+                Ready to Explore Croatia?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your France adventure today and experience the magic of the
-                destination with breathtaking landmarks and world-class museum
+                Book your Croatia adventure today and experience the magic of
+                the destination with breathtaking landmarks and world-class
+                museum
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -484,7 +402,7 @@ export default function ParisPage() {
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-gray-100"
                 >
-                  Book France Tour
+                  Book Croatia Tour
                 </Button>
                 {/* <Button
                   variant="outline"
