@@ -310,10 +310,10 @@ export default function ParisPage() {
           >
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Explore Croatia?
+                Ready to Explore Austria?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your Croatia adventure today and experience the magic of
+                Book your Austria adventure today and experience the magic of
                 the destination with breathtaking landmarks and world-class
                 museum
               </p>
@@ -324,7 +324,7 @@ export default function ParisPage() {
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-gray-100"
                 >
-                  Book Croatia Tour
+                  Book Austria Tour
                 </Button>
                 {/* <Button
                   variant="outline"
@@ -346,7 +346,7 @@ export default function ParisPage() {
             className="text-center mb-9 mt-14"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Tourist Attractions in Croatia
+              Tourist Attractions in Austria
             </h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
@@ -393,10 +393,10 @@ export default function ParisPage() {
           >
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Explore Croatia?
+                Ready to Explore Austria?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your Croatia adventure today and experience the magic of
+                Book your Austria adventure today and experience the magic of
                 the destination with breathtaking landmarks and world-class
                 museum
               </p>
@@ -407,7 +407,7 @@ export default function ParisPage() {
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-gray-100"
                 >
-                  Book Croatia Tour
+                  Book Austria Tour
                 </Button>
                 {/* <Button
                   variant="outline"
