@@ -175,8 +175,8 @@ export default function ParisPage() {
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Malta</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              France awaits with its breathtaking landmarks, world-class
-              museums, and enchanting atmosphere.
+              Malta awaits with its ancient wonders, crystal-clear waters, and
+              captivating Mediterranean charm.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -204,7 +204,7 @@ export default function ParisPage() {
               size="lg"
               className="bg-white text-blue-600 hover:bg-gray-100 mt-6"
             >
-              Book France Tour
+              Book Malta Tour
             </Button>
           </motion.div>
         </div>
@@ -220,10 +220,10 @@ export default function ParisPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Cities in France
+              Cities in Malta
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore the most iconic landmarks and hidden gems that make France
+              Explore the most iconic landmarks and hidden gems that make Malta
               a top destination for travelers worldwide.
             </p>
           </motion.div>
@@ -310,11 +310,11 @@ export default function ParisPage() {
           >
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Explore France?
+                Ready to Explore Malta?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your France adventure today and experience the magic of the
-                destination with breathtaking landmarks and world-class museum
+                Book your Malta adventure today and experience the magic of the
+                islands with historic landmarks and stunning coastal beauty.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -323,7 +323,7 @@ export default function ParisPage() {
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-gray-100"
                 >
-                  Book France Tour
+                  Book Malta Tour
                 </Button>
                 {/* <Button
                   variant="outline"
@@ -345,7 +345,7 @@ export default function ParisPage() {
             className="text-center mb-9 mt-14"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Tourist Attractions in France
+              Tourist Attractions in Malta
             </h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
@@ -392,11 +392,11 @@ export default function ParisPage() {
           >
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Explore France?
+                Ready to Explore Malta?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your France adventure today and experience the magic of the
-                destination with breathtaking landmarks and world-class museum
+                Book your Malta adventure today and experience the magic of the
+                islands with historic landmarks and stunning coastal beauty.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -405,7 +405,7 @@ export default function ParisPage() {
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-gray-100"
                 >
-                  Book France Tour
+                  Book Malta Tour
                 </Button>
                 {/* <Button
                   variant="outline"
