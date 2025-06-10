@@ -1,13 +1,21 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Clock, Send, MessageCircle, Globe } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import Navigation from "@/components/navigation"
-import Footer from "@/components/footer"
+import { motion } from "framer-motion";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  Send,
+  MessageCircle,
+  Globe,
+} from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import Navigation from "@/components/navigation";
+import Footer from "@/components/footer";
 
 export default function ContactPage() {
   return (
@@ -23,10 +31,12 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Get in Touch</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              Get in Touch
+            </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Ready to start your adventure? Contact our travel experts to plan your perfect journey across Europe and
-              Asia
+              Ready to start your adventure? Contact our travel experts to plan
+              your perfect journey across Europe and Asia
             </p>
           </motion.div>
         </div>
@@ -36,43 +46,57 @@ export default function ContactPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-
- {/* Contact Form */}
- <motion.div
+            {/* Contact Form */}
+            <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
               <Card className="shadow-xl border-0">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-gray-900">Send us a Message</CardTitle>
-                  <p className="text-gray-600">Fill out the form below and we'll get back to you within 24 hours.</p>
+                  <CardTitle className="text-2xl text-gray-900">
+                    Send us a Message
+                  </CardTitle>
+                  <p className="text-gray-600">
+                    Fill out the form below and we'll get back to you within 24
+                    hours.
+                  </p>
                 </CardHeader>
                 <CardContent>
                   <form className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          First Name *
+                        </label>
                         <Input placeholder="" required />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Last Name *
+                        </label>
                         <Input placeholder="" required />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Email Address *
+                      </label>
                       <Input type="email" placeholder="" required />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Phone Number
+                      </label>
                       <Input type="tel" placeholder="+1 (555) 123-4567" />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Travel Interest *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Travel Interest *
+                      </label>
                       <select
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         required
@@ -88,15 +112,19 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Travel Date</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Preferred Travel Date
+                      </label>
                       <div className="grid grid-cols-2 gap-4">
-                        <Input type="date"  />
+                        <Input type="date" />
                         {/* <Input type="date" /> */}
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Budget Range</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Budget Range
+                      </label>
                       <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                         <option value="">Select budget range</option>
                         <option value="1000-2500">$1,000 - $2,500</option>
@@ -107,7 +135,9 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Message *
+                      </label>
                       <Textarea
                         placeholder="Tell us about your dream vacation, special requirements, or any questions you have..."
                         rows={4}
@@ -116,14 +146,28 @@ export default function ContactPage() {
                     </div>
 
                     <div className="flex items-center space-x-2">
-                      <input type="checkbox" id="newsletter" className="rounded" />
-                      <label htmlFor="newsletter" className="text-sm text-gray-600">
-                        Subscribe to our newsletter for travel tips and exclusive offers
+                      <input
+                        type="checkbox"
+                        id="newsletter"
+                        className="rounded"
+                      />
+                      <label
+                        htmlFor="newsletter"
+                        className="text-sm text-gray-600"
+                      >
+                        Subscribe to our newsletter for travel tips and
+                        exclusive offers
                       </label>
                     </div>
 
-                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      <Button className="w-full bg-blue-600 hover:bg-blue-700" size="lg">
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Button
+                        className="w-full bg-blue-600 hover:bg-blue-700"
+                        size="lg"
+                      >
                         <Send className="h-5 w-5 mr-2" />
                         Send Message
                       </Button>
@@ -141,7 +185,9 @@ export default function ContactPage() {
               className="space-y-8"
             >
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                  Contact Information
+                </h3>
                 <div className="space-y-6">
                   <motion.div
                     whileHover={{ scale: 1.02 }}
@@ -154,7 +200,9 @@ export default function ContactPage() {
                       <h4 className="font-semibold text-gray-900">Phone</h4>
                       <p className="text-gray-600">+1 (555) 123-4567</p>
                       <p className="text-gray-600">+1 (555) 987-6543</p>
-                      <p className="text-sm text-gray-500 mt-1">Available 9 AM - 6 PM EST</p>
+                      <p className="text-sm text-gray-500 mt-1">
+                        Available 9 AM - 6 PM EST
+                      </p>
                     </div>
                   </motion.div>
 
@@ -169,7 +217,9 @@ export default function ContactPage() {
                       <h4 className="font-semibold text-gray-900">Email</h4>
                       <p className="text-gray-600">info@swifttours.com</p>
                       <p className="text-gray-600">bookings@swifttours.com</p>
-                      <p className="text-sm text-gray-500 mt-1">Response within 24 hours</p>
+                      <p className="text-sm text-gray-500 mt-1">
+                        Response within 24 hours
+                      </p>
                     </div>
                   </motion.div>
 
@@ -184,7 +234,9 @@ export default function ContactPage() {
                       <h4 className="font-semibold text-gray-900">Address</h4>
                       <p className="text-gray-600">123 Travel Street</p>
                       <p className="text-gray-600">Adventure City, AC 12345</p>
-                      <p className="text-sm text-gray-500 mt-1">Visit by appointment</p>
+                      <p className="text-sm text-gray-500 mt-1">
+                        Visit by appointment
+                      </p>
                     </div>
                   </motion.div>
 
@@ -196,9 +248,15 @@ export default function ContactPage() {
                       <Clock className="h-6 w-6 text-blue-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Business Hours</h4>
-                      <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                      <p className="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
+                      <h4 className="font-semibold text-gray-900">
+                        Business Hours
+                      </h4>
+                      <p className="text-gray-600">
+                        Monday - Friday: 9:00 AM - 6:00 PM
+                      </p>
+                      <p className="text-gray-600">
+                        Saturday: 10:00 AM - 4:00 PM
+                      </p>
                       <p className="text-gray-600">Sunday: Closed</p>
                     </div>
                   </motion.div>
@@ -215,8 +273,12 @@ export default function ContactPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-red-700 mb-2">For urgent travel assistance:</p>
-                    <p className="font-semibold text-red-800 text-lg">+1 (555) 911-HELP</p>
+                    <p className="text-red-700 mb-2">
+                      For urgent travel assistance:
+                    </p>
+                    <p className="font-semibold text-red-800 text-lg">
+                      +1 (555) 911-HELP
+                    </p>
                     <p className="text-sm text-red-600 mt-2">
                       Available for travelers currently on Swift Tours packages
                     </p>
@@ -234,19 +296,31 @@ export default function ContactPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-green-700 mb-2">We have local representatives in:</p>
-                    <div className="grid grid-cols-2 gap-2 text-sm text-green-600">
-                      <div>• Paris, France</div>
-                      <div>• Rome, Italy</div>
-                      <div>• Tokyo, Japan</div>
-                      <div>• Bali, Indonesia</div>
+                    <p className="text-green-700 mb-2">
+                      We have local representatives in:
+                    </p>
+                    <div className="grid grid-cols-4 gap-2 text-sm text-green-600">
+                      <div>• France</div>
+                      <div>• Italy</div>
+                      <div>• Portugal</div>
+                      <div>• London</div>
+                      <div>• Greece</div>
+                      <div>• Spain</div>
+                      <div>• Malta</div>
+                      <div>• Sweden</div>
+                      <div>• Croatia</div>
+                      <div>• Austria</div>
+                      <div>• Mongolia</div>
+                      <div>• Japan</div>
+                      <div>• Indonesia</div>
+                      <div>• Maldives</div>
+                      <div>• Bhutan</div>
+                      <div>• South Korea</div>
                     </div>
                   </CardContent>
                 </Card>
               </motion.div>
             </motion.div>
-
-           
           </div>
 
           {/* Map and Additional Info */}
@@ -258,39 +332,50 @@ export default function ContactPage() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Map Placeholder */}
-              <div className="bg-gray-200 rounded-2xl h-64 flex items-center justify-center">
+              {/* <div className="bg-gray-200 rounded-2xl h-64 flex items-center justify-center">
                 <div className="text-center text-gray-600">
                   <MapPin className="h-12 w-12 mx-auto mb-4" />
                   <p className="text-lg font-medium">Interactive Map</p>
                   <p className="text-sm">Find our office location</p>
                 </div>
-              </div>
+              </div> */}
 
               {/* FAQ Section */}
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                  Frequently Asked Questions
+                </h3>
                 <div className="space-y-4">
                   <Card>
                     <CardContent className="p-4">
-                      <h4 className="font-semibold text-gray-900 mb-2">How far in advance should I book?</h4>
+                      <h4 className="font-semibold text-gray-900 mb-2">
+                        How far in advance should I book?
+                      </h4>
                       <p className="text-gray-600 text-sm">
-                        We recommend booking 2-3 months in advance for the best availability and rates.
+                        We recommend booking 2-3 months in advance for the best
+                        availability and rates.
                       </p>
                     </CardContent>
                   </Card>
                   <Card>
                     <CardContent className="p-4">
-                      <h4 className="font-semibold text-gray-900 mb-2">Do you offer travel insurance?</h4>
+                      <h4 className="font-semibold text-gray-900 mb-2">
+                        Do you offer travel insurance?
+                      </h4>
                       <p className="text-gray-600 text-sm">
-                        Yes, we partner with leading insurance providers to offer comprehensive travel protection.
+                        Yes, we partner with leading insurance providers to
+                        offer comprehensive travel protection.
                       </p>
                     </CardContent>
                   </Card>
                   <Card>
                     <CardContent className="p-4">
-                      <h4 className="font-semibold text-gray-900 mb-2">Can you arrange custom itineraries?</h4>
+                      <h4 className="font-semibold text-gray-900 mb-2">
+                        Can you arrange custom itineraries?
+                      </h4>
                       <p className="text-gray-600 text-sm">
-                        We specialize in creating personalized travel experiences tailored to your preferences.
+                        We specialize in creating personalized travel
+                        experiences tailored to your preferences.
                       </p>
                     </CardContent>
                   </Card>
@@ -303,5 +388,5 @@ export default function ContactPage() {
 
       <Footer />
     </div>
-  )
+  );
 }
