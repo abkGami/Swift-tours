@@ -1,5 +1,5 @@
 "use client";
-
+import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
+import { useState } from "react";
 
 export default function ContactPage() {
   const conversionRate = 0.88; // Example: 1 USD = 0.92 EUR
@@ -27,6 +28,94 @@ export default function ContactPage() {
     { value: "5000-10000", min: 400, max: 500 },
     { value: "10000+", min: 500, max: null },
   ];
+
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    interest: "",
+    startDate: "",
+    stopDate: "",
+    budget: "",
+    message: "",
+    newsletter: false,
+  });
+
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  // Handle input changes
+  interface ContactFormState {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    interest: string;
+    startDate: string;
+    stopDate: string;
+    budget: string;
+    message: string;
+    newsletter: boolean;
+  }
+
+  interface HandleChangeEvent
+    extends React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    > {}
+
+  const handleChange = (e: HandleChangeEvent) => {
+    const { name, value, type } = e.target;
+    setForm((prev: ContactFormState) => ({
+      ...prev,
+      [name]:
+        type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
+    }));
+  };
+
+  // Handle form submit
+  interface EmailJSParams {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    interest: string;
+    startDate: string;
+    stopDate: string;
+    budget: string;
+    message: string;
+    newsletter: string;
+    to_email: string;
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSending(true);
+    try {
+      await emailjs.send(
+        "service_nk0x5wv", // replace with your EmailJS service ID
+        "template_5aymgsp", // replace with your EmailJS template ID
+        {
+          firstName: form.firstName,
+          lastName: form.lastName,
+          email: form.email,
+          phone: form.phone,
+          interest: form.interest,
+          startDate: form.startDate,
+          stopDate: form.stopDate,
+          budget: form.budget,
+          message: form.message,
+          newsletter: form.newsletter ? "Yes" : "No",
+          to_email: "yahabubakar2504@gmail.com", // recipient
+        } as Record<string, unknown>,
+        "cSCC009c3HP3O5rHb" // replace with your EmailJS user/public key
+      );
+      setSent(true);
+    } catch (err) {
+      alert("Failed to send message. Please try again.");
+    }
+    setSending(false);
+  };
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
@@ -72,7 +161,7 @@ export default function ContactPage() {
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <form className="space-y-6">
+                  {/* <form className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -140,7 +229,7 @@ export default function ContactPage() {
                       </div>
                     </div>
 
-                    {/* <div>
+                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Budget Range
                       </label>
@@ -151,7 +240,7 @@ export default function ContactPage() {
                         <option value="5000-10000">$400 - $500</option>
                         <option value="10000+">$500+</option>
                       </select>
-                    </div> */}
+                    </div> 
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -216,6 +305,131 @@ export default function ContactPage() {
                         Send Message
                       </Button>
                     </motion.div>
+                  </form> */}
+
+                  <form className="space-y-6" onSubmit={handleSubmit}>
+                    {/* ...other fields... */}
+                    <Input
+                      name="firstName"
+                      value={form.firstName}
+                      onChange={handleChange}
+                      placeholder=""
+                      required
+                    />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          First Name *
+                        </label>
+                        <Input
+                          name="firstName"
+                          value={form.firstName}
+                          onChange={handleChange}
+                          placeholder=""
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Last Name *
+                        </label>
+                        <Input
+                          name="lastName"
+                          value={form.lastName}
+                          onChange={handleChange}
+                          placeholder=""
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Email Address *
+                      </label>
+                      <Input
+                        name="email"
+                        value={form.email}
+                        onChange={handleChange}
+                        type="email"
+                        placeholder=""
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Phone Number
+                      </label>
+                      <Input
+                        name="phone"
+                        value={form.phone}
+                        onChange={handleChange}
+                        type="tel"
+                        placeholder="+1 (555) 123-4567"
+                      />
+                    </div>
+                    {/* Repeat for all other fields, e.g.: */}
+                    {/* <Input name="lastName" value={form.lastName} onChange={handleChange} ... /> */}
+                    {/* <Input name="email" value={form.email} onChange={handleChange} ... /> */}
+                    {/* ... */}
+                    <select
+                      name="budget"
+                      value={form.budget}
+                      onChange={handleChange}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option value="">Select budget range</option>
+                      {budgetOptions.map((opt) => {
+                        const minConverted = Math.round(
+                          opt.min * conversionRate
+                        );
+                        const maxConverted = opt.max
+                          ? Math.round(opt.max * conversionRate)
+                          : null;
+                        const label = maxConverted
+                          ? `(${currencySymbol}${minConverted} - ${currencySymbol}${maxConverted}) $${opt.min} - $${opt.max}`
+                          : `(${currencySymbol}${minConverted}+) $${opt.min}+`;
+                        return (
+                          <option key={opt.value} value={label}>
+                            {label}
+                          </option>
+                        );
+                      })}
+                    </select>
+                    {/* ... */}
+                    <Textarea
+                      name="message"
+                      value={form.message}
+                      onChange={handleChange}
+                      placeholder="Tell us about your dream vacation, special requirements, or any questions you have..."
+                      rows={4}
+                      required
+                    />
+                    {/* ... */}
+                    <input
+                      type="checkbox"
+                      name="newsletter"
+                      checked={form.newsletter}
+                      onChange={handleChange}
+                      id="newsletter"
+                      className="rounded"
+                    />
+                    {/* ... */}
+                    <Button
+                      className="w-full bg-blue-600 hover:bg-blue-700"
+                      size="lg"
+                      type="submit"
+                      disabled={sending}
+                    >
+                      <Send className="h-5 w-5 mr-2" />
+                      {sending ? "Sending..." : "Send Message"}
+                    </Button>
+                    {sent && (
+                      <div className="text-green-600 mt-2">
+                        Message sent successfully!
+                      </div>
+                    )}
                   </form>
                 </CardContent>
               </Card>
