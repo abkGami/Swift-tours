@@ -18,6 +18,15 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 
 export default function ContactPage() {
+  const conversionRate = 0.88; // Example: 1 USD = 0.92 EUR
+  const currencySymbol = "€";
+
+  const budgetOptions = [
+    { value: "1000-2500", min: 100, max: 250 },
+    { value: "2500-5000", min: 250, max: 400 },
+    { value: "5000-10000", min: 400, max: 500 },
+    { value: "10000+", min: 500, max: null },
+  ];
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
@@ -121,16 +130,41 @@ export default function ContactPage() {
                       </div>
                     </div>
 
+                    {/* <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Budget Range
+                      </label>
+                      <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Select budget range</option>
+                        <option value="1000-2500">$100 - $250</option>
+                        <option value="2500-5000">$250 - $400</option>
+                        <option value="5000-10000">$400 - $500</option>
+                        <option value="10000+">$500+</option>
+                      </select>
+                    </div> */}
+
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Budget Range
                       </label>
                       <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                         <option value="">Select budget range</option>
-                        <option value="1000-2500">$1,000 - $2,500</option>
-                        <option value="2500-5000">$2,500 - $5,000</option>
-                        <option value="5000-10000">$5,000 - $10,000</option>
-                        <option value="10000+">$10,000+</option>
+                        {budgetOptions.map((opt) => {
+                          const minConverted = Math.round(
+                            opt.min * conversionRate
+                          );
+                          const maxConverted = opt.max
+                            ? Math.round(opt.max * conversionRate)
+                            : null;
+                          const label = maxConverted
+                            ? `$${opt.min} - $${opt.max}  (${currencySymbol}${minConverted} - ${currencySymbol}${maxConverted}) `
+                            : ` $${opt.min}+  (${currencySymbol}${minConverted}+) `;
+                          return (
+                            <option key={opt.value} value={opt.value}>
+                              {label}
+                            </option>
+                          );
+                        })}
                       </select>
                     </div>
 
