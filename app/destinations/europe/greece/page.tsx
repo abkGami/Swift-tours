@@ -11,173 +11,165 @@ import { useRouter } from "next/navigation";
 
 const franceCities = [
   {
-    name: "Paris",
-    description:
-      "The city of lights, known for its iconic Eiffel Tower, art museums, and romantic ambiance.",
+    name: "Athens",
+    description: "The historic capital of Greece, renowned for the Acropolis, ancient ruins, and vibrant city life.",
     image: "/placeholder.svg?height=300&width=400",
-    rating: 4.8,
+    rating: 4.9,
     duration: "3-4 days",
-    category: "Cultural Capital",
+    category: "Historical Capital",
     highlights: [
-      "eiffel tower",
-      "louvre museum",
-      "notre-dame cathedral",
-      "montmartre",
-    ],
+      "acropolis",
+      "parthenon",
+      "plaka district",
+      "national archaeological museum"
+    ]
   },
   {
-    name: "Bordeaux",
-    description:
-      "Famous for its wine, Bordeaux offers stunning architecture and a vibrant cultural scene.",
+    name: "Thessaloniki",
+    description: "A lively port city famous for its Byzantine walls, vibrant nightlife, and rich culinary traditions.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.7,
     duration: "2-3 days",
-    category: "Wine Region",
-    highlights: [
-      "place de la bourse",
-      "cité du vin",
-      "bordeaux cathedral",
-      "pont de pierre",
-    ],
-  },
-  {
-    name: "Lyon",
-    description:
-      "Known for its historical and architectural landmarks, Lyon is a UNESCO World Heritage Site.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.6,
-    duration: "2-3 days",
-    category: "Historical City",
-    highlights: [
-      "basilica of notre-dame de fourvière",
-      "old lyon",
-      "traboules",
-      "lyon cathedral",
-    ],
-  },
-  {
-    name: "Nice",
-    description:
-      "A beautiful coastal city on the French Riviera, known for its beaches and vibrant nightlife.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "Coastal City",
-    highlights: [
-      "promenade des anglais",
-      "castle hill",
-      "matisse museum",
-      "old town",
-    ],
-  },
-  {
-    name: "Marseille",
-    description:
-      "A port city in southern France, known for its maritime heritage and multicultural atmosphere.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.4,
-    duration: "2-3 days",
-    category: "Port City",
-    highlights: [
-      "old port",
-      "notre-dame de la garde",
-      "calanques national park",
-      "mucem",
-    ],
-  },
-  {
-    name: "Strasbourg",
-    description:
-      "A city with a unique blend of French and German cultures, known for its medieval architecture.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.6,
-    duration: "2-3 days",
     category: "Cultural City",
     highlights: [
-      "strasbourg cathedral",
-      "petite france",
-      "european parliament",
-      "palais rohan",
-    ],
+      "white tower",
+      "aristotelous square",
+      "rotunda",
+      "byzantine walls"
+    ]
   },
   {
-    name: "Toulouse",
-    description:
-      "Known as the 'Pink City' due to its terracotta buildings, Toulouse is a hub for aerospace industry.",
+    name: "Santorini",
+    description: "A stunning island known for its whitewashed houses, blue-domed churches, and breathtaking sunsets.",
     image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "Industrial City",
+    rating: 4.9,
+    duration: "2-4 days",
+    category: "Island Paradise",
     highlights: [
-      "capitole de toulouse",
-      "basilica of saint-sernin",
-      "cité de l'espace",
-      "pont neuf",
-    ],
+      "oia village",
+      "fira town",
+      "red beach",
+      "caldera views"
+    ]
   },
   {
-    name: "Lille",
-    description:
-      "A vibrant city with a rich history, known for its beautiful architecture and lively cultural scene.",
+    name: "Rhodes",
+    description: "An island with medieval charm, famous for its Old Town, beaches, and ancient ruins.",
     image: "/placeholder.svg?height=300&width=400",
-    rating: 4.4,
-    duration: "2-3 days",
-    category: "Cultural City",
+    rating: 4.8,
+    duration: "3-5 days",
+    category: "Medieval Island",
     highlights: [
-      "grand place",
-      "palais des beaux-arts",
-      "old stock exchange",
-      "lille citadel",
-    ],
+      "rhodes old town",
+      "palace of the grand master",
+      "lindos acropolis",
+      "elli beach"
+    ]
   },
   {
-    name: "Nantes",
-    description:
-      "A city with a rich maritime history, known for its innovative art installations and green spaces.",
+    name: "Meteora",
+    description: "A UNESCO World Heritage site known for its dramatic rock formations and cliff-top monasteries.",
     image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "Artistic City",
+    rating: 4.9,
+    duration: "1-2 days",
+    category: "Natural Wonder",
     highlights: [
-      "machines of the isle of nantes",
-      "château des ducs de bretagne",
-      "jardin des plantes",
-      "passage pommeraye",
-    ],
+      "meteora monasteries",
+      "kalambaka town",
+      "rock climbing",
+      "panoramic viewpoints"
+    ]
   },
+  {
+    name: "Mykonos",
+    description: "A cosmopolitan island celebrated for its beaches, nightlife, and iconic windmills.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.7,
+    duration: "2-3 days",
+    category: "Party Island",
+    highlights: [
+      "little venice",
+      "paradise beach",
+      "mykonos windmills",
+      "delos island"
+    ]
+  },
+  {
+    name: "Olympia",
+    description: "The birthplace of the Olympic Games, featuring ancient ruins and a rich archaeological museum.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.6,
+    duration: "1-2 days",
+    category: "Ancient Site",
+    highlights: [
+      "archaeological site of olympia",
+      "temple of zeus",
+      "archaeological museum",
+      "stadium"
+    ]
+  },
+  {
+    name: "Milos",
+    description: "A volcanic island known for its unique beaches, colorful villages, and crystal-clear waters.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.8,
+    duration: "2-3 days",
+    category: "Island Gem",
+    highlights: [
+      "sarakiniko beach",
+      "klima village",
+      "kleftiko caves",
+      "plaka"
+    ]
+  },
+  {
+    name: "Peloponnese",
+    description: "A diverse region offering ancient sites, beautiful coastlines, and traditional villages.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.7,
+    duration: "4-6 days",
+    category: "Historic Region",
+    highlights: [
+      "ancient corinth",
+      "nafplio",
+      "mycenae",
+      "epidaurus"
+    ]
+  }
 ];
 
 const parisAttractions = [
   {
-    name: "Eiffel Tower",
-    description: "Iconic iron lattice tower and symbol of Paris",
+    name: "Acropolis of Athens",
+    description: "Ancient citadel on a rocky hilltop featuring the Parthenon and other classical ruins",
     image: "/placeholder.svg?height=300&width=400"
   },
   {
-    name: "Louvre Museum",
-    description: "World's largest art museum and home to the Mona Lisa",
+    name: "Santorini",
+    description: "Scenic island known for whitewashed buildings, blue-domed churches, and sunset views",
     image: "/placeholder.svg?height=300&width=400"
   },
   {
-    name: "Mont Saint-Michel",
-    description: "Stunning island commune with a medieval abbey off the Normandy coast",
+    name: "Delphi",
+    description: "Historic sanctuary once home to the oracle of Apollo in ancient Greece",
     image: "/placeholder.svg?height=300&width=400"
   },
   {
-    name: "Palace of Versailles",
-    description: "Lavish royal palace known for its gardens and Hall of Mirrors",
+    name: "Meteora Monasteries",
+    description: "Impressive rock formations with centuries-old monasteries perched on top",
     image: "/placeholder.svg?height=300&width=400"
   },
   {
-    name: "Château de Chambord",
-    description: "Renaissance castle in the Loire Valley, famous for its distinctive French architecture",
+    name: "Mykonos",
+    description: "Popular island with sandy beaches, vibrant nightlife, and iconic windmills",
     image: "/placeholder.svg?height=300&width=400"
   },
   {
-    name: "French Riviera (Côte d'Azur)",
-    description: "Glamorous Mediterranean coastline known for beaches, resorts, and festivals",
+    name: "Palace of Knossos",
+    description: "Minoan archaeological site on Crete, believed to be Europe's oldest city",
     image: "/placeholder.svg?height=300&width=400"
   }
+  
 ];
 
 export default function ParisPage() {
@@ -212,10 +204,9 @@ export default function ParisPage() {
               <MapPin className="h-8 w-8 mr-3" />
               <span className="text-xl">Europe</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">France</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">Greece</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              France awaits with its breathtaking landmarks, world-class
-              museums, and enchanting atmosphere.
+            Greece awaits with its ancient wonders, sun-soaked islands, and captivating history.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -243,7 +234,7 @@ export default function ParisPage() {
               size="lg"
               className="bg-white text-blue-600 hover:bg-gray-100 mt-6"
             >
-              Book France Tour
+              Book Greece Tour
             </Button>
           </motion.div>
         </div>
@@ -259,10 +250,10 @@ export default function ParisPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Cities in France
+              Cities in Greece
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore the most iconic landmarks and hidden gems that make France
+              Explore the most iconic landmarks and hidden gems that make Greece
               a top destination for travelers worldwide.
             </p>
           </motion.div>
@@ -349,11 +340,10 @@ export default function ParisPage() {
           >
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Explore France?
+                Ready to Explore Greece?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your France adventure today and experience the magic of the
-                destination with breathtaking landmarks and world-class museum
+              Book your Greece adventure today and experience the magic of this timeless land with ancient landmarks and sun-drenched beauty.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -362,7 +352,7 @@ export default function ParisPage() {
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-gray-100"
                 >
-                  Book France Tour
+                  Book Greece Tour
                 </Button>
                 {/* <Button
                   variant="outline"
@@ -384,7 +374,7 @@ export default function ParisPage() {
             className="text-center mb-9 mt-14"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Tourist Attractions in France
+              Tourist Attractions in Greece
             </h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
@@ -431,11 +421,11 @@ export default function ParisPage() {
           >
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Explore France?
+                Ready to Explore Greece?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your France adventure today and experience the magic of the
-                destination with breathtaking landmarks and world-class museum
+              Book your Greece adventure today and experience the magic of this timeless land with ancient landmarks and sun-drenched beauty.
+
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -444,7 +434,7 @@ export default function ParisPage() {
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-gray-100"
                 >
-                  Book France Tour
+                  Book Greece Tour
                 </Button>
                 {/* <Button
                   variant="outline"

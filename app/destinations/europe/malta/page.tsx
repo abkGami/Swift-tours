@@ -11,213 +11,134 @@ import { useRouter } from "next/navigation";
 
 const franceCities = [
   {
-    name: "Paris",
+    name: "Valletta",
     description:
-      "The city of lights, known for its iconic Eiffel Tower, art museums, and romantic ambiance.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.8,
-    duration: "3-4 days",
-    category: "Cultural Capital",
-    highlights: [
-      "eiffel tower",
-      "louvre museum",
-      "notre-dame cathedral",
-      "montmartre",
-    ],
-  },
-  {
-    name: "Bordeaux",
-    description:
-      "Famous for its wine, Bordeaux offers stunning architecture and a vibrant cultural scene.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.7,
-    duration: "2-3 days",
-    category: "Wine Region",
-    highlights: [
-      "place de la bourse",
-      "cité du vin",
-      "bordeaux cathedral",
-      "pont de pierre",
-    ],
-  },
-  {
-    name: "Lyon",
-    description:
-      "Known for its historical and architectural landmarks, Lyon is a UNESCO World Heritage Site.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.6,
-    duration: "2-3 days",
-    category: "Historical City",
-    highlights: [
-      "basilica of notre-dame de fourvière",
-      "old lyon",
-      "traboules",
-      "lyon cathedral",
-    ],
-  },
-  {
-    name: "Nice",
-    description:
-      "A beautiful coastal city on the French Riviera, known for its beaches and vibrant nightlife.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "Coastal City",
-    highlights: [
-      "promenade des anglais",
-      "castle hill",
-      "matisse museum",
-      "old town",
-    ],
-  },
-  {
-    name: "Marseille",
-    description:
-      "A port city in southern France, known for its maritime heritage and multicultural atmosphere.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.4,
-    duration: "2-3 days",
-    category: "Port City",
-    highlights: [
-      "old port",
-      "notre-dame de la garde",
-      "calanques national park",
-      "mucem",
-    ],
-  },
-  {
-    name: "Strasbourg",
-    description:
-      "A city with a unique blend of French and German cultures, known for its medieval architecture.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.6,
-    duration: "2-3 days",
-    category: "Cultural City",
-    highlights: [
-      "strasbourg cathedral",
-      "petite france",
-      "european parliament",
-      "palais rohan",
-    ],
-  },
-  {
-    name: "Toulouse",
-    description:
-      "Known as the 'Pink City' due to its terracotta buildings, Toulouse is a hub for aerospace industry.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "Industrial City",
-    highlights: [
-      "capitole de toulouse",
-      "basilica of saint-sernin",
-      "cité de l'espace",
-      "pont neuf",
-    ],
-  },
-  {
-    name: "Lille",
-    description:
-      "A vibrant city with a rich history, known for its beautiful architecture and lively cultural scene.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.4,
-    duration: "2-3 days",
-    category: "Cultural City",
-    highlights: [
-      "grand place",
-      "palais des beaux-arts",
-      "old stock exchange",
-      "lille citadel",
-    ],
-  },
-  {
-    name: "Nantes",
-    description:
-      "A city with a rich maritime history, known for its innovative art installations and green spaces.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "Artistic City",
-    highlights: [
-      "machines of the isle of nantes",
-      "château des ducs de bretagne",
-      "jardin des plantes",
-      "passage pommeraye",
-    ],
-  },
-  {
-    name: "Montpellier",
-    description:
-      "A vibrant city with a mix of medieval and modern architecture, known for its lively student population.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "University City",
-    highlights: [
-      "place de la comédie",
-      "fabre museum",
-      "saint-pierre cathedral",
-      "montpellier zoo",
-    ],
-  },
-  {
-    name: "Dijon",
-    description:
-      "Famous for its mustard, Dijon is a city with a rich history and beautiful medieval architecture.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.4,
-    duration: "2-3 days",
-    category: "Gastronomic City",
-    highlights: [
-      "palace of the dukes",
-      "dijon cathedral",
-      "musée des beaux-arts",
-      "rue des forges",
-    ],
-  },
-  {
-    name: "French Alps",
-    description:
-      "A stunning mountain range offering breathtaking views and a variety of outdoor activities.",
+      "The capital of Malta, a UNESCO World Heritage Site filled with Baroque architecture, historic forts, and grand cathedrals.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.9,
-    duration: "3-5 days",
-    category: "Mountain Region",
-    highlights: ["mont blanc", "chamonix", "annecy", "megeve"],
+    duration: "2-3 days",
+    category: "Historic Capital",
+    highlights: [
+      "st. john's co-cathedral",
+      "upper barrakka gardens",
+      "grand harbour",
+      "national war museum",
+    ],
+  },
+  {
+    name: "Mdina",
+    description:
+      "A fortified medieval city known as the 'Silent City', offering narrow alleys, stunning views, and timeless charm.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.7,
+    duration: "1-2 days",
+    category: "Medieval Town",
+    highlights: [
+      "mdina gate",
+      "st. paul’s cathedral",
+      "palazzo falson",
+      "city walls",
+    ],
+  },
+  {
+    name: "Sliema",
+    description:
+      "A bustling seaside town known for shopping, dining, and a lively promenade with views of Valletta.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.5,
+    duration: "1-2 days",
+    category: "Modern Coastal City",
+    highlights: [
+      "the strand promenade",
+      "tigné point",
+      "sliema ferries",
+      "coastal walks",
+    ],
+  },
+  {
+    name: "St. Julian's",
+    description:
+      "A vibrant coastal town famous for nightlife, luxury hotels, and picturesque bays.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.6,
+    duration: "1-2 days",
+    category: "Entertainment Hub",
+    highlights: [
+      "paceville nightlife",
+      "spinola bay",
+      "portomaso marina",
+      "balluta bay",
+    ],
+  },
+  {
+    name: "Rabat",
+    description:
+      "Adjacent to Mdina, Rabat is known for its catacombs, ancient churches, and Roman heritage.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.4,
+    duration: "1 day",
+    category: "Historical Village",
+    highlights: [
+      "st. paul’s catacombs",
+      "domus romana",
+      "st. agatha's crypt",
+      "howard gardens",
+    ],
+  },
+  {
+    name: "Marsaxlokk",
+    description:
+      "A traditional fishing village famous for colorful boats, Sunday markets, and fresh seafood.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.5,
+    duration: "Half-day to 1 day",
+    category: "Seaside Village",
+    highlights: [
+      "luzzu fishing boats",
+      "sunday fish market",
+      "st. peter’s pool",
+      "waterfront dining",
+    ],
   },
 ];
 
 const parisAttractions = [
   {
-    name: "Eiffel Tower",
-    description: "Iconic iron lattice tower and symbol of Paris",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "St. John's Co-Cathedral",
+    description:
+      "A stunning Baroque cathedral in Valletta, adorned with gold and Caravaggio's masterpieces",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Louvre Museum",
-    description: "World's largest art museum and home to the Mona Lisa",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Blue Lagoon",
+    description:
+      "A crystal-clear turquoise bay on Comino Island, perfect for swimming and snorkeling",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Mont Saint-Michel",
-    description: "Stunning island commune with a medieval abbey off the Normandy coast",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Mdina",
+    description:
+      "A medieval walled city known as the 'Silent City', filled with narrow streets and historic charm",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Palace of Versailles",
-    description: "Lavish royal palace known for its gardens and Hall of Mirrors",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Ħal Saflieni Hypogeum",
+    description:
+      "A prehistoric underground burial site dating back over 5,000 years, a UNESCO World Heritage Site",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Château de Chambord",
-    description: "Renaissance castle in the Loire Valley, famous for its distinctive French architecture",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Upper Barrakka Gardens",
+    description:
+      "A beautiful public garden in Valletta offering panoramic views of the Grand Harbour",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "French Riviera (Côte d'Azur)",
-    description: "Glamorous Mediterranean coastline known for beaches, resorts, and festivals",
-    image: "/placeholder.svg?height=300&width=400"
-  }
+    name: "Marsaxlokk Fishing Village",
+    description:
+      "A traditional village known for colorful boats, seafood markets, and a relaxed seaside vibe",
+    image: "/placeholder.svg?height=300&width=400",
+  },
 ];
 
 export default function ParisPage() {
@@ -252,7 +173,7 @@ export default function ParisPage() {
               <MapPin className="h-8 w-8 mr-3" />
               <span className="text-xl">Europe</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">France</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">Malta</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
               France awaits with its breathtaking landmarks, world-class
               museums, and enchanting atmosphere.
