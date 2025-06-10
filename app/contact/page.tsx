@@ -125,8 +125,18 @@ export default function ContactPage() {
                         Preferred Travel Date
                       </label>
                       <div className="grid grid-cols-2 gap-4">
-                        <Input type="date" />
-                        {/* <Input type="date" /> */}
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Start Date
+                          </label>
+                          <Input type="date" required />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Stop Date
+                          </label>
+                          <Input type="date" required />
+                        </div>
                       </div>
                     </div>
 
