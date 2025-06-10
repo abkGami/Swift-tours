@@ -11,213 +11,134 @@ import { useRouter } from "next/navigation";
 
 const franceCities = [
   {
-    name: "Paris",
+    name: "Stockholm",
     description:
-      "The city of lights, known for its iconic Eiffel Tower, art museums, and romantic ambiance.",
+      "Sweden’s capital, spread across 14 islands, known for its royal palaces, historic old town, and modern design.",
     image: "/placeholder.svg?height=300&width=400",
-    rating: 4.8,
+    rating: 4.9,
     duration: "3-4 days",
     category: "Cultural Capital",
     highlights: [
-      "eiffel tower",
-      "louvre museum",
-      "notre-dame cathedral",
-      "montmartre",
+      "gamla stan (old town)",
+      "vasa museum",
+      "royal palace",
+      "abba museum",
     ],
   },
   {
-    name: "Bordeaux",
+    name: "Gothenburg",
     description:
-      "Famous for its wine, Bordeaux offers stunning architecture and a vibrant cultural scene.",
+      "A lively port city on the west coast, famous for its canals, seafood, and relaxed atmosphere.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.7,
     duration: "2-3 days",
-    category: "Wine Region",
+    category: "Coastal Charm",
     highlights: [
-      "place de la bourse",
-      "cité du vin",
-      "bordeaux cathedral",
-      "pont de pierre",
+      "liseberg amusement park",
+      "universeum",
+      "haga district",
+      "gothenburg archipelago",
     ],
   },
   {
-    name: "Lyon",
+    name: "Malmö",
     description:
-      "Known for its historical and architectural landmarks, Lyon is a UNESCO World Heritage Site.",
+      "A multicultural city in southern Sweden, connected to Denmark via the Øresund Bridge and known for its modern architecture.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.6,
+    duration: "1-2 days",
+    category: "Modern Hub",
+    highlights: [
+      "turning torso",
+      "malmö castle",
+      "folkets park",
+      "øresund bridge",
+    ],
+  },
+  {
+    name: "Uppsala",
+    description:
+      "A historic university city north of Stockholm, rich in Viking history and academic legacy.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.5,
+    duration: "1-2 days",
+    category: "Academic City",
+    highlights: [
+      "uppsala cathedral",
+      "uppsala university",
+      "gamla uppsala",
+      "botanical garden",
+    ],
+  },
+  {
+    name: "Visby",
+    description:
+      "A medieval town on the island of Gotland, famous for its well-preserved walls and cobbled streets.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.8,
+    duration: "2 days",
+    category: "Historic Gem",
+    highlights: [
+      "medieval city wall",
+      "visby cathedral",
+      "gotland museum",
+      "almedalen park",
+    ],
+  },
+  {
+    name: "Kiruna",
+    description:
+      "A northern city known for its Arctic scenery, Northern Lights, and Sweden’s famous Icehotel.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.6,
     duration: "2-3 days",
-    category: "Historical City",
+    category: "Winter Wonderland",
     highlights: [
-      "basilica of notre-dame de fourvière",
-      "old lyon",
-      "traboules",
-      "lyon cathedral",
+      "icehotel",
+      "aurora viewing",
+      "kiruna church",
+      "abisko national park",
     ],
-  },
-  {
-    name: "Nice",
-    description:
-      "A beautiful coastal city on the French Riviera, known for its beaches and vibrant nightlife.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "Coastal City",
-    highlights: [
-      "promenade des anglais",
-      "castle hill",
-      "matisse museum",
-      "old town",
-    ],
-  },
-  {
-    name: "Marseille",
-    description:
-      "A port city in southern France, known for its maritime heritage and multicultural atmosphere.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.4,
-    duration: "2-3 days",
-    category: "Port City",
-    highlights: [
-      "old port",
-      "notre-dame de la garde",
-      "calanques national park",
-      "mucem",
-    ],
-  },
-  {
-    name: "Strasbourg",
-    description:
-      "A city with a unique blend of French and German cultures, known for its medieval architecture.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.6,
-    duration: "2-3 days",
-    category: "Cultural City",
-    highlights: [
-      "strasbourg cathedral",
-      "petite france",
-      "european parliament",
-      "palais rohan",
-    ],
-  },
-  {
-    name: "Toulouse",
-    description:
-      "Known as the 'Pink City' due to its terracotta buildings, Toulouse is a hub for aerospace industry.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "Industrial City",
-    highlights: [
-      "capitole de toulouse",
-      "basilica of saint-sernin",
-      "cité de l'espace",
-      "pont neuf",
-    ],
-  },
-  {
-    name: "Lille",
-    description:
-      "A vibrant city with a rich history, known for its beautiful architecture and lively cultural scene.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.4,
-    duration: "2-3 days",
-    category: "Cultural City",
-    highlights: [
-      "grand place",
-      "palais des beaux-arts",
-      "old stock exchange",
-      "lille citadel",
-    ],
-  },
-  {
-    name: "Nantes",
-    description:
-      "A city with a rich maritime history, known for its innovative art installations and green spaces.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "Artistic City",
-    highlights: [
-      "machines of the isle of nantes",
-      "château des ducs de bretagne",
-      "jardin des plantes",
-      "passage pommeraye",
-    ],
-  },
-  {
-    name: "Montpellier",
-    description:
-      "A vibrant city with a mix of medieval and modern architecture, known for its lively student population.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "University City",
-    highlights: [
-      "place de la comédie",
-      "fabre museum",
-      "saint-pierre cathedral",
-      "montpellier zoo",
-    ],
-  },
-  {
-    name: "Dijon",
-    description:
-      "Famous for its mustard, Dijon is a city with a rich history and beautiful medieval architecture.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.4,
-    duration: "2-3 days",
-    category: "Gastronomic City",
-    highlights: [
-      "palace of the dukes",
-      "dijon cathedral",
-      "musée des beaux-arts",
-      "rue des forges",
-    ],
-  },
-  {
-    name: "French Alps",
-    description:
-      "A stunning mountain range offering breathtaking views and a variety of outdoor activities.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.9,
-    duration: "3-5 days",
-    category: "Mountain Region",
-    highlights: ["mont blanc", "chamonix", "annecy", "megeve"],
   },
 ];
 
 const parisAttractions = [
   {
-    name: "Eiffel Tower",
-    description: "Iconic iron lattice tower and symbol of Paris",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Vasa Museum",
+    description:
+      "Maritime museum in Stockholm featuring a preserved 17th-century warship",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Louvre Museum",
-    description: "World's largest art museum and home to the Mona Lisa",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Gamla Stan",
+    description:
+      "The Old Town of Stockholm, known for its cobbled streets, colorful buildings, and royal history",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Mont Saint-Michel",
-    description: "Stunning island commune with a medieval abbey off the Normandy coast",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Icehotel",
+    description:
+      "A world-famous hotel built entirely of ice and snow in Kiruna, rebuilt each winter",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Palace of Versailles",
-    description: "Lavish royal palace known for its gardens and Hall of Mirrors",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Drottningholm Palace",
+    description:
+      "A UNESCO-listed royal residence on the outskirts of Stockholm with beautiful gardens",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Château de Chambord",
-    description: "Renaissance castle in the Loire Valley, famous for its distinctive French architecture",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Liseberg Amusement Park",
+    description:
+      "Popular amusement park in Gothenburg featuring rides, games, and seasonal events",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "French Riviera (Côte d'Azur)",
-    description: "Glamorous Mediterranean coastline known for beaches, resorts, and festivals",
-    image: "/placeholder.svg?height=300&width=400"
-  }
+    name: "Abisko National Park",
+    description:
+      "Arctic park in northern Sweden ideal for hiking, skiing, and watching the Northern Lights",
+    image: "/placeholder.svg?height=300&width=400",
+  },
 ];
 
 export default function ParisPage() {
@@ -252,9 +173,9 @@ export default function ParisPage() {
               <MapPin className="h-8 w-8 mr-3" />
               <span className="text-xl">Europe</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">France</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">Sweden</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              France awaits with its breathtaking landmarks, world-class
+              Sweden awaits with its breathtaking landmarks, world-class
               museums, and enchanting atmosphere.
             </p>
 
@@ -283,7 +204,7 @@ export default function ParisPage() {
               size="lg"
               className="bg-white text-blue-600 hover:bg-gray-100 mt-6"
             >
-              Book France Tour
+              Book Sweden Tour
             </Button>
           </motion.div>
         </div>
@@ -299,10 +220,10 @@ export default function ParisPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Cities in France
+              Cities in Sweden
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore the most iconic landmarks and hidden gems that make France
+              Explore the most iconic landmarks and hidden gems that make Sweden
               a top destination for travelers worldwide.
             </p>
           </motion.div>
@@ -389,10 +310,10 @@ export default function ParisPage() {
           >
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Explore France?
+                Ready to Explore Sweden?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your France adventure today and experience the magic of the
+                Book your Sweden adventure today and experience the magic of the
                 destination with breathtaking landmarks and world-class museum
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -402,7 +323,7 @@ export default function ParisPage() {
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-gray-100"
                 >
-                  Book France Tour
+                  Book Sweden Tour
                 </Button>
                 {/* <Button
                   variant="outline"
@@ -424,7 +345,7 @@ export default function ParisPage() {
             className="text-center mb-9 mt-14"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Tourist Attractions in France
+              Tourist Attractions in Sweden
             </h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
@@ -471,10 +392,10 @@ export default function ParisPage() {
           >
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Explore France?
+                Ready to Explore Sweden?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your France adventure today and experience the magic of the
+                Book your Sweden adventure today and experience the magic of the
                 destination with breathtaking landmarks and world-class museum
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -484,7 +405,7 @@ export default function ParisPage() {
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-gray-100"
                 >
-                  Book France Tour
+                  Book Sweden Tour
                 </Button>
                 {/* <Button
                   variant="outline"
