@@ -11,213 +11,129 @@ import { useRouter } from "next/navigation";
 
 const franceCities = [
   {
-    name: "Paris",
+    name: "Barcelona",
     description:
-      "The city of lights, known for its iconic Eiffel Tower, art museums, and romantic ambiance.",
+      "A vibrant coastal city known for Gaudí's architecture, sandy beaches, and lively street culture.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.9,
+    duration: "3-4 days",
+    category: "Architectural Marvel",
+    highlights: [
+      "sagrada familia",
+      "park güell",
+      "la rambla",
+      "barceloneta beach",
+    ],
+  },
+  {
+    name: "Madrid",
+    description:
+      "Spain’s capital city, offering world-class art museums, royal landmarks, and energetic nightlife.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.8,
     duration: "3-4 days",
     category: "Cultural Capital",
-    highlights: [
-      "eiffel tower",
-      "louvre museum",
-      "notre-dame cathedral",
-      "montmartre",
-    ],
+    highlights: ["prado museum", "royal palace", "retiro park", "gran vía"],
   },
   {
-    name: "Bordeaux",
+    name: "Seville",
     description:
-      "Famous for its wine, Bordeaux offers stunning architecture and a vibrant cultural scene.",
+      "A historic Andalusian city famed for flamenco dancing, Moorish architecture, and warm climate.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.7,
     duration: "2-3 days",
-    category: "Wine Region",
+    category: "Historical Gem",
     highlights: [
-      "place de la bourse",
-      "cité du vin",
-      "bordeaux cathedral",
-      "pont de pierre",
+      "seville cathedral",
+      "alcázar of seville",
+      "plaza de españa",
+      "flamenco shows",
     ],
   },
   {
-    name: "Lyon",
+    name: "Granada",
     description:
-      "Known for its historical and architectural landmarks, Lyon is a UNESCO World Heritage Site.",
+      "A charming city nestled in the Sierra Nevada, home to the Alhambra and rich in Moorish history.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.7,
+    duration: "2-3 days",
+    category: "Moorish Heritage",
+    highlights: [
+      "alhambra palace",
+      "generalife gardens",
+      "albaicín district",
+      "sacromonte caves",
+    ],
+  },
+  {
+    name: "Valencia",
+    description:
+      "A coastal city blending futuristic architecture with historic charm, known for paella and beaches.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.6,
     duration: "2-3 days",
-    category: "Historical City",
+    category: "Modern Meets Traditional",
     highlights: [
-      "basilica of notre-dame de fourvière",
-      "old lyon",
-      "traboules",
-      "lyon cathedral",
+      "city of arts and sciences",
+      "valencia cathedral",
+      "malvarrosa beach",
+      "central market",
     ],
   },
   {
-    name: "Nice",
+    name: "Bilbao",
     description:
-      "A beautiful coastal city on the French Riviera, known for its beaches and vibrant nightlife.",
+      "A cultural hub in northern Spain, famous for its modern art scene, especially the Guggenheim Museum.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.5,
-    duration: "2-3 days",
-    category: "Coastal City",
+    duration: "1-2 days",
+    category: "Contemporary Culture",
     highlights: [
-      "promenade des anglais",
-      "castle hill",
-      "matisse museum",
-      "old town",
+      "guggenheim museum",
+      "casco viejo",
+      "ribera market",
+      "puppy sculpture",
     ],
-  },
-  {
-    name: "Marseille",
-    description:
-      "A port city in southern France, known for its maritime heritage and multicultural atmosphere.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.4,
-    duration: "2-3 days",
-    category: "Port City",
-    highlights: [
-      "old port",
-      "notre-dame de la garde",
-      "calanques national park",
-      "mucem",
-    ],
-  },
-  {
-    name: "Strasbourg",
-    description:
-      "A city with a unique blend of French and German cultures, known for its medieval architecture.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.6,
-    duration: "2-3 days",
-    category: "Cultural City",
-    highlights: [
-      "strasbourg cathedral",
-      "petite france",
-      "european parliament",
-      "palais rohan",
-    ],
-  },
-  {
-    name: "Toulouse",
-    description:
-      "Known as the 'Pink City' due to its terracotta buildings, Toulouse is a hub for aerospace industry.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "Industrial City",
-    highlights: [
-      "capitole de toulouse",
-      "basilica of saint-sernin",
-      "cité de l'espace",
-      "pont neuf",
-    ],
-  },
-  {
-    name: "Lille",
-    description:
-      "A vibrant city with a rich history, known for its beautiful architecture and lively cultural scene.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.4,
-    duration: "2-3 days",
-    category: "Cultural City",
-    highlights: [
-      "grand place",
-      "palais des beaux-arts",
-      "old stock exchange",
-      "lille citadel",
-    ],
-  },
-  {
-    name: "Nantes",
-    description:
-      "A city with a rich maritime history, known for its innovative art installations and green spaces.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "Artistic City",
-    highlights: [
-      "machines of the isle of nantes",
-      "château des ducs de bretagne",
-      "jardin des plantes",
-      "passage pommeraye",
-    ],
-  },
-  {
-    name: "Montpellier",
-    description:
-      "A vibrant city with a mix of medieval and modern architecture, known for its lively student population.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "2-3 days",
-    category: "University City",
-    highlights: [
-      "place de la comédie",
-      "fabre museum",
-      "saint-pierre cathedral",
-      "montpellier zoo",
-    ],
-  },
-  {
-    name: "Dijon",
-    description:
-      "Famous for its mustard, Dijon is a city with a rich history and beautiful medieval architecture.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.4,
-    duration: "2-3 days",
-    category: "Gastronomic City",
-    highlights: [
-      "palace of the dukes",
-      "dijon cathedral",
-      "musée des beaux-arts",
-      "rue des forges",
-    ],
-  },
-  {
-    name: "French Alps",
-    description:
-      "A stunning mountain range offering breathtaking views and a variety of outdoor activities.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.9,
-    duration: "3-5 days",
-    category: "Mountain Region",
-    highlights: ["mont blanc", "chamonix", "annecy", "megeve"],
   },
 ];
 
 const parisAttractions = [
   {
-    name: "Eiffel Tower",
-    description: "Iconic iron lattice tower and symbol of Paris",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Sagrada Familia",
+    description:
+      "Gaudí's masterpiece basilica in Barcelona, famous for its unique and intricate architecture",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Louvre Museum",
-    description: "World's largest art museum and home to the Mona Lisa",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Alhambra",
+    description:
+      "A stunning Moorish palace and fortress complex overlooking Granada",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Mont Saint-Michel",
-    description: "Stunning island commune with a medieval abbey off the Normandy coast",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Park Güell",
+    description:
+      "A colorful public park in Barcelona designed by Antoni Gaudí, known for its mosaics and architecture",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Palace of Versailles",
-    description: "Lavish royal palace known for its gardens and Hall of Mirrors",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Prado Museum",
+    description:
+      "Spain’s premier art museum in Madrid, housing masterpieces by Goya, Velázquez, and El Greco",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Château de Chambord",
-    description: "Renaissance castle in the Loire Valley, famous for its distinctive French architecture",
-    image: "/placeholder.svg?height=300&width=400"
+    name: "Plaza de España (Seville)",
+    description:
+      "A grand semicircular plaza in Seville featuring bridges, fountains, and tiled alcoves",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "French Riviera (Côte d'Azur)",
-    description: "Glamorous Mediterranean coastline known for beaches, resorts, and festivals",
-    image: "/placeholder.svg?height=300&width=400"
-  }
+    name: "Guggenheim Museum Bilbao",
+    description:
+      "An iconic modern art museum known for its titanium architecture and contemporary exhibitions",
+    image: "/placeholder.svg?height=300&width=400",
+  },
 ];
 
 export default function ParisPage() {
@@ -252,7 +168,7 @@ export default function ParisPage() {
               <MapPin className="h-8 w-8 mr-3" />
               <span className="text-xl">Europe</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">France</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">Spain</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
               France awaits with its breathtaking landmarks, world-class
               museums, and enchanting atmosphere.

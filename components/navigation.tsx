@@ -43,7 +43,7 @@ export default function Navigation() {
             { name: "Malta", href: "/destinations/europe/malta" },
             {
               name: "Spain",
-              href: "/destinations/europe/barcelona",
+              href: "/destinations/europe/spain",
             },
             { name: "Sweden", href: "/destinations/europe/sweden" },
             { name: "Croatia", href: "/destinations/europe/croatia" },
