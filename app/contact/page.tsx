@@ -466,7 +466,7 @@ export default function ContactPage() {
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                       >
                         <option value="">Select budget range</option>
-                        {budgetOptions.map((opt) => {
+                        {/* {budgetOptions.map((opt) => {
                           const minConverted = Math.round(
                             opt.min * conversionRate
                           );
@@ -481,7 +481,12 @@ export default function ContactPage() {
                               {label}
                             </option>
                           );
-                        })}
+                        })} */}
+                        <option value="100-500"> €100 - €500 </option>
+                        <option value="500-1500"> €500 - €1500 </option>
+                        <option value="1500-2500"> €1500 - €2500 </option>
+                        <option value="500-1500"> €2500 - €3500 </option>
+                        <option value="500-1500"> €3500 - €5000 </option>
                       </select>
                     </div>
 
@@ -677,10 +682,10 @@ export default function ContactPage() {
                       <div>• Austria</div>
                       <div>• Mongolia</div>
                       <div>• Japan</div>
-                      <div>• Indonesia</div>
                       <div>• Maldives</div>
                       <div>• Bhutan</div>
-                      <div>• South Korea</div>
+                      <div>• Morocco</div>
+                      <div>• Egypt</div>
                     </div>
                   </CardContent>
                 </Card>
