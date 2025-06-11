@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Star, Clock, Camera, Users, Calendar } from "lucide-react";
+import { MapPin, Star, Clock, Users, Calendar, Mountain } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,140 +9,141 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { useRouter } from "next/navigation";
 
-const franceCities = [
+const mongoliaCities = [
   {
-    name: "Vienna",
+    name: "Ulaanbaatar",
     description:
-      "Austria's elegant capital, famed for its imperial palaces, classical music heritage, and vibrant coffeehouse culture.",
+      "Mongolia's capital and largest city, blending traditional nomadic culture with Soviet-era architecture and modern growth.",
     image: "/placeholder.svg?height=300&width=400",
-    rating: 4.9,
+    rating: 4.5,
     duration: "3-4 days",
     category: "Cultural Capital",
     highlights: [
-      "schönbrunn palace",
-      "st. stephen's cathedral",
-      "belvedere museum",
-      "vienna state opera",
+      "genghis khan square",
+      "gandantegchinlen monastery",
+      "national museum of mongolia",
+      "zaisan memorial",
     ],
   },
   {
-    name: "Salzburg",
+    name: "Erdenet",
     description:
-      "A baroque city nestled by the Alps, known as Mozart’s birthplace and the setting for The Sound of Music.",
+      "A major industrial city in northern Mongolia, known for one of the largest copper mines in the world.",
     image: "/placeholder.svg?height=300&width=400",
-    rating: 4.8,
-    duration: "2-3 days",
-    category: "Musical Heritage",
+    rating: 4.0,
+    duration: "1-2 days",
+    category: "Industrial Hub",
     highlights: [
-      "hohensalzburg fortress",
-      "mirabell palace",
-      "mozart's birthplace",
-      "getreidegasse",
+      "erdenet mining museum",
+      "local handicraft markets",
+      "bulgan province countryside",
+      "cultural center",
     ],
   },
   {
-    name: "Innsbruck",
+    name: "Darkhan",
     description:
-      "A picturesque alpine city popular for skiing, winter sports, and stunning mountain views.",
+      "A planned city built in the 1960s, Darkhan is Mongolia's second-largest industrial center with green surroundings.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.1,
+    duration: "1-2 days",
+    category: "Urban Green",
+    highlights: [
+      "darkhan buddhist center",
+      "selenge river views",
+      "folk museum",
+      "riverside parks",
+    ],
+  },
+  {
+    name: "Kharkhorin",
+    description:
+      "Once the ancient capital of the Mongol Empire, now a quiet town near the famed Erdene Zuu Monastery.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.6,
-    duration: "2-3 days",
-    category: "Alpine Adventure",
-    highlights: [
-      "goldenes dachl (golden roof)",
-      "nordkette cable car",
-      "ambras castle",
-      "olympic ski jump",
-    ],
-  },
-  {
-    name: "Graz",
-    description:
-      "Austria’s second-largest city, known for its blend of Renaissance architecture, modern design, and lively student scene.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
     duration: "1-2 days",
-    category: "Design & Innovation",
+    category: "Historic Capital",
     highlights: [
-      "schlossberg hill",
-      "kunsthaus graz",
-      "historic old town",
-      "eggenberg palace",
+      "erdene zuu monastery",
+      "kharkhorin museum",
+      "orkhon valley",
+      "stone turtles",
     ],
   },
   {
-    name: "Linz",
+    name: "Ölgii",
     description:
-      "A city along the Danube with a vibrant arts and tech scene, combining industrial roots with modern creativity.",
+      "Located in western Mongolia, Ölgii is known for its Kazakh culture, eagle hunting festivals, and rugged mountains.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.4,
+    duration: "2-3 days",
+    category: "Ethnic Heritage",
+    highlights: [
+      "golden eagle festival",
+      "altai tavan bogd national park",
+      "kazakh embroidery markets",
+      "nomadic ger camps",
+    ],
+  },
+  {
+    name: "Choibalsan",
+    description:
+      "A remote city in eastern Mongolia with a mix of Soviet-era charm and access to beautiful steppe landscapes.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 3.9,
     duration: "1-2 days",
-    category: "Creative Hub",
+    category: "Steppe Gateway",
     highlights: [
-      "ars electronica center",
-      "linz castle museum",
-      "hauptplatz",
-      "pöstlingberg tram",
-    ],
-  },
-  {
-    name: "Hallstatt",
-    description:
-      "A postcard-perfect lakeside village known for its charming houses, salt mine, and breathtaking Alpine scenery.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.9,
-    duration: "1 day",
-    category: "Scenic Escape",
-    highlights: [
-      "hallstatt lake",
-      "world heritage viewpoint",
-      "salt mine",
-      "bone house (beinhaus)",
+      "kherlen river walks",
+      "local history museum",
+      "russian architecture",
+      "dornod steppe reserve",
     ],
   },
 ];
 
-const parisAttractions = [
+const mongoliaAttractions = [
   {
-    name: "Schönbrunn Palace",
+    name: "Gorkhi-Terelj National Park",
     description:
-      "A grand baroque palace in Vienna, once the summer residence of the Habsburg monarchs",
+      "A stunning natural reserve near Ulaanbaatar known for its rock formations, hiking trails, and nomadic camps",
     image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Hohensalzburg Fortress",
+    name: "Genghis Khan Equestrian Statue",
     description:
-      "One of Europe’s largest medieval castles, offering panoramic views over Salzburg",
+      "A towering 40-meter statue of Genghis Khan on horseback, symbolizing Mongolia's imperial heritage",
     image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Hallstatt Village",
+    name: "Erdene Zuu Monastery",
     description:
-      "A picturesque lakeside village known for its historic charm and Alpine beauty",
+      "Mongolia’s oldest Buddhist monastery, built on the ruins of the ancient capital Kharkhorin",
     image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Belvedere Palace",
+    name: "Flaming Cliffs (Bayanzag)",
     description:
-      "An elegant baroque complex in Vienna housing a renowned art collection including works by Klimt",
+      "A famous paleontological site in the Gobi Desert where dinosaur fossils were first discovered in the 1920s",
     image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Grossglockner High Alpine Road",
+    name: "Altai Tavan Bogd National Park",
     description:
-      "A scenic mountain road through the Austrian Alps offering stunning views of Grossglockner, Austria’s highest peak",
+      "A remote park in western Mongolia known for snow-capped peaks, glaciers, and the Kazakh eagle hunters",
     image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Melk Abbey",
+    name: "Amarbayasgalant Monastery",
     description:
-      "A magnificent Benedictine abbey overlooking the Danube River, known for its baroque architecture",
+      "A beautifully preserved Buddhist monastery in northern Mongolia, known for its classic architecture and serene setting",
     image: "/placeholder.svg?height=300&width=400",
   },
 ];
 
-export default function ParisPage() {
+export default function MongoliaPage() {
   const router = useRouter();
+
   const handleClick = () => {
     router.push("/contact");
   };
@@ -152,14 +153,14 @@ export default function ParisPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-12 relative overflow-hidden">
+      <section className="pt-24 pb-10 relative overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/placeholder.svg?height=600&width=1200"
-            alt="Paris"
+            alt="Mongolia"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-purple-900/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-green-900/70 to-blue-900/70" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -171,30 +172,30 @@ export default function ParisPage() {
           >
             <div className="flex items-center justify-center mb-4">
               <MapPin className="h-8 w-8 mr-3" />
-              <span className="text-xl">Europe</span>
+              <span className="text-xl">Asia</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Austria</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              Austria awaits with its breathtaking landmarks, world-class
-              museums, and enchanting atmosphere.
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">Mongolia</h1>
+            <p className="text-xl text-green-100 max-w-3xl mx-auto mb-8">
+              Explore the vast landscapes of Mongolia, from the Gobi Desert to
+              the lush mountains and vibrant culture
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               <div className="flex items-center">
                 <Star className="h-5 w-5 text-yellow-400 mr-2" />
-                <span>4.9 Rating</span>
+                <span>4.8 Rating</span>
               </div>
               {/* <div className="flex items-center">
                 <Clock className="h-5 w-5 mr-2" />
-                <span>5-7 Days Recommended</span>
+                <span>8-10 Days Recommended</span>
               </div> */}
               <div className="flex items-center">
                 <Users className="h-5 w-5 mr-2" />
-                <span>Perfect for Couples & Families</span>
+                <span>Perfect for Adventure & Culture</span>
               </div>
               <div className="flex items-center">
                 <Calendar className="h-5 w-5 mr-2" />
-                <span>Year-round Destination</span>
+                <span>Best: June-August</span>
               </div>
             </div>
 
@@ -202,9 +203,9 @@ export default function ParisPage() {
               onClick={handleClick}
               variant="secondary"
               size="lg"
-              className="bg-white text-blue-600 hover:bg-gray-100 mt-6"
+              className="mt-6 bg-white text-green-600 hover:bg-gray-100"
             >
-              Book Austria Tour
+              Book Mongolia Tour
             </Button>
           </motion.div>
         </div>
@@ -220,16 +221,16 @@ export default function ParisPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Cities in Austria
+              Cities in Mongolia
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore the most iconic landmarks and hidden gems that make
-              Austria a top destination for travelers worldwide.
+              Experience the rich culture and stunning landscapes of Mongolia,
+              where tradition meets adventure
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {franceCities.map((attraction, index) => (
+            {mongoliaCities.map((attraction, index) => (
               <motion.div
                 key={attraction.name}
                 initial={{ opacity: 0, y: 50 }}
@@ -246,7 +247,7 @@ export default function ParisPage() {
                       className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <Badge className="absolute top-3 right-3 bg-blue-600 text-white">
+                    <Badge className="absolute top-3 right-3 bg-green-600 text-white">
                       {attraction.category}
                     </Badge>
                     <div className="absolute bottom-3 left-3 text-white">
@@ -276,7 +277,7 @@ export default function ParisPage() {
 
                     <div className="space-y-2 mb-6">
                       <h4 className="font-semibold text-gray-900 flex items-center">
-                        <Camera className="h-4 w-4 mr-2 text-blue-600" />
+                        <Mountain className="h-4 w-4 mr-2 text-green-600" />
                         Highlights
                       </h4>
                       <div className="grid grid-cols-1 gap-1">
@@ -285,16 +286,14 @@ export default function ParisPage() {
                             key={highlight}
                             className="text-sm text-gray-600 flex items-center"
                           >
-                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2" />
+                            <div className="w-1.5 h-1.5 bg-green-600 rounded-full mr-2" />
                             {highlight}
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    {/* <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                      Add to Itinerary
-                    </Button> */}
+                    {/* <Button className="w-full bg-green-600 hover:bg-green-700">Add to Itinerary</Button> */}
                   </CardContent>
                 </Card>
               </motion.div>
@@ -308,28 +307,27 @@ export default function ParisPage() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-center mt-16"
           >
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
+            <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Explore Austria?
+                Ready to Explore Mongolia?
               </h3>
-              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your Austria adventure today and experience the magic of
-                the destination with breathtaking landmarks and world-class
-                museum
+              <p className="text-green-100 mb-6 max-w-2xl mx-auto">
+                Book your Mongolian adventure today and experience the magic of
+                the vast landscapes and rich culture
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   onClick={handleClick}
                   variant="secondary"
                   size="lg"
-                  className="bg-white text-blue-600 hover:bg-gray-100"
+                  className="bg-white text-green-600 hover:bg-gray-100"
                 >
-                  Book Austria Tour
+                  Book Mongolia Tour
                 </Button>
                 {/* <Button
                   variant="outline"
                   size="lg"
-                  className="border-white text-white hover:bg-white hover:text-blue-600"
+                  className="border-white text-white hover:bg-white hover:text-green-600"
                 >
                   Customize Itinerary
                 </Button> */}
@@ -338,7 +336,6 @@ export default function ParisPage() {
           </motion.div>
 
           {/* tourist attractions  */}
-
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -346,11 +343,12 @@ export default function ParisPage() {
             className="text-center mb-9 mt-14"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Tourist Attractions in Austria
+              Top Attractions in Mongolia
             </h2>
           </motion.div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
-            {parisAttractions.map((attraction, index) => (
+            {mongoliaAttractions.map((attraction, index) => (
               <motion.div
                 key={attraction.name}
                 initial={{ opacity: 0, y: 50 }}
@@ -391,31 +389,23 @@ export default function ParisPage() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-center mt-16"
           >
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
+            <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Explore Austria?
+                Ready to Explore Mongolia?
               </h3>
-              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your Austria adventure today and experience the magic of
-                the destination with breathtaking landmarks and world-class
-                museum
+              <p className="text-green-100 mb-6 max-w-2xl mx-auto">
+                Book your Mongolian adventure today and experience the magic of
+                the vast landscapes and rich culture
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   onClick={handleClick}
                   variant="secondary"
                   size="lg"
-                  className="bg-white text-blue-600 hover:bg-gray-100"
+                  className="bg-white text-green-600 hover:bg-gray-100"
                 >
-                  Book Austria Tour
+                  Book Mongolia Tour
                 </Button>
-                {/* <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-white text-white hover:bg-white hover:text-blue-600"
-                >
-                  Customize Itinerary
-                </Button> */}
               </div>
             </div>
           </motion.div>
