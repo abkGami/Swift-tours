@@ -56,15 +56,9 @@ export default function Navigation() {
           hasSubDropdown: true,
           subItems: [
             { name: "Mongolia", href: "/destinations/asia/mongolia" },
-            { name: "Tokyo, Japan", href: "/destinations/asia/tokyo" },
-            { name: "Bali, Indonesia", href: "/destinations/asia/bali" },
+            { name: "Japan", href: "/destinations/asia/tokyo" },
             { name: "Maldives", href: "/destinations/asia/maldives" },
             { name: "Bhutan", href: "/destinations/asia/bhutan" },
-            { name: "Seoul, South Korea", href: "/destinations/asia/seoul" },
-            // {
-            //   name: "Chiang Mai, Thailand",
-            //   href: "/destinations/asia/chiang-mai",
-            // },
           ],
         },
       ],
