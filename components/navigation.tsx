@@ -62,6 +62,15 @@ export default function Navigation() {
             { name: "Bhutan", href: "/destinations/asia/bhutan" },
           ],
         },
+        {
+          name: "Africa",
+          href: "/destinations/asia",
+          hasSubDropdown: true,
+          subItems: [
+            { name: "Egypt", href: "/destinations/africa/egypt" },
+            { name: "Morocco", href: "/destinations/africa/morocco" },
+          ],
+        },
       ],
     },
     { name: "Boat Trip", href: "/boat-trip" },
