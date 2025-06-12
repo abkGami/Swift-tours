@@ -22,64 +22,18 @@ const boatTypes = [
 ];
 
 const countries = [
-  "Italy",
-  "France",
-  "Portugal",
+  "Balearic Islands",
   "Greece",
-  "London",
-  "Malta",
-  "Spain",
-  "Sweden",
   "Croatia",
-  "Austria",
-  "Mongolia",
-  "Japan",
-  "Indonesia",
-  "Maldives",
-  "Bhutan",
-  "South Korea",
-  "South Korea",
+  "Portugal",
+  "Malta",
+  "Montenegro",
+  "Turkey",
+  "France",
+  "Italy",
+  "Netherlands",
+  "Sardinia",
 ];
-
-// Example boats data (replace or extend with real data as needed)
-// const boats = [
-//   {
-//     id: "sea-breeze",
-//     name: "Sea Breeze",
-//     type: "Motorsailer",
-//     image: "/placeholder.svg?height=300&width=400",
-//     rating: 4.8,
-//     capacity: 8,
-//     features: ["3 cabins", "Full crew", "Fuel included"],
-//     specifications: { year: 2020, length: 14 },
-//     price: "€2,500/week",
-//     description: "Italy, Amalfi Coast",
-//   },
-//   {
-//     id: "ocean-dream",
-//     name: "Ocean Dream",
-//     type: "Sailing Catamaran",
-//     image: "/placeholder.svg?height=300&width=400",
-//     rating: 4.7,
-//     capacity: 10,
-//     features: ["4 cabins", "Skipper", "Fuel included"],
-//     specifications: { year: 2019, length: 15 },
-//     price: "€3,200/week",
-//     description: "Greece, Santorini",
-//   },
-//   {
-//     id: "blue-horizon",
-//     name: "Blue Horizon",
-//     type: "Flybridge Yacht",
-//     image: "/placeholder.svg?height=300&width=400",
-//     rating: 4.9,
-//     capacity: 12,
-//     features: ["5 cabins", "Full crew", "Fuel included"],
-//     specifications: { year: 2021, length: 18 },
-//     price: "€5,000/week",
-//     description: "Spain, Mallorca",
-//   },
-// ];
 
 export default function BoatsPage() {
   const router = useRouter();
@@ -114,9 +68,9 @@ export default function BoatsPage() {
           boat.name?.toLowerCase().includes(searchCountry.toLowerCase())
       );
     }
-    // if (selectedType) {
-    //   results = results.filter((boat) => boat.type === selectedType);
-    // }
+    if (selectedType) {
+      results = results.filter((boat) => boat.type === selectedType);
+    }
     // if (withSkipper !== "any") {
     //   results = results.filter((boat) =>
     //     withSkipper === "yes"
@@ -126,6 +80,43 @@ export default function BoatsPage() {
     // }
     setFilteredBoats(results);
   };
+
+  // const handleSearch = () => {
+  //   if (
+  //     !searchCountry ||
+  //     !selectedType ||
+  //     (withSkipper !== "yes" && withSkipper !== "no")
+  //   ) {
+  //     alert("Please select a country, boat type, and skipper option.");
+  //     return;
+  //   }
+  //   let results = boats;
+
+  //   // Filter by country (in description)
+  //   results = results.filter((boat) =>
+  //     boat.description?.toLowerCase().includes(searchCountry.toLowerCase())
+  //   );
+
+  //   // Filter by boat type
+  //   results = results.filter((boat) => boat.type === selectedType);
+
+  //   // Filter by skipper option
+  //   results = results.filter((boat) =>
+  //     withSkipper === "yes"
+  //       ? boat.features?.some(
+  //           (f) =>
+  //             f.toLowerCase().includes("crew") ||
+  //             f.toLowerCase().includes("skipper")
+  //         )
+  //       : !boat.features?.some(
+  //           (f) =>
+  //             f.toLowerCase().includes("crew") ||
+  //             f.toLowerCase().includes("skipper")
+  //         )
+  //   );
+
+  //   setFilteredBoats(results);
+  // };
 
   // ...existing code...
 
@@ -258,7 +249,7 @@ export default function BoatsPage() {
       </section>
 
       {/* Boats Fleet Section */}
-      {filteredBoats.length === 0 && (
+      {filteredBoats && (
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
