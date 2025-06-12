@@ -14,11 +14,14 @@ import Link from "next/link";
 import { boats } from "@/data/boats/page";
 
 const boatTypes = [
-  "Motorsailer",
+  "Motorboat",
   "Performance Cruiser",
   "Open Yacht",
-  "Flybridge Yacht",
-  "Sailing Catamaran",
+  "Luxury Yacht",
+  "Catamaran",
+  "Speedboat",
+  "Sailing Yacht",
+  "Motor Yacht",
 ];
 
 const countries = [
@@ -288,14 +291,14 @@ export default function BoatsPage() {
                           className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                        <div className="absolute bottom-3 left-3 text-white">
+                        {/* <div className="absolute bottom-3 left-3 text-white">
                           <div className="flex items-center space-x-1">
                             <Star className="h-4 w-4 text-yellow-400" />
                             <span className="text-sm font-medium">
                               {boat.rating}
                             </span>
                           </div>
-                        </div>
+                        </div> */}
                       </div>
 
                       <CardHeader>
@@ -361,12 +364,12 @@ export default function BoatsPage() {
                           <span className="font-semibold">Price:</span>{" "}
                           {boat.price}
                         </div>
-                        <Button
+                        {/* <Button
                           // onClick={handleClick}
                           className="w-full mt-4 bg-blue-600 hover:bg-blue-700"
                         >
                           Book Now
-                        </Button>
+                        </Button> */}
                       </CardContent>
                     </Card>
                   </Link>

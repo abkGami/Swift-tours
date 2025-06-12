@@ -9,26 +9,66 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { useRouter } from "next/navigation";
 
-const englandCities = [
+const ukCities = [
   {
     name: "London",
     description:
-      "England's capital, a global hub for finance, culture, and history, home to iconic landmarks and world-class museums.",
+      "The UK's capital, a global hub for finance, culture, and history, home to iconic landmarks and world-class museums.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.9,
     duration: "4-5 days",
     category: "Global Capital",
+    highlights: ["big ben", "tower of london", "british museum", "hyde park"],
+  },
+  {
+    name: "Edinburgh",
+    description:
+      "Scotland's hilly capital, known for its medieval Old Town, elegant Georgian New Town, and Edinburgh Castle.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.8,
+    duration: "2-3 days",
+    category: "Historic Capital",
     highlights: [
-      "big ben",
-      "tower of london",
-      "british museum",
-      "buckingham palace",
+      "edinburgh castle",
+      "royal mile",
+      "arthur's seat",
+      "holyrood palace",
+    ],
+  },
+  {
+    name: "Cardiff",
+    description:
+      "Wales’ capital city, offering a mix of ancient castles, a vibrant waterfront, and rich cultural experiences.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.6,
+    duration: "1-2 days",
+    category: "Welsh Gateway",
+    highlights: [
+      "cardiff castle",
+      "millennium stadium",
+      "national museum",
+      "cardiff bay",
+    ],
+  },
+  {
+    name: "Belfast",
+    description:
+      "Northern Ireland’s capital, known for its Titanic history, thriving arts scene, and Victorian architecture.",
+    image: "/placeholder.svg?height=300&width=400",
+    rating: 4.5,
+    duration: "2 days",
+    category: "Titanic City",
+    highlights: [
+      "titanic belfast",
+      "giant's causeway (nearby)",
+      "city hall",
+      "botanic gardens",
     ],
   },
   {
     name: "Manchester",
     description:
-      "A dynamic northern city known for its musical heritage, football legacy, and modern urban culture.",
+      "A dynamic northern English city known for music, football, and vibrant city culture.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.7,
     duration: "2-3 days",
@@ -36,112 +76,65 @@ const englandCities = [
     highlights: [
       "manchester united stadium",
       "northern quarter",
-      "manchester art gallery",
-      "science and industry museum",
+      "science museum",
     ],
   },
   {
-    name: "Bath",
+    name: "Glasgow",
     description:
-      "A historic city famed for its Roman baths, Georgian architecture, and literary connections to Jane Austen.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.6,
-    duration: "1-2 days",
-    category: "Historic Escape",
-    highlights: [
-      "roman baths",
-      "bath abbey",
-      "pulteney bridge",
-      "royal crescent",
-    ],
-  },
-  {
-    name: "Oxford",
-    description:
-      "Home to the prestigious University of Oxford, this city is filled with historic colleges, libraries, and gardens.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.7,
-    duration: "1-2 days",
-    category: "Academic City",
-    highlights: [
-      "university of oxford",
-      "bodleian library",
-      "radcliffe camera",
-      "christ church college",
-    ],
-  },
-  {
-    name: "Cambridge",
-    description:
-      "A charming university city with picturesque architecture, punting on the River Cam, and a rich academic atmosphere.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.6,
-    duration: "1-2 days",
-    category: "Scholarly Retreat",
-    highlights: [
-      "king's college chapel",
-      "the backs",
-      "fitzwilliam museum",
-      "punting on river cam",
-    ],
-  },
-  {
-    name: "Liverpool",
-    description:
-      "Birthplace of The Beatles and home to a rich maritime history, vibrant arts, and cultural landmarks.",
+      "Scotland’s largest city, celebrated for its Victorian architecture, rich art scene, and vibrant nightlife.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.6,
     duration: "2-3 days",
     category: "Cultural Hub",
     highlights: [
-      "the beatles story",
-      "liverpool waterfront",
-      "tate liverpool",
-      "liverpool cathedral",
+      "kelvingrove museum",
+      "glasgow cathedral",
+      "george square",
+      "riverside museum",
     ],
   },
 ];
 
-const englandAttractions = [
+const ukAttractions = [
   {
     name: "Big Ben",
-    description:
-      "The iconic clock tower at the north end of the Palace of Westminster, symbolizing London worldwide.",
+    description: "The iconic London clock tower, symbolizing the UK worldwide.",
     image: "/placeholder.svg?height=300&width=400",
   },
   {
     name: "Stonehenge",
     description:
-      "A prehistoric monument of massive standing stones, shrouded in mystery and dating back thousands of years.",
+      "A prehistoric stone circle in southern England with mysterious origins.",
     image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Tower of London",
+    name: "Giant's Causeway",
     description:
-      "A historic castle on the River Thames, known for its dark past, royal history, and the Crown Jewels.",
+      "Northern Ireland's natural wonder, a UNESCO site formed by volcanic activity.",
     image: "/placeholder.svg?height=300&width=400",
   },
   {
-    name: "Lake District",
+    name: "Edinburgh Castle",
     description:
-      "A UNESCO World Heritage site offering breathtaking landscapes, scenic hikes, and literary heritage.",
+      "A historic fortress dominating Edinburgh’s skyline, rich with Scottish history.",
+    image: "/placeholder.svg?height=300&width=400",
+  },
+  {
+    name: "Snowdonia National Park",
+    description:
+      "Wales’ premier hiking and adventure destination with stunning mountains and lakes.",
     image: "/placeholder.svg?height=300&width=400",
   },
   {
     name: "British Museum",
     description:
-      "One of the world’s greatest museums, showcasing global artifacts including the Rosetta Stone and Elgin Marbles.",
-    image: "/placeholder.svg?height=300&width=400",
-  },
-  {
-    name: "Hadrian's Wall",
-    description:
-      "A Roman defensive fortification stretching across Northern England, rich with history and scenic walking paths.",
+      "One of the world’s greatest museums, showcasing global artifacts including the Rosetta Stone.",
     image: "/placeholder.svg?height=300&width=400",
   },
 ];
 
-export default function EnglandPage() {
+export default function UnitedKingdomPage() {
   const router = useRouter();
   const handleClick = () => {
     router.push("/contact");
@@ -156,7 +149,7 @@ export default function EnglandPage() {
         <div className="absolute inset-0">
           <img
             src="/placeholder.svg?height=600&width=1200"
-            alt="England"
+            alt="United Kingdom"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/70 to-gray-700/70" />
@@ -173,10 +166,13 @@ export default function EnglandPage() {
               <MapPin className="h-8 w-8 mr-3" />
               <span className="text-xl">Europe</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">England</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              United Kingdom
+            </h1>
             <p className="text-xl text-gray-100 max-w-3xl mx-auto mb-8">
-              England awaits with its historic landmarks, verdant countrysides,
-              and vibrant cultural tapestry.
+              Discover the rich tapestry of the UK — from England’s cities to
+              Scotland’s castles, Wales’ mountains, and Northern Ireland’s
+              natural wonders.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -186,11 +182,11 @@ export default function EnglandPage() {
               </div>
               <div className="flex items-center">
                 <Users className="h-5 w-5 mr-2" />
-                <span>Perfect for Culture & Nature Lovers</span>
+                <span>Culture, History & Adventure</span>
               </div>
               <div className="flex items-center">
                 <Calendar className="h-5 w-5 mr-2" />
-                <span>Year-round Destination</span>
+                <span>Best in Spring & Summer</span>
               </div>
             </div>
 
@@ -200,7 +196,7 @@ export default function EnglandPage() {
               size="lg"
               className="bg-white text-gray-900 hover:bg-gray-100 mt-6"
             >
-              Book England Tour
+              Book UK Tour
             </Button>
           </motion.div>
         </div>
@@ -209,7 +205,6 @@ export default function EnglandPage() {
       {/* Cities Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* City Cards */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -217,16 +212,16 @@ export default function EnglandPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Cities in England
+              Cities in the United Kingdom
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore iconic cities that blend centuries of heritage with modern
-              charm.
+              Explore diverse cities across the UK — each with its own story and
+              culture.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {englandCities.map((city, index) => (
+            {ukCities.map((city, index) => (
               <motion.div
                 key={city.name}
                 initial={{ opacity: 0, y: 50 }}
@@ -268,7 +263,6 @@ export default function EnglandPage() {
 
                   <CardContent>
                     <p className="text-gray-600 mb-4">{city.description}</p>
-
                     <div className="space-y-2 mb-6">
                       <h4 className="font-semibold text-gray-900 flex items-center">
                         <Camera className="h-4 w-4 mr-2 text-gray-800" />
@@ -292,7 +286,7 @@ export default function EnglandPage() {
             ))}
           </div>
 
-          {/* Attractions Section */}
+          {/* Attractions */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -300,12 +294,12 @@ export default function EnglandPage() {
             className="text-center mt-20 mb-9"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Tourist Attractions in England
+              Must-See Attractions Across the UK
             </h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {englandAttractions.map((attraction, index) => (
+            {ukAttractions.map((attraction, index) => (
               <motion.div
                 key={attraction.name}
                 initial={{ opacity: 0, y: 50 }}
@@ -339,7 +333,7 @@ export default function EnglandPage() {
             ))}
           </div>
 
-          {/* Final Call to Action */}
+          {/* Final CTA */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -348,11 +342,11 @@ export default function EnglandPage() {
           >
             <div className="bg-gradient-to-r from-gray-800 to-gray-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Explore England?
+                Ready to Explore the UK?
               </h3>
               <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                Book your England adventure today and experience the magic of
-                historic landmarks, charming countryside, and vibrant city life.
+                From castles and coastlines to cities and countryside —
+                experience it all in the United Kingdom.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -361,7 +355,7 @@ export default function EnglandPage() {
                   size="lg"
                   className="bg-white text-gray-900 hover:bg-gray-100"
                 >
-                  Book England Tour
+                  Book UK Tour
                 </Button>
               </div>
             </div>
