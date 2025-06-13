@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { boats } from "@/data/boats/page";
+import NowPaymentsButton from "../NowPayment";
 
 const boatTypes = [
   "Motorboat",
@@ -47,7 +48,9 @@ export default function BoatsPage() {
   const [returnDate, setReturnDate] = useState("");
   const [selectedType, setSelectedType] = useState("");
   const [withSkipper, setWithSkipper] = useState("yes");
-  const [filteredBoats, setFilteredBoats] = useState(boats);
+  // const [filteredBoats, setFilteredBoats] = useState(boats);
+  const [filteredBoats, setFilteredBoats] = useState<typeof boats>([]);
+  const [hasSearched, setHasSearched] = useState(false);
 
   // Search handler
   const handleSearch = () => {
@@ -82,6 +85,7 @@ export default function BoatsPage() {
     //   );
     // }
     setFilteredBoats(results);
+    setHasSearched(true);
   };
 
   // const handleSearch = () => {
@@ -126,7 +130,6 @@ export default function BoatsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
-
       {/* Search Card */}
       <section className="pt-24 pb-8 flex justify-center">
         <Card className="w-full max-w-4xl mx-auto shadow-2xl border-0 p-8">
@@ -250,9 +253,8 @@ export default function BoatsPage() {
           </CardContent>
         </Card>
       </section>
-
       {/* Boats Fleet Section */}
-      {filteredBoats && (
+      {hasSearched && filteredBoats && (
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -379,10 +381,9 @@ export default function BoatsPage() {
           </div>
         </section>
       )}
-
       {/* Slideshow Album */}
       {/* <SlideshowAlbum /> */}
-
+      <NowPaymentsButton price={10} currency="EUR" />
       <Footer />
     </div>
   );
