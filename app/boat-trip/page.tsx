@@ -383,7 +383,7 @@ export default function BoatsPage() {
       )}
       {/* Slideshow Album */}
       {/* <SlideshowAlbum /> */}
-      <NowPaymentsButton price={10} currency="EUR" />
+      {/* <NowPaymentsButton price={10} currency="EUR" /> */}
       <Footer />
     </div>
   );
