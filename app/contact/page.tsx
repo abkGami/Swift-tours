@@ -17,6 +17,15 @@ import { Textarea } from "@/components/ui/textarea";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { useState } from "react";
+import Script from "next/script";
+import { useRef, useEffect } from "react";
+
+// Extend the Window interface to include google
+declare global {
+  interface Window {
+    google?: any;
+  }
+}
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -112,6 +121,33 @@ export default function ContactPage() {
     }
     setSending(false);
   };
+
+  const pickupRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.google || !pickupRef.current)
+      return;
+    // @ts-ignore
+    const autocomplete = new window.google.maps.places.Autocomplete(
+      pickupRef.current,
+      {
+        types: ["geocode"], // or ["(cities)"] for cities only
+      }
+    );
+    autocomplete.addListener("place_changed", () => {
+      // @ts-ignore
+      const place = autocomplete.getPlace();
+      setForm((prev) => ({
+        ...prev,
+        pickup: place.formatted_address || place.name || "",
+      }));
+    });
+  }, [pickupRef.current, typeof window !== "undefined" && window.google]);
+
+  // <Script
+  //   src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBcwRVb-mzVQuHVJyaOkgbGXtmFT-c_II0&libraries=places`}
+  //   strategy="beforeInteractive"
+  // />;
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
@@ -216,37 +252,18 @@ export default function ContactPage() {
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Pick-up Location *
                       </label>
-                      <select
-                        name="destination"
-                        value={form.pickup}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        required
-                      >
-                        <option value="">Select your Pick-up Location</option>
-                        <optgroup label="Europe">
-                          <option value="Italy">Italy</option>
-                          <option value="France">France</option>
-                          <option value="Portugal">Portugal</option>
-                          <option value="Greece">Greece</option>
-                          <option value="London">London</option>
-                          <option value="Malta">Malta</option>
-                          <option value="Spain">Spain</option>
-                          <option value="Sweden">Sweden</option>
-                          <option value="Croatia">Croatia</option>
-                          <option value="Austria">Austria</option>
-                        </optgroup>
-                        <optgroup label="Asia">
-                          <option value="Mongolia">Mongolia</option>
-                          <option value="Japan">Japan</option>
-                          <option value="Maldives">Maldives</option>
-                          <option value="Bhutan">Bhutan</option>
-                        </optgroup>
-                        <optgroup label="Africa">
-                          <option value="Morocco">Morocco</option>
-                          <option value="Egypt">Egypt</option>
-                        </optgroup>
-                      </select>
+                      <div>
+                        <Input
+                          ref={pickupRef}
+                          name="pickup"
+                          value={form.pickup}
+                          onChange={handleChange}
+                          placeholder="Enter pick-up location"
+                          required
+                          autoComplete="off"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                      </div>
                     </div>
 
                     {/* <div>
