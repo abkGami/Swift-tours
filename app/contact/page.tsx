@@ -25,8 +25,8 @@ export default function ContactPage() {
     email: "",
     phone: "",
     interest: "",
-    boarding: "",
-    landing: "",
+    pickup: "",
+    dropoff: "",
     startDate: "",
     stopDate: "",
     budget: "",
@@ -44,8 +44,8 @@ export default function ContactPage() {
     email: string;
     phone: string;
     interest: string;
-    boarding: string;
-    landing: string;
+    pickup: string;
+    dropoff: string;
     startDate: string;
     stopDate: string;
     budget: string;
@@ -95,8 +95,8 @@ export default function ContactPage() {
           email: form.email,
           phone: form.phone,
           interest: form.interest,
-          boarding: form.boarding,
-          landing: form.landing,
+          pickup: form.pickup,
+          dropoff: form.dropoff,
           startDate: form.startDate,
           stopDate: form.stopDate,
           budget: form.budget,
@@ -214,16 +214,16 @@ export default function ContactPage() {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Boarding *
+                        Pick-up Location *
                       </label>
                       <select
                         name="destination"
-                        value={form.boarding}
+                        value={form.pickup}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         required
                       >
-                        <option value="">Select your Destination</option>
+                        <option value="">Select your Pick-up Location</option>
                         <optgroup label="Europe">
                           <option value="Italy">Italy</option>
                           <option value="France">France</option>
@@ -249,18 +249,18 @@ export default function ContactPage() {
                       </select>
                     </div>
 
-                    <div>
+                    {/* <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Landing *
+                        Drop-off Location *
                       </label>
                       <select
                         name="destination"
-                        value={form.landing}
+                        value={form.dropoff}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         required
                       >
-                        <option value="">Select your Destination</option>
+                        <option value="">Select your Drop-off Location</option>
                         <optgroup label="Europe">
                           <option value="Italy">Italy</option>
                           <option value="France">France</option>
@@ -284,7 +284,7 @@ export default function ContactPage() {
                           <option value="Egypt">Egypt</option>
                         </optgroup>
                       </select>
-                    </div>
+                    </div> */}
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
