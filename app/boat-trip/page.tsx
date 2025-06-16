@@ -88,45 +88,6 @@ export default function BoatsPage() {
     setHasSearched(true);
   };
 
-  // const handleSearch = () => {
-  //   if (
-  //     !searchCountry ||
-  //     !selectedType ||
-  //     (withSkipper !== "yes" && withSkipper !== "no")
-  //   ) {
-  //     alert("Please select a country, boat type, and skipper option.");
-  //     return;
-  //   }
-  //   let results = boats;
-
-  //   // Filter by country (in description)
-  //   results = results.filter((boat) =>
-  //     boat.description?.toLowerCase().includes(searchCountry.toLowerCase())
-  //   );
-
-  //   // Filter by boat type
-  //   results = results.filter((boat) => boat.type === selectedType);
-
-  //   // Filter by skipper option
-  //   results = results.filter((boat) =>
-  //     withSkipper === "yes"
-  //       ? boat.features?.some(
-  //           (f) =>
-  //             f.toLowerCase().includes("crew") ||
-  //             f.toLowerCase().includes("skipper")
-  //         )
-  //       : !boat.features?.some(
-  //           (f) =>
-  //             f.toLowerCase().includes("crew") ||
-  //             f.toLowerCase().includes("skipper")
-  //         )
-  //   );
-
-  //   setFilteredBoats(results);
-  // };
-
-  // ...existing code...
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
@@ -158,6 +119,18 @@ export default function BoatsPage() {
                     <option key={c} value={c} />
                   ))}
                 </datalist>
+              </div>
+              {/* New text input field below country */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Place
+                </label>
+                <input
+                  type="text"
+                  onChange={(e) => console.log("Extra Info:", e.target.value)}
+                  placeholder=""
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                />
               </div>
               {/* Date selectors */}
               <div className="flex gap-2">
@@ -194,7 +167,7 @@ export default function BoatsPage() {
                   onChange={(e) => setSelectedType(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md"
                 >
-                  <option value="">Any</option>
+                  <option value="">...</option>
                   {boatTypes.map((type) => (
                     <option key={type} value={type}>
                       {type}
