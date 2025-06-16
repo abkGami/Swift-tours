@@ -240,7 +240,7 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
         <Script
-          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}libraries=places`}
           strategy="beforeInteractive"
         />
         ;
