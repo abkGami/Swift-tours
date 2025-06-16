@@ -71,6 +71,15 @@ export default function Navigation() {
             { name: "Morocco", href: "/destinations/africa/morocco" },
           ],
         },
+        {
+          name: "South America",
+          href: "/destinations/asia",
+          hasSubDropdown: true,
+          subItems: [
+            { name: "Argetina", href: "/destinations/southAmerica/argetina" },
+            { name: "Chile", href: "/destinations/southAmerica/chile" },
+          ],
+        },
       ],
     },
     { name: "Boat Trip", href: "/boat-trip" },
