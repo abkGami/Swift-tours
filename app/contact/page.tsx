@@ -20,6 +20,8 @@ import { useState } from "react";
 import Script from "next/script";
 import { useRef, useEffect } from "react";
 import Link from "next/link";
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+
 // import PaymentsPage from "../Payment";
 
 // Extend the Window interface to include google
@@ -372,6 +374,12 @@ export default function ContactPage() {
                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                       </div>
+                    </div>
+
+                    <div>
+                      <GooglePlacesAutocomplete
+                        apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+                      />
                     </div>
 
                     <div>
