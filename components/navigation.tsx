@@ -80,6 +80,7 @@ export default function Navigation() {
             { name: "Brazil", href: "/destinations/southAmerica/brazil" },
             { name: "Chile", href: "/destinations/southAmerica/chile" },
             { name: "Colombia", href: "/destinations/southAmerica/colombia" },
+            { name: "Peru", href: "/destinations/southAmerica/peru" },
           ],
         },
       ],
