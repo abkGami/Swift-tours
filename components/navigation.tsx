@@ -77,6 +77,7 @@ export default function Navigation() {
           hasSubDropdown: true,
           subItems: [
             { name: "Argetina", href: "/destinations/southAmerica/argetina" },
+            { name: "Brazil", href: "/destinations/southAmerica/brazil" },
             { name: "Chile", href: "/destinations/southAmerica/chile" },
             { name: "Colombia", href: "/destinations/southAmerica/colombia" },
           ],
