@@ -29,7 +29,7 @@ function NowPaymentsButton({
   return (
     <div className="flex px-10 w-full">
       <Button
-        className="w-full mt-2 bg-blue-600 hover:bg-blue-700 mb-10 "
+        className="w-full mt-2 bg-blue-600 hover:bg-blue-700 mb-10  px-4"
         onClick={handleNowPayments}
         disabled={loading}
       >
