@@ -78,6 +78,7 @@ export default function Navigation() {
           subItems: [
             { name: "Argetina", href: "/destinations/southAmerica/argetina" },
             { name: "Chile", href: "/destinations/southAmerica/chile" },
+            { name: "Colombia", href: "/destinations/southAmerica/colombia" },
           ],
         },
       ],
