@@ -19,6 +19,8 @@ import Footer from "@/components/footer";
 import { useState } from "react";
 import Script from "next/script";
 import { useRef, useEffect } from "react";
+import Link from "next/link";
+// import PaymentsPage from "../Payment";
 
 // Extend the Window interface to include google
 declare global {
@@ -238,7 +240,7 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
         <Script
-          src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBcwRVb-mzVQuHVJyaOkgbGXtmFT-c_II0&libraries=places`}
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
           strategy="beforeInteractive"
         />
         ;
@@ -524,6 +526,7 @@ export default function ContactPage() {
               transition={{ duration: 0.8 }}
               className="space-y-8"
             >
+              {/* <PaymentsPage /> */}
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
                   Contact Information

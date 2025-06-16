@@ -2,7 +2,15 @@ import { useState } from "react";
 
 function IbanPaymentInfo() {
   const [show, setShow] = useState(false);
+  const [copied, setCopied] = useState(false);
 
+  const iban = "DE89 3704 0044 0532 0130 00";
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(iban);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
   return (
     <div className="mt-4">
       <button
@@ -17,8 +25,28 @@ function IbanPaymentInfo() {
           <div>
             <strong>Bank Name:</strong> Your Bank Name
           </div>
-          <div>
+          {/* <div>
             <strong>IBAN:</strong> DE89 3704 0044 0532 0130 00
+          </div> */}
+          <div className="flex items-center gap-2">
+            <strong>IBAN:</strong>
+            <span>{iban}</span>
+            <button
+              onClick={handleCopy}
+              type="button"
+              className="ml-1 p-1 rounded hover:bg-gray-200"
+              title="Copy IBAN"
+              aria-label="Copy IBAN"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/tabler/icons/icons/copy.svg"
+                alt="Copy"
+                className="w-4 h-4 inline"
+              />
+            </button>
+            {copied && (
+              <span className="text-green-600 text-xs ml-2">Copied!</span>
+            )}
           </div>
           <div>
             <strong>BIC/SWIFT:</strong> COBADEFFXXX

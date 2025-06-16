@@ -76,7 +76,7 @@ export default function Navigation() {
     { name: "Boat Trip", href: "/boat-trip" },
     { name: "Chartered Boats", href: "/boats" },
     { name: "Transfers", href: "/transfers" },
-    // { name: "Blog", href: "/blog" },
+    // { name: "Payment", href: "/payment" },
     { name: "Contact", href: "/contact" },
   ];
 
