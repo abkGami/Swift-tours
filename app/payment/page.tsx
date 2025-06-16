@@ -50,12 +50,12 @@ export default function PaymentsPage() {
               >
                 <CreditCard className="h-5 w-5" /> IBAN
               </TabsTrigger>
-              <TabsTrigger
+              {/* <TabsTrigger
                 value="giftcard"
                 className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-blue-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white transition"
               >
                 <Gift className="h-5 w-5" /> Gift Card
-              </TabsTrigger>
+              </TabsTrigger> */}
             </TabsList>
 
             <TabsContent value="crypto">
@@ -70,7 +70,7 @@ export default function PaymentsPage() {
                     NOWPayments.
                   </p>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex flex-col items-center justify-center w-full">
                   <NowPaymentsButton price={100} currency="EUR" />
                   <p className="text-xs text-gray-400 mt-4">
                     You will be redirected to a secure crypto checkout.
@@ -100,7 +100,7 @@ export default function PaymentsPage() {
               </Card>
             </TabsContent>
 
-            <TabsContent value="giftcard">
+            {/* <TabsContent value="giftcard">
               <Card className="shadow-xl border-0">
                 <CardHeader>
                   <CardTitle className="text-2xl text-blue-900 flex items-center gap-2">
@@ -118,7 +118,7 @@ export default function PaymentsPage() {
                   </p>
                 </CardContent>
               </Card>
-            </TabsContent>
+            </TabsContent> */}
           </Tabs>
         </div>
       </section>
