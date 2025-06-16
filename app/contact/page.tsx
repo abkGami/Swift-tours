@@ -83,6 +83,8 @@ export default function ContactPage() {
     email: string;
     phone: string;
     interest: string;
+    pickup: string;
+    dropoff: string;
     startDate: string;
     stopDate: string;
     budget: string;
@@ -123,37 +125,123 @@ export default function ContactPage() {
   };
 
   const pickupRef = useRef<HTMLInputElement>(null);
+  const dropoffRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (typeof window === "undefined" || !window.google || !pickupRef.current)
-      return;
-    // @ts-ignore
-    const autocomplete = new window.google.maps.places.Autocomplete(
-      pickupRef.current,
-      {
-        types: ["geocode"], // or ["(cities)"] for cities only
-      }
-    );
-    autocomplete.addListener("place_changed", () => {
-      // @ts-ignore
-      const place = autocomplete.getPlace();
-      setForm((prev) => ({
-        ...prev,
-        pickup: place.formatted_address || place.name || "",
-      }));
-    });
-  }, [pickupRef.current, typeof window !== "undefined" && window.google]);
+    if (!pickupRef.current) return;
 
-  // <Script
-  //   src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBcwRVb-mzVQuHVJyaOkgbGXtmFT-c_II0&libraries=places`}
-  //   strategy="beforeInteractive"
-  // />;
+    function initAutocomplete() {
+      // @ts-ignore
+      const autocomplete = new window.google.maps.places.Autocomplete(
+        pickupRef.current,
+        {
+          types: ["(regions)"], // Allows both cities and countries (and regions)
+        }
+      );
+      autocomplete.addListener("place_changed", () => {
+        // @ts-ignore
+        const place = autocomplete.getPlace();
+        let city = "";
+        let country = "";
+        if (place.address_components) {
+          for (const comp of place.address_components) {
+            if (comp.types.includes("locality")) city = comp.long_name;
+            if (comp.types.includes("country")) country = comp.long_name;
+          }
+        }
+        // Compose "City, Country" or just "Country"
+        let formatted = "";
+        if (city && country) {
+          formatted = `${city}, ${country}`;
+        } else if (country) {
+          formatted = country;
+        } else {
+          formatted = place.formatted_address || place.name || "";
+        }
+        console.log("Selected pick-up location:", formatted); // <-- log value here
+
+        setForm((prev) => ({
+          ...prev,
+          pickup: formatted,
+        }));
+      });
+    }
+
+    if (window.google && window.google.maps && window.google.maps.places) {
+      initAutocomplete();
+    } else {
+      const interval = setInterval(() => {
+        if (window.google && window.google.maps && window.google.maps.places) {
+          clearInterval(interval);
+          initAutocomplete();
+        }
+      }, 300);
+      return () => clearInterval(interval);
+    }
+
+    // Drop-off Autocomplete
+    if (dropoffRef.current) {
+      function initDropoffAutocomplete() {
+        // @ts-ignore
+        const autocomplete = new window.google.maps.places.Autocomplete(
+          dropoffRef.current,
+          { types: ["(regions)"] }
+        );
+        autocomplete.addListener("place_changed", () => {
+          // @ts-ignore
+          const place = autocomplete.getPlace();
+          let city = "";
+          let country = "";
+          if (place.address_components) {
+            for (const comp of place.address_components) {
+              if (comp.types.includes("locality")) city = comp.long_name;
+              if (comp.types.includes("country")) country = comp.long_name;
+            }
+          }
+          let formatted = "";
+          if (city && country) {
+            formatted = `${city}, ${country}`;
+          } else if (country) {
+            formatted = country;
+          } else {
+            formatted = place.formatted_address || place.name || "";
+          }
+          console.log("Selected drop-off location:", formatted);
+          setForm((prev) => ({
+            ...prev,
+            dropoff: formatted,
+          }));
+        });
+      }
+      if (window.google && window.google.maps && window.google.maps.places) {
+        initDropoffAutocomplete();
+      } else {
+        const interval = setInterval(() => {
+          if (
+            window.google &&
+            window.google.maps &&
+            window.google.maps.places
+          ) {
+            clearInterval(interval);
+            initDropoffAutocomplete();
+          }
+        }, 300);
+        return () => clearInterval(interval);
+      }
+    }
+  }, [pickupRef]);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
 
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
+        <Script
+          src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBcwRVb-mzVQuHVJyaOkgbGXtmFT-c_II0&libraries=places`}
+          strategy="beforeInteractive"
+        />
+        ;
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -266,42 +354,23 @@ export default function ContactPage() {
                       </div>
                     </div>
 
-                    {/* <div>
+                    <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Drop-off Location *
                       </label>
-                      <select
-                        name="destination"
-                        value={form.dropoff}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        required
-                      >
-                        <option value="">Select your Drop-off Location</option>
-                        <optgroup label="Europe">
-                          <option value="Italy">Italy</option>
-                          <option value="France">France</option>
-                          <option value="Portugal">Portugal</option>
-                          <option value="Greece">Greece</option>
-                          <option value="London">London</option>
-                          <option value="Malta">Malta</option>
-                          <option value="Spain">Spain</option>
-                          <option value="Sweden">Sweden</option>
-                          <option value="Croatia">Croatia</option>
-                          <option value="Austria">Austria</option>
-                        </optgroup>
-                        <optgroup label="Asia">
-                          <option value="Mongolia">Mongolia</option>
-                          <option value="Japan">Japan</option>
-                          <option value="Maldives">Maldives</option>
-                          <option value="Bhutan">Bhutan</option>
-                        </optgroup>
-                        <optgroup label="Africa">
-                          <option value="Morocco">Morocco</option>
-                          <option value="Egypt">Egypt</option>
-                        </optgroup>
-                      </select>
-                    </div> */}
+                      <div>
+                        <Input
+                          ref={dropoffRef}
+                          name="dropoff"
+                          value={form.dropoff}
+                          onChange={handleChange}
+                          placeholder="Enter drop-off location"
+                          required
+                          autoComplete="off"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                      </div>
+                    </div>
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
