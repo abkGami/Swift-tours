@@ -156,7 +156,7 @@ export default function ArgentinaPage() {
       <section className="pt-24 pb-10 relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/argentina/hero.jpg"
+            src="/placeholder.svg?height=300&width=400"
             alt="Argentina"
             className="w-full h-full object-cover"
           />
