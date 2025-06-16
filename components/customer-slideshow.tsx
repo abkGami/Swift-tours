@@ -105,11 +105,11 @@ export default function CustomerSLideshow() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Amazing Destinations Gallery
+            Amazing Customers Gallery
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Take a visual journey through some of the world's most breathtaking
-            destinations
+            Take a visual journey through some of our esteemed customers at the
+            most breathtaking destinations
           </p>
         </motion.div>
 
@@ -195,7 +195,7 @@ export default function CustomerSLideshow() {
           </div>
 
           {/* Thumbnail Navigation */}
-          <div className="flex justify-center mt-8 space-x-2 overflow-x-auto pb-4">
+          <div className="flex justify-center mt-5 space-x-2 overflow-x-auto pb-4 pt-4">
             {albumImages.map((image, index) => (
               <motion.button
                 key={index}
