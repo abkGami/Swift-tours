@@ -376,12 +376,12 @@ export default function ContactPage() {
                       </div>
                     </div>
 
-                    <div>
+                    {/* <div>
                       <GooglePlacesAutocomplete
                         apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
                         // apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEYs}
                       />
-                    </div>
+                    </div> */}
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
