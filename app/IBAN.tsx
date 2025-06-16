@@ -1,3 +1,4 @@
+import { Copy } from "lucide-react";
 import { useState } from "react";
 
 function IbanPaymentInfo() {
@@ -38,11 +39,12 @@ function IbanPaymentInfo() {
               title="Copy IBAN"
               aria-label="Copy IBAN"
             >
-              <img
+              {/* <img
                 src="https://cdn.jsdelivr.net/gh/tabler/icons/icons/copy.svg"
                 alt="Copy"
                 className="w-4 h-4 inline"
-              />
+              /> */}
+              <Copy className="w-4 h-4 inline" />
             </button>
             {copied && (
               <span className="text-green-600 text-xs ml-2">Copied!</span>

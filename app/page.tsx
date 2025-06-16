@@ -1,22 +1,23 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { TextPlugin } from "gsap/TextPlugin"
-import Navigation from "@/components/navigation"
-import Hero from "@/components/hero"
-import OverviewSection from "@/components/overview-section"
-import Footer from "@/components/footer"
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TextPlugin } from "gsap/TextPlugin";
+import Navigation from "@/components/navigation";
+import Hero from "@/components/hero";
+import OverviewSection from "@/components/overview-section";
+import Footer from "@/components/footer";
+import CustomerSLideshow from "@/components/customer-slideshow";
 
-gsap.registerPlugin(ScrollTrigger, TextPlugin)
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 export default function Home() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Create a timeline for page load animations
-    const tl = gsap.timeline()
+    const tl = gsap.timeline();
 
     // Animate page load
     tl.from(".page-loader", {
@@ -27,13 +28,13 @@ export default function Home() {
       opacity: 0,
       duration: 0.5,
       display: "none",
-    })
+    });
 
     // Advanced section animations
-    const sections = gsap.utils.toArray(".section")
+    const sections = gsap.utils.toArray(".section");
 
     sections.forEach((section: any, index) => {
-      const elements = section.querySelectorAll(".animate-element")
+      const elements = section.querySelectorAll(".animate-element");
 
       gsap.fromTo(
         elements,
@@ -57,14 +58,14 @@ export default function Home() {
             end: "bottom 20%",
             toggleActions: "play none none reverse",
           },
-        },
-      )
-    })
+        }
+      );
+    });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
-  }, [])
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   return (
     <>
@@ -76,12 +77,16 @@ export default function Home() {
         </div>
       </div>
 
-      <div ref={containerRef} className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50 overflow-hidden">
+      <div
+        ref={containerRef}
+        className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50 overflow-hidden"
+      >
         <Navigation />
         <Hero />
+        <CustomerSLideshow />
         <OverviewSection />
         <Footer />
       </div>
     </>
-  )
+  );
 }
