@@ -1,22 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Anchor, Car, BookOpen, ArrowRight, Phone } from "lucide-react";
+import { MapPin, Anchor, Car, ShipIcon, ArrowRight, Phone } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const overviewCards = [
   {
-    title: "Destinations",
+    title: "Boat Trip",
     description:
-      "Explore destinations across Europe and Asia with our travel experiences",
-    icon: MapPin,
+      "Discover breathtaking boat trips across coastal cities and hidden islands. Sail with style and comfort.",
+    icon: ShipIcon,
     image: "/placeholder.svg?height=300&width=400",
-    href: "/destinations",
-    color: "from-blue-500 to-purple-600",
-    stats: "50+ Destinations",
+    href: "/boat-trip",
+    color: "from-sky-500 to-teal-600",
+    stats: "25+ Unique Routes",
   },
+
   {
     title: "Chartered Boats",
     description:
@@ -49,6 +51,8 @@ const overviewCards = [
 ];
 
 export default function OverviewSection() {
+  const router = useRouter();
+
   return (
     <section className="section py-20 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,8 +82,17 @@ export default function OverviewSection() {
                 // transition={{ duration: 0.6, delay: index * 0.1 }}
                 // whileHover={{ y: -10, scale: 1.02 }}
                 className="group animate-element"
+                onClick={() => router.push(card.href)}
+                style={{ cursor: "pointer" }}
+                tabIndex={0}
+                role="button"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    router.push(card.href);
+                  }
+                }}
               >
-                <div >
+                <div>
                   <Card className="overflow-hidden transition-all duration-500 border-0 shadow-lg h-full cursor-pointer">
                     <div className="relative overflow-hidden">
                       <motion.img
@@ -118,15 +131,11 @@ export default function OverviewSection() {
                     </CardContent>
                   </Card>
                 </div>
-
-                
               </motion.div>
             );
           })}
-
         </div>
 
-      
         {/* About Section */}
         {/* <div className="about-section mt-12">
           <h2 className="text-4xl font-bold mb-4">About Us</h2>
