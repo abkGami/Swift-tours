@@ -41,13 +41,13 @@ export default function Footer() {
               >
                 <Facebook className="h-5 w-5" />
               </motion.a>
-              <motion.a
+              {/* <motion.a
                 whileHover={{ scale: 1.1 }}
                 href="#"
                 className="bg-gray-800 p-2 rounded-lg hover:bg-blue-600 transition-colors duration-200"
               >
                 <Twitter className="h-5 w-5" />
-              </motion.a>
+              </motion.a> */}
               <motion.a
                 whileHover={{ scale: 1.1 }}
                 href="#"
@@ -55,13 +55,13 @@ export default function Footer() {
               >
                 <Instagram className="h-5 w-5" />
               </motion.a>
-              <motion.a
+              {/* <motion.a
                 whileHover={{ scale: 1.1 }}
                 href="#"
                 className="bg-gray-800 p-2 rounded-lg hover:bg-blue-600 transition-colors duration-200"
               >
                 <Youtube className="h-5 w-5" />
-              </motion.a>
+              </motion.a> */}
             </div>
           </motion.div>
 
