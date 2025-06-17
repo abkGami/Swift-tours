@@ -263,20 +263,15 @@ export default function BoatsPage() {
                           height={12}
                           src={boat.image || "/placeholder.svg"}
                           alt={boat.name}
-                          className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                          className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-300"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                        {/* <div className="absolute bottom-3 left-3 text-white">
-                          <div className="flex items-center space-x-1">
-                            <Star className="h-4 w-4 text-yellow-400" />
-                            <span className="text-sm font-medium">
-                              {boat.rating}
-                            </span>
-                          </div>
-                        </div> */}
+                        <div className="absolute bottom-3 left-3 text-white">
+                         
+                        </div>
                       </div>
 
-                      <CardHeader>
+                      <CardHeader className="flex flex-row items-center justify-between">
                         <CardTitle className="text-xl text-gray-900">
                           {boat.name}
                         </CardTitle>
@@ -287,6 +282,12 @@ export default function BoatsPage() {
                         >
                           {boat.type}
                         </Badge> */}
+                         <div className="flex items-center space-x-1">
+                            <Star className="h-4 w-4 text-yellow-400 "  />
+                            <span className="text-sm font-medium">
+                              {boat.rating}
+                            </span>
+                          </div>
                           <div className="flex items-center text-gray-600">
                             <Users className="h-4 w-4 mr-1" />
                             <span className="text-sm">{boat.capacity}</span>
