@@ -84,6 +84,7 @@ export default function Navigation() {
             { name: "Ecuador", href: "/destinations/southAmerica/ecuador" },
             { name: "Uruguay", href: "/destinations/southAmerica/uruguay" },
             { name: "Bolivia", href: "/destinations/southAmerica/bolivia" },
+            { name: "Venezuela", href: "/destinations/southAmerica/venezuela" },
           ],
         },
       ],
