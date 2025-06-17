@@ -267,7 +267,12 @@ export default function BoatsPage() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                         <div className="absolute bottom-3 left-3 text-white">
-                         
+                            <Badge
+                          variant="secondary"
+                          className="bg-blue-100 text-blue-800"
+                        >
+                          {boat.type}
+                        </Badge>
                         </div>
                       </div>
 
@@ -275,13 +280,8 @@ export default function BoatsPage() {
                         <CardTitle className="text-xl text-gray-900">
                           {boat.name}
                         </CardTitle>
-                        <div className="flex items-center justify-between">
-                          {/* <Badge
-                          variant="secondary"
-                          className="bg-blue-100 text-blue-800"
-                        >
-                          {boat.type}
-                        </Badge> */}
+                        <div className="flex items-center justify-between gap-4">
+                       
                          <div className="flex items-center space-x-1">
                             <Star className="h-4 w-4 text-yellow-400 "  />
                             <span className="text-sm font-medium">
@@ -297,9 +297,13 @@ export default function BoatsPage() {
 
                       <CardContent>
                         {/* Show search result details */}
-                        <div className="mb-2">
-                          <span className="font-semibold">Year:</span>{" "}
-                          {boat.specifications.year || "N/A"}
+                        <div>
+                          <div>
+
+                          </div>
+                        <div className="mb-2 font-medium text-gray-500">
+                          ({boat.specifications.year || "N/A"})
+                        </div>
                         </div>
                         <div className="mb-2">
                           <span className="font-semibold">Skipper:</span>{" "}
@@ -340,12 +344,6 @@ export default function BoatsPage() {
                           <span className="font-semibold">Price:</span>{" "}
                           {boat.price}
                         </div>
-                        {/* <Button
-                          // onClick={handleClick}
-                          className="w-full mt-4 bg-blue-600 hover:bg-blue-700"
-                        >
-                          Book Now
-                        </Button> */}
                       </CardContent>
                     </Card>
                   </Link>
