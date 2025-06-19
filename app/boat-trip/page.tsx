@@ -59,6 +59,40 @@ function getRandomTitles(titles: any[], count: number) {
 }
 
 export default function BoatsPage() {
+  const [slideIndexes, setSlideIndexes] = useState<{ [id: string]: number }>(
+    {}
+  );
+
+  // Helper to get current slide index for a boat
+  const getCurrentSlide = (boatId: string, images: string[]) =>
+    slideIndexes[boatId] ?? 0;
+
+  // Handler to go to previous image
+  const prevImage = (boatId: string, images: string[]) => {
+    setSlideIndexes((prev) => ({
+      ...prev,
+      [boatId]:
+        prev[boatId] === undefined
+          ? images.length - 1
+          : prev[boatId] === 0
+          ? images.length - 1
+          : prev[boatId] - 1,
+    }));
+  };
+
+  // Handler to go to next image
+  const nextImage = (boatId: string, images: string[]) => {
+    setSlideIndexes((prev) => ({
+      ...prev,
+      [boatId]:
+        prev[boatId] === undefined
+          ? 1 % images.length
+          : prev[boatId] === images.length - 1
+          ? 0
+          : prev[boatId] + 1,
+    }));
+  };
+
   const router = useRouter();
 
   const [searchCountry, setSearchCountry] = useState("");
@@ -303,6 +337,17 @@ export default function BoatsPage() {
                     )}&duration=${encodeURIComponent(
                       title.duration
                     )}&city=${encodeURIComponent(title.city)}`;
+
+                    // Use images array for slideshow, fallback to [image] if not present
+                    const images =
+                      (boat as any).images &&
+                      Array.isArray((boat as any).images)
+                        ? (boat as any).images
+                        : boat.image
+                        ? [boat.image]
+                        : [];
+
+                    const currentSlide = getCurrentSlide(boat.id, images);
                     return (
                       <motion.div
                         key={boat.name + index}
@@ -322,22 +367,16 @@ export default function BoatsPage() {
                           {" "}
                           <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 shadow-lg">
                             <div className="relative overflow-hidden">
-                              <Image
-                                width={1200}
-                                height={300}
-                                src={boat.image || "/placeholder.svg"}
-                                alt={boat.name}
-                                className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-300"
-                              />
+                              {images.length > 0 && (
+                                <Image
+                                  width={1200}
+                                  height={300}
+                                  src={images[0] || "/placeholder.svg"}
+                                  alt={boat.name}
+                                  className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-300"
+                                />
+                              )}
                               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                              {/* <div className="absolute bottom-3 left-3 text-white">
-                              <Badge
-                                variant="secondary"
-                                className="bg-blue-100 text-blue-800"
-                              >
-                                {boat.type}
-                              </Badge>
-                            </div> */}
                             </div>
 
                             <CardHeader className="flex flex-row items-center justify-between">
