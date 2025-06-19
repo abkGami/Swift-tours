@@ -311,17 +311,6 @@ export default function BoatsPage() {
                         transition={{ duration: 0.6, delay: index * 0.1 }}
                         whileHover={{ y: -10, scale: 1.02 }}
                         className="group"
-                        // onClick={() =>
-                        //   router.push(
-                        //     `/details/${boat.id}?country=${encodeURIComponent(
-                        //       searchCountry
-                        //     )}&exp=${encodeURIComponent(
-                        //       title.exp
-                        //     )}&duration=${encodeURIComponent(
-                        //       title.duration
-                        //     )}&city=${encodeURIComponent(title.city)}`
-                        //   )
-                        // }
                         style={{ cursor: "pointer" }}
                       >
                         <a
