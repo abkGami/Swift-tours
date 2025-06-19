@@ -2,7 +2,11 @@ export const boats = [
   {
     id: "ryck-2801",
     name: "RYCK 280",
-    image: "/placeholder.svg?height=300&width=400",
+    images: [
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400&img=2",
+      "/placeholder.svg?height=300&width=400&img=3",
+    ],
     type: "Day Boat / Centre-Console",
     rating: 4.8,
     capacity: 8,
@@ -311,6 +315,24 @@ export const boats = [
       "Photo Stops at Caves",
       "Onboard Commentary",
       "Safe Boarding Access",
+    ],
+  },
+  // i
+  {
+    id: "swift-rib-600",
+    name: "Swift RIB 600",
+    image: "/images/swift-rib-600.jpg",
+    type: "Rigid Inflatable Boat",
+    rating: 4.8,
+    capacity: 12,
+    price: "€390/day",
+    features: [
+      "Snorkeling Equipment Included",
+      "Ladder for Easy Water Entry",
+      "Life Jackets",
+      "Shaded Seating",
+      "Dry Storage for Bags",
+      "Onboard Guide",
     ],
   },
 ];
