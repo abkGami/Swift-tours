@@ -218,3 +218,358 @@ export const boats = [
     ],
   },
 ];
+
+export const country = [
+  {
+    id: "balearic-islands",
+    country: "Balearic Islands",
+    title: [
+      {
+        exp: "Sunset Yacht Cruise with Tapas & Cava",
+        duration: "3 hours",
+        city: "Ibiza",
+      },
+      {
+        exp: "Formentera Hidden Coves Day Tour",
+        duration: "7 hours",
+        city: "Menorca",
+      },
+      {
+        exp: "Sail & Snorkel the Crystal Waters",
+        duration: "3 hours",
+        city: "Formentera",
+      },
+      {
+        exp: "Ibiza Beach Club Hop by Boat",
+        duration: "2.5 hours",
+        city: "Ibiza",
+      },
+      {
+        exp: "Private Sailing Escape: Cabrera Island",
+        duration: "1 hour",
+        city: "Ibiza",
+      },
+      {
+        exp: "Morning Paddle & Brunch on a Catamaran",
+        duration: "6 hours",
+        city: "Palma de Mallorca",
+      },
+      {
+        exp: "Mediterranean Sunset Cruise",
+        duration: "3 hours",
+        city: "Ibiza",
+      },
+      {
+        exp: "Full-Day Charter to Dragonera Island",
+        duration: "2 hours",
+        city: "Formentera",
+      },
+    ],
+  },
+  {
+    id: "greece",
+    country: "Greece",
+    title: [
+      {
+        exp: "Sunset Cruise with BBQ & Music",
+        duration: "7 hours",
+        city: "Rhodes",
+      },
+      {
+        exp: "Delos Catamaran History Cruise",
+        duration: "5 hours",
+        city: "Mykonos",
+      },
+      {
+        exp: "Romantic Athenian Riviera Cruise",
+        duration: "3 hours",
+        city: "Zakynthos",
+      },
+      {
+        exp: "Shipwreck Cove & Blue Caves Speedboat",
+        duration: "1 hour",
+        city: "Santorini",
+      },
+      {
+        exp: "Island Hopping to Antiparos",
+        duration: "6 hours",
+        city: "Rhodes",
+      },
+      {
+        exp: "Hydra, Poros & Aegina Saronic Gulf Cruise",
+        duration: "2.5 hours",
+        city: "Paros",
+      },
+      {
+        exp: "Sunset Catamaran from Rhodes",
+        duration: "10 hours",
+        city: "Athens",
+      },
+      {
+        exp: "Full-Day Paxos and Antipaxos Cruise",
+        duration: "6 hours",
+        city: "Paros",
+      },
+    ],
+  },
+  {
+    id: "croatia",
+    country: "Croatia",
+    title: [
+      {
+        exp: "Pakleni Islands Private Cruise",
+        duration: "2.5 hours",
+        city: "Hvar",
+      },
+      {
+        exp: "Blue Cave & 5 Islands Adventure",
+        duration: "10 hours",
+        city: "Zadar",
+      },
+      {
+        exp: "Elaphiti Islands Day Cruise",
+        duration: "8 hours",
+        city: "Hvar",
+      },
+      {
+        exp: "Zadar Archipelago Dolphin Sail",
+        duration: "6 hours",
+        city: "Zadar",
+      },
+      {
+        exp: "Twilight Wine Cruise",
+        duration: "8 hours",
+        city: "Rovinj",
+      },
+      {
+        exp: "Brac Island Adventure Cruise",
+        duration: "2 hours",
+        city: "Zadar",
+      },
+      {
+        exp: "Mljet National Park Yacht Tour",
+        duration: "8 hours",
+        city: "Dubrovnik",
+      },
+      {
+        exp: "Split Sunset Chill Sail",
+        duration: "6 hours",
+        city: "Zadar",
+      },
+    ],
+  },
+  {
+    id: "portugal",
+    country: "Portugal",
+    title: [
+      { exp: "Douro River Wine Cruise", duration: "5 hours", city: "Faro" },
+      {
+        exp: "Lisbon Sunset Catamaran Tour",
+        duration: "3 hours",
+        city: "Porto",
+      },
+      {
+        exp: "Algarve Caves & Coastline by Boat",
+        duration: "8 hours",
+        city: "Porto",
+      },
+      {
+        exp: "Private Sailing in the Tagus River",
+        duration: "2 hours",
+        city: "Lisbon",
+      },
+      {
+        exp: "Madeira Whale Watching Adventure",
+        duration: "5 hours",
+        city: "Lisbon",
+      },
+      {
+        exp: "Full-Day Ria Formosa Island Hopping",
+        duration: "5 hours",
+        city: "Faro",
+      },
+      { exp: "Porto Historic Boat Journey", duration: "7 hours", city: "Faro" },
+      {
+        exp: "Lagos Sunset Dolphin Safari",
+        duration: "4 hours",
+        city: "Lisbon",
+      },
+    ],
+  },
+  {
+    id: "malta",
+    country: "Malta",
+    title: [
+      {
+        exp: "Blue Lagoon Full-Day Catamaran",
+        duration: "2 hours",
+        city: "Gozo",
+      },
+      {
+        exp: "Private Cruise to Gozo & Comino",
+        duration: "4 hours",
+        city: "Valletta",
+      },
+      {
+        exp: "Comino Caves & Crystal Lagoon Sail",
+        duration: "2 hours",
+        city: "Gozo",
+      },
+      {
+        exp: "Sunset Sail around Valletta Harbor",
+        duration: "1 hour",
+        city: "Gozo",
+      },
+      {
+        exp: "Gozo Snorkeling & Swim Tour",
+        duration: "7 hours",
+        city: "Comino",
+      },
+      {
+        exp: "Historical Harbor Cruise in Valletta",
+        duration: "8 hours",
+        city: "Mellieha",
+      },
+      {
+        exp: "Luxury Yacht Charter from Mellieha",
+        duration: "2 hours",
+        city: "Valletta",
+      },
+      {
+        exp: "Dingli Cliffs Coastal Cruise",
+        duration: "2 hours",
+        city: "Mellieha",
+      },
+    ],
+  },
+  {
+    id: "montenegro",
+    country: "Montenegro",
+    title: [
+      {
+        exp: "Kotor Bay Blue Cave Boat Tour",
+        duration: "2 hours",
+        city: "Tivat",
+      },
+      {
+        exp: "Private Yacht to Our Lady of the Rocks",
+        duration: "6 hours",
+        city: "Tivat",
+      },
+      {
+        exp: "Sunset Catamaran along Budva Riviera",
+        duration: "3 hours",
+        city: "Herceg Novi",
+      },
+      {
+        exp: "Skadar Lake Birdwatching Cruise",
+        duration: "2 hours",
+        city: "Budva",
+      },
+      {
+        exp: "Boka Bay Full-Day Tour",
+        duration: "2 hours",
+        city: "Herceg Novi",
+      },
+      {
+        exp: "Tivat Islands Adventure",
+        duration: "2 hours",
+        city: "Herceg Novi",
+      },
+      { exp: "Budva Hidden Beaches Sail", duration: "4 hours", city: "Kotor" },
+      {
+        exp: "Montenegro Coast Sunset Cruise",
+        duration: "5 hours",
+        city: "Herceg Novi",
+      },
+    ],
+  },
+  {
+    id: "turkey",
+    country: "Turkey",
+    title: [
+      {
+        exp: "Bodrum Private Gulet Cruise",
+        duration: "7 hours",
+        city: "Bodrum",
+      },
+      {
+        exp: "Fethiye 12 Islands Day Tour",
+        duration: "7 hours",
+        city: "Bodrum",
+      },
+      {
+        exp: "Antalya Coast Sunset Dinner Cruise",
+        duration: "8 hours",
+        city: "Marmaris",
+      },
+      {
+        exp: "Cleopatra Island Excursion by Yacht",
+        duration: "8 hours",
+        city: "Marmaris",
+      },
+      {
+        exp: "Pamukkale Hot Springs & River Boat Tour",
+        duration: "4 hours",
+        city: "Marmaris",
+      },
+      {
+        exp: "Blue Cruise to Butterfly Valley",
+        duration: "4 hours",
+        city: "Marmaris",
+      },
+      {
+        exp: "Marmaris Pirate Ship Experience",
+        duration: "4 hours",
+        city: "Antalya",
+      },
+      {
+        exp: "Turkish Riviera Blue Lagoon Ride",
+        duration: "7 hours",
+        city: "Fethiye",
+      },
+    ],
+  },
+  {
+    id: "france",
+    country: "France",
+    title: [
+      {
+        exp: "Nice Bay Private Yacht Cruise",
+        duration: "7 hours",
+        city: "Cannes",
+      },
+      { exp: "Cannes Lerins Islands Tour", duration: "1 hour", city: "Cannes" },
+      {
+        exp: "Sunset Seine River Dinner Cruise",
+        duration: "5 hours",
+        city: "Nice",
+      },
+      {
+        exp: "Corsica Hidden Beaches Explorer",
+        duration: "5 hours",
+        city: "Corsica",
+      },
+      {
+        exp: "Marseille Calanques Discovery Sail",
+        duration: "1 hour",
+        city: "Marseille",
+      },
+      {
+        exp: "Paris Illuminated Night Boat Ride",
+        duration: "7 hours",
+        city: "Paris",
+      },
+      {
+        exp: "French Riviera Romantic Sail",
+        duration: "3 hours",
+        city: "Marseille",
+      },
+      {
+        exp: "Corsica Gulf of Porto Day Trip",
+        duration: "8 hours",
+        city: "Corsica",
+      },
+    ],
+  },
+];
