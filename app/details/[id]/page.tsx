@@ -31,7 +31,7 @@ export default function BoatDetailPage() {
       <Navigation />
       <div className="max-w-3xl mx-auto py-16 px-4">
         <div className="bg-white rounded-lg shadow-xl p-8">
-          <h1 className="text-3xl font-bold mb-4">{boat.name}</h1>
+          <h1 className="text-3xl font-bold mb-4">{exp}</h1>
           <Image
             src={boat.image}
             alt={boat.name}

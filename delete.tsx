@@ -712,3 +712,31 @@ export default function BoatsPage() {
     </div>
   );
 }
+
+//   <div className="max-w-3xl mx-auto py-16 px-4">
+//     <div className="bg-white rounded-lg shadow-xl p-8">
+//       <h1 className="text-3xl font-bold mb-4">{exp}</h1>
+//       <Image
+//         src={boat.image}
+//         alt={boat.name}
+//         width={800}
+//         height={400}
+//         className="rounded-lg mb-6"
+//       />
+//       <div className="mb-2">
+//         <strong>Capacity:</strong> {boat.capacity} people
+//       </div>
+//       <div className="mb-2">
+//         <strong>Features:</strong> {boat.features.join(", ")}
+//       </div>
+//       <div className="mb-2">
+//         <strong>Price:</strong> {boat.price}
+//       </div>
+//       <div className="mt-6 p-4 bg-blue-50 rounded">
+//         <div className="font-semibold text-blue-700">{exp}</div>
+//         <div className="text-sm text-gray-600">
+//           Duration: {duration} | City: {city}
+//         </div>
+//       </div>
+//     </div>
+//   </div>
