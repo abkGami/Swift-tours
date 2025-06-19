@@ -1,7 +1,15 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Anchor, Users, Star, Waves, Calendar, MapPin } from "lucide-react";
+import {
+  Anchor,
+  Users,
+  Star,
+  Waves,
+  Calendar,
+  MapPin,
+  LucideCheck,
+} from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -84,7 +92,7 @@ export default function BoatsPage() {
       !selectedType ||
       (withSkipper !== "yes" && withSkipper !== "no")
     ) {
-      alert("Please fill all fields and select skipper option.");
+      alert("Please fill all fields correctly.");
       return;
     }
     setHasSearched(true);
@@ -275,19 +283,19 @@ export default function BoatsPage() {
                               className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-300"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                            <div className="absolute bottom-3 left-3 text-white">
+                            {/* <div className="absolute bottom-3 left-3 text-white">
                               <Badge
                                 variant="secondary"
                                 className="bg-blue-100 text-blue-800"
                               >
                                 {boat.type}
                               </Badge>
-                            </div>
+                            </div> */}
                           </div>
 
                           <CardHeader className="flex flex-row items-center justify-between">
                             <CardTitle className="text-xl text-gray-900">
-                              {boat.name}
+                              {title.exp}
                             </CardTitle>
                             <div className="flex items-center justify-between gap-4">
                               <div className="flex items-center space-x-1">
@@ -305,25 +313,34 @@ export default function BoatsPage() {
 
                           <CardContent>
                             <div className="mb-2">
-                              <span className="font-semibold">Price:</span>{" "}
-                              {boat.price}
+                              <span className="font-semibold text-gray-600">
+                                {title.city}
+                              </span>{" "}
                             </div>
                             <div className="mb-2">
-                              <span className="font-semibold">Features:</span>
-                              <ul className="list-disc ml-5">
-                                {boat.features?.map((f) => (
-                                  <li key={f}>{f}</li>
-                                ))}
-                              </ul>
+                              <span className="font-normal">
+                                {title.duration}
+                              </span>
                             </div>
                             {title && (
-                              <div className="bg-gray-100 rounded p-3 mt-2">
-                                <div className="font-semibold text-blue-700">
-                                  {title.exp}
+                              <div className="bg-gray-100 rounded p-3 mt-2 flex flex-row items-center justify-between">
+                                <div>
+                                  <div className="flex flex-row items-center gap-2">
+                                    <LucideCheck />
+                                    <div>Fuel included</div>
+                                  </div>
+                                  <div className="flex flex-row items-center gap-2">
+                                    <LucideCheck />
+                                    <div>Skipper included</div>
+                                  </div>
                                 </div>
-                                <div className="text-xs text-gray-600">
-                                  Duration: {title.duration} | City:{" "}
-                                  {title.city}
+                                <div>
+                                  <div className="font-semibold">
+                                    {boat.price}
+                                  </div>
+                                  <div className="font-medium text-gray-800">
+                                    For groups of up to {boat.capacity} people
+                                  </div>
                                 </div>
                               </div>
                             )}
