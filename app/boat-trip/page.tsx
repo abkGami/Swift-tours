@@ -9,6 +9,7 @@ import {
   Calendar,
   MapPin,
   LucideCheck,
+  Loader2,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -18,6 +19,7 @@ import Footer from "@/components/footer";
 import Image from "next/image";
 import Link from "next/link";
 import { boats, country as countryData } from "@/data/boats/page";
+import { useRef } from "react";
 
 interface Boat {
   name: string;
@@ -64,6 +66,9 @@ export default function BoatsPage() {
   const [place, setPlace] = useState("");
   const [returnDate, setReturnDate] = useState("");
   const [departureDate, setDepartureDate] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   // Find country object by searchCountry
   const countryObj = countryData.find(
@@ -95,7 +100,24 @@ export default function BoatsPage() {
       alert("Please fill all fields correctly.");
       return;
     }
-    setHasSearched(true);
+    setLoading(true);
+    setHasSearched(false);
+
+    // Scroll to results section after a short delay to ensure ref is rendered
+    setTimeout(() => {
+      setLoading(false);
+      setHasSearched(true);
+      if (resultsRef.current) {
+        resultsRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 3000);
+
+    // Scroll to loading animation immediately
+    setTimeout(() => {
+      if (resultsRef.current) {
+        resultsRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
   };
 
   return (
@@ -238,52 +260,61 @@ export default function BoatsPage() {
         </Card>
       </section>
       {/* Boats Fleet Section */}
-      {hasSearched && (
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                Our Premium Fleet
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Choose from our carefully maintained collection of boats, each
-                equipped with modern amenities and safety equipment
-              </p>
-            </motion.div>
+      <div ref={resultsRef}>
+        {loading && (
+          <div className="flex flex-col items-center justify-center py-20">
+            <Loader2 className="animate-spin h-12 w-12 text-blue-600 mb-4" />
+            <div className="text-lg text-blue-700 font-semibold">
+              Searching for boats...
+            </div>
+          </div>
+        )}
+        {!loading && hasSearched && (
+          <section className="py-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-center mb-16"
+              >
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                  Our Premium Fleet
+                </h2>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  Choose from our carefully maintained collection of boats, each
+                  equipped with modern amenities and safety equipment
+                </p>
+              </motion.div>
 
-            {countryObj && filteredBoats.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredBoats.map((boat, index) => {
-                  const title = randomTitles[index];
-                  return (
-                    <motion.div
-                      key={boat.name + index}
-                      initial={{ opacity: 0, y: 50 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      whileHover={{ y: -10, scale: 1.02 }}
-                      className="group"
-                    >
-                      <Link
-                        href={`/details/${boat.id}`}
-                        className="block h-full"
+              {countryObj && filteredBoats.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filteredBoats.map((boat, index) => {
+                    const title = randomTitles[index];
+                    return (
+                      <motion.div
+                        key={boat.name + index}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                        whileHover={{ y: -10, scale: 1.02 }}
+                        className="group"
                       >
-                        <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 shadow-lg">
-                          <div className="relative overflow-hidden">
-                            <Image
-                              width={1200}
-                              height={300}
-                              src={boat.image || "/placeholder.svg"}
-                              alt={boat.name}
-                              className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-300"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                            {/* <div className="absolute bottom-3 left-3 text-white">
+                        <Link
+                          href={`/details/${boat.id}`}
+                          className="block h-full"
+                        >
+                          <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 shadow-lg">
+                            <div className="relative overflow-hidden">
+                              <Image
+                                width={1200}
+                                height={300}
+                                src={boat.image || "/placeholder.svg"}
+                                alt={boat.name}
+                                className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-300"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                              {/* <div className="absolute bottom-3 left-3 text-white">
                               <Badge
                                 variant="secondary"
                                 className="bg-blue-100 text-blue-800"
@@ -291,50 +322,49 @@ export default function BoatsPage() {
                                 {boat.type}
                               </Badge>
                             </div> */}
-                          </div>
+                            </div>
 
-                          <CardHeader className="flex flex-row items-center justify-between">
-                            <CardTitle className="text-xl text-gray-900">
-                              {title.exp}
-                            </CardTitle>
-                            <div className="flex items-center justify-between gap-4">
-                              <div className="flex items-center space-x-1">
-                                <Star className="h-4 w-4 text-yellow-400 " />
-                                <span className="text-sm font-medium">
-                                  {boat.rating}
-                                </span>
-                              </div>
-                              <div className="flex items-center text-gray-600">
+                            <CardHeader className="flex flex-row items-center justify-between">
+                              <CardTitle className="text-xl text-gray-900">
+                                {title.exp}
+                              </CardTitle>
+                              <div className="flex items-center justify-between gap-4">
+                                <div className="flex items-center space-x-1">
+                                  <Star className="h-4 w-4 text-yellow-400 " />
+                                  <span className="text-sm font-medium">
+                                    {boat.rating}
+                                  </span>
+                                </div>
+                                {/* <div className="flex items-center text-gray-600">
                                 <Users className="h-4 w-4 mr-1" />
                                 <span className="text-sm">{boat.capacity}</span>
+                              </div> */}
                               </div>
-                            </div>
-                          </CardHeader>
+                            </CardHeader>
 
-                          <CardContent>
-                            <div className="mb-2">
-                              <span className="font-semibold text-gray-600">
-                                {title.city}
-                              </span>{" "}
-                            </div>
-                            <div className="mb-2">
-                              <span className="font-normal">
-                                {title.duration}
-                              </span>
-                            </div>
-                            {title && (
+                            <CardContent>
+                              <div className="mb-2">
+                                <span className="font-semibold text-gray-600">
+                                  {title.city}
+                                </span>{" "}
+                              </div>
+                              <div className="mb-2">
+                                <span className="font-normal">
+                                  {title.duration}
+                                </span>
+                              </div>
                               <div className="bg-gray-100 rounded p-3 mt-2 flex flex-row items-center justify-between">
                                 <div>
                                   <div className="flex flex-row items-center gap-2">
-                                    <LucideCheck />
+                                    <LucideCheck color="blue" size={15} />
                                     <div>Fuel included</div>
                                   </div>
                                   <div className="flex flex-row items-center gap-2">
-                                    <LucideCheck />
+                                    <LucideCheck color="blue" size={15} />
                                     <div>Skipper included</div>
                                   </div>
                                 </div>
-                                <div>
+                                <div className="text-right">
                                   <div className="font-semibold">
                                     {boat.price}
                                   </div>
@@ -343,26 +373,27 @@ export default function BoatsPage() {
                                   </div>
                                 </div>
                               </div>
-                            )}
-                          </CardContent>
-                        </Card>
-                      </Link>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            ) : hasSearched && searchCountry && selectedType ? (
-              <div className="text-center text-gray-500 mt-10">
-                No boats found for this country and type.
-              </div>
-            ) : (
-              <div className="text-center text-gray-400 mt-10">
-                Please select a country and boat type to search.
-              </div>
-            )}
-          </div>
-        </section>
-      )}
+                            </CardContent>
+                          </Card>
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              ) : hasSearched && searchCountry && selectedType ? (
+                <div className="text-center text-gray-500 mt-10">
+                  No boats found for this country and type.
+                </div>
+              ) : (
+                <div className="text-center text-gray-400 mt-10">
+                  Please select a country and boat type to search.
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+      </div>
+
       <Footer />
     </div>
   );
