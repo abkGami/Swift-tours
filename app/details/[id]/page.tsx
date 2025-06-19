@@ -14,6 +14,7 @@ import {
   Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 export default function BoatDetailPage() {
   const { id } = useParams();
@@ -26,6 +27,8 @@ export default function BoatDetailPage() {
   const duration = searchParams.get("duration");
   const city = searchParams.get("city");
 
+  const [current, setCurrent] = useState(0);
+
   if (!boat) {
     return (
       <div>
@@ -36,18 +39,59 @@ export default function BoatDetailPage() {
     );
   }
 
+  // Fallback for old boats with only image
+  const images = boat.images || (boat.image ? [boat.image] : []);
+
+  const prevImage = () =>
+    setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  const nextImage = () =>
+    setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
       <div className="max-w-3xl mx-auto py-16 px-4">
         <div className="bg-white rounded-lg shadow-xl p-8">
-          <Image
-            src={boat.image}
-            alt={boat.name}
-            width={800}
-            height={400}
-            className="rounded-lg mb-6"
-          />
+          <div className="relative mb-6">
+            {images.length > 0 && (
+              <Image
+                src={images[current]}
+                alt={boat.name}
+                width={800}
+                height={400}
+                className="rounded-lg object-cover w-full h-72"
+                priority
+              />
+            )}
+            {images.length > 1 && (
+              <>
+                <button
+                  onClick={prevImage}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow hover:bg-blue-100"
+                  aria-label="Previous image"
+                >
+                  &#8592;
+                </button>
+                <button
+                  onClick={nextImage}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow hover:bg-blue-100"
+                  aria-label="Next image"
+                >
+                  &#8594;
+                </button>
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+                  {images.map((_, idx) => (
+                    <span
+                      key={idx}
+                      className={`inline-block w-2 h-2 rounded-full ${
+                        idx === current ? "bg-blue-600" : "bg-gray-300"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
           <h1 className="text-3xl font-bold mb-1">{exp}</h1>
           <div className="mb-2 font-medium text-gray-600">{city}</div>
 
