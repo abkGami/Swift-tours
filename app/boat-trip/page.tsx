@@ -20,6 +20,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { boats, country as countryData } from "@/data/boats/page";
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 
 interface Boat {
   name: string;
@@ -58,6 +59,8 @@ function getRandomTitles(titles: any[], count: number) {
 }
 
 export default function BoatsPage() {
+  const router = useRouter();
+
   const [searchCountry, setSearchCountry] = useState("");
   const [selectedType, setSelectedType] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
@@ -299,22 +302,30 @@ export default function BoatsPage() {
                         transition={{ duration: 0.6, delay: index * 0.1 }}
                         whileHover={{ y: -10, scale: 1.02 }}
                         className="group"
+                        onClick={() =>
+                          router.push(
+                            `/details/${boat.id}?country=${encodeURIComponent(
+                              searchCountry
+                            )}&exp=${encodeURIComponent(
+                              title.exp
+                            )}&duration=${encodeURIComponent(
+                              title.duration
+                            )}&city=${encodeURIComponent(title.city)}`
+                          )
+                        }
+                        style={{ cursor: "pointer" }}
                       >
-                        <Link
-                          href={`/details/${boat.id}`}
-                          className="block h-full"
-                        >
-                          <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 shadow-lg">
-                            <div className="relative overflow-hidden">
-                              <Image
-                                width={1200}
-                                height={300}
-                                src={boat.image || "/placeholder.svg"}
-                                alt={boat.name}
-                                className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-300"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                              {/* <div className="absolute bottom-3 left-3 text-white">
+                        <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 shadow-lg">
+                          <div className="relative overflow-hidden">
+                            <Image
+                              width={1200}
+                              height={300}
+                              src={boat.image || "/placeholder.svg"}
+                              alt={boat.name}
+                              className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-300"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                            {/* <div className="absolute bottom-3 left-3 text-white">
                               <Badge
                                 variant="secondary"
                                 className="bg-blue-100 text-blue-800"
@@ -322,60 +333,59 @@ export default function BoatsPage() {
                                 {boat.type}
                               </Badge>
                             </div> */}
-                            </div>
+                          </div>
 
-                            <CardHeader className="flex flex-row items-center justify-between">
-                              <CardTitle className="text-xl text-gray-900">
-                                {title.exp}
-                              </CardTitle>
-                              <div className="flex items-center justify-between gap-4">
-                                <div className="flex items-center space-x-1">
-                                  <Star className="h-4 w-4 text-yellow-400 " />
-                                  <span className="text-sm font-medium">
-                                    {boat.rating}
-                                  </span>
-                                </div>
-                                {/* <div className="flex items-center text-gray-600">
+                          <CardHeader className="flex flex-row items-center justify-between">
+                            <CardTitle className="text-xl text-gray-900">
+                              {title.exp}
+                            </CardTitle>
+                            <div className="flex items-center justify-between gap-4">
+                              <div className="flex items-center space-x-1">
+                                <Star className="h-4 w-4 text-yellow-400 " />
+                                <span className="text-sm font-medium">
+                                  {boat.rating}
+                                </span>
+                              </div>
+                              {/* <div className="flex items-center text-gray-600">
                                 <Users className="h-4 w-4 mr-1" />
                                 <span className="text-sm">{boat.capacity}</span>
                               </div> */}
-                              </div>
-                            </CardHeader>
+                            </div>
+                          </CardHeader>
 
-                            <CardContent>
-                              <div className="mb-2">
-                                <span className="font-semibold text-gray-600">
-                                  {title.city}
-                                </span>{" "}
-                              </div>
-                              <div className="mb-2">
-                                <span className="font-normal">
-                                  {title.duration}
-                                </span>
-                              </div>
-                              <div className="bg-gray-100 rounded p-3 mt-2 flex flex-row items-center justify-between">
-                                <div>
-                                  <div className="flex flex-row items-center gap-2">
-                                    <LucideCheck color="blue" size={15} />
-                                    <div>Fuel included</div>
-                                  </div>
-                                  <div className="flex flex-row items-center gap-2">
-                                    <LucideCheck color="blue" size={15} />
-                                    <div>Skipper included</div>
-                                  </div>
+                          <CardContent>
+                            <div className="mb-2">
+                              <span className="font-semibold text-gray-600">
+                                {title.city}
+                              </span>{" "}
+                            </div>
+                            <div className="mb-2">
+                              <span className="font-normal">
+                                {title.duration}
+                              </span>
+                            </div>
+                            <div className="bg-gray-100 rounded p-3 mt-2 flex flex-row items-center justify-between">
+                              <div>
+                                <div className="flex flex-row items-center gap-2">
+                                  <LucideCheck color="blue" size={15} />
+                                  <div>Fuel included</div>
                                 </div>
-                                <div className="text-right">
-                                  <div className="font-semibold">
-                                    {boat.price}
-                                  </div>
-                                  <div className="font-medium text-gray-800">
-                                    For groups of up to {boat.capacity} people
-                                  </div>
+                                <div className="flex flex-row items-center gap-2">
+                                  <LucideCheck color="blue" size={15} />
+                                  <div>Skipper included</div>
                                 </div>
                               </div>
-                            </CardContent>
-                          </Card>
-                        </Link>
+                              <div className="text-right">
+                                <div className="font-semibold">
+                                  {boat.price}
+                                </div>
+                                <div className="font-medium text-gray-800">
+                                  For groups of up to {boat.capacity} people
+                                </div>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
                       </motion.div>
                     );
                   })}

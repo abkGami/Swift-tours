@@ -1,5 +1,5 @@
 "use client";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import Image from "next/image";
@@ -7,7 +7,14 @@ import { boats } from "@/data/boats/page";
 
 export default function BoatDetailPage() {
   const { id } = useParams();
+  const searchParams = useSearchParams();
+
   const boat = boats.find((b) => b.id === id);
+
+  // Get exp, duration, city from query params
+  const exp = searchParams.get("exp");
+  const duration = searchParams.get("duration");
+  const city = searchParams.get("city");
 
   if (!boat) {
     return (
@@ -40,6 +47,12 @@ export default function BoatDetailPage() {
           </div>
           <div className="mb-2">
             <strong>Price:</strong> {boat.price}
+          </div>
+          <div className="mt-6 p-4 bg-blue-50 rounded">
+            <div className="font-semibold text-blue-700">{exp}</div>
+            <div className="text-sm text-gray-600">
+              Duration: {duration} | City: {city}
+            </div>
           </div>
         </div>
       </div>
