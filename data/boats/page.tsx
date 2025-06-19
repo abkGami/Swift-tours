@@ -6,7 +6,7 @@ export const boats = [
     type: "Day Boat / Centre-Console",
     rating: 4.8,
     capacity: 8,
-    price: "€189,676",
+    price: "€250/day",
     features: [
       "Fuel included",
       "Air conditioning",
@@ -23,7 +23,7 @@ export const boats = [
     type: "Day Boat / Centre-Console",
     rating: 4.8,
     capacity: 8,
-    price: "€189,676",
+    price: "€250/day",
     features: [
       "Fuel included",
       "Air conditioning",
@@ -40,7 +40,7 @@ export const boats = [
     type: "Day Boat / Centre-Console",
     rating: 4.8,
     capacity: 8,
-    price: "€189,676",
+    price: "€250/day",
     features: [
       "Fuel included",
       "Air conditioning",
@@ -58,7 +58,7 @@ export const boats = [
     type: "Cabin Cruiser",
     rating: 4.8,
     capacity: 8,
-    price: "€2,400 ‑ €3,800/week",
+    price: "€250/day",
     features: [
       "Fuel included",
       "Air conditioning",
@@ -75,7 +75,7 @@ export const boats = [
     type: "Cabin Cruiser",
     rating: 4.8,
     capacity: 8,
-    price: "€2,400 ‑ €3,800/week",
+    price: "€250/day",
     features: [
       "Fuel included",
       "Air conditioning",
@@ -92,7 +92,7 @@ export const boats = [
     type: "Motor Yacht",
     rating: 4.8,
     capacity: 10,
-    price: "€2,400 ‑ €3,800/week",
+    price: "€250/day",
     features: [
       "Air conditioning",
       "Sound System",
@@ -589,4 +589,3 @@ export const country = [
     ],
   },
 ];
-

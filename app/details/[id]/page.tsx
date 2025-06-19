@@ -32,16 +32,6 @@ export default function BoatDetailPage() {
             height={400}
             className="rounded-lg mb-6"
           />
-          {/* <div className="mb-2"><strong>Type:</strong> {boat.type}</div> */}
-          <div className="mb-2">
-            <strong>Location:</strong> {boat.description}
-          </div>
-          <div className="mb-2">
-            <strong>Year:</strong> {boat.specifications.year}
-          </div>
-          <div className="mb-2">
-            <strong>Length:</strong> {boat.specifications.length} m
-          </div>
           <div className="mb-2">
             <strong>Capacity:</strong> {boat.capacity} people
           </div>
