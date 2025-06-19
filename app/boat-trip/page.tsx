@@ -52,6 +52,11 @@ export default function BoatsPage() {
   const [selectedType, setSelectedType] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
 
+  const [withSkipper, setWithSkipper] = useState("yes");
+  const [place, setPlace] = useState("");
+  const [returnDate, setReturnDate] = useState("");
+  const [departureDate, setDepartureDate] = useState("");
+
   // Find country object by searchCountry
   const countryObj = countryData.find(
     (c) => c.country.toLowerCase() === searchCountry.trim().toLowerCase()
@@ -71,6 +76,17 @@ export default function BoatsPage() {
 
   // Search handler
   const handleSearch = () => {
+    if (
+      !searchCountry ||
+      !place ||
+      !departureDate ||
+      !returnDate ||
+      !selectedType ||
+      (withSkipper !== "yes" && withSkipper !== "no")
+    ) {
+      alert("Please fill all fields and select skipper option.");
+      return;
+    }
     setHasSearched(true);
   };
 
@@ -106,6 +122,44 @@ export default function BoatsPage() {
                   ))}
                 </datalist>
               </div>
+              {/* New text input field below country */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Place
+                </label>
+                <input
+                  type="text"
+                  // onChange={(e) => console.log("Extra Info:", e.target.value)}
+                  onChange={(e) => setPlace(e.target.value)}
+                  placeholder=""
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                />
+              </div>
+              {/* Date selectors */}
+              <div className="flex gap-2">
+                <div className="flex-1">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Departure Date
+                  </label>
+                  <input
+                    type="date"
+                    value={departureDate}
+                    onChange={(e) => setDepartureDate(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  />
+                </div>
+                <div className="flex-1">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Return Date
+                  </label>
+                  <input
+                    type="date"
+                    value={returnDate}
+                    onChange={(e) => setReturnDate(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  />
+                </div>
+              </div>
               {/* Boat type */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -116,13 +170,50 @@ export default function BoatsPage() {
                   onChange={(e) => setSelectedType(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md"
                 >
-                  <option value="">Select Boat Type</option>
+                  <option value="">----</option>
                   {getBoatTypes(boats).map((type) => (
                     <option key={type} value={type}>
                       {type}
                     </option>
                   ))}
                 </select>
+              </div>
+              {/* Skipper */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  With Skipper <span className="text-red-500">*</span>
+                </label>
+                <div className="flex gap-2">
+                  <Button
+                    type="button"
+                    className={`flex-1 ${
+                      withSkipper === "yes"
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-100 text-gray-700"
+                    }`}
+                    onClick={() => setWithSkipper("yes")}
+                    variant={withSkipper === "yes" ? "default" : "outline"}
+                  >
+                    With Skipper
+                  </Button>
+                  <Button
+                    type="button"
+                    className={`flex-1 ${
+                      withSkipper === "no"
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-100 text-gray-700"
+                    }`}
+                    onClick={() => setWithSkipper("no")}
+                    variant={withSkipper === "no" ? "default" : "outline"}
+                  >
+                    Without Skipper
+                  </Button>
+                </div>
+                {withSkipper === "any" && (
+                  <div className="text-red-500 text-xs mt-1">
+                    Please select an option.
+                  </div>
+                )}
               </div>
             </div>
             <div className="flex justify-end mt-6">
@@ -170,69 +261,75 @@ export default function BoatsPage() {
                       whileHover={{ y: -10, scale: 1.02 }}
                       className="group"
                     >
-                      <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 shadow-lg">
-                        <div className="relative overflow-hidden">
-                          <Image
-                            width={1200}
-                            height={300}
-                            src={boat.image || "/placeholder.svg"}
-                            alt={boat.name}
-                            className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-300"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                          <div className="absolute bottom-3 left-3 text-white">
-                            <Badge
-                              variant="secondary"
-                              className="bg-blue-100 text-blue-800"
-                            >
-                              {boat.type}
-                            </Badge>
-                          </div>
-                        </div>
-
-                        <CardHeader className="flex flex-row items-center justify-between">
-                          <CardTitle className="text-xl text-gray-900">
-                            {boat.name}
-                          </CardTitle>
-                          <div className="flex items-center justify-between gap-4">
-                            <div className="flex items-center space-x-1">
-                              <Star className="h-4 w-4 text-yellow-400 " />
-                              <span className="text-sm font-medium">
-                                {boat.rating}
-                              </span>
-                            </div>
-                            <div className="flex items-center text-gray-600">
-                              <Users className="h-4 w-4 mr-1" />
-                              <span className="text-sm">{boat.capacity}</span>
+                      <Link
+                        href={`/details/${boat.id}`}
+                        className="block h-full"
+                      >
+                        <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 shadow-lg">
+                          <div className="relative overflow-hidden">
+                            <Image
+                              width={1200}
+                              height={300}
+                              src={boat.image || "/placeholder.svg"}
+                              alt={boat.name}
+                              className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-300"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                            <div className="absolute bottom-3 left-3 text-white">
+                              <Badge
+                                variant="secondary"
+                                className="bg-blue-100 text-blue-800"
+                              >
+                                {boat.type}
+                              </Badge>
                             </div>
                           </div>
-                        </CardHeader>
 
-                        <CardContent>
-                          <div className="mb-2">
-                            <span className="font-semibold">Price:</span>{" "}
-                            {boat.price}
-                          </div>
-                          <div className="mb-2">
-                            <span className="font-semibold">Features:</span>
-                            <ul className="list-disc ml-5">
-                              {boat.features?.map((f) => (
-                                <li key={f}>{f}</li>
-                              ))}
-                            </ul>
-                          </div>
-                          {title && (
-                            <div className="bg-gray-100 rounded p-3 mt-2">
-                              <div className="font-semibold text-blue-700">
-                                {title.exp}
+                          <CardHeader className="flex flex-row items-center justify-between">
+                            <CardTitle className="text-xl text-gray-900">
+                              {boat.name}
+                            </CardTitle>
+                            <div className="flex items-center justify-between gap-4">
+                              <div className="flex items-center space-x-1">
+                                <Star className="h-4 w-4 text-yellow-400 " />
+                                <span className="text-sm font-medium">
+                                  {boat.rating}
+                                </span>
                               </div>
-                              <div className="text-xs text-gray-600">
-                                Duration: {title.duration} | City: {title.city}
+                              <div className="flex items-center text-gray-600">
+                                <Users className="h-4 w-4 mr-1" />
+                                <span className="text-sm">{boat.capacity}</span>
                               </div>
                             </div>
-                          )}
-                        </CardContent>
-                      </Card>
+                          </CardHeader>
+
+                          <CardContent>
+                            <div className="mb-2">
+                              <span className="font-semibold">Price:</span>{" "}
+                              {boat.price}
+                            </div>
+                            <div className="mb-2">
+                              <span className="font-semibold">Features:</span>
+                              <ul className="list-disc ml-5">
+                                {boat.features?.map((f) => (
+                                  <li key={f}>{f}</li>
+                                ))}
+                              </ul>
+                            </div>
+                            {title && (
+                              <div className="bg-gray-100 rounded p-3 mt-2">
+                                <div className="font-semibold text-blue-700">
+                                  {title.exp}
+                                </div>
+                                <div className="text-xs text-gray-600">
+                                  Duration: {title.duration} | City:{" "}
+                                  {title.city}
+                                </div>
+                              </div>
+                            )}
+                          </CardContent>
+                        </Card>
+                      </Link>
                     </motion.div>
                   );
                 })}

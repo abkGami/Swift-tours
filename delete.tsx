@@ -56,6 +56,37 @@ export default function BoatsPage() {
 
   // Search handler
   const handleSearch = () => {
+    if (
+      !searchCountry ||
+      !departureDate ||
+      !returnDate ||
+      !selectedType ||
+      (withSkipper !== "yes" && withSkipper !== "no")
+    ) {
+      alert("Please fill all fields and select skipper option.");
+      return;
+    }
+    let results = boats;
+    if (searchCountry) {
+      results = results.filter(
+        (boat) =>
+          boat.description
+            ?.toLowerCase()
+            .includes(searchCountry.toLowerCase()) ||
+          boat.name?.toLowerCase().includes(searchCountry.toLowerCase())
+      );
+    }
+    if (selectedType) {
+      results = results.filter((boat) => boat.type === selectedType);
+    }
+    // if (withSkipper !== "any") {
+    // results = results.filter((boat) =>
+    // withSkipper === "yes"
+    // ? boat.features?.some((f) => f.toLowerCase().includes("crew"))
+    // : !boat.features?.some((f) => f.toLowerCase().includes("crew"))
+    // );
+    // }
+    setFilteredBoats(results);
     setHasSearched(true);
   };
 
