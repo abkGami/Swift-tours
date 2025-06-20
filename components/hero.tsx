@@ -178,7 +178,8 @@ export default function Hero() {
         <motion.div variants={itemVariants} className="mb-6">
           <motion.h1
             // ref={titleRef}
-            className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent mt-10 pb-2"
+            className="text-5xl md:text-7xl font-bold mb-4 mt-10 pb-2"
+            // className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent mt-10 pb-2"
             // animate={{
             //   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             // }}
@@ -286,8 +287,6 @@ export default function Hero() {
           ))}
         </motion.div>
       </motion.div>
-
-      
 
       {/* Enhanced Scroll Indicator */}
       {/* <motion.div
