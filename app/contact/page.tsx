@@ -397,7 +397,7 @@ export default function ContactPage() {
                         <option value="">Select your interest</option>
                         <option value="boats">Chartered Boats</option>
                         <option value="Tours">Tours</option>
-                        <option value="boats">Boats Trip</option>
+                        <option value="boat">Boats Trip</option>
                         <option value="transfers">Luxury Transfers</option>
                         <option value="custom">Custom Package</option>
                         <option value="group">Private Driver</option>
