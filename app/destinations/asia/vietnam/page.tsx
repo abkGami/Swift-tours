@@ -1,3 +1,5 @@
+// VietnamPage.tsx
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -9,105 +11,99 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { useRouter } from "next/navigation";
 
-const uzbekistanCities = [
+const vietnamCities = [
   {
-    name: "Samarkand",
+    name: "Hanoi",
     description:
-      "Ancient Silk Road city with stunning Islamic architecture and historical significance.",
-    image: "/images/samarkand.jpg",
+      "Vietnam's capital known for its centuries-old architecture and rich Southeast Asian, Chinese and French influences.",
+    image: "/images/hanoi.jpg",
     rating: 4.8,
-    duration: "2-3 days",
-    category: "Historic Hub",
+    duration: "3-4 days",
+    category: "Cultural Hub",
     highlights: [
-      "registan square",
-      "gur-e-amir mausoleum",
-      "bibi-khanym mosque",
-      "shah-i-zinda complex",
+      "old quarter",
+      "hoan kiem lake",
+      "temple of literature",
+      "street food tour",
     ],
   },
   {
-    name: "Bukhara",
+    name: "Ho Chi Minh City",
     description:
-      "A city-museum full of madrasahs, minarets, and centuries-old buildings.",
-    image: "/images/bukhara.jpg",
+      "Vibrant southern city famous for its history, bustling markets, and modern skyscrapers.",
+    image: "/images/hcmc.jpg",
     rating: 4.7,
     duration: "2-3 days",
-    category: "Cultural Gem",
+    category: "Urban Energy",
     highlights: [
-      "ark fortress",
-      "kalyan minaret",
-      "lyabi-hauz plaza",
-      "chor minor",
+      "cu chi tunnels",
+      "ben thanh market",
+      "war remnants museum",
+      "notre-dame cathedral basilica",
     ],
   },
   {
-    name: "Khiva",
+    name: "Da Nang",
     description:
-      "A living open-air museum with well-preserved city walls and old town charm.",
-    image: "/images/khiva.jpg",
+      "A coastal city known for sandy beaches, history, and the Marble Mountains.",
+    image: "/images/danang.jpg",
     rating: 4.6,
-    duration: "1-2 days",
-    category: "UNESCO Site",
+    duration: "2-3 days",
+    category: "Beach Escape",
     highlights: [
-      "itchan kala",
-      "kukhna ark",
-      "islam khoja minaret",
-      "tosh hovli palace",
+      "golden bridge",
+      "my khe beach",
+      "marble mountains",
+      "dragon bridge",
     ],
   },
 ];
 
-const uzbekistanAttractions = [
+const vietnamAttractions = [
   {
-    name: "Registan Square",
+    name: "Ha Long Bay",
     description:
-      "A majestic public square flanked by three grand madrasahs in Samarkand.",
-    image: "/images/registan.jpg",
+      "A UNESCO World Heritage site known for emerald waters and thousands of towering limestone islands.",
+    image: "/images/halong.jpg",
   },
   {
-    name: "Shah-i-Zinda",
-    description: "A necropolis featuring a stunning avenue of mausoleums.",
-    image: "/images/shahizinda.jpg",
+    name: "Phong Nha Caves",
+    description:
+      "Stunning caves located in Phong Nha-Ke Bang National Park, one of the world's largest cave systems.",
+    image: "/images/phongnha.jpg",
   },
   {
-    name: "Ark Fortress",
+    name: "Hoi An",
     description:
-      "Ancient fortress and royal residence in Bukhara with sweeping views.",
-    image: "/images/ark.jpg",
+      "Charming ancient town with preserved architecture, lantern-lit streets, and tailor shops.",
+    image: "/images/hoian.jpg",
   },
   {
-    name: "Itchan Kala",
+    name: "Sapa",
     description:
-      "The walled inner town of Khiva, packed with historical architecture.",
-    image: "/images/itchankala.jpg",
-  },
-  {
-    name: "Bibi-Khanym Mosque",
-    description:
-      "Once one of the largest mosques in the Islamic world, now a captivating ruin.",
-    image: "/images/bibikhanym.jpg",
+      "Mountain town known for trekking, terraced rice fields, and ethnic minority culture.",
+    image: "/images/sapa.jpg",
   },
 ];
 
-export default function UzbekistanPage() {
+export default function VietnamPage() {
   const router = useRouter();
-
   const handleClick = () => {
     router.push("/contact");
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-orange-50">
+    <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-lime-50">
       <Navigation />
 
       <section className="pt-24 pb-10 relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/images/samarkand.jpg"
-            alt="Uzbekistan"
+            src="/images/halong.jpg"
+            alt="Vietnam"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-yellow-800/70 to-orange-900/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-green-900/70 to-yellow-800/70" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -119,26 +115,26 @@ export default function UzbekistanPage() {
           >
             <div className="flex items-center justify-center mb-4">
               <MapPin className="h-8 w-8 mr-3" />
-              <span className="text-xl">Central Asia</span>
+              <span className="text-xl">Asia</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Uzbekistan</h1>
-            <p className="text-xl text-yellow-100 max-w-3xl mx-auto mb-8">
-              Journey into the heart of the Silk Road where ancient cities and
-              cultural riches await.
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">Vietnam</h1>
+            <p className="text-xl text-green-100 max-w-3xl mx-auto mb-8">
+              Discover breathtaking nature, vibrant cities, and timeless
+              traditions across Vietnam.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               <div className="flex items-center">
                 <Star className="h-5 w-5 text-yellow-400 mr-2" />
-                <span>4.7 Rating</span>
+                <span>4.8 Rating</span>
               </div>
               <div className="flex items-center">
                 <Users className="h-5 w-5 mr-2" />
-                <span>Perfect for History & Exploration</span>
+                <span>Perfect for Nature & Culture</span>
               </div>
               <div className="flex items-center">
                 <Calendar className="h-5 w-5 mr-2" />
-                <span>Best: Spring & Autumn</span>
+                <span>Best: March - May & September - November</span>
               </div>
             </div>
 
@@ -146,9 +142,9 @@ export default function UzbekistanPage() {
               onClick={handleClick}
               variant="secondary"
               size="lg"
-              className="bg-white mt-6 text-yellow-700 hover:bg-gray-100"
+              className="bg-white mt-6 text-green-700 hover:bg-gray-100"
             >
-              Book Uzbekistan Tour
+              Book Vietnam Tour
             </Button>
           </motion.div>
         </div>
@@ -163,18 +159,18 @@ export default function UzbekistanPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Top Cities in Uzbekistan
+              Top Cities in Vietnam
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From legendary trading centers to architectural marvels, uncover
-              the magic of Uzbekistan.
+              Explore Vietnam's diverse landscapes and cultures through its most
+              iconic cities.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {uzbekistanCities.map((city, index) => (
+            {vietnamCities.map((attraction, index) => (
               <motion.div
-                key={city.name}
+                key={attraction.name}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -184,19 +180,19 @@ export default function UzbekistanPage() {
                 <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
                   <div className="relative overflow-hidden">
                     <img
-                      src={city.image}
-                      alt={city.name}
+                      src={attraction.image || "/placeholder.svg"}
+                      alt={attraction.name}
                       className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <Badge className="absolute top-3 right-3 bg-yellow-700 text-white">
-                      {city.category}
+                    <Badge className="absolute top-3 right-3 bg-green-700 text-white">
+                      {attraction.category}
                     </Badge>
                     <div className="absolute bottom-3 left-3 text-white">
                       <div className="flex items-center space-x-1">
                         <Star className="h-4 w-4 text-yellow-400" />
                         <span className="text-sm font-medium">
-                          {city.rating}
+                          {attraction.rating}
                         </span>
                       </div>
                     </div>
@@ -204,28 +200,31 @@ export default function UzbekistanPage() {
 
                   <CardHeader>
                     <CardTitle className="text-xl text-gray-900">
-                      {city.name}
+                      {attraction.name}
                     </CardTitle>
                     <div className="flex items-center text-gray-600">
                       <Clock className="h-4 w-4 mr-1" />
-                      <span className="text-sm">{city.duration}</span>
+                      <span className="text-sm">{attraction.duration}</span>
                     </div>
                   </CardHeader>
 
                   <CardContent>
-                    <p className="text-gray-600 mb-4">{city.description}</p>
+                    <p className="text-gray-600 mb-4">
+                      {attraction.description}
+                    </p>
+
                     <div className="space-y-2 mb-6">
                       <h4 className="font-semibold text-gray-900 flex items-center">
-                        <Camera className="h-4 w-4 mr-2 text-yellow-700" />
+                        <Camera className="h-4 w-4 mr-2 text-green-700" />
                         Highlights
                       </h4>
                       <div className="grid grid-cols-1 gap-1">
-                        {city.highlights.map((highlight) => (
+                        {attraction.highlights.map((highlight) => (
                           <div
                             key={highlight}
                             className="text-sm text-gray-600 flex items-center"
                           >
-                            <div className="w-1.5 h-1.5 bg-yellow-700 rounded-full mr-2" />
+                            <div className="w-1.5 h-1.5 bg-green-700 rounded-full mr-2" />
                             {highlight}
                           </div>
                         ))}
@@ -244,12 +243,12 @@ export default function UzbekistanPage() {
             className="text-center mb-9 mt-14"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Top Attractions in Uzbekistan
+              Top Attractions in Vietnam
             </h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
-            {uzbekistanAttractions.map((attraction, index) => (
+            {vietnamAttractions.map((attraction, index) => (
               <motion.div
                 key={attraction.name}
                 initial={{ opacity: 0, y: 50 }}
@@ -289,22 +288,22 @@ export default function UzbekistanPage() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-center mt-16"
           >
-            <div className="bg-gradient-to-r from-yellow-700 to-orange-500 rounded-2xl p-8 text-white">
+            <div className="bg-gradient-to-r from-green-700 to-lime-500 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Explore Uzbekistan?
+                Ready to Explore Vietnam?
               </h3>
-              <p className="text-yellow-100 mb-6 max-w-2xl mx-auto">
-                Step into history and marvel at the wonders of the Silk Road
-                cities.
+              <p className="text-green-100 mb-6 max-w-2xl mx-auto">
+                Dive into Vietnam's wonders — from limestone bays to lantern-lit
+                towns.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   onClick={handleClick}
                   variant="secondary"
                   size="lg"
-                  className="bg-white text-yellow-700 hover:bg-gray-100"
+                  className="bg-white text-green-700 hover:bg-gray-100"
                 >
-                  Book Uzbekistan Tour
+                  Book Vietnam Tour
                 </Button>
               </div>
             </div>
