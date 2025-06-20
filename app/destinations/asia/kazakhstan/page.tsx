@@ -1,3 +1,5 @@
+// KazakhstanPage.tsx
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -13,131 +15,65 @@ const kazakhstanCities = [
   {
     name: "Almaty",
     description:
-      "Kazakhstan's largest city, surrounded by the Trans-Ili Alatau mountains, known for its culture, food, and adventure tourism.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.9,
+      "Kazakhstan's largest city, surrounded by mountains, known for culture, food, and nature.",
+    image: "/images/almaty.jpg",
+    rating: 4.8,
     duration: "3-4 days",
-    category: "Mountain City",
+    category: "Cultural City",
     highlights: [
       "kok tobe hill",
-      "big almaty lake",
-      "zelyony bazaar",
-      "shymbulak ski resort",
+      "green bazaar",
+      "central mosque",
+      "zailiyskiy alatau mountains",
     ],
   },
   {
     name: "Astana",
     description:
-      "The capital of Kazakhstan, Astana (Nur-Sultan) boasts futuristic architecture, museums, and government landmarks.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.7,
+      "The futuristic capital city with modern architecture, museums, and vibrant nightlife.",
+    image: "/images/astana.jpg",
+    rating: 4.6,
     duration: "2-3 days",
-    category: "Capital City",
+    category: "Modern Capital",
     highlights: [
       "bayterek tower",
-      "hazret sultan mosque",
+      "nurzhol boulevard",
       "palace of peace and reconciliation",
-      "nur alem pavilion",
-    ],
-  },
-  {
-    name: "Shymkent",
-    description:
-      "A vibrant southern city with a blend of modern Kazakh life, ancient ruins, and rich cuisine.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.6,
-    duration: "2 days",
-    category: "Cultural Hub",
-    highlights: [
-      "kemerov park",
-      "ancient city of sayram",
-      "shymkent central bazaar",
-      "independence park",
-    ],
-  },
-  {
-    name: "Aktau",
-    description:
-      "A city on the shores of the Caspian Sea, ideal for beach relaxation, nature tours, and desert landscapes.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "1-2 days",
-    category: "Coastal Town",
-    highlights: [
-      "caspian sea promenade",
-      "bozzhyra canyon",
-      "underground mosques",
-      "rock formations of mangystau",
-    ],
-  },
-  {
-    name: "Turkistan",
-    description:
-      "Home to the stunning Mausoleum of Khoja Ahmed Yasawi, this city offers deep spiritual and historical insight.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.4,
-    duration: "1 day",
-    category: "Spiritual Landmark",
-    highlights: [
-      "yasawi mausoleum",
-      "oriental bazaar",
-      "silk road attractions",
-      "karavan-saray complex",
-    ],
-  },
-  {
-    name: "Karaganda",
-    description:
-      "A central Kazakh city known for its coal mining history and memorials from the Soviet era.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.3,
-    duration: "1-2 days",
-    category: "Historical City",
-    highlights: [
-      "kar lag museum",
-      "central park",
-      "cathedral of our lady of fatima",
-      "etno village",
+      "hazrat sultan mosque",
     ],
   },
 ];
 
 const kazakhstanAttractions = [
   {
-    name: "Big Almaty Lake",
-    description:
-      "A stunning alpine lake located in the mountains just outside Almaty, known for its turquoise waters.",
-    image: "/placeholder.svg?height=300&width=400",
-  },
-  {
     name: "Bayterek Tower",
     description:
-      "Astana's iconic observation tower symbolizing the Kazakh myth of the Tree of Life.",
-    image: "/placeholder.svg?height=300&width=400",
+      "A symbol of Astana, offering panoramic views and symbolic Kazakh architecture.",
+    image: "/images/bayterek.jpg",
   },
   {
-    name: "Khoja Ahmed Yasawi Mausoleum",
+    name: "Charyn Canyon",
     description:
-      "A UNESCO World Heritage site in Turkistan, showcasing stunning Timurid architecture.",
-    image: "/placeholder.svg?height=300&width=400",
+      "Often called Kazakhstan's Grand Canyon, a dramatic natural wonder east of Almaty.",
+    image: "/images/charyn.jpg",
   },
   {
-    name: "Bozzhyra Canyon",
+    name: "Big Almaty Lake",
     description:
-      "Otherworldly rock formations in the Mangystau region, perfect for trekking and photography.",
-    image: "/placeholder.svg?height=300&width=400",
+      "A stunning alpine lake located in the mountains just outside Almaty.",
+    image: "/images/bigalmaty.jpg",
   },
   {
-    name: "Shymbulak Ski Resort",
+    name: "Khan Shatyr",
     description:
-      "Kazakhstan’s most popular ski resort offering scenic views, skiing, and hiking year-round.",
-    image: "/placeholder.svg?height=300&width=400",
+      "A giant transparent tent in Astana housing shopping and entertainment.",
+    image: "/images/khan.jpg",
   },
   {
-    name: "Nur Alem Pavilion",
+    name: "Medeu Skating Rink",
     description:
-      "A massive spherical building in Astana dedicated to future energy and innovation from Expo 2017.",
-    image: "/placeholder.svg?height=300&width=400",
+      "The highest mountain skating rink in the world, popular in winter.",
+    image: "/images/medeu.jpg",
   },
 ];
 
@@ -149,17 +85,17 @@ export default function KazakhstanPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-blue-50">
       <Navigation />
 
       <section className="pt-24 pb-10 relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/placeholder.svg?height=600&width=1200"
+            src="/images/almaty.jpg"
             alt="Kazakhstan"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-green-900/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-indigo-900/70" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -175,8 +111,8 @@ export default function KazakhstanPage() {
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Kazakhstan</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              Discover the vast landscapes, rich culture, and diverse
-              experiences in the heart of Eurasia
+              From steppes to skyscrapers, Kazakhstan offers a rich fusion of
+              heritage and progress.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -186,7 +122,7 @@ export default function KazakhstanPage() {
               </div>
               <div className="flex items-center">
                 <Users className="h-5 w-5 mr-2" />
-                <span>Perfect for Nature & Culture</span>
+                <span>Perfect for Nature & History</span>
               </div>
               <div className="flex items-center">
                 <Calendar className="h-5 w-5 mr-2" />
@@ -198,10 +134,170 @@ export default function KazakhstanPage() {
               onClick={handleClick}
               variant="secondary"
               size="lg"
-              className="bg-white mt-6 text-blue-600 hover:bg-gray-100"
+              className="bg-white mt-6 text-indigo-600 hover:bg-gray-100"
             >
               Book Kazakhstan Tour
             </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Top Cities in Kazakhstan
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Discover ancient landscapes and futuristic skylines.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {kazakhstanCities.map((attraction, index) => (
+              <motion.div
+                key={attraction.name}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="group"
+              >
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={attraction.image || "/placeholder.svg"}
+                      alt={attraction.name}
+                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <Badge className="absolute top-3 right-3 bg-indigo-600 text-white">
+                      {attraction.category}
+                    </Badge>
+                    <div className="absolute bottom-3 left-3 text-white">
+                      <div className="flex items-center space-x-1">
+                        <Star className="h-4 w-4 text-yellow-400" />
+                        <span className="text-sm font-medium">
+                          {attraction.rating}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <CardHeader>
+                    <CardTitle className="text-xl text-gray-900">
+                      {attraction.name}
+                    </CardTitle>
+                    <div className="flex items-center text-gray-600">
+                      <Clock className="h-4 w-4 mr-1" />
+                      <span className="text-sm">{attraction.duration}</span>
+                    </div>
+                  </CardHeader>
+
+                  <CardContent>
+                    <p className="text-gray-600 mb-4">
+                      {attraction.description}
+                    </p>
+
+                    <div className="space-y-2 mb-6">
+                      <h4 className="font-semibold text-gray-900 flex items-center">
+                        <Camera className="h-4 w-4 mr-2 text-indigo-600" />
+                        Highlights
+                      </h4>
+                      <div className="grid grid-cols-1 gap-1">
+                        {attraction.highlights.map((highlight) => (
+                          <div
+                            key={highlight}
+                            className="text-sm text-gray-600 flex items-center"
+                          >
+                            <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full mr-2" />
+                            {highlight}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-9 mt-14"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Top Attractions in Kazakhstan
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
+            {kazakhstanAttractions.map((attraction, index) => (
+              <motion.div
+                key={attraction.name}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="group"
+              >
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={attraction.image || "/placeholder.svg"}
+                      alt={attraction.name}
+                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+
+                  <CardHeader>
+                    <CardTitle className="text-xl text-gray-900">
+                      {attraction.name}
+                    </CardTitle>
+                  </CardHeader>
+
+                  <CardContent>
+                    <p className="text-gray-600 mb-4">
+                      {attraction.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-center mt-16"
+          >
+            <div className="bg-gradient-to-r from-indigo-600 to-blue-500 rounded-2xl p-8 text-white">
+              <h3 className="text-2xl font-bold mb-4">
+                Ready to Explore Kazakhstan?
+              </h3>
+              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+                Discover breathtaking steppes, vibrant cities, and ancient
+                culture in one trip.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  onClick={handleClick}
+                  variant="secondary"
+                  size="lg"
+                  className="bg-white text-indigo-600 hover:bg-gray-100"
+                >
+                  Book Kazakhstan Tour
+                </Button>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
