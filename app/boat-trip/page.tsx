@@ -338,13 +338,11 @@ export default function BoatsPage() {
                       title.duration
                     )}&city=${encodeURIComponent(title.city)}`;
 
-                    // Use images array for slideshow, fallback to [image] if not present
+                    // Use images array for slideshow
                     const images =
                       (boat as any).images &&
                       Array.isArray((boat as any).images)
                         ? (boat as any).images
-                        : boat.image
-                        ? [boat.image]
                         : [];
 
                     const currentSlide = getCurrentSlide(boat.id, images);

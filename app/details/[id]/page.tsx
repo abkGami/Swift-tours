@@ -39,8 +39,8 @@ export default function BoatDetailPage() {
     );
   }
 
-  // Fallback for old boats with only image
-  const images = boat.images || (boat.image ? [boat.image] : []);
+  // Use images array from boat data
+  const images = boat.images;
 
   const prevImage = () =>
     setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
