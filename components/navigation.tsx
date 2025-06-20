@@ -101,6 +101,7 @@ export default function Navigation() {
     { name: "Transfers", href: "/transfers" },
     // { name: "Payment", href: "/payment" },
     { name: "Contact", href: "/contact" },
+    { name: "Reviews", href: "/reviews" },
   ];
 
   const languages = [
