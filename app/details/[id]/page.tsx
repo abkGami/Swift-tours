@@ -1,5 +1,5 @@
 "use client";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import Image from "next/image";
@@ -38,6 +38,12 @@ export default function BoatDetailPage() {
       </div>
     );
   }
+
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push("/contact");
+  };
 
   // Use images array from boat data
   const images = boat.images;
@@ -177,6 +183,7 @@ export default function BoatDetailPage() {
             size={"lg"}
             type="button"
             className="w-full mt-6 font-semibold text-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+            onClick={handleClick}
           >
             Request a quotation
           </Button>

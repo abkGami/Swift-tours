@@ -63,6 +63,10 @@ export default function Navigation() {
             { name: "Bhutan", href: "/destinations/asia/bhutan" },
             { name: "Singapore", href: "/destinations/asia/singapore" },
             { name: "Thailand", href: "/destinations/asia/thailand" },
+            { name: "Uzbekistan", href: "/destinations/asia/uzbekistan" },
+            { name: "Kazakhstan", href: "/destinations/asia/kazakhstan" },
+            { name: "Vietnam", href: "/destinations/asia/vietnam" },
+            { name: "Philippines", href: "/destinations/asia/philippines" },
           ],
         },
         {
