@@ -59,7 +59,8 @@ export default function BoatDetailPage() {
                 alt={boat.name}
                 width={800}
                 height={400}
-                className="rounded-lg object-cover w-full h-72"
+                className="rounded-lg object-cover w-full h-[400px] transition-transform duration-300 ease-in-out"
+                style={{ objectFit: "contain" }}
                 priority
               />
             )}

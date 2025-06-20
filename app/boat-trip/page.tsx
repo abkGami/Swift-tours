@@ -373,7 +373,7 @@ export default function BoatsPage() {
                                   height={300}
                                   src={images[0] || "/placeholder.svg"}
                                   alt={boat.name}
-                                  className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-300"
+                                  className="w-full h-[420px] object-cover group-hover:scale-110 transition-transform duration-300"
                                 />
                               )}
                               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
