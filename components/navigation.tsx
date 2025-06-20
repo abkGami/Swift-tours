@@ -61,6 +61,7 @@ export default function Navigation() {
             { name: "Japan", href: "/destinations/asia/tokyo" },
             { name: "Maldives", href: "/destinations/asia/maldives" },
             { name: "Bhutan", href: "/destinations/asia/bhutan" },
+            { name: "Singapore", href: "/destinations/asia/singapore" },
           ],
         },
         {

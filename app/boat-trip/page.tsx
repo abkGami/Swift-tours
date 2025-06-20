@@ -408,11 +408,11 @@ export default function BoatsPage() {
                               </div>
                               <div className="bg-gray-100 rounded p-3 mt-2 flex flex-row items-center justify-between">
                                 <div>
-                                  <div className="flex flex-row items-center gap-2">
+                                  <div className="flex flex-row items-center gap-2 md:text-xs">
                                     <LucideCheck color="blue" size={15} />
                                     <div>Fuel included</div>
                                   </div>
-                                  <div className="flex flex-row items-center gap-2">
+                                  <div className="flex flex-row items-center gap-2 md:text-xs">
                                     <LucideCheck color="blue" size={15} />
                                     <div>Skipper included</div>
                                   </div>
@@ -421,7 +421,7 @@ export default function BoatsPage() {
                                   <div className="font-semibold">
                                     {boat.price}
                                   </div>
-                                  <div className="font-medium text-gray-800">
+                                  <div className="font-medium text-gray-800 md:text-sm">
                                     For groups of up to {boat.capacity} people
                                   </div>
                                 </div>
