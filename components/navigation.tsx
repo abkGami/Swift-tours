@@ -47,6 +47,7 @@ export default function Navigation() {
               href: "/destinations/europe/spain",
             },
             { name: "Sweden", href: "/destinations/europe/sweden" },
+            { name: "Switzerland", href: "/destinations/europe/switzerland" },
             { name: "Croatia", href: "/destinations/europe/croatia" },
             { name: "Austria", href: "/destinations/europe/austria" },
           ],
