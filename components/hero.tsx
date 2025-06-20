@@ -137,12 +137,13 @@ export default function Hero() {
         className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-700 to-pink-600 "
         style={{
           y,
-          backgroundImage: `url('/placeholder.svg?height=1080&width=1920')`,
+          backgroundImage: `url('/hero1.jpg')`,
+          // backgroundImage: `url('/placeholder.svg?height=1080&width=1920')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/85" />
 
         {/* Floating Particles */}
         {[...Array(20)].map((_, i) => (
@@ -256,7 +257,7 @@ export default function Hero() {
           {[
             { number: 50, label: "Destinations", suffix: "+" },
             { number: 1000, label: "Happy Travelers", suffix: "+" },
-            { number: 15, label: "Years Experience", suffix: "+" },
+            { number: 10, label: "Years Experience", suffix: "+" },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
