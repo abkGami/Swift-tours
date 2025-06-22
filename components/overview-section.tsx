@@ -14,7 +14,7 @@ const overviewCards = [
       "Explore vibrant cities, cultural landmarks, and hidden gems with our expertly guided tours. Adventure awaits at every stop.",
     icon: MapPin,
     image: "/tours.jpg",
-    href: "/tours",
+    href: "",
     color: "from-purple-500 to-pink-600",
     stats: "40+ Guided Tours",
   },

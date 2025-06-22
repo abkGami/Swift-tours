@@ -209,9 +209,7 @@ export default function Navigation() {
               >
                 <Plane className="h-8 w-8 text-blue-600" />
               </motion.div>
-              <span className="text-xl font-bold gradient-text">
-                Swift Tours
-              </span>
+              <span className="text-xl font-bold ">Swift Tours</span>
             </motion.div>
           </Link>
 
