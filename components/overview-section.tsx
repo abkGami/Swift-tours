@@ -11,7 +11,7 @@ const overviewCards = [
   {
     title: "Tours",
     description:
-      "Explore vibrant cities, cultural landmarks, and hidden gems with our expertly guided tours. Adventure awaits at every stop.",
+      "Explore vibrant cities, cultural landmarks, and hidden gems with our expertly guided tours. ",
     icon: MapPin,
     image: "/tours.jpg",
     href: "",
@@ -21,7 +21,7 @@ const overviewCards = [
   {
     title: "Boat Trip",
     description:
-      "Discover breathtaking boat trips across coastal cities and hidden islands. Sail with style and comfort.",
+      "Discover breathtaking boat trips across coastal cities and hidden islands. Sail with comfort.",
     icon: ShipIcon,
     image: "/boat-trip.jpg",
     href: "/boat-trip",

@@ -143,7 +143,7 @@ export default function Hero() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-black/85" />
+        <div className="absolute inset-0 bg-black/65" />
 
         {/* Floating Particles */}
         {[...Array(20)].map((_, i) => (
