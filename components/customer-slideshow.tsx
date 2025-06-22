@@ -47,12 +47,7 @@ const albumImages = [
     description: "Crystal clear waters and overwater villas",
     location: "Asia",
   },
-  {
-    src: "/customer/maldives.jpg",
-    title: "Maldives",
-    description: "Crystal clear waters and overwater villas",
-    location: "Asia",
-  },
+
   {
     src: "/customer/rome.jpg",
     title: "Rome, Italy",
@@ -63,6 +58,12 @@ const albumImages = [
     src: "/customer/kyoto.jpg",
     title: "Kyoto, Japan",
     description: "Traditional temples and zen gardens",
+    location: "Asia",
+  },
+  {
+    src: "/customer/maldives.jpg",
+    title: "Maldives",
+    description: "Crystal clear waters and overwater villas",
     location: "Asia",
   },
   {
