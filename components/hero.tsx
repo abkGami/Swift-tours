@@ -206,7 +206,7 @@ export default function Hero() {
           >
             <Sparkles className="h-6 w-6 text-yellow-400" />
             <span className="text-xl text-yellow-200">
-              Luxury tours across Europe and Asia
+              Luxury tours across the world
             </span>
             <Sparkles className="h-6 w-6 text-yellow-400" />
           </motion.div>
@@ -255,9 +255,14 @@ export default function Hero() {
           className="grid grid-cols-3 gap-8 mt-12 max-w-md mx-auto"
         >
           {[
-            { number: 50, label: "Destinations", suffix: "+" },
-            { number: 1000, label: "Happy Travelers", suffix: "+" },
-            { number: 10, label: "Years Experience", suffix: "+" },
+            { number: 50, label: "Destinations", suffix: "+", add: "+" },
+            {
+              number: 1000,
+              label: "Happy Travelers",
+              suffix: "+",
+              add: "+",
+            },
+            { number: 10, label: "Years Experience", suffix: "+", add: "+" },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -265,24 +270,28 @@ export default function Hero() {
               // whileHover={{ scale: 1.1 }}
               // transition={{ type: "spring", stiffness: 300 }}
             >
-              <motion.div
-                className="text-3xl font-bold stat-number"
-                data-count={stat.number}
-                // animate={{
-                //   textShadow: [
-                //     "0 0 0px rgba(255,255,255,0.5)",
-                //     "0 0 20px rgba(255,255,255,0.8)",
-                //     "0 0 0px rgba(255,255,255,0.5)",
-                //   ],
-                // }}
-                // transition={{
-                //   duration: 2,
-                //   repeat: Number.POSITIVE_INFINITY,
-                //   ease: "easeInOut",
-                // }}
-              >
-                0{stat.suffix}
-              </motion.div>
+              <div className="flex flex-row justify-center items-center">
+                <motion.div
+                  className="text-3xl font-bold stat-number"
+                  data-count={stat.number}
+                  // animate={{
+                  //   textShadow: [
+                  //     "0 0 0px rgba(255,255,255,0.5)",
+                  //     "0 0 20px rgba(255,255,255,0.8)",
+                  //     "0 0 0px rgba(255,255,255,0.5)",
+                  //   ],
+                  // }}
+                  // transition={{
+                  //   duration: 2,
+                  //   repeat: Number.POSITIVE_INFINITY,
+                  //   ease: "easeInOut",
+                  // }}
+                >
+                  0{stat.suffix}
+                </motion.div>
+                <div>{stat.add && <span> {stat.add}</span>}</div>
+              </div>
+
               <div className="text-sm text-gray-300">{stat.label}</div>
             </motion.div>
           ))}

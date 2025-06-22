@@ -9,11 +9,21 @@ import { useRouter } from "next/navigation";
 
 const overviewCards = [
   {
+    title: "Tours",
+    description:
+      "Explore vibrant cities, cultural landmarks, and hidden gems with our expertly guided tours. Adventure awaits at every stop.",
+    icon: MapPin,
+    image: "/tours.jpg",
+    href: "/tours",
+    color: "from-purple-500 to-pink-600",
+    stats: "40+ Guided Tours",
+  },
+  {
     title: "Boat Trip",
     description:
       "Discover breathtaking boat trips across coastal cities and hidden islands. Sail with style and comfort.",
     icon: ShipIcon,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/boat-trip.jpg",
     href: "/boat-trip",
     color: "from-sky-500 to-teal-600",
     stats: "25+ Unique Routes",
@@ -24,7 +34,7 @@ const overviewCards = [
     description:
       "Experience luxury on the water with our premium fleet of boats and yachts",
     icon: Anchor,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/chartered.jpg",
     href: "/boats",
     color: "from-cyan-500 to-blue-600",
     stats: "15+ Boats Available",
@@ -34,7 +44,7 @@ const overviewCards = [
     description:
       "Travel in style with our luxury vehicles and professional transfer services",
     icon: Car,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/transfer.jpg",
     href: "/transfers",
     color: "from-green-500 to-teal-600",
     stats: "24/7 Service",
@@ -43,7 +53,7 @@ const overviewCards = [
     title: "Contact Us",
     description: "Reach out to us for personalized travel planning and support",
     icon: Phone,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/contact.jpg",
     href: "/contact",
     color: "from-orange-500 to-red-600",
     stats: "100% Satisfaction",
