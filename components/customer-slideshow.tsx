@@ -6,49 +6,80 @@ import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 
 const albumImages = [
   // {
-  //   src: "/placeholder.svg?height=600&width=800",
+  //   src: "/",
   //   title: "Swiss Alps, Switzerland",
   //   description: "Breathtaking mountain views and luxury resorts",
   //   location: "Europe",
   // },
   {
-    src: "/placeholder.svg?height=600&width=800",
+    src: "/customer/santorini.jpg",
     title: "Santorini, Greece",
     description: "Iconic blue domes and stunning sunsets",
     location: "Europe",
   },
   {
-    src: "/placeholder.svg?height=600&width=800",
+    src: "/customer/tokyo.jpg",
     title: "Tokyo, Japan",
     description: "Modern cityscape meets traditional culture",
     location: "Asia",
   },
   {
-    src: "/placeholder.svg?height=600&width=800",
+    src: "/customer/bali.jpg",
     title: "Bali, Indonesia",
     description: "Tropical paradise with rice terraces",
     location: "Asia",
   },
   {
-    src: "/placeholder.svg?height=600&width=800",
+    src: "/customer/paris.jpg",
     title: "Paris, France",
     description: "City of Light and romantic atmosphere",
     location: "Europe",
   },
   {
-    src: "/placeholder.svg?height=600&width=800",
+    src: "/customer/paris1.jpg",
+    title: "Paris, France",
+    description: "City of Light and romantic atmosphere",
+    location: "Europe",
+  },
+  {
+    src: "/customer/maldives1.jpg",
     title: "Maldives",
     description: "Crystal clear waters and overwater villas",
     location: "Asia",
   },
   {
-    src: "/placeholder.svg?height=600&width=800",
+    src: "/customer/maldives.jpg",
+    title: "Maldives",
+    description: "Crystal clear waters and overwater villas",
+    location: "Asia",
+  },
+  {
+    src: "/customer/rome.jpg",
     title: "Rome, Italy",
     description: "Ancient history and architectural marvels",
     location: "Europe",
   },
   {
-    src: "/placeholder.svg?height=600&width=800",
+    src: "/customer/kyoto.jpg",
+    title: "Kyoto, Japan",
+    description: "Traditional temples and zen gardens",
+    location: "Asia",
+  },
+  {
+    src: "/customer/tokyo2.jpg",
+    title: "Tokyo, Japan",
+    description: "Modern cityscape meets traditional culture",
+    location: "Asia",
+  },
+
+  {
+    src: "/customer/rome1.jpg",
+    title: "Rome, Italy",
+    description: "Ancient history and architectural marvels",
+    location: "Europe",
+  },
+  {
+    src: "/customer/kyoto1.jpg",
     title: "Kyoto, Japan",
     description: "Traditional temples and zen gardens",
     location: "Asia",
