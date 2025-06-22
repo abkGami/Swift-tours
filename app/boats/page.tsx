@@ -37,7 +37,7 @@ const boats = [
   {
     name: "Pershing 46",
     type: "Performance Cruiser",
-    capacity: "Up to 6 overnight guests",
+    capacity: "Up to 6 guests",
     price: "From €310,000 (VAT paid)",
     image: "/boat/two.jpg",
     features: [
@@ -161,9 +161,9 @@ export default function BoatsPage() {
       <section className="pt-20 pb-16 relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/placeholder.svg?height=600&width=1200"
+            src="/chartered.jpg"
             alt="Luxury boats"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover "
           />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-cyan-900/70" />
         </div>
