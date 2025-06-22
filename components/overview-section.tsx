@@ -67,12 +67,13 @@ export default function OverviewSection() {
     <section className="section py-20 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16 animate-element"
+          // initial={{ opacity: 0, y: 50 }}
+          // whileInView={{ opacity: 1, y: 0 }}
+          // transition={{ duration: 0.8 }}
+          className="text-center mb-16 "
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 gradient-text">
+          {/* <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 gradient-text"> */}
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 ">
             Your Journey Starts Here
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -91,7 +92,7 @@ export default function OverviewSection() {
                 // whileInView={{ opacity: 1, y: 0 }}
                 // transition={{ duration: 0.6, delay: index * 0.1 }}
                 // whileHover={{ y: -10, scale: 1.02 }}
-                className="group animate-element"
+                className="group"
                 onClick={() => router.push(card.href)}
                 style={{ cursor: "pointer" }}
                 tabIndex={0}
@@ -103,7 +104,7 @@ export default function OverviewSection() {
                 }}
               >
                 <div>
-                  <Card className="overflow-hidden transition-all duration-500 border-0 shadow-lg h-full cursor-pointer">
+                  <Card className="overflow-hidden  border-0 shadow-lg h-full cursor-pointer">
                     <div className="relative overflow-hidden">
                       <motion.img
                         src={card.image}
