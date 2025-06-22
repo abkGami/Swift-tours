@@ -264,36 +264,91 @@ const destinations = [
     color: "from-yellow-500 to-red-600",
     destinations: [
       {
-        name: "Rio de Janeiro, Brazil",
-        description: "Famous beaches and lively festivals",
+        name: "Brazil",
+        description:
+          "Famous for its vibrant culture, iconic landmarks, and breathtaking natural beauty",
         rating: 4.9,
         highlights: [
           "Christ the Redeemer",
           "Copacabana Beach",
           "Sugarloaf Mountain",
         ],
-        href: "/destinations/south-america/rio",
+        href: "/destinations/southAmerica/brazil",
       },
       {
-        name: "Buenos Aires, Argentina",
-        description: "Tango, steak, and European-style boulevards",
+        name: "Argentina",
+        description:
+          "Home of tango, delicious cuisine, and stunning landscapes from Patagonia to Iguazu Falls",
         rating: 4.8,
         highlights: ["La Boca", "Recoleta", "Teatro Colón"],
-        href: "/destinations/south-america/buenosaires",
+        href: "/destinations/southAmerica/argetina",
       },
       {
-        name: "Cusco, Peru",
-        description: "Gateway to Machu Picchu and Incan history",
+        name: "Peru",
+        description:
+          "Gateway to Machu Picchu, ancient Incan history, and the Andes mountains",
         rating: 4.9,
         highlights: ["Machu Picchu", "Sacsayhuamán", "Sacred Valley"],
-        href: "/destinations/south-america/cusco",
+        href: "/destinations/southAmerica/peru",
       },
       {
-        name: "Cartagena, Colombia",
-        description: "Colorful colonial city on the Caribbean coast",
+        name: "Colombia",
+        description:
+          "Lush coffee regions, colonial cities, and Caribbean beaches",
         rating: 4.7,
-        highlights: ["Old Town", "Castillo San Felipe", "Rosario Islands"],
-        href: "/destinations/south-america/cartagena",
+        highlights: [
+          "Old Town Cartagena",
+          "Castillo San Felipe",
+          "Rosario Islands",
+        ],
+        href: "/destinations/southAmerica/colombia",
+      },
+      {
+        name: "Chile",
+        description:
+          "Dramatic landscapes from the Atacama Desert to Patagonia and vibrant Santiago",
+        rating: 4.7,
+        highlights: ["Torres del Paine", "Atacama Desert", "Valparaíso"],
+        href: "/destinations/southAmerica/chile",
+      },
+      {
+        name: "Ecuador",
+        description:
+          "Home to the Galápagos Islands, Andean peaks, and rich indigenous culture",
+        rating: 4.7,
+        highlights: ["Galápagos Islands", "Quito Old Town", "Cotopaxi Volcano"],
+        href: "/destinations/southAmerica/ecuador",
+      },
+      {
+        name: "Uruguay",
+        description:
+          "Charming colonial towns, Atlantic beaches, and vibrant Montevideo",
+        rating: 4.7,
+        highlights: [
+          "Colonia del Sacramento",
+          "Punta del Este",
+          "Montevideo Rambla",
+        ],
+        href: "/destinations/southAmerica/uruguay",
+      },
+      {
+        name: "Bolivia",
+        description:
+          "High-altitude adventures, salt flats, and colorful indigenous traditions",
+        rating: 4.7,
+        highlights: ["Salar de Uyuni", "La Paz", "Lake Titicaca"],
+        href: "/destinations/southAmerica/bolivia",
+      },
+      {
+        name: "Venezuela",
+        description: "Angel Falls, Caribbean coastline, and diverse wildlife",
+        rating: 4.7,
+        highlights: [
+          "Angel Falls",
+          "Mérida Cable Car",
+          "Los Roques Archipelago",
+        ],
+        href: "/destinations/southAmerica/venezuela",
       },
     ],
   },
