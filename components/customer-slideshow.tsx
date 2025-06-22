@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 
 const albumImages = [
-  {
-    src: "/placeholder.svg?height=600&width=800",
-    title: "Swiss Alps, Switzerland",
-    description: "Breathtaking mountain views and luxury resorts",
-    location: "Europe",
-  },
+  // {
+  //   src: "/placeholder.svg?height=600&width=800",
+  //   title: "Swiss Alps, Switzerland",
+  //   description: "Breathtaking mountain views and luxury resorts",
+  //   location: "Europe",
+  // },
   {
     src: "/placeholder.svg?height=600&width=800",
     title: "Santorini, Greece",
@@ -39,18 +39,6 @@ const albumImages = [
     src: "/placeholder.svg?height=600&width=800",
     title: "Maldives",
     description: "Crystal clear waters and overwater villas",
-    location: "Asia",
-  },
-  {
-    src: "/placeholder.svg?height=600&width=800",
-    title: "Rome, Italy",
-    description: "Ancient history and architectural marvels",
-    location: "Europe",
-  },
-  {
-    src: "/placeholder.svg?height=600&width=800",
-    title: "Kyoto, Japan",
-    description: "Traditional temples and zen gardens",
     location: "Asia",
   },
   {

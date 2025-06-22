@@ -132,13 +132,13 @@ export default function OverviewSection() {
 
                     <CardContent>
                       <p className="text-gray-600 mb-4">{card.description}</p>
-                      {/* <Button
+                      <Button
                         variant="ghost"
                         className="w-full justify-between transition-colors"
                       >
                         Explore
                         <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button> */}
+                      </Button>
                     </CardContent>
                   </Card>
                 </div>
