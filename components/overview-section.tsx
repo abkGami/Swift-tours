@@ -125,7 +125,7 @@ export default function OverviewSection() {
                     </div>
 
                     <CardHeader>
-                      <CardTitle className="text-xl text-gray-900 group-hover:text-blue-600 transition-colors">
+                      <CardTitle className="text-xl text-gray-900 group-hover:text-[#3293C3] transition-colors">
                         {card.title}
                       </CardTitle>
                     </CardHeader>
