@@ -30,8 +30,8 @@ export default function Footer() {
               <span className="text-base font-bold">Swift Tours & Travels</span>
             </div>
             <p className="text-gray-400 mb-6">
-              Creating unforgettable travel experiences across Europe and Asia
-              with luxury, comfort, and personalized service.
+              Creating unforgettable travel experiences across several
+              continents with luxury, comfort, and personalized service.
             </p>
             <div className="flex space-x-4">
               <motion.a
@@ -121,12 +121,24 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-blue-400" />
-                <span className="text-gray-400">+1 (555) 123-4567</span>
+                <div className="flex flex-col">
+                  <span className="text-gray-400">+44 7446 989954</span>
+                  <span className="text-gray-400">+44 7446 161857</span>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3 w-full">
+                <Mail className="h-5 w-5 text-blue-400" />
+                <span className="text-gray-400 text-sm">
+                  info.swifttoursandtravels@gmail.com
+                </span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-blue-400" />
-                <span className="text-gray-400">info@swifttours.com</span>
+                <Mail className="h-5 w-15 text-blue-400" />
+                <span className="text-gray-400 text-sm">
+                  info.swifttoursandrentals@gmail.com
+                </span>
               </div>
+
               <div className="flex items-center space-x-3">
                 <MapPin className="h-5 w-5 text-blue-400" />
                 <span className="text-gray-400">
