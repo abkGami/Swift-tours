@@ -50,6 +50,7 @@ export default function Navigation() {
             { name: "Switzerland", href: "/destinations/europe/switzerland" },
             { name: "Croatia", href: "/destinations/europe/croatia" },
             { name: "Austria", href: "/destinations/europe/austria" },
+            { name: "Iceland", href: "/destinations/europe/iceland" },
           ],
         },
         {
@@ -67,6 +68,8 @@ export default function Navigation() {
             { name: "Kazakhstan", href: "/destinations/asia/kazakhstan" },
             { name: "Vietnam", href: "/destinations/asia/vietnam" },
             { name: "Philippines", href: "/destinations/asia/philippines" },
+            { name: "Saudi Arabia", href: "/destinations/asia/saudi-arabia" },
+            { name: "U.A.E", href: "/destinations/asia/uae" },
           ],
         },
         {

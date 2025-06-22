@@ -19,71 +19,112 @@ const destinations = [
     color: "from-blue-500 to-purple-600",
     destinations: [
       {
-        name: "Paris, France",
+        name: "France",
         description: "Iconic landmarks like the Eiffel Tower and Louvre Museum",
         rating: 4.9,
         highlights: ["Eiffel Tower", "Louvre Museum", "Seine River Cruise"],
         href: "/destinations/europe/paris",
       },
       {
-        name: "Prague, Czech Republic",
-        description: "Medieval charm and stunning architecture",
-        rating: 4.8,
-        highlights: ["Charles Bridge", "Prague Castle", "Old Town Square"],
-        href: "/destinations/europe/prague",
-      },
-      {
-        name: "Lisbon, Portugal",
-        description: "Colorful streets and scenic river views",
-        rating: 4.7,
-        highlights: ["Belém Tower", "Alfama District", "Tram 28"],
-        href: "/destinations/europe/lisbon",
-      },
-      {
-        name: "Barcelona, Spain",
-        description: "Vibrant city with unique architecture and beaches",
-        rating: 4.8,
-        highlights: ["Sagrada Familia", "Park Güell", "La Rambla"],
-        href: "/destinations/europe/barcelona",
-      },
-      {
-        name: "Rome, Italy",
+        name: "Italy",
         description: "Ancient ruins and world-class cuisine",
         rating: 4.9,
         highlights: ["Colosseum", "Vatican City", "Trevi Fountain"],
         href: "/destinations/europe/rome",
       },
       {
-        name: "Berlin, Germany",
-        description: "Rich history and modern culture",
+        name: "Portugal",
+        description: "Colorful streets and scenic river views",
         rating: 4.7,
-        highlights: ["Brandenburg Gate", "Berlin Wall", "Museum Island"],
-        href: "/destinations/europe/berlin",
+        highlights: ["Belém Tower", "Alfama District", "Tram 28"],
+        href: "/destinations/europe/portugal",
       },
+      //  from here
       {
-        name: "Dubrovnik, Croatia",
-        description: "Stunning coastal city with medieval walls",
+        name: "United Kingdom",
+        description:
+          "Historic castles, royal palaces, and vibrant city life in London and beyond",
         rating: 4.8,
-        highlights: ["City Walls", "Old Town", "Lokrum Island"],
+        highlights: ["Buckingham Palace", "Tower of London", "Big Ben"],
+        href: "/destinations/europe/england",
+      },
+
+      {
+        name: "Spain",
+        description:
+          "Famous for vibrant cities, unique architecture, and beautiful Mediterranean beaches",
+        rating: 4.8,
+        highlights: ["Sagrada Familia", "Park Güell", "La Rambla"],
+        href: "/destinations/europe/spain",
+      },
+
+      {
+        name: "Greece",
+        description:
+          "Ancient ruins, stunning islands, and a blend of rich history and modern culture",
+        rating: 4.7,
+        highlights: ["Acropolis", "Santorini", "Delphi"],
+        href: "/destinations/europe/greece",
+      },
+
+      {
+        name: "Malta",
+        description:
+          "Stunning coastal nation with medieval cities and crystal-clear waters",
+        rating: 4.8,
+        highlights: ["Mdina Old City", "Blue Lagoon", "Valletta Waterfront"],
         href: "/destinations/europe/dubrovnik",
       },
+
       {
-        name: "Budapest, Hungary",
-        description: "Thermal baths and grand architecture",
+        name: "Sweden",
+        description:
+          "Modern design, beautiful archipelagos, and vibrant Nordic culture",
         rating: 4.7,
-        highlights: ["Buda Castle", "Chain Bridge", "Thermal Baths"],
-        href: "/destinations/europe/budapest",
+        highlights: ["Gamla Stan", "Vasa Museum", "Stockholm Archipelago"],
+        href: "/destinations/europe/sweden",
       },
+
       {
-        name: "Vienna, Austria",
-        description: "Imperial palaces and classical music",
+        name: "Switzerland",
+        description:
+          "Alpine scenery, luxury resorts, and world-class chocolate",
+        rating: 4.8,
+        highlights: ["Matterhorn", "Lake Geneva", "Jungfraujoch"],
+        href: "/destinations/europe/switzerland",
+      },
+
+      {
+        name: "Croatia",
+        description:
+          "Adriatic coastline, historic cities, and beautiful national parks",
+        rating: 4.8,
+        highlights: [
+          "Dubrovnik Old Town",
+          "Plitvice Lakes",
+          "Diocletian's Palace",
+        ],
+        href: "/destinations/europe/croatia",
+      },
+
+      {
+        name: "Austria",
+        description: "Imperial palaces, classical music, and alpine landscapes",
         rating: 4.8,
         highlights: [
           "Schönbrunn Palace",
           "St. Stephen's Cathedral",
-          "Opera House",
+          "Vienna State Opera",
         ],
-        href: "/destinations/europe/vienna",
+        href: "/destinations/europe/austria",
+      },
+      {
+        name: "Iceland",
+        description:
+          "Land of glaciers, volcanoes, waterfalls, and the magical northern lights",
+        rating: 4.8,
+        highlights: ["Blue Lagoon", "Golden Circle", "Northern Lights"],
+        href: "/destinations/europe/iceland",
       },
     ],
   },
@@ -95,18 +136,18 @@ const destinations = [
     color: "from-orange-500 to-red-600",
     destinations: [
       {
-        name: "Tokyo, Japan",
+        name: "Japan",
         description: "Blend of futuristic tech and traditional temples",
         rating: 4.8,
         highlights: ["Shibuya Crossing", "Senso-ji Temple", "Mount Fuji"],
         href: "/destinations/asia/tokyo",
       },
       {
-        name: "Bali, Indonesia",
-        description: "Beaches, yoga retreats, and cultural ceremonies",
+        name: "Mongolia",
+        description: "Vast steppes, nomadic culture, and unique landscapes",
         rating: 4.7,
-        highlights: ["Ubud Rice Terraces", "Beach Resorts", "Cultural Tours"],
-        href: "/destinations/asia/bali",
+        highlights: ["Gobi Desert", "Terelj National Park", "Ulaanbaatar"],
+        href: "/destinations/asia/mongolia",
       },
       {
         name: "Maldives",
@@ -123,18 +164,19 @@ const destinations = [
         href: "/destinations/asia/bhutan",
       },
       {
-        name: "Bangkok, Thailand",
+        name: "Thailand",
         description: "Bustling city with vibrant street life and temples",
         rating: 4.7,
         highlights: ["Grand Palace", "Floating Markets", "Wat Arun"],
-        href: "/destinations/asia/bangkok",
+        href: "/destinations/asia/thailand",
       },
       {
-        name: "Seoul, South Korea",
-        description: "Modern city with rich history and culture",
+        name: "Uzbekistan",
+        description:
+          "Silk Road cities, blue-tiled mosques, and ancient history",
         rating: 4.8,
-        highlights: ["Gyeongbokgung Palace", "Myeongdong", "N Seoul Tower"],
-        href: "/destinations/asia/seoul",
+        highlights: ["Registan", "Bukhara", "Khiva"],
+        href: "/destinations/asia/uzbekistan",
       },
       {
         name: "Singapore",
@@ -148,19 +190,46 @@ const destinations = [
         href: "/destinations/asia/singapore",
       },
       {
-        name: "Istanbul, Turkey",
-        description: "Where East meets West, rich in history",
+        name: "Kazakhstan",
+        description: "Modern cities, steppe landscapes, and nomadic heritage",
         rating: 4.9,
-        highlights: ["Hagia Sophia", "Blue Mosque", "Grand Bazaar"],
-        href: "/destinations/asia/istanbul",
+        highlights: ["Astana", "Charyn Canyon", "Almaty"],
+        href: "/destinations/asia/kazakhstan",
       },
       {
-        name: "Dubai, UAE",
+        name: "Vietnam",
+        description: "Lush landscapes, vibrant cities, and rich history",
+        rating: 4.9,
+        highlights: ["Ha Long Bay", "Hanoi Old Quarter", "Hoi An"],
+        href: "/destinations/asia/vietnam",
+      },
+      {
+        name: "Philippines",
         description:
-          "Luxury shopping, ultramodern architecture, and lively nightlife",
+          "Tropical islands, white sand beaches, and friendly locals",
+        rating: 4.9,
+        highlights: ["Palawan", "Boracay", "Chocolate Hills"],
+        href: "/destinations/asia/istanphilippinesbul",
+      },
+      {
+        name: "UAE",
+        description:
+          "Futuristic skylines, desert adventures, and world-class attractions in Dubai and Abu Dhabi",
         rating: 4.8,
-        highlights: ["Burj Khalifa", "Desert Safari", "Palm Jumeirah"],
-        href: "/destinations/asia/dubai",
+        highlights: [
+          "Burj Khalifa",
+          "Sheikh Zayed Grand Mosque",
+          "Desert Safari",
+        ],
+        href: "/destinations/asia/uae",
+      },
+      {
+        name: "Saudi Arabia",
+        description:
+          "Ancient heritage, vibrant cities, and the gateway to Mecca and Medina",
+        rating: 4.8,
+        highlights: ["Al Masjid al-Haram", "Al-Ula", "Edge of the World"],
+        href: "/destinations/asia/saudi-arabia",
       },
     ],
   },
@@ -172,32 +241,18 @@ const destinations = [
     color: "from-green-600 to-yellow-500",
     destinations: [
       {
-        name: "Marrakech, Morocco",
+        name: "Morocco",
         description: "Exotic souks and stunning palaces",
         rating: 4.7,
         highlights: ["Jemaa el-Fnaa", "Majorelle Garden", "Koutoubia Mosque"],
         href: "/destinations/africa/marrakech",
       },
       {
-        name: "Cape Town, South Africa",
-        description: "Dramatic scenery and rich history",
-        rating: 4.8,
-        highlights: ["Table Mountain", "Robben Island", "V&A Waterfront"],
-        href: "/destinations/africa/capetown",
-      },
-      {
-        name: "Cairo, Egypt",
+        name: "Egypt",
         description: "Ancient wonders and bustling bazaars",
         rating: 4.8,
         highlights: ["Pyramids of Giza", "Egyptian Museum", "Khan el-Khalili"],
         href: "/destinations/africa/cairo",
-      },
-      {
-        name: "Zanzibar, Tanzania",
-        description: "Pristine beaches and spice markets",
-        rating: 4.7,
-        highlights: ["Stone Town", "Nungwi Beach", "Spice Tours"],
-        href: "/destinations/africa/zanzibar",
       },
     ],
   },
