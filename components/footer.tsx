@@ -26,8 +26,8 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-center space-x-2 mb-4">
-              <Plane className="h-8 w-8 text-blue-400" />
-              <span className="text-xl font-bold">Swift Tours</span>
+              <img src="/logo.png" alt="" className="h-16 w-16" />
+              <span className="text-base font-bold">Swift Tours & Travels</span>
             </div>
             <p className="text-gray-400 mb-6">
               Creating unforgettable travel experiences across Europe and Asia
