@@ -155,11 +155,6 @@ export default function MongoliaPage() {
       {/* Hero Section */}
       <section className="pt-24 pb-10 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="/placeholder.svg?height=600&width=1200"
-            alt="Mongolia"
-            className="w-full h-full object-cover"
-          />
           <div className="absolute inset-0 bg-gradient-to-r from-green-900/70 to-blue-900/70" />
         </div>
 
@@ -230,71 +225,50 @@ export default function MongoliaPage() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {mongoliaCities.map((attraction, index) => (
+            {mongoliaCities.map((city, index) => (
               <motion.div
-                key={attraction.name}
+                key={city.name}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={attraction.image || "/placeholder.svg"}
-                      alt={attraction.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <Badge className="absolute top-3 right-3 bg-green-600 text-white">
-                      {attraction.category}
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white/90">
+                  <div className="p-6">
+                    <Badge className="mb-2 bg-green-700 text-white">
+                      {city.category}
                     </Badge>
-                    <div className="absolute bottom-3 left-3 text-white">
-                      <div className="flex items-center space-x-1">
-                        <Star className="h-4 w-4 text-yellow-400" />
-                        <span className="text-sm font-medium">
-                          {attraction.rating}
-                        </span>
-                      </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Star className="h-4 w-4 text-yellow-400" />
+                      <span className="text-sm font-medium text-green-900">
+                        {city.rating}
+                      </span>
+                      <Clock className="h-4 w-4 ml-4 text-green-700" />
+                      <span className="text-sm text-green-700">
+                        {city.duration}
+                      </span>
                     </div>
+                    <CardHeader className="p-0 mb-2">
+                      <CardTitle className="text-xl text-green-900">
+                        {city.name}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                      <p className="text-green-800 mb-4">{city.description}</p>
+                      <div className="space-y-2 mb-2">
+                        <h4 className="font-semibold text-green-900 flex items-center">
+                          <Mountain className="h-4 w-4 mr-2 text-green-700" />
+                          Highlights
+                        </h4>
+                        <ul className="list-disc list-inside text-green-700 text-sm">
+                          {city.highlights.map((highlight) => (
+                            <li key={highlight}>{highlight}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </CardContent>
                   </div>
-
-                  <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">
-                      {attraction.name}
-                    </CardTitle>
-                    <div className="flex items-center text-gray-600">
-                      <Clock className="h-4 w-4 mr-1" />
-                      <span className="text-sm">{attraction.duration}</span>
-                    </div>
-                  </CardHeader>
-
-                  <CardContent>
-                    <p className="text-gray-600 mb-4">
-                      {attraction.description}
-                    </p>
-
-                    <div className="space-y-2 mb-6">
-                      <h4 className="font-semibold text-gray-900 flex items-center">
-                        <Mountain className="h-4 w-4 mr-2 text-green-600" />
-                        Highlights
-                      </h4>
-                      <div className="grid grid-cols-1 gap-1">
-                        {attraction.highlights.map((highlight) => (
-                          <div
-                            key={highlight}
-                            className="text-sm text-gray-600 flex items-center"
-                          >
-                            <div className="w-1.5 h-1.5 bg-green-600 rounded-full mr-2" />
-                            {highlight}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* <Button className="w-full bg-green-600 hover:bg-green-700">Add to Itinerary</Button> */}
-                  </CardContent>
                 </Card>
               </motion.div>
             ))}
@@ -357,23 +331,14 @@ export default function MongoliaPage() {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={attraction.image || "/placeholder.svg"}
-                      alt={attraction.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white/90">
                   <CardHeader>
                     <CardTitle className="text-xl text-gray-900 first-letter:uppercase">
                       {attraction.name}
                     </CardTitle>
                   </CardHeader>
-
                   <CardContent>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-gray-800 mb-2">
                       {attraction.description}
                     </p>
                   </CardContent>

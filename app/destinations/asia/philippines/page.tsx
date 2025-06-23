@@ -196,11 +196,6 @@ export default function PhilippinesPage() {
               >
                 <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
                   <div className="relative overflow-hidden">
-                    <img
-                      src={attraction.image || "/placeholder.svg"}
-                      alt={attraction.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     <Badge className="absolute top-3 right-3 bg-orange-600 text-white">
                       {attraction.category}
@@ -274,23 +269,14 @@ export default function PhilippinesPage() {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={attraction.image || "/placeholder.svg"}
-                      alt={attraction.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white/90">
                   <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">
+                    <CardTitle className="text-xl text-blue-900 first-letter:uppercase">
                       {attraction.name}
                     </CardTitle>
                   </CardHeader>
-
                   <CardContent>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-blue-800 mb-2">
                       {attraction.description}
                     </p>
                   </CardContent>

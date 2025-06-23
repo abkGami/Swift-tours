@@ -12,7 +12,8 @@ import { useRouter } from "next/navigation";
 const franceCities = [
   {
     name: "Athens",
-    description: "The historic capital of Greece, renowned for the Acropolis, ancient ruins, and vibrant city life.",
+    description:
+      "The historic capital of Greece, renowned for the Acropolis, ancient ruins, and vibrant city life.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.9,
     duration: "3-4 days",
@@ -21,12 +22,13 @@ const franceCities = [
       "acropolis",
       "parthenon",
       "plaka district",
-      "national archaeological museum"
-    ]
+      "national archaeological museum",
+    ],
   },
   {
     name: "Thessaloniki",
-    description: "A lively port city famous for its Byzantine walls, vibrant nightlife, and rich culinary traditions.",
+    description:
+      "A lively port city famous for its Byzantine walls, vibrant nightlife, and rich culinary traditions.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.7,
     duration: "2-3 days",
@@ -35,26 +37,23 @@ const franceCities = [
       "white tower",
       "aristotelous square",
       "rotunda",
-      "byzantine walls"
-    ]
+      "byzantine walls",
+    ],
   },
   {
     name: "Santorini",
-    description: "A stunning island known for its whitewashed houses, blue-domed churches, and breathtaking sunsets.",
+    description:
+      "A stunning island known for its whitewashed houses, blue-domed churches, and breathtaking sunsets.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.9,
     duration: "2-4 days",
     category: "Island Paradise",
-    highlights: [
-      "oia village",
-      "fira town",
-      "red beach",
-      "caldera views"
-    ]
+    highlights: ["oia village", "fira town", "red beach", "caldera views"],
   },
   {
     name: "Rhodes",
-    description: "An island with medieval charm, famous for its Old Town, beaches, and ancient ruins.",
+    description:
+      "An island with medieval charm, famous for its Old Town, beaches, and ancient ruins.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.8,
     duration: "3-5 days",
@@ -63,12 +62,13 @@ const franceCities = [
       "rhodes old town",
       "palace of the grand master",
       "lindos acropolis",
-      "elli beach"
-    ]
+      "elli beach",
+    ],
   },
   {
     name: "Meteora",
-    description: "A UNESCO World Heritage site known for its dramatic rock formations and cliff-top monasteries.",
+    description:
+      "A UNESCO World Heritage site known for its dramatic rock formations and cliff-top monasteries.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.9,
     duration: "1-2 days",
@@ -77,12 +77,13 @@ const franceCities = [
       "meteora monasteries",
       "kalambaka town",
       "rock climbing",
-      "panoramic viewpoints"
-    ]
+      "panoramic viewpoints",
+    ],
   },
   {
     name: "Mykonos",
-    description: "A cosmopolitan island celebrated for its beaches, nightlife, and iconic windmills.",
+    description:
+      "A cosmopolitan island celebrated for its beaches, nightlife, and iconic windmills.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.7,
     duration: "2-3 days",
@@ -91,12 +92,13 @@ const franceCities = [
       "little venice",
       "paradise beach",
       "mykonos windmills",
-      "delos island"
-    ]
+      "delos island",
+    ],
   },
   {
     name: "Olympia",
-    description: "The birthplace of the Olympic Games, featuring ancient ruins and a rich archaeological museum.",
+    description:
+      "The birthplace of the Olympic Games, featuring ancient ruins and a rich archaeological museum.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.6,
     duration: "1-2 days",
@@ -105,12 +107,13 @@ const franceCities = [
       "archaeological site of olympia",
       "temple of zeus",
       "archaeological museum",
-      "stadium"
-    ]
+      "stadium",
+    ],
   },
   {
     name: "Milos",
-    description: "A volcanic island known for its unique beaches, colorful villages, and crystal-clear waters.",
+    description:
+      "A volcanic island known for its unique beaches, colorful villages, and crystal-clear waters.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.8,
     duration: "2-3 days",
@@ -119,57 +122,58 @@ const franceCities = [
       "sarakiniko beach",
       "klima village",
       "kleftiko caves",
-      "plaka"
-    ]
+      "plaka",
+    ],
   },
   {
     name: "Peloponnese",
-    description: "A diverse region offering ancient sites, beautiful coastlines, and traditional villages.",
+    description:
+      "A diverse region offering ancient sites, beautiful coastlines, and traditional villages.",
     image: "/placeholder.svg?height=300&width=400",
     rating: 4.7,
     duration: "4-6 days",
     category: "Historic Region",
-    highlights: [
-      "ancient corinth",
-      "nafplio",
-      "mycenae",
-      "epidaurus"
-    ]
-  }
+    highlights: ["ancient corinth", "nafplio", "mycenae", "epidaurus"],
+  },
 ];
 
 const parisAttractions = [
   {
     name: "Acropolis of Athens",
-    description: "Ancient citadel on a rocky hilltop featuring the Parthenon and other classical ruins",
-    image: "/placeholder.svg?height=300&width=400"
+    description:
+      "Ancient citadel on a rocky hilltop featuring the Parthenon and other classical ruins",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
     name: "Santorini",
-    description: "Scenic island known for whitewashed buildings, blue-domed churches, and sunset views",
-    image: "/placeholder.svg?height=300&width=400"
+    description:
+      "Scenic island known for whitewashed buildings, blue-domed churches, and sunset views",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
     name: "Delphi",
-    description: "Historic sanctuary once home to the oracle of Apollo in ancient Greece",
-    image: "/placeholder.svg?height=300&width=400"
+    description:
+      "Historic sanctuary once home to the oracle of Apollo in ancient Greece",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
     name: "Meteora Monasteries",
-    description: "Impressive rock formations with centuries-old monasteries perched on top",
-    image: "/placeholder.svg?height=300&width=400"
+    description:
+      "Impressive rock formations with centuries-old monasteries perched on top",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
     name: "Mykonos",
-    description: "Popular island with sandy beaches, vibrant nightlife, and iconic windmills",
-    image: "/placeholder.svg?height=300&width=400"
+    description:
+      "Popular island with sandy beaches, vibrant nightlife, and iconic windmills",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
     name: "Palace of Knossos",
-    description: "Minoan archaeological site on Crete, believed to be Europe's oldest city",
-    image: "/placeholder.svg?height=300&width=400"
-  }
-  
+    description:
+      "Minoan archaeological site on Crete, believed to be Europe's oldest city",
+    image: "/placeholder.svg?height=300&width=400",
+  },
 ];
 
 export default function ParisPage() {
@@ -185,11 +189,6 @@ export default function ParisPage() {
       {/* Hero Section */}
       <section className="pt-24 pb-12 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="/placeholder.svg?height=600&width=1200"
-            alt="Paris"
-            className="w-full h-full object-cover"
-          />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-purple-900/70" />
         </div>
 
@@ -206,7 +205,8 @@ export default function ParisPage() {
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Greece</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-            Greece awaits with its ancient wonders, sun-soaked islands, and captivating history.
+              Greece awaits with its ancient wonders, sun-soaked islands, and
+              captivating history.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -259,73 +259,50 @@ export default function ParisPage() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {franceCities.map((attraction, index) => (
+            {franceCities.map((city, index) => (
               <motion.div
-                key={attraction.name}
+                key={city.name}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={attraction.image || "/placeholder.svg"}
-                      alt={attraction.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <Badge className="absolute top-3 right-3 bg-blue-600 text-white">
-                      {attraction.category}
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white/90">
+                  <div className="p-6">
+                    <Badge className="mb-2 bg-gray-800 text-white">
+                      {city.category}
                     </Badge>
-                    <div className="absolute bottom-3 left-3 text-white">
-                      <div className="flex items-center space-x-1">
-                        <Star className="h-4 w-4 text-yellow-400" />
-                        <span className="text-sm font-medium">
-                          {attraction.rating}
-                        </span>
-                      </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Star className="h-4 w-4 text-yellow-400" />
+                      <span className="text-sm font-medium text-gray-900">
+                        {city.rating}
+                      </span>
+                      <Clock className="h-4 w-4 ml-4 text-gray-800" />
+                      <span className="text-sm text-gray-700">
+                        {city.duration}
+                      </span>
                     </div>
+                    <CardHeader className="p-0 mb-2">
+                      <CardTitle className="text-xl text-gray-900">
+                        {city.name}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                      <p className="text-gray-800 mb-4">{city.description}</p>
+                      <div className="space-y-2 mb-2">
+                        <h4 className="font-semibold text-gray-900 flex items-center">
+                          <Camera className="h-4 w-4 mr-2 text-gray-800" />
+                          Highlights
+                        </h4>
+                        <ul className="list-disc list-inside text-gray-700 text-sm">
+                          {city.highlights.map((highlight) => (
+                            <li key={highlight}>{highlight}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </CardContent>
                   </div>
-
-                  <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">
-                      {attraction.name}
-                    </CardTitle>
-                    <div className="flex items-center text-gray-600">
-                      <Clock className="h-4 w-4 mr-1" />
-                      <span className="text-sm">{attraction.duration}</span>
-                    </div>
-                  </CardHeader>
-
-                  <CardContent>
-                    <p className="text-gray-600 mb-4">
-                      {attraction.description}
-                    </p>
-
-                    <div className="space-y-2 mb-6">
-                      <h4 className="font-semibold text-gray-900 flex items-center">
-                        <Camera className="h-4 w-4 mr-2 text-blue-600" />
-                        Highlights
-                      </h4>
-                      <div className="grid grid-cols-1 gap-1">
-                        {attraction.highlights.map((highlight) => (
-                          <div
-                            key={highlight}
-                            className="text-sm text-gray-600 flex items-center"
-                          >
-                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2" />
-                            {highlight}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                      Add to Itinerary
-                    </Button> */}
-                  </CardContent>
                 </Card>
               </motion.div>
             ))}
@@ -343,7 +320,9 @@ export default function ParisPage() {
                 Ready to Explore Greece?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Book your Greece adventure today and experience the magic of this timeless land with ancient landmarks and sun-drenched beauty.
+                Book your Greece adventure today and experience the magic of
+                this timeless land with ancient landmarks and sun-drenched
+                beauty.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -387,23 +366,14 @@ export default function ParisPage() {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={attraction.image || "/placeholder.svg"}
-                      alt={attraction.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white/90">
                   <CardHeader>
                     <CardTitle className="text-xl text-gray-900 first-letter:uppercase">
                       {attraction.name}
                     </CardTitle>
                   </CardHeader>
-
                   <CardContent>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-gray-800 mb-2">
                       {attraction.description}
                     </p>
                   </CardContent>
@@ -424,8 +394,9 @@ export default function ParisPage() {
                 Ready to Explore Greece?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Book your Greece adventure today and experience the magic of this timeless land with ancient landmarks and sun-drenched beauty.
-
+                Book your Greece adventure today and experience the magic of
+                this timeless land with ancient landmarks and sun-drenched
+                beauty.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button

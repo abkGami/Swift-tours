@@ -155,11 +155,6 @@ export default function IcelandPage() {
       {/* Hero Section */}
       <section className="pt-24 pb-10 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="/placeholder.svg?height=600&width=1200"
-            alt="Iceland"
-            className="w-full h-full object-cover"
-          />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-cyan-900/70" />
         </div>
 
@@ -176,7 +171,8 @@ export default function IcelandPage() {
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Iceland</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              Discover Iceland: a land of glaciers, volcanoes, waterfalls, and the magical northern lights.
+              Discover Iceland: a land of glaciers, volcanoes, waterfalls, and
+              the magical northern lights.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -219,7 +215,8 @@ export default function IcelandPage() {
               Top Cities in Iceland
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore Iceland’s unique towns and villages, each offering its own natural wonders and cultural charm.
+              Explore Iceland’s unique towns and villages, each offering its own
+              natural wonders and cultural charm.
             </p>
           </motion.div>
 
@@ -233,60 +230,41 @@ export default function IcelandPage() {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={city.image || "/placeholder.svg"}
-                      alt={city.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <Badge className="absolute top-3 right-3 bg-blue-700 text-white">
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white/90">
+                  <div className="p-6">
+                    <Badge className="mb-2 bg-blue-700 text-white">
                       {city.category}
                     </Badge>
-                    <div className="absolute bottom-3 left-3 text-white">
-                      <div className="flex items-center space-x-1">
-                        <Star className="h-4 w-4 text-yellow-400" />
-                        <span className="text-sm font-medium">
-                          {city.rating}
-                        </span>
-                      </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Star className="h-4 w-4 text-yellow-400" />
+                      <span className="text-sm font-medium text-blue-900">
+                        {city.rating}
+                      </span>
+                      <Clock className="h-4 w-4 ml-4 text-blue-700" />
+                      <span className="text-sm text-blue-700">
+                        {city.duration}
+                      </span>
                     </div>
+                    <CardHeader className="p-0 mb-2">
+                      <CardTitle className="text-xl text-blue-900">
+                        {city.name}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                      <p className="text-blue-800 mb-4">{city.description}</p>
+                      <div className="space-y-2 mb-2">
+                        <h4 className="font-semibold text-blue-900 flex items-center">
+                          <Camera className="h-4 w-4 mr-2 text-blue-700" />
+                          Highlights
+                        </h4>
+                        <ul className="list-disc list-inside text-blue-700 text-sm">
+                          {city.highlights.map((highlight) => (
+                            <li key={highlight}>{highlight}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </CardContent>
                   </div>
-
-                  <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">
-                      {city.name}
-                    </CardTitle>
-                    <div className="flex items-center text-gray-600">
-                      <Clock className="h-4 w-4 mr-1" />
-                      <span className="text-sm">{city.duration}</span>
-                    </div>
-                  </CardHeader>
-
-                  <CardContent>
-                    <p className="text-gray-600 mb-4">
-                      {city.description}
-                    </p>
-
-                    <div className="space-y-2 mb-6">
-                      <h4 className="font-semibold text-gray-900 flex items-center">
-                        <Camera className="h-4 w-4 mr-2 text-blue-700" />
-                        Highlights
-                      </h4>
-                      <div className="grid grid-cols-1 gap-1">
-                        {city.highlights.map((highlight) => (
-                          <div
-                            key={highlight}
-                            className="text-sm text-gray-600 flex items-center"
-                          >
-                            <div className="w-1.5 h-1.5 bg-blue-700 rounded-full mr-2" />
-                            {highlight}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </CardContent>
                 </Card>
               </motion.div>
             ))}
@@ -304,7 +282,8 @@ export default function IcelandPage() {
                 Ready to Explore Iceland?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Experience the wild beauty, adventure, and serenity of Iceland with a custom tour.
+                Experience the wild beauty, adventure, and serenity of Iceland
+                with a custom tour.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -341,23 +320,14 @@ export default function IcelandPage() {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={attraction.image || "/placeholder.svg"}
-                      alt={attraction.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white/90">
                   <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">
+                    <CardTitle className="text-xl text-blue-900 first-letter:uppercase">
                       {attraction.name}
                     </CardTitle>
                   </CardHeader>
-
                   <CardContent>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-blue-800 mb-2">
                       {attraction.description}
                     </p>
                   </CardContent>
@@ -378,7 +348,8 @@ export default function IcelandPage() {
                 Ready to Explore Iceland?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-             Experience the wild beauty, adventure, and serenity of Iceland with a custom tour.
+                Experience the wild beauty, adventure, and serenity of Iceland
+                with a custom tour.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button

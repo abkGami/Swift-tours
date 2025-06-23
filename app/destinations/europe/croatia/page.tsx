@@ -149,11 +149,6 @@ export default function ParisPage() {
       {/* Hero Section */}
       <section className="pt-24 pb-12 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="/placeholder.svg?height=600&width=1200"
-            alt="Paris"
-            className="w-full h-full object-cover"
-          />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-purple-900/70" />
         </div>
 
@@ -224,73 +219,50 @@ export default function ParisPage() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {franceCities.map((attraction, index) => (
+            {franceCities.map((city, index) => (
               <motion.div
-                key={attraction.name}
+                key={city.name}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={attraction.image || "/placeholder.svg"}
-                      alt={attraction.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <Badge className="absolute top-3 right-3 bg-blue-600 text-white">
-                      {attraction.category}
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white/90">
+                  <div className="p-6">
+                    <Badge className="mb-2 bg-gray-800 text-white">
+                      {city.category}
                     </Badge>
-                    <div className="absolute bottom-3 left-3 text-white">
-                      <div className="flex items-center space-x-1">
-                        <Star className="h-4 w-4 text-yellow-400" />
-                        <span className="text-sm font-medium">
-                          {attraction.rating}
-                        </span>
-                      </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Star className="h-4 w-4 text-yellow-400" />
+                      <span className="text-sm font-medium text-gray-900">
+                        {city.rating}
+                      </span>
+                      <Clock className="h-4 w-4 ml-4 text-gray-800" />
+                      <span className="text-sm text-gray-700">
+                        {city.duration}
+                      </span>
                     </div>
+                    <CardHeader className="p-0 mb-2">
+                      <CardTitle className="text-xl text-gray-900">
+                        {city.name}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                      <p className="text-gray-800 mb-4">{city.description}</p>
+                      <div className="space-y-2 mb-2">
+                        <h4 className="font-semibold text-gray-900 flex items-center">
+                          <Camera className="h-4 w-4 mr-2 text-gray-800" />
+                          Highlights
+                        </h4>
+                        <ul className="list-disc list-inside text-gray-700 text-sm">
+                          {city.highlights.map((highlight) => (
+                            <li key={highlight}>{highlight}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </CardContent>
                   </div>
-
-                  <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">
-                      {attraction.name}
-                    </CardTitle>
-                    <div className="flex items-center text-gray-600">
-                      <Clock className="h-4 w-4 mr-1" />
-                      <span className="text-sm">{attraction.duration}</span>
-                    </div>
-                  </CardHeader>
-
-                  <CardContent>
-                    <p className="text-gray-600 mb-4">
-                      {attraction.description}
-                    </p>
-
-                    <div className="space-y-2 mb-6">
-                      <h4 className="font-semibold text-gray-900 flex items-center">
-                        <Camera className="h-4 w-4 mr-2 text-blue-600" />
-                        Highlights
-                      </h4>
-                      <div className="grid grid-cols-1 gap-1">
-                        {attraction.highlights.map((highlight) => (
-                          <div
-                            key={highlight}
-                            className="text-sm text-gray-600 flex items-center"
-                          >
-                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2" />
-                            {highlight}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                      Add to Itinerary
-                    </Button> */}
-                  </CardContent>
                 </Card>
               </motion.div>
             ))}
@@ -354,23 +326,14 @@ export default function ParisPage() {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={attraction.image || "/placeholder.svg"}
-                      alt={attraction.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white/90">
                   <CardHeader>
                     <CardTitle className="text-xl text-gray-900 first-letter:uppercase">
                       {attraction.name}
                     </CardTitle>
                   </CardHeader>
-
                   <CardContent>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-gray-800 mb-2">
                       {attraction.description}
                     </p>
                   </CardContent>

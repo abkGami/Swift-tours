@@ -154,11 +154,6 @@ export default function EgyptPage() {
       {/* Hero Section */}
       <section className="pt-24 pb-12 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="/placeholder.svg?height=600&width=1200"
-            alt="Egypt"
-            className="w-full h-full object-cover"
-          />
           <div className="absolute inset-0 bg-gradient-to-r from-yellow-900/70 to-yellow-700/70" />
         </div>
 

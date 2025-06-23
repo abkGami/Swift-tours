@@ -14,7 +14,6 @@ const ukCities = [
     name: "London",
     description:
       "The UK's capital, a global hub for finance, culture, and history, home to iconic landmarks and world-class museums.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.9,
     duration: "4-5 days",
     category: "Global Capital",
@@ -24,7 +23,6 @@ const ukCities = [
     name: "Edinburgh",
     description:
       "Scotland's hilly capital, known for its medieval Old Town, elegant Georgian New Town, and Edinburgh Castle.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.8,
     duration: "2-3 days",
     category: "Historic Capital",
@@ -39,7 +37,6 @@ const ukCities = [
     name: "Cardiff",
     description:
       "Wales’ capital city, offering a mix of ancient castles, a vibrant waterfront, and rich cultural experiences.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.6,
     duration: "1-2 days",
     category: "Welsh Gateway",
@@ -54,7 +51,6 @@ const ukCities = [
     name: "Belfast",
     description:
       "Northern Ireland’s capital, known for its Titanic history, thriving arts scene, and Victorian architecture.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.5,
     duration: "2 days",
     category: "Titanic City",
@@ -69,7 +65,6 @@ const ukCities = [
     name: "Manchester",
     description:
       "A dynamic northern English city known for music, football, and vibrant city culture.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.7,
     duration: "2-3 days",
     category: "Music & Sports City",
@@ -83,7 +78,6 @@ const ukCities = [
     name: "Glasgow",
     description:
       "Scotland’s largest city, celebrated for its Victorian architecture, rich art scene, and vibrant nightlife.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.6,
     duration: "2-3 days",
     category: "Cultural Hub",
@@ -100,37 +94,31 @@ const ukAttractions = [
   {
     name: "Big Ben",
     description: "The iconic London clock tower, symbolizing the UK worldwide.",
-    image: "/placeholder.svg?height=300&width=400",
   },
   {
     name: "Stonehenge",
     description:
       "A prehistoric stone circle in southern England with mysterious origins.",
-    image: "/placeholder.svg?height=300&width=400",
   },
   {
     name: "Giant's Causeway",
     description:
       "Northern Ireland's natural wonder, a UNESCO site formed by volcanic activity.",
-    image: "/placeholder.svg?height=300&width=400",
   },
   {
     name: "Edinburgh Castle",
     description:
       "A historic fortress dominating Edinburgh’s skyline, rich with Scottish history.",
-    image: "/placeholder.svg?height=300&width=400",
   },
   {
     name: "Snowdonia National Park",
     description:
       "Wales’ premier hiking and adventure destination with stunning mountains and lakes.",
-    image: "/placeholder.svg?height=300&width=400",
   },
   {
     name: "British Museum",
     description:
       "One of the world’s greatest museums, showcasing global artifacts including the Rosetta Stone.",
-    image: "/placeholder.svg?height=300&width=400",
   },
 ];
 
@@ -147,11 +135,6 @@ export default function UnitedKingdomPage() {
       {/* Hero Section */}
       <section className="pt-24 pb-12 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="/placeholder.svg?height=600&width=1200"
-            alt="United Kingdom"
-            className="w-full h-full object-cover"
-          />
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/70 to-gray-700/70" />
         </div>
 
@@ -230,57 +213,41 @@ export default function UnitedKingdomPage() {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={city.image}
-                      alt={city.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <Badge className="absolute top-3 right-3 bg-gray-800 text-white">
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white/90">
+                  <div className="p-6">
+                    <Badge className="mb-2 bg-gray-800 text-white">
                       {city.category}
                     </Badge>
-                    <div className="absolute bottom-3 left-3 text-white">
-                      <div className="flex items-center space-x-1">
-                        <Star className="h-4 w-4 text-yellow-400" />
-                        <span className="text-sm font-medium">
-                          {city.rating}
-                        </span>
-                      </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Star className="h-4 w-4 text-yellow-400" />
+                      <span className="text-sm font-medium text-gray-900">
+                        {city.rating}
+                      </span>
+                      <Clock className="h-4 w-4 ml-4 text-gray-800" />
+                      <span className="text-sm text-gray-700">
+                        {city.duration}
+                      </span>
                     </div>
+                    <CardHeader className="p-0 mb-2">
+                      <CardTitle className="text-xl text-gray-900">
+                        {city.name}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                      <p className="text-gray-800 mb-4">{city.description}</p>
+                      <div className="space-y-2 mb-2">
+                        <h4 className="font-semibold text-gray-900 flex items-center">
+                          <Camera className="h-4 w-4 mr-2 text-gray-800" />
+                          Highlights
+                        </h4>
+                        <ul className="list-disc list-inside text-gray-700 text-sm">
+                          {city.highlights.map((highlight) => (
+                            <li key={highlight}>{highlight}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </CardContent>
                   </div>
-
-                  <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">
-                      {city.name}
-                    </CardTitle>
-                    <div className="flex items-center text-gray-600">
-                      <Clock className="h-4 w-4 mr-1" />
-                      <span className="text-sm">{city.duration}</span>
-                    </div>
-                  </CardHeader>
-
-                  <CardContent>
-                    <p className="text-gray-600 mb-4">{city.description}</p>
-                    <div className="space-y-2 mb-6">
-                      <h4 className="font-semibold text-gray-900 flex items-center">
-                        <Camera className="h-4 w-4 mr-2 text-gray-800" />
-                        Highlights
-                      </h4>
-                      <div className="grid grid-cols-1 gap-1">
-                        {city.highlights.map((highlight) => (
-                          <div
-                            key={highlight}
-                            className="text-sm text-gray-600 flex items-center"
-                          >
-                            <div className="w-1.5 h-1.5 bg-gray-800 rounded-full mr-2" />
-                            {highlight}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </CardContent>
                 </Card>
               </motion.div>
             ))}
@@ -308,23 +275,14 @@ export default function UnitedKingdomPage() {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={attraction.image}
-                      alt={attraction.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white/90">
                   <CardHeader>
                     <CardTitle className="text-xl text-gray-900 first-letter:uppercase">
                       {attraction.name}
                     </CardTitle>
                   </CardHeader>
-
                   <CardContent>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-gray-800 mb-2">
                       {attraction.description}
                     </p>
                   </CardContent>

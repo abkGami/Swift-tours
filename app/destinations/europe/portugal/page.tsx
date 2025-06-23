@@ -14,7 +14,6 @@ const portugalCities = [
     name: "Lisbon",
     description:
       "Portugal's vibrant capital, known for its historic neighborhoods, tram rides, and stunning river views.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.8,
     duration: "3-4 days",
     category: "Capital City",
@@ -29,7 +28,6 @@ const portugalCities = [
     name: "Porto",
     description:
       "Famous for its port wine, colorful riverside, and charming old town.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.7,
     duration: "2-3 days",
     category: "Wine City",
@@ -44,7 +42,6 @@ const portugalCities = [
     name: "Sintra",
     description:
       "A fairy-tale town with palaces, castles, and lush gardens nestled in the hills.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.6,
     duration: "1-2 days",
     category: "Historic Town",
@@ -59,22 +56,15 @@ const portugalCities = [
     name: "Faro",
     description:
       "Gateway to the Algarve, known for its old town, beaches, and natural parks.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.5,
     duration: "2-3 days",
     category: "Coastal City",
-    highlights: [
-      "Old Town",
-      "Ria Formosa",
-      "Faro Cathedral",
-      "Praia de Faro",
-    ],
+    highlights: ["Old Town", "Ria Formosa", "Faro Cathedral", "Praia de Faro"],
   },
   {
     name: "Coimbra",
     description:
       "A historic city famous for its ancient university and lively student atmosphere.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.4,
     duration: "1-2 days",
     category: "University City",
@@ -89,7 +79,6 @@ const portugalCities = [
     name: "Évora",
     description:
       "A UNESCO World Heritage city with Roman ruins, medieval streets, and whitewashed houses.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.5,
     duration: "1-2 days",
     category: "Historic City",
@@ -104,7 +93,6 @@ const portugalCities = [
     name: "Braga",
     description:
       "Known as the 'Portuguese Rome' for its abundance of churches and religious festivals.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.4,
     duration: "1-2 days",
     category: "Religious City",
@@ -119,7 +107,6 @@ const portugalCities = [
     name: "Aveiro",
     description:
       "The 'Venice of Portugal', famous for its canals, colorful boats, and Art Nouveau buildings.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.3,
     duration: "1 day",
     category: "Canal City",
@@ -134,22 +121,15 @@ const portugalCities = [
     name: "Madeira",
     description:
       "A lush island paradise with dramatic cliffs, hiking trails, and botanical gardens.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.9,
     duration: "3-5 days",
     category: "Island",
-    highlights: [
-      "Cabo Girão",
-      "Laurisilva Forest",
-      "Funchal",
-      "Levada Walks",
-    ],
+    highlights: ["Cabo Girão", "Laurisilva Forest", "Funchal", "Levada Walks"],
   },
   {
     name: "Lagos",
     description:
       "A lively Algarve town known for its stunning beaches, sea caves, and vibrant nightlife.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.7,
     duration: "2-3 days",
     category: "Beach Town",
@@ -164,7 +144,6 @@ const portugalCities = [
     name: "Guimarães",
     description:
       "The birthplace of Portugal, with a well-preserved medieval center and historic castle.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.5,
     duration: "1-2 days",
     category: "Medieval City",
@@ -179,7 +158,6 @@ const portugalCities = [
     name: "Óbidos",
     description:
       "A charming walled town with cobbled streets, whitewashed houses, and a medieval castle.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.6,
     duration: "1 day",
     category: "Walled Town",
@@ -195,34 +173,32 @@ const portugalCities = [
 const potrugalAttractions = [
   {
     name: "Belém Tower",
-    description: "Iconic riverside fortress and UNESCO World Heritage Site in Lisbon.",
-    image: "/placeholder.svg?height=300&width=400"
+    description:
+      "Iconic riverside fortress and UNESCO World Heritage Site in Lisbon.",
   },
   {
     name: "Pena Palace",
     description: "Colorful Romanticist palace perched on a hilltop in Sintra.",
-    image: "/placeholder.svg?height=300&width=400"
   },
   {
     name: "Dom Luís I Bridge",
     description: "Double-deck iron bridge spanning the Douro River in Porto.",
-    image: "/placeholder.svg?height=300&width=400"
   },
   {
     name: "Benagil Cave",
-    description: "Spectacular sea cave with a natural skylight on the Algarve coast.",
-    image: "/placeholder.svg?height=300&width=400"
+    description:
+      "Spectacular sea cave with a natural skylight on the Algarve coast.",
   },
   {
     name: "University of Coimbra",
-    description: "One of the oldest universities in Europe, known for its historic campus.",
-    image: "/placeholder.svg?height=300&width=400"
+    description:
+      "One of the oldest universities in Europe, known for its historic campus.",
   },
   {
     name: "Cabo Girão",
-    description: "One of the highest sea cliffs in Europe, offering breathtaking views on Madeira.",
-    image: "/placeholder.svg?height=300&width=400"
-  }
+    description:
+      "One of the highest sea cliffs in Europe, offering breathtaking views on Madeira.",
+  },
 ];
 
 export default function ParisPage() {
@@ -238,11 +214,6 @@ export default function ParisPage() {
       {/* Hero Section */}
       <section className="pt-24 pb-12 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="/placeholder.svg?height=600&width=1200"
-            alt="Paris"
-            className="w-full h-full object-cover"
-          />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-purple-900/70" />
         </div>
 
@@ -259,7 +230,8 @@ export default function ParisPage() {
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Portugal</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-            Portugal awaits with its breathtaking coastlines, historic cities, and vibrant culture.
+              Portugal awaits with its breathtaking coastlines, historic cities,
+              and vibrant culture.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -306,78 +278,56 @@ export default function ParisPage() {
               Cities in Portugal
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore the most iconic landmarks and hidden gems that make Portugal a top destination for travelers worldwide.
+              Explore the most iconic landmarks and hidden gems that make
+              Portugal a top destination for travelers worldwide.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {portugalCities.map((attraction, index) => (
+            {portugalCities.map((city, index) => (
               <motion.div
-                key={attraction.name}
+                key={city.name}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={attraction.image || "/placeholder.svg"}
-                      alt={attraction.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <Badge className="absolute top-3 right-3 bg-blue-600 text-white">
-                      {attraction.category}
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white/90">
+                  <div className="p-6">
+                    <Badge className="mb-2 bg-blue-600 text-white">
+                      {city.category}
                     </Badge>
-                    <div className="absolute bottom-3 left-3 text-white">
-                      <div className="flex items-center space-x-1">
-                        <Star className="h-4 w-4 text-yellow-400" />
-                        <span className="text-sm font-medium">
-                          {attraction.rating}
-                        </span>
-                      </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Star className="h-4 w-4 text-yellow-400" />
+                      <span className="text-sm font-medium text-blue-900">
+                        {city.rating}
+                      </span>
+                      <Clock className="h-4 w-4 ml-4 text-blue-600" />
+                      <span className="text-sm text-blue-700">
+                        {city.duration}
+                      </span>
                     </div>
+                    <CardHeader className="p-0 mb-2">
+                      <CardTitle className="text-xl text-blue-900">
+                        {city.name}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                      <p className="text-blue-800 mb-4">{city.description}</p>
+                      <div className="space-y-2 mb-2">
+                        <h4 className="font-semibold text-blue-900 flex items-center">
+                          <Camera className="h-4 w-4 mr-2 text-blue-600" />
+                          Highlights
+                        </h4>
+                        <ul className="list-disc list-inside text-blue-700 text-sm">
+                          {city.highlights.map((highlight) => (
+                            <li key={highlight}>{highlight}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </CardContent>
                   </div>
-
-                  <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">
-                      {attraction.name}
-                    </CardTitle>
-                    <div className="flex items-center text-gray-600">
-                      <Clock className="h-4 w-4 mr-1" />
-                      <span className="text-sm">{attraction.duration}</span>
-                    </div>
-                  </CardHeader>
-
-                  <CardContent>
-                    <p className="text-gray-600 mb-4">
-                      {attraction.description}
-                    </p>
-
-                    <div className="space-y-2 mb-6">
-                      <h4 className="font-semibold text-gray-900 flex items-center">
-                        <Camera className="h-4 w-4 mr-2 text-blue-600" />
-                        Highlights
-                      </h4>
-                      <div className="grid grid-cols-1 gap-1">
-                        {attraction.highlights.map((highlight) => (
-                          <div
-                            key={highlight}
-                            className="text-sm text-gray-600 flex items-center"
-                          >
-                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2" />
-                            {highlight}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                      Add to Itinerary
-                    </Button> */}
-                  </CardContent>
                 </Card>
               </motion.div>
             ))}
@@ -395,8 +345,9 @@ export default function ParisPage() {
                 Ready to Explore Portugal?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your Portugal adventure today and experience the magic of the
-                destination with breathtaking landmarks and world-class museum
+                Book your Portugal adventure today and experience the magic of
+                the destination with breathtaking landmarks and world-class
+                museum
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -440,23 +391,14 @@ export default function ParisPage() {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={attraction.image || "/placeholder.svg"}
-                      alt={attraction.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white/90">
                   <CardHeader>
-                    <CardTitle className="text-xl text-gray-900 first-letter:uppercase">
+                    <CardTitle className="text-xl text-blue-900 first-letter:uppercase">
                       {attraction.name}
                     </CardTitle>
                   </CardHeader>
-
                   <CardContent>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-blue-800 mb-2">
                       {attraction.description}
                     </p>
                   </CardContent>
@@ -477,8 +419,9 @@ export default function ParisPage() {
                 Ready to Explore Portugal?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Book your Portugal adventure today and experience the magic of the
-                destination with breathtaking landmarks and world-class museum
+                Book your Portugal adventure today and experience the magic of
+                the destination with breathtaking landmarks and world-class
+                museum
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button

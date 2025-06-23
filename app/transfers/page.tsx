@@ -1,22 +1,41 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Car, Plane, Shield, Leaf, Crown, Users, Clock, MapPin } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import Navigation from "@/components/navigation"
-import Footer from "@/components/footer"
-import SlideshowAlbum from "@/components/slideshow-album"
-import { useRouter } from "next/navigation"
+import { motion } from "framer-motion";
+import {
+  Car,
+  Plane,
+  Shield,
+  Leaf,
+  Crown,
+  Users,
+  Clock,
+  MapPin,
+} from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import Navigation from "@/components/navigation";
+import Footer from "@/components/footer";
+import SlideshowAlbum from "@/components/slideshow-album";
+import { useRouter } from "next/navigation";
 
 const transferOptions = [
   {
     title: "Luxury Vehicles",
     icon: Crown,
     description: "Premium comfort with Mercedes-Benz V-Class and BMW 7 Series",
-    features: ["Professional chauffeur", "Wi-Fi & refreshments", "Airport meet & greet", "Flexible scheduling"],
-    vehicles: ["Mercedes-Benz V-Class", "BMW 7 Series", "Audi A8", "Range Rover"],
+    features: [
+      "Professional chauffeur",
+      "Wi-Fi & refreshments",
+      "Airport meet & greet",
+      "Flexible scheduling",
+    ],
+    vehicles: [
+      "Mercedes-Benz V-Class",
+      "BMW 7 Series",
+      "Audi A8",
+      "Range Rover",
+    ],
     price: "From $89/hour",
     image: "/placeholder.svg?height=200&width=300",
     color: "from-yellow-400 to-orange-500",
@@ -27,7 +46,12 @@ const transferOptions = [
     title: "Private Drivers",
     icon: Users,
     description: "Multilingual guides for personalized tours and transfers",
-    features: ["Local expertise", "Multilingual support", "Flexible itinerary", "Cultural insights"],
+    features: [
+      "Local expertise",
+      "Multilingual support",
+      "Flexible itinerary",
+      "Cultural insights",
+    ],
     vehicles: ["Comfortable sedans", "SUVs", "Minivans", "Luxury coaches"],
     price: "From $65/hour",
     image: "/placeholder.svg?height=200&width=300",
@@ -39,7 +63,12 @@ const transferOptions = [
     title: "Eco-Friendly Options",
     icon: Leaf,
     description: "Electric and hybrid vehicles for sustainable travel",
-    features: ["Zero emissions", "Quiet operation", "Modern technology", "Environmental responsibility"],
+    features: [
+      "Zero emissions",
+      "Quiet operation",
+      "Modern technology",
+      "Environmental responsibility",
+    ],
     vehicles: ["Tesla Model S", "BMW i7", "Mercedes EQS", "Hybrid options"],
     price: "From $75/hour",
     image: "/placeholder.svg?height=200&width=300",
@@ -51,7 +80,12 @@ const transferOptions = [
     title: "Helicopter Transfers",
     icon: Plane,
     description: "VIP helicopter transfers for ultimate luxury and speed",
-    features: ["Scenic routes", "Time-saving", "Exclusive experience", "Professional pilots"],
+    features: [
+      "Scenic routes",
+      "Time-saving",
+      "Exclusive experience",
+      "Professional pilots",
+    ],
     vehicles: ["Airbus H125", "Bell 407", "Robinson R44", "Luxury helicopters"],
     price: "From $1,200/hour",
     image: "/placeholder.svg?height=200&width=300",
@@ -63,8 +97,18 @@ const transferOptions = [
     title: "Airport Concierge",
     icon: Shield,
     description: "Meet-and-greet services with luggage handling",
-    features: ["Fast-track security", "Luggage assistance", "VIP lounges", "Immigration support"],
-    vehicles: ["Luxury transfers", "Private terminals", "Expedited service", "Personal assistance"],
+    features: [
+      "Fast-track security",
+      "Luggage assistance",
+      "VIP lounges",
+      "Immigration support",
+    ],
+    vehicles: [
+      "Luxury transfers",
+      "Private terminals",
+      "Expedited service",
+      "Personal assistance",
+    ],
     price: "From $150/service",
     image: "/placeholder.svg?height=200&width=300",
     color: "from-indigo-400 to-blue-500",
@@ -75,23 +119,32 @@ const transferOptions = [
     title: "Group Transportation",
     icon: Users,
     description: "Comfortable coaches for large groups and events",
-    features: ["Professional drivers", "Entertainment systems", "Climate control", "Luggage storage"],
-    vehicles: ["Luxury coaches", "Mini buses", "Charter buses", "Event vehicles"],
+    features: [
+      "Professional drivers",
+      "Entertainment systems",
+      "Climate control",
+      "Luggage storage",
+    ],
+    vehicles: [
+      "Luxury coaches",
+      "Mini buses",
+      "Charter buses",
+      "Event vehicles",
+    ],
     price: "From $200/hour",
     image: "/placeholder.svg?height=200&width=300",
     color: "from-teal-400 to-cyan-500",
     capacity: "15-50 passengers",
     availability: "Advance booking",
   },
-]
+];
 
 export default function TransfersPage() {
-
-  const router = useRouter()
+  const router = useRouter();
 
   const handleClick = () => {
-    router.push('/contact')
-  }
+    router.push("/contact");
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
@@ -100,11 +153,6 @@ export default function TransfersPage() {
       {/* Hero Section */}
       <section className="pt-20 pb-16 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="/placeholder.svg?height=600&width=1200"
-            alt="Luxury transfers"
-            className="w-full h-full object-cover"
-          />
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/70 to-blue-900/70" />
         </div>
 
@@ -118,10 +166,13 @@ export default function TransfersPage() {
             <div className="flex items-center justify-center mb-4">
               <Car className="h-12 w-12 mr-3" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Premium Transfers</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              Premium Transfers
+            </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              Travel in style and comfort with our comprehensive transfer services. From luxury vehicles to helicopter
-              transfers, we ensure your journey is as memorable as your destination.
+              Travel in style and comfort with our comprehensive transfer
+              services. From luxury vehicles to helicopter transfers, we ensure
+              your journey is as memorable as your destination.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -155,15 +206,18 @@ export default function TransfersPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Transfer Services</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Our Transfer Services
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose from our range of premium transfer options, each designed to provide comfort, safety, and style
+              Choose from our range of premium transfer options, each designed
+              to provide comfort, safety, and style
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {transferOptions.map((option, index) => {
-              const IconComponent = option.icon
+              const IconComponent = option.icon;
               return (
                 <motion.div
                   key={option.title}
@@ -175,14 +229,18 @@ export default function TransfersPage() {
                 >
                   <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 shadow-lg h-full">
                     <div className="relative">
-                      <div className={`h-32 bg-gradient-to-r ${option.color} flex items-center justify-center`}>
+                      <div
+                        className={`h-32 bg-gradient-to-r ${option.color} flex items-center justify-center`}
+                      >
                         <IconComponent className="h-16 w-16 text-white" />
                       </div>
                       {/* <Badge className="absolute top-3 right-3 bg-white text-gray-900">{option.price}</Badge> */}
                     </div>
 
                     <CardHeader>
-                      <CardTitle className="text-xl text-gray-900">{option.title}</CardTitle>
+                      <CardTitle className="text-xl text-gray-900">
+                        {option.title}
+                      </CardTitle>
                       <p className="text-gray-600">{option.description}</p>
                       <div className="flex items-center justify-between text-sm text-gray-500">
                         <div className="flex items-center">
@@ -199,10 +257,15 @@ export default function TransfersPage() {
                     <CardContent className="flex-1">
                       <div className="space-y-4">
                         <div>
-                          <h4 className="font-semibold text-gray-900 mb-2">Features</h4>
+                          <h4 className="font-semibold text-gray-900 mb-2">
+                            Features
+                          </h4>
                           <div className="space-y-1">
                             {option.features.map((feature) => (
-                              <div key={feature} className="text-sm text-gray-600 flex items-center">
+                              <div
+                                key={feature}
+                                className="text-sm text-gray-600 flex items-center"
+                              >
                                 <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2" />
                                 {feature}
                               </div>
@@ -211,10 +274,16 @@ export default function TransfersPage() {
                         </div>
 
                         <div>
-                          <h4 className="font-semibold text-gray-900 mb-2">Available Options</h4>
+                          <h4 className="font-semibold text-gray-900 mb-2">
+                            Available Options
+                          </h4>
                           <div className="flex flex-wrap gap-1">
                             {option.vehicles.slice(0, 2).map((vehicle) => (
-                              <Badge key={vehicle} variant="secondary" className="text-xs">
+                              <Badge
+                                key={vehicle}
+                                variant="secondary"
+                                className="text-xs"
+                              >
                                 {vehicle}
                               </Badge>
                             ))}
@@ -228,7 +297,12 @@ export default function TransfersPage() {
                       </div>
 
                       <div className="flex space-x-2 mt-6">
-                        <Button onClick={handleClick} className="flex-1 bg-blue-600 hover:bg-blue-700">Book Ride </Button>
+                        <Button
+                          onClick={handleClick}
+                          className="flex-1 bg-blue-600 hover:bg-blue-700"
+                        >
+                          Book Ride{" "}
+                        </Button>
                         {/* <Button variant="outline" className="flex-1">
                           Learn More
                         </Button> */}
@@ -236,7 +310,7 @@ export default function TransfersPage() {
                     </CardContent>
                   </Card>
                 </motion.div>
-              )
+              );
             })}
           </div>
 
@@ -250,9 +324,12 @@ export default function TransfersPage() {
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div>
-                  <h3 className="text-2xl font-bold mb-4">Special Transfer Packages</h3>
+                  <h3 className="text-2xl font-bold mb-4">
+                    Special Transfer Packages
+                  </h3>
                   <p className="text-blue-100 mb-6">
-                    Book multiple transfers and save up to 25%. Perfect for extended stays and multi-city tours.
+                    Book multiple transfers and save up to 25%. Perfect for
+                    extended stays and multi-city tours.
                   </p>
                   <div className="space-y-2">
                     <div className="flex items-center text-blue-100">
@@ -271,7 +348,9 @@ export default function TransfersPage() {
                 </div>
                 <div className="text-center">
                   <div className="text-4xl font-bold mb-2">25% OFF</div>
-                  <div className="text-blue-100 mb-4">Multi-transfer packages</div>
+                  <div className="text-blue-100 mb-4">
+                    Multi-transfer packages
+                  </div>
                   <Button variant="secondary" size="lg">
                     Contact Us
                   </Button>
@@ -287,5 +366,5 @@ export default function TransfersPage() {
 
       <Footer />
     </div>
-  )
+  );
 }
