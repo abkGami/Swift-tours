@@ -403,11 +403,11 @@ export default function DestinationsPage() {
                   {region.description}
                 </p>
                 <div className="relative h-64 rounded-2xl overflow-hidden">
-                  <img
+                  {/* <img
                     src={region.image || "/placeholder.svg"}
                     alt={region.region}
                     className="w-full h-full object-cover"
-                  />
+                  /> */}
                   <div
                     className={`absolute inset-0 bg-gradient-to-r ${region.color} opacity-60`}
                   />

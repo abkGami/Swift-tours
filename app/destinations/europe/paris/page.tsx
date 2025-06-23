@@ -14,7 +14,6 @@ const franceCities = [
     name: "Paris",
     description:
       "The city of lights, known for its iconic Eiffel Tower, art museums, and romantic ambiance.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.8,
     duration: "3-4 days",
     category: "Cultural Capital",
@@ -29,7 +28,6 @@ const franceCities = [
     name: "Bordeaux",
     description:
       "Famous for its wine, Bordeaux offers stunning architecture and a vibrant cultural scene.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.7,
     duration: "2-3 days",
     category: "Wine Region",
@@ -44,7 +42,6 @@ const franceCities = [
     name: "Lyon",
     description:
       "Known for its historical and architectural landmarks, Lyon is a UNESCO World Heritage Site.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.6,
     duration: "2-3 days",
     category: "Historical City",
@@ -59,7 +56,6 @@ const franceCities = [
     name: "Nice",
     description:
       "A beautiful coastal city on the French Riviera, known for its beaches and vibrant nightlife.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.5,
     duration: "2-3 days",
     category: "Coastal City",
@@ -74,7 +70,6 @@ const franceCities = [
     name: "Marseille",
     description:
       "A port city in southern France, known for its maritime heritage and multicultural atmosphere.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.4,
     duration: "2-3 days",
     category: "Port City",
@@ -89,7 +84,6 @@ const franceCities = [
     name: "Strasbourg",
     description:
       "A city with a unique blend of French and German cultures, known for its medieval architecture.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.6,
     duration: "2-3 days",
     category: "Cultural City",
@@ -104,7 +98,6 @@ const franceCities = [
     name: "Toulouse",
     description:
       "Known as the 'Pink City' due to its terracotta buildings, Toulouse is a hub for aerospace industry.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.5,
     duration: "2-3 days",
     category: "Industrial City",
@@ -119,7 +112,6 @@ const franceCities = [
     name: "Lille",
     description:
       "A vibrant city with a rich history, known for its beautiful architecture and lively cultural scene.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.4,
     duration: "2-3 days",
     category: "Cultural City",
@@ -134,7 +126,6 @@ const franceCities = [
     name: "Nantes",
     description:
       "A city with a rich maritime history, known for its innovative art installations and green spaces.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.5,
     duration: "2-3 days",
     category: "Artistic City",
@@ -149,7 +140,6 @@ const franceCities = [
     name: "Montpellier",
     description:
       "A vibrant city with a mix of medieval and modern architecture, known for its lively student population.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.5,
     duration: "2-3 days",
     category: "University City",
@@ -164,7 +154,6 @@ const franceCities = [
     name: "Dijon",
     description:
       "Famous for its mustard, Dijon is a city with a rich history and beautiful medieval architecture.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.4,
     duration: "2-3 days",
     category: "Gastronomic City",
@@ -179,7 +168,6 @@ const franceCities = [
     name: "French Alps",
     description:
       "A stunning mountain range offering breathtaking views and a variety of outdoor activities.",
-    image: "/placeholder.svg?height=300&width=400",
     rating: 4.9,
     duration: "3-5 days",
     category: "Mountain Region",
@@ -191,33 +179,31 @@ const parisAttractions = [
   {
     name: "Eiffel Tower",
     description: "Iconic iron lattice tower and symbol of Paris",
-    image: "/placeholder.svg?height=300&width=400"
   },
   {
     name: "Louvre Museum",
     description: "World's largest art museum and home to the Mona Lisa",
-    image: "/placeholder.svg?height=300&width=400"
   },
   {
     name: "Mont Saint-Michel",
-    description: "Stunning island commune with a medieval abbey off the Normandy coast",
-    image: "/placeholder.svg?height=300&width=400"
+    description:
+      "Stunning island commune with a medieval abbey off the Normandy coast",
   },
   {
     name: "Palace of Versailles",
-    description: "Lavish royal palace known for its gardens and Hall of Mirrors",
-    image: "/placeholder.svg?height=300&width=400"
+    description:
+      "Lavish royal palace known for its gardens and Hall of Mirrors",
   },
   {
     name: "Château de Chambord",
-    description: "Renaissance castle in the Loire Valley, famous for its distinctive French architecture",
-    image: "/placeholder.svg?height=300&width=400"
+    description:
+      "Renaissance castle in the Loire Valley, famous for its distinctive French architecture",
   },
   {
     name: "French Riviera (Côte d'Azur)",
-    description: "Glamorous Mediterranean coastline known for beaches, resorts, and festivals",
-    image: "/placeholder.svg?height=300&width=400"
-  }
+    description:
+      "Glamorous Mediterranean coastline known for beaches, resorts, and festivals",
+  },
 ];
 
 export default function ParisPage() {
@@ -233,11 +219,6 @@ export default function ParisPage() {
       {/* Hero Section */}
       <section className="pt-24 pb-12 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="/placeholder.svg?height=600&width=1200"
-            alt="Paris"
-            className="w-full h-full object-cover"
-          />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-purple-900/70" />
         </div>
 
@@ -308,73 +289,50 @@ export default function ParisPage() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {franceCities.map((attraction, index) => (
+            {franceCities.map((city, index) => (
               <motion.div
-                key={attraction.name}
+                key={city.name}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={attraction.image || "/placeholder.svg"}
-                      alt={attraction.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <Badge className="absolute top-3 right-3 bg-blue-600 text-white">
-                      {attraction.category}
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white/90">
+                  <div className="p-6">
+                    <Badge className="mb-2 bg-blue-600 text-white">
+                      {city.category}
                     </Badge>
-                    <div className="absolute bottom-3 left-3 text-white">
-                      <div className="flex items-center space-x-1">
-                        <Star className="h-4 w-4 text-yellow-400" />
-                        <span className="text-sm font-medium">
-                          {attraction.rating}
-                        </span>
-                      </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Star className="h-4 w-4 text-yellow-400" />
+                      <span className="text-sm font-medium text-blue-900">
+                        {city.rating}
+                      </span>
+                      <Clock className="h-4 w-4 ml-4 text-blue-600" />
+                      <span className="text-sm text-blue-700">
+                        {city.duration}
+                      </span>
                     </div>
+                    <CardHeader className="p-0 mb-2">
+                      <CardTitle className="text-xl text-blue-900">
+                        {city.name}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                      <p className="text-blue-800 mb-4">{city.description}</p>
+                      <div className="space-y-2 mb-2">
+                        <h4 className="font-semibold text-blue-900 flex items-center">
+                          <Camera className="h-4 w-4 mr-2 text-blue-600" />
+                          Highlights
+                        </h4>
+                        <ul className="list-disc list-inside text-blue-700 text-sm">
+                          {city.highlights.map((highlight) => (
+                            <li key={highlight}>{highlight}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </CardContent>
                   </div>
-
-                  <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">
-                      {attraction.name}
-                    </CardTitle>
-                    <div className="flex items-center text-gray-600">
-                      <Clock className="h-4 w-4 mr-1" />
-                      <span className="text-sm">{attraction.duration}</span>
-                    </div>
-                  </CardHeader>
-
-                  <CardContent>
-                    <p className="text-gray-600 mb-4">
-                      {attraction.description}
-                    </p>
-
-                    <div className="space-y-2 mb-6">
-                      <h4 className="font-semibold text-gray-900 flex items-center">
-                        <Camera className="h-4 w-4 mr-2 text-blue-600" />
-                        Highlights
-                      </h4>
-                      <div className="grid grid-cols-1 gap-1">
-                        {attraction.highlights.map((highlight) => (
-                          <div
-                            key={highlight}
-                            className="text-sm text-gray-600 flex items-center"
-                          >
-                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2" />
-                            {highlight}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                      Add to Itinerary
-                    </Button> */}
-                  </CardContent>
                 </Card>
               </motion.div>
             ))}
@@ -437,23 +395,14 @@ export default function ParisPage() {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={attraction.image || "/placeholder.svg"}
-                      alt={attraction.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white/90">
                   <CardHeader>
-                    <CardTitle className="text-xl text-gray-900 first-letter:uppercase">
+                    <CardTitle className="text-xl text-blue-900 first-letter:uppercase">
                       {attraction.name}
                     </CardTitle>
                   </CardHeader>
-
                   <CardContent>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-blue-800 mb-2">
                       {attraction.description}
                     </p>
                   </CardContent>
