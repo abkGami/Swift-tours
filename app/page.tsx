@@ -70,7 +70,7 @@ export default function Home() {
   return (
     <>
       {/* Page Loader */}
-      <div className="page-loader fixed inset-0 bg-gradient-to-br from-blue-600 to-purple-700 z-50 flex items-center justify-center">
+      <div className="page-loader fixed inset-0 bg-gradient-to-br from-[#3293C3] to-[#DC3C38] z-50 flex items-center justify-center">
         <div className="text-center text-white">
           <div className="animate-spin rounded-full h-16 w-16 border-4 border-white border-t-transparent mx-auto mb-4"></div>
           <p className="text-xl font-semibold">Loading your adventure...</p>
