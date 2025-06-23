@@ -5,12 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 
 const albumImages = [
-  // {
-  //   src: "/",
-  //   title: "Swiss Alps, Switzerland",
-  //   description: "Breathtaking mountain views and luxury resorts",
-  //   location: "Europe",
-  // },
   {
     src: "/customer/santorini.jpg",
     title: "Santorini, Greece",
@@ -36,9 +30,24 @@ const albumImages = [
     location: "Europe",
   },
   {
-    src: "/customer/paris1.jpg",
-    title: "Paris, France",
-    description: "City of Light and romantic atmosphere",
+    src: "/customer/philippines (1).jpg",
+    title: "Philippines",
+    description:
+      "Tropical islands, white sand beaches, and crystal clear waters",
+    location: "Asia",
+  },
+  {
+    src: "/customer/corfu (2).jpg",
+    title: "Corfu, Greece",
+    description:
+      "Lush green landscapes, turquoise waters, and charming old towns",
+    location: "Europe",
+  },
+  {
+    src: "/customer/iceland (2).jpg",
+    title: "Iceland",
+    description:
+      "Glaciers, volcanoes, waterfalls, and the magical northern lights",
     location: "Europe",
   },
   {
@@ -47,12 +56,30 @@ const albumImages = [
     description: "Crystal clear waters and overwater villas",
     location: "Asia",
   },
-
+  {
+    src: "/customer/switzerland (1).jpg",
+    title: "Switzerland",
+    description: "Alpine scenery, luxury resorts, and world-class chocolate",
+    location: "Europe",
+  },
+  {
+    src: "/customer/paris1.jpg",
+    title: "Paris, France",
+    description: "City of Light and romantic atmosphere",
+    location: "Europe",
+  },
   {
     src: "/customer/rome.jpg",
     title: "Rome, Italy",
     description: "Ancient history and architectural marvels",
     location: "Europe",
+  },
+  {
+    src: "/customer/philippines (4).jpg",
+    title: "Philippines",
+    description:
+      "Tropical islands, white sand beaches, and crystal clear waters",
+    location: "Asia",
   },
   {
     src: "/customer/kyoto.jpg",
@@ -215,7 +242,7 @@ export default function CustomerSLideshow() {
           </div>
 
           {/* Thumbnail Navigation */}
-          <div className="flex justify-center mt-5 space-x-2 overflow-x-auto pb-4 pt-4">
+          {/* <div className="flex justify-center mt-5 space-x-2 overflow-x-auto pb-4 pt-4">
             {albumImages.map((image, index) => (
               <motion.button
                 key={index}
@@ -241,7 +268,7 @@ export default function CustomerSLideshow() {
                 )}
               </motion.button>
             ))}
-          </div>
+          </div> */}
 
           {/* Progress Indicator */}
           <div className="flex justify-center mt-6">
