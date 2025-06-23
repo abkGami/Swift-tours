@@ -155,11 +155,6 @@ export default function UruguayPage() {
       {/* Hero Section */}
       <section className="pt-24 pb-10 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="/placeholder.svg?height=600&width=1200"
-            alt="Uruguay"
-            className="w-full h-full object-cover"
-          />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-green-900/70" />
         </div>
 
@@ -176,7 +171,8 @@ export default function UruguayPage() {
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Uruguay</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              Discover Uruguay's charming towns, golden beaches, and relaxed lifestyle along the Atlantic coast.
+              Discover Uruguay's charming towns, golden beaches, and relaxed
+              lifestyle along the Atlantic coast.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -219,7 +215,8 @@ export default function UruguayPage() {
               Top Cities in Uruguay
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore Uruguay's coastal gems, historic towns, and vibrant beach resorts.
+              Explore Uruguay's coastal gems, historic towns, and vibrant beach
+              resorts.
             </p>
           </motion.div>
 
@@ -235,11 +232,6 @@ export default function UruguayPage() {
               >
                 <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
                   <div className="relative overflow-hidden">
-                    <img
-                      src={city.image || "/placeholder.svg"}
-                      alt={city.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     <Badge className="absolute top-3 right-3 bg-blue-600 text-white">
                       {city.category}
@@ -265,9 +257,7 @@ export default function UruguayPage() {
                   </CardHeader>
 
                   <CardContent>
-                    <p className="text-gray-600 mb-4">
-                      {city.description}
-                    </p>
+                    <p className="text-gray-600 mb-4">{city.description}</p>
 
                     <div className="space-y-2 mb-6">
                       <h4 className="font-semibold text-gray-900 flex items-center">
@@ -304,7 +294,8 @@ export default function UruguayPage() {
                 Ready to Explore Uruguay?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Discover the best of Uruguay with our expert guides and custom itineraries.
+                Discover the best of Uruguay with our expert guides and custom
+                itineraries.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -341,23 +332,14 @@ export default function UruguayPage() {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={attraction.image || "/placeholder.svg"}
-                      alt={attraction.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white/90">
                   <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">
+                    <CardTitle className="text-xl text-blue-900 first-letter:uppercase">
                       {attraction.name}
                     </CardTitle>
                   </CardHeader>
-
                   <CardContent>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-blue-800 mb-2">
                       {attraction.description}
                     </p>
                   </CardContent>
@@ -378,7 +360,8 @@ export default function UruguayPage() {
                 Ready to Explore Uruguay?
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Experience the best of Uruguay with our expert guides and custom itineraries.
+                Experience the best of Uruguay with our expert guides and custom
+                itineraries.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button

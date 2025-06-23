@@ -237,11 +237,6 @@ export default function ArgentinaPage() {
               >
                 <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
                   <div className="relative overflow-hidden">
-                    <img
-                      src={city.image || "/placeholder.svg"}
-                      alt={city.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     <Badge className="absolute top-3 right-3 bg-blue-600 text-white">
                       {city.category}
