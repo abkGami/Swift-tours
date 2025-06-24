@@ -63,45 +63,6 @@ export default function BoatsPage() {
     {}
   );
 
-  const continents = [
-    {
-      name: "Europe",
-      countries: [
-        "France",
-        "Italy",
-        "Greece",
-        "Spain",
-        "Croatia",
-        "Turkey",
-        "Portugal",
-        "Norway",
-      ],
-    },
-    {
-      name: "Asia",
-      countries: [
-        "Thailand",
-        "Vietnam",
-        "Indonesia",
-        "Philippines",
-        "Japan",
-        "India",
-        "Malaysia",
-      ],
-    },
-    {
-      name: "South America",
-      countries: [
-        "Brazil",
-        "Argentina",
-        "Chile",
-        "Peru",
-        "Colombia",
-        "Ecuador",
-      ],
-    },
-  ];
-
   const country = [
     {
       name: "France",
@@ -564,47 +525,45 @@ export default function BoatsPage() {
 
               {filteredBoats.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filteredBoats.map((boat, index) =>
-                    tripTitles.map((tripTitle, tIdx) => {
-                      const detailsUrl = `/details/${
-                        (boat as any).id
-                      }?country=${encodeURIComponent(
-                        selectedCity
-                      )}&exp=${encodeURIComponent(
-                        tripTitles[tIdx]
-                      )}&type=${encodeURIComponent(
-                        boat.type
-                      )}&place=${encodeURIComponent(
-                        place
-                      )}&departureDate=${encodeURIComponent(
-                        departureDate
-                      )}&returnDate=${encodeURIComponent(
-                        returnDate
-                      )}&withSkipper=${encodeURIComponent(withSkipper)}`;
+                  {filteredBoats.map((boat, index) => {
+                    // tripTitles.map((tripTitle, tIdx) => {
+                    const detailsUrl = `/details/${
+                      (boat as any).id
+                    }?country=${encodeURIComponent(
+                      selectedCity
+                    )}&type=${encodeURIComponent(
+                      boat.type
+                    )}&place=${encodeURIComponent(
+                      place
+                    )}&departureDate=${encodeURIComponent(
+                      departureDate
+                    )}&returnDate=${encodeURIComponent(
+                      returnDate
+                    )}&withSkipper=${encodeURIComponent(withSkipper)}`;
 
-                      return (
-                        <motion.div
-                          key={boat.name + index + tripTitle}
-                          initial={{ opacity: 0, y: 50 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{
-                            duration: 0.6,
-                            delay: (index + tIdx) * 0.05,
-                          }}
-                          whileHover={{ y: -10, scale: 1.02 }}
-                          className="group"
-                          style={{ cursor: "pointer" }}
+                    return (
+                      <motion.div
+                        key={boat.name + index}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{
+                          duration: 0.6,
+                          delay: index * 0.05,
+                        }}
+                        whileHover={{ y: -10, scale: 1.02 }}
+                        className="group"
+                        style={{ cursor: "pointer" }}
+                      >
+                        <a
+                          href={detailsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ display: "block", height: "100%" }}
                         >
-                          <a
-                            href={detailsUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{ display: "block", height: "100%" }}
-                          >
-                            {" "}
-                            <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 shadow-lg">
-                              <div className="relative overflow-hidden">
-                                {/* {images.length > 0 && (
+                          {" "}
+                          <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 shadow-lg">
+                            <div className="relative overflow-hidden">
+                              {/* {images.length > 0 && (
                                 <Image
                                   width={1200}
                                   height={300}
@@ -613,79 +572,78 @@ export default function BoatsPage() {
                                   className="w-full h-[420px] object-cover group-hover:scale-110 transition-transform duration-300"
                                 />
                               )} */}
-                                {(boat as any).images &&
-                                  Array.isArray((boat as any).images) &&
-                                  (boat as any).images.length > 0 && (
-                                    <Image
-                                      width={1200}
-                                      height={300}
-                                      src={
-                                        (boat as any).images[0] ||
-                                        "/placeholder.svg"
-                                      }
-                                      alt={boat.name}
-                                      className="w-full h-[420px] object-cover group-hover:scale-110 transition-transform duration-300"
-                                    />
-                                  )}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                              </div>
+                              {(boat as any).images &&
+                                Array.isArray((boat as any).images) &&
+                                (boat as any).images.length > 0 && (
+                                  <Image
+                                    width={1200}
+                                    height={300}
+                                    src={
+                                      (boat as any).images[0] ||
+                                      "/placeholder.svg"
+                                    }
+                                    alt={boat.name}
+                                    className="w-full h-[420px] object-cover group-hover:scale-110 transition-transform duration-300"
+                                  />
+                                )}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                            </div>
 
-                              <CardHeader className="flex flex-row items-center justify-between">
-                                <CardTitle className="text-xl text-gray-900">
-                                  {tripTitle}
-                                </CardTitle>
-                                <div className="flex items-center justify-between gap-4">
-                                  <div className="flex items-center space-x-1">
-                                    <Star className="h-4 w-4 text-yellow-400 " />
-                                    <span className="text-sm font-medium">
-                                      {boat.rating}
-                                    </span>
-                                  </div>
-                                  {/* <div className="flex items-center text-gray-600">
+                            <CardHeader className="flex flex-row items-center justify-between">
+                              <CardTitle className="text-xl text-gray-900">
+                                {boat.exp}
+                              </CardTitle>
+                              <div className="flex items-center justify-between gap-4">
+                                <div className="flex items-center space-x-1">
+                                  <Star className="h-4 w-4 text-yellow-400 " />
+                                  <span className="text-sm font-medium">
+                                    {boat.rating}
+                                  </span>
+                                </div>
+                                {/* <div className="flex items-center text-gray-600">
                                 <Users className="h-4 w-4 mr-1" />
                                 <span className="text-sm">{boat.capacity}</span>
                               </div> */}
-                                </div>
-                              </CardHeader>
+                              </div>
+                            </CardHeader>
 
-                              <CardContent>
-                                <div className="mb-2">
-                                  <span className="font-semibold text-gray-600">
-                                    {/* {title.city} */}
-                                  </span>{" "}
-                                </div>
-                                <div className="mb-2">
-                                  <span className="font-normal">
-                                    {/* {title.duration} */}
-                                  </span>
-                                </div>
-                                <div className="bg-gray-100 rounded p-3 mt-2 flex flex-row items-center justify-between">
-                                  <div>
-                                    <div className="flex flex-row items-center gap-2 md:text-xs">
-                                      <LucideCheck color="blue" size={15} />
-                                      <div>Fuel included</div>
-                                    </div>
-                                    <div className="flex flex-row items-center gap-2 md:text-xs">
-                                      <LucideCheck color="blue" size={15} />
-                                      <div>Skipper included</div>
-                                    </div>
+                            <CardContent>
+                              <div className="mb-2">
+                                <span className="font-semibold text-gray-600">
+                                  {/* {title.city} */}
+                                </span>{" "}
+                              </div>
+                              <div className="mb-2">
+                                <span className="font-normal">
+                                  {/* {title.duration} */}
+                                </span>
+                              </div>
+                              <div className="bg-gray-100 rounded p-3 mt-2 flex flex-row items-center justify-between">
+                                <div>
+                                  <div className="flex flex-row items-center gap-2 md:text-xs">
+                                    <LucideCheck color="blue" size={15} />
+                                    <div>Fuel included</div>
                                   </div>
-                                  <div className="text-right">
-                                    <div className="font-semibold">
-                                      {boat.price}
-                                    </div>
-                                    <div className="font-medium text-gray-800 md:text-sm">
-                                      For groups of up to {boat.capacity} people
-                                    </div>
+                                  <div className="flex flex-row items-center gap-2 md:text-xs">
+                                    <LucideCheck color="blue" size={15} />
+                                    <div>Skipper included</div>
                                   </div>
                                 </div>
-                              </CardContent>
-                            </Card>
-                          </a>
-                        </motion.div>
-                      );
-                    })
-                  )}
+                                <div className="text-right">
+                                  {/* <div className="font-semibold">
+                                    {boat.price}
+                                  </div> */}
+                                  <div className="font-medium text-gray-800 md:text-sm">
+                                    For groups of up to {boat.capacity} people
+                                  </div>
+                                </div>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </a>
+                      </motion.div>
+                    );
+                  })}
                 </div>
               ) : hasSearched && selectedCity && selectedType ? (
                 <div className="text-center text-gray-500 mt-10">
@@ -698,7 +656,7 @@ export default function BoatsPage() {
               )}
             </div>
           </section>
-        )}
+        )}{" "}
       </div>
 
       <Footer />

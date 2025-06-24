@@ -1,6 +1,163 @@
 export const boats = [
   {
+    id: "ryck-2800",
+    name: "RYCK 280",
+    images: [
+      "/boat/boats/a (3).jpg",
+      "/boat/boats/a (5).jpg",
+      "/boat/boats/a (3).jpg",
+      "/boat/boats/a (6).jpg",
+      "/boat/boats/a (7).jpg",
+      "/boat/boats/a (8).jpg",
+      "/boat/boats/a (2).jpg",
+      "/boat/boats/a (4).jpg",
+    ],
+    type: "Day Boat / Centre-Console",
+    exp: "3 hours boat trip",
+    rating: 4.8,
+    capacity: 8,
+    price: "€250/day",
+    features: [
+      "Fuel included",
+      "Air conditioning",
+      "Sound System (Fusion Apollo)",
+      "Restroom on board",
+      "Electric windlass",
+      "Wet bar with BBQ",
+    ],
+  },
+  {
     id: "ryck-2801",
+    name: "RYCK 280",
+    images: [
+      "/boat/boats/a (2).jpg",
+      "/boat/boats/a (5).jpg",
+      "/boat/boats/a (3).jpg",
+      "/boat/boats/a (6).jpg",
+      "/boat/boats/a (7).jpg",
+      "/boat/boats/a (8).jpg",
+      "/boat/boats/a (2).jpg",
+      "/boat/boats/a (4).jpg",
+    ],
+    type: "Day Boat / Centre-Console",
+    exp: "Full day boat trip",
+    rating: 4.8,
+    capacity: 8,
+    price: "€250/day",
+    features: [
+      "Fuel included",
+      "Air conditioning",
+      "Sound System (Fusion Apollo)",
+      "Restroom on board",
+      "Electric windlass",
+      "Wet bar with BBQ",
+    ],
+  },
+  {
+    id: "ryck-2802",
+    name: "RYCK 280",
+    images: [
+      "/boat/boats/a (6).jpg",
+      "/boat/boats/a (5).jpg",
+      "/boat/boats/a (3).jpg",
+      "/boat/boats/a (7).jpg",
+      "/boat/boats/a (8).jpg",
+      "/boat/boats/a (2).jpg",
+      "/boat/boats/a (4).jpg",
+    ],
+    type: "Day Boat / Centre-Console",
+    exp: "Romantic sunset boat trip",
+    rating: 4.8,
+    capacity: 8,
+    price: "€250/day",
+    features: [
+      "Fuel included",
+      "Air conditioning",
+      "Sound System (Fusion Apollo)",
+      "Restroom on board",
+      "Electric windlass",
+      "Wet bar with BBQ",
+    ],
+  },
+  {
+    id: "ryck-2804",
+    name: "RYCK 280",
+    images: [
+      "/boat/snorkeling/a (1).jpg",
+      "/boat/snorkeling/a (11).jpg",
+      "/boat/snorkeling/a (15).jpg",
+      "/boat/snorkeling/a (17).jpg",
+    ],
+    type: "Day Boat / Centre-Console",
+    exp: "Snorkeling",
+    rating: 4.8,
+    capacity: 8,
+    price: "€250/day",
+    features: [
+      "Fuel included",
+      "Air conditioning",
+      "Sound System (Fusion Apollo)",
+      "Restroom on board",
+      "Electric windlass",
+      "Wet bar with BBQ",
+    ],
+  },
+  {
+    id: "ryck-2803",
+    name: "RYCK 280",
+    images: [
+      "/boat/boats/a (7).jpg",
+      "/boat/boats/a (5).jpg",
+      "/boat/boats/a (3).jpg",
+      "/boat/boats/a (6).jpg",
+      "/boat/boats/a (7).jpg",
+      "/boat/boats/a (8).jpg",
+      "/boat/boats/a (2).jpg",
+      "/boat/boats/a (4).jpg",
+    ],
+    type: "Day Boat / Centre-Console",
+    exp: "Fishing trip",
+    rating: 4.8,
+    capacity: 8,
+    price: "€250/day",
+    features: [
+      "Fuel included",
+      "Air conditioning",
+      "Sound System (Fusion Apollo)",
+      "Restroom on board",
+      "Electric windlass",
+      "Wet bar with BBQ",
+    ],
+  },
+  {
+    id: "ryck-2805",
+    name: "RYCK 280",
+    images: [
+      "/boat/boats/a (4).jpg",
+      "/boat/boats/a (5).jpg",
+      "/boat/boats/a (3).jpg",
+      "/boat/boats/a (6).jpg",
+      "/boat/boats/a (7).jpg",
+      "/boat/boats/a (8).jpg",
+      "/boat/boats/a (2).jpg",
+      "/boat/boats/a (4).jpg",
+    ],
+    type: "Day Boat / Centre-Console",
+    exp: "6 hours boat trip",
+    rating: 4.8,
+    capacity: 8,
+    price: "€250/day",
+    features: [
+      "Fuel included",
+      "Air conditioning",
+      "Sound System (Fusion Apollo)",
+      "Restroom on board",
+      "Electric windlass",
+      "Wet bar with BBQ",
+    ],
+  },
+  {
+    id: "ryck-2806",
     name: "RYCK 280",
     images: [
       "/boat/boats/a (1).jpg",
@@ -13,6 +170,7 @@ export const boats = [
       "/boat/boats/a (4).jpg",
     ],
     type: "Day Boat / Centre-Console",
+    exp: "Boat party trip",
     rating: 4.8,
     capacity: 8,
     price: "€250/day",
@@ -27,10 +185,10 @@ export const boats = [
   },
   // b
   {
-    id: "merry-fisher-895",
+    id: "merry-fisher-8950",
     name: "Jeanneau Merry Fisher 895",
     images: [
-      "/boat/boats/b (1).jpg",
+      "/boat/boats/b (2).jpg",
       "/boat/boats/b (3).jpg",
       "/boat/boats/b (5).jpg",
       "/boat/boats/b (9).jpg",
@@ -40,6 +198,171 @@ export const boats = [
       "/boat/boats/b (4).jpg",
     ],
     type: "Cabin Cruiser",
+    exp: "3 hours boat trip",
+
+    rating: 4.8,
+    capacity: 8,
+    price: "€250/day",
+    features: [
+      "Fuel included",
+      "Air conditioning",
+      "Sound System",
+      "Restroom Onboard",
+      "Bow thruster",
+      "Galley & Cabins",
+    ],
+  },
+  {
+    id: "merry-fisher-8951",
+    name: "Jeanneau Merry Fisher 895",
+    images: [
+      "/boat/boats/b (6).jpg",
+      "/boat/boats/b (3).jpg",
+      "/boat/boats/b (5).jpg",
+      "/boat/boats/b (9).jpg",
+      "/boat/boats/b (8).jpg",
+      "/boat/boats/b (7).jpg",
+      "/boat/boats/b (6).jpg",
+      "/boat/boats/b (4).jpg",
+    ],
+    type: "Cabin Cruiser",
+    exp: "Full day boat trip",
+
+    rating: 4.8,
+    capacity: 8,
+    price: "€250/day",
+    features: [
+      "Fuel included",
+      "Air conditioning",
+      "Sound System",
+      "Restroom Onboard",
+      "Bow thruster",
+      "Galley & Cabins",
+    ],
+  },
+  {
+    id: "merry-fisher-8952",
+    name: "Jeanneau Merry Fisher 895",
+    images: [
+      "/boat/boats/b (3).jpg",
+      "/boat/boats/b (5).jpg",
+      "/boat/boats/b (9).jpg",
+      "/boat/boats/b (8).jpg",
+      "/boat/boats/b (7).jpg",
+      "/boat/boats/b (6).jpg",
+      "/boat/boats/b (4).jpg",
+    ],
+    type: "Cabin Cruiser",
+    exp: "Romantic sunset boat trip",
+
+    rating: 4.8,
+    capacity: 8,
+    price: "€250/day",
+    features: [
+      "Fuel included",
+      "Air conditioning",
+      "Sound System",
+      "Restroom Onboard",
+      "Bow thruster",
+      "Galley & Cabins",
+    ],
+  },
+  {
+    id: "merry-fisher-8953",
+    name: "Jeanneau Merry Fisher 895",
+    images: [
+      "/boat/snorkeling/a (9).jpg",
+      "/boat/snorkeling/a (12).jpg",
+      "/boat/snorkeling/a (13).jpg",
+      "/boat/snorkeling/a (16).jpg",
+    ],
+    type: "Cabin Cruiser",
+    exp: "Snorkeling",
+
+    rating: 4.8,
+    capacity: 8,
+    price: "€250/day",
+    features: [
+      "Fuel included",
+      "Air conditioning",
+      "Sound System",
+      "Restroom Onboard",
+      "Bow thruster",
+      "Galley & Cabins",
+    ],
+  },
+  {
+    id: "merry-fisher-8954",
+    name: "Jeanneau Merry Fisher 895",
+    images: [
+      "/boat/boats/b (8).jpg",
+      "/boat/boats/b (3).jpg",
+      "/boat/boats/b (5).jpg",
+      "/boat/boats/b (9).jpg",
+      "/boat/boats/b (8).jpg",
+      "/boat/boats/b (7).jpg",
+      "/boat/boats/b (6).jpg",
+      "/boat/boats/b (4).jpg",
+    ],
+    type: "Cabin Cruiser",
+    exp: "Fishing trip",
+
+    rating: 4.8,
+    capacity: 8,
+    price: "€250/day",
+    features: [
+      "Fuel included",
+      "Air conditioning",
+      "Sound System",
+      "Restroom Onboard",
+      "Bow thruster",
+      "Galley & Cabins",
+    ],
+  },
+  {
+    id: "merry-fisher-8955",
+    name: "Jeanneau Merry Fisher 895",
+    images: [
+      "/boat/boats/b (7).jpg",
+      "/boat/boats/b (3).jpg",
+      "/boat/boats/b (5).jpg",
+      "/boat/boats/b (9).jpg",
+      "/boat/boats/b (8).jpg",
+      "/boat/boats/b (7).jpg",
+      "/boat/boats/b (6).jpg",
+      "/boat/boats/b (4).jpg",
+    ],
+    type: "Cabin Cruiser",
+    exp: "6 hours boat trip",
+
+    rating: 4.8,
+    capacity: 8,
+    price: "€250/day",
+    features: [
+      "Fuel included",
+      "Air conditioning",
+      "Sound System",
+      "Restroom Onboard",
+      "Bow thruster",
+      "Galley & Cabins",
+    ],
+  },
+  {
+    id: "merry-fisher-8956",
+    name: "Jeanneau Merry Fisher 895",
+    images: [
+      "/boat/boats/b (9).jpg",
+      "/boat/boats/b (3).jpg",
+      "/boat/boats/b (5).jpg",
+      "/boat/boats/b (9).jpg",
+      "/boat/boats/b (8).jpg",
+      "/boat/boats/b (7).jpg",
+      "/boat/boats/b (6).jpg",
+      "/boat/boats/b (4).jpg",
+    ],
+    type: "Cabin Cruiser",
+    exp: "Boat party trip",
+
     rating: 4.8,
     capacity: 8,
     price: "€250/day",
@@ -71,6 +394,8 @@ export const boats = [
     rating: 4.7,
     capacity: 8,
     price: "€250/day",
+    exp: "3 hours boat trip",
+
     features: [
       "Sound System",
       "Restroom Onboard",
@@ -281,216 +606,6 @@ export const country = [
       },
       {
         exp: "Boat party trip",
-      },
-    ],
-  },
-  {
-    id: "greece",
-    country: "Greece",
-    title: [
-      {
-        exp: "Sunset Cruise with BBQ & Music",
-      },
-      {
-        exp: "Delos Catamaran History Cruise",
-      },
-      {
-        exp: "Romantic Athenian Riviera Cruise",
-      },
-      {
-        exp: "Shipwreck Cove & Blue Caves Speedboat",
-      },
-      {
-        exp: "Island Hopping to Antiparos",
-      },
-      {
-        exp: "Hydra, Poros & Aegina Saronic Gulf Cruise",
-      },
-      {
-        exp: "Sunset Catamaran from Rhodes",
-      },
-      {
-        exp: "Full-Day Paxos and Antipaxos Cruise",
-      },
-    ],
-  },
-  {
-    id: "croatia",
-    country: "Croatia",
-    title: [
-      {
-        exp: "Pakleni Islands Private Cruise",
-      },
-      {
-        exp: "Blue Cave & 5 Islands Adventure",
-      },
-      {
-        exp: "Elaphiti Islands Day Cruise",
-      },
-      {
-        exp: "Zadar Archipelago Dolphin Sail",
-      },
-      {
-        exp: "Twilight Wine Cruise",
-      },
-      {
-        exp: "Brac Island Adventure Cruise",
-      },
-      {
-        exp: "Mljet National Park Yacht Tour",
-      },
-      {
-        exp: "Split Sunset Chill Sail",
-      },
-    ],
-  },
-  {
-    id: "portugal",
-    country: "Portugal",
-    title: [
-      {
-        exp: "Douro River Wine Cruise",
-      },
-      {
-        exp: "Lisbon Sunset Catamaran Tour",
-      },
-      {
-        exp: "Algarve Caves & Coastline by Boat",
-      },
-      {
-        exp: "Private Sailing in the Tagus River",
-      },
-      {
-        exp: "Madeira Whale Watching Adventure",
-      },
-      {
-        exp: "Full-Day Ria Formosa Island Hopping",
-      },
-      {
-        exp: "Porto Historic Boat Journey",
-      },
-      {
-        exp: "Lagos Sunset Dolphin Safari",
-      },
-    ],
-  },
-  {
-    id: "malta",
-    country: "Malta",
-    title: [
-      {
-        exp: "Blue Lagoon Full-Day Catamaran",
-      },
-      {
-        exp: "Private Cruise to Gozo & Comino",
-      },
-      {
-        exp: "Comino Caves & Crystal Lagoon Sail",
-      },
-      {
-        exp: "Sunset Sail around Valletta Harbor",
-      },
-      {
-        exp: "Gozo Snorkeling & Swim Tour",
-      },
-      {
-        exp: "Historical Harbor Cruise in Valletta",
-      },
-      {
-        exp: "Luxury Yacht Charter from Mellieha",
-      },
-      {
-        exp: "Dingli Cliffs Coastal Cruise",
-      },
-    ],
-  },
-  {
-    id: "montenegro",
-    country: "Montenegro",
-    title: [
-      {
-        exp: "Kotor Bay Blue Cave Boat Tour",
-      },
-      {
-        exp: "Private Yacht to Our Lady of the Rocks",
-      },
-      {
-        exp: "Sunset Catamaran along Budva Riviera",
-      },
-      {
-        exp: "Skadar Lake Birdwatching Cruise",
-      },
-      {
-        exp: "Boka Bay Full-Day Tour",
-      },
-      {
-        exp: "Tivat Islands Adventure",
-      },
-      {
-        exp: "Budva Hidden Beaches Sail",
-      },
-      {
-        exp: "Montenegro Coast Sunset Cruise",
-      },
-    ],
-  },
-  {
-    id: "turkey",
-    country: "Turkey",
-    title: [
-      {
-        exp: "Bodrum Private Gulet Cruise",
-      },
-      {
-        exp: "Fethiye 12 Islands Day Tour",
-      },
-      {
-        exp: "Antalya Coast Sunset Dinner Cruise",
-      },
-      {
-        exp: "Cleopatra Island Excursion by Yacht",
-      },
-      {
-        exp: "Pamukkale Hot Springs & River Boat Tour",
-      },
-      {
-        exp: "Blue Cruise to Butterfly Valley",
-      },
-      {
-        exp: "Marmaris Pirate Ship Experience",
-      },
-      {
-        exp: "Turkish Riviera Blue Lagoon Ride",
-      },
-    ],
-  },
-  {
-    id: "france",
-    country: "France",
-    title: [
-      {
-        exp: "Nice Bay Private Yacht Cruise",
-      },
-      {
-        exp: "Cannes Lerins Islands Tour",
-      },
-      {
-        exp: "Sunset Seine River Dinner Cruise",
-      },
-      {
-        exp: "Corsica Hidden Beaches Explorer",
-      },
-      {
-        exp: "Marseille Calanques Discovery Sail",
-      },
-      {
-        exp: "Paris Illuminated Night Boat Ride",
-      },
-      {
-        exp: "French Riviera Romantic Sail",
-      },
-      {
-        exp: "Corsica Gulf of Porto Day Trip",
       },
     ],
   },
