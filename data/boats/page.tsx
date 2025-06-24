@@ -120,9 +120,9 @@ export const boats = [
     id: "lagoon-450",
     name: "Lagoon 450",
     images: [
-      "/boat/boats/e (9).jpg",
-      "/boat/boats/e (12).jpg",
       "/boat/boats/e (1).jpg",
+      "/boat/boats/e (12).jpg",
+      "/boat/boats/e (9).jpg",
       "/boat/boats/e (2).jpg",
       "/boat/boats/e (6).jpg",
       "/boat/boats/e (8).jpg",

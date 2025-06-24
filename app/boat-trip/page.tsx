@@ -281,7 +281,7 @@ export default function BoatsPage() {
   const handleSearch = () => {
     if (
       !selectedCity ||
-      !place ||
+      !selectedCountry ||
       !departureDate ||
       !returnDate ||
       !selectedType ||
@@ -344,24 +344,6 @@ export default function BoatsPage() {
               </div> */}
 
               <div>
-                {/* <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Country
-                </label>
-                <select
-                  value={selectedCountry}
-                  onChange={(e) => {
-                    setselectedCountry(e.target.value);
-                    setselectedCity(""); // Reset country when continent changes
-                  }}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md mb-3"
-                >
-                  <option value="">Select Country</option>
-                  {country.map((cont) => (
-                    <option key={cont.name} value={cont.name}>
-                      {cont.name}
-                    </option>
-                  ))}
-                </select> */}
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Country
                 </label>
@@ -432,6 +414,8 @@ export default function BoatsPage() {
                       ))}
                   </optgroup>
                 </select>
+              </div>
+              <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   City
                 </label>
@@ -450,19 +434,6 @@ export default function BoatsPage() {
                       </option>
                     ))}
                 </select>
-              </div>
-              {/* New text input field below country */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Place
-                </label>
-                <input
-                  type="text"
-                  // onChange={(e) => console.log("Extra Info:", e.target.value)}
-                  onChange={(e) => setPlace(e.target.value)}
-                  placeholder=""
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                />
               </div>
               {/* Date selectors */}
               <div className="flex gap-2">
