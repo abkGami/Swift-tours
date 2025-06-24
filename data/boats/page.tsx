@@ -52,31 +52,6 @@ export const boats = [
       "Galley & Cabins",
     ],
   },
-  {
-    id: "merry-fisher-895",
-    name: "Jeanneau Merry Fisher 895",
-    images: [
-      "/boat/boats/b (6).jpg",
-      "/boat/boats/b (9).jpg",
-      "/boat/boats/b (5).jpg",
-      "/boat/boats/b (1).jpg",
-      "/boat/boats/b (3).jpg",
-      "/boat/boats/b (8).jpg",
-    ],
-    type: "Motor Yacht",
-    rating: 4.8,
-    capacity: 8,
-    price: "€250/day",
-    features: [
-      "Fuel included",
-      "Air conditioning",
-      "Sound System",
-      "Restroom Onboard",
-      "Galley/Kitchen",
-      "VAT",
-      "Bow thruster & Electric windlass",
-    ],
-  },
 
   // c
   {
@@ -109,36 +84,7 @@ export const boats = [
       "Sunshade canopy",
     ],
   },
-  {
-    id: "eolo-730-day",
-    name: "Eolo 730 Day",
-    images: [
-      "/boat/boats/c (4).jpg",
-      "/boat/boats/c (11).jpg",
-      "/boat/boats/c (12).jpg",
-      "/boat/boats/c (9).jpg",
-      "/boat/boats/c (10).jpg",
-      "/boat/boats/c (13).jpg",
-      "/boat/boats/c (14).jpg",
-      "/boat/boats/c (7).jpg",
-      "/boat/boats/c (2).jpg",
-    ],
-    type: "Motor Yacht",
-    rating: 4.7,
-    capacity: 8,
-    price: "€250/day",
-    features: [
-      "Sound System",
-      "Restroom Onboard",
-      "Bimini Top",
-      "Sundeck",
-      "GPS/Chartplotter",
-      "Swim Ladder",
-      "Deck Shower",
-      "VAT included",
-      "Final Clearing (often extra, but assumed included for format)",
-    ],
-  },
+
   // d
   {
     id: "swift-explorer",
@@ -168,34 +114,7 @@ export const boats = [
       "Final Cleaning",
     ],
   },
-  {
-    id: "eolo-830-efb-vera",
-    name: "Vera (Eolo 830 EFB)",
-    images: [
-      "/boat/boats/d (11).jpg",
-      "/boat/boats/d (5).jpg",
-      "/boat/boats/d (9).jpg",
-      "/boat/boats/d (8).jpg",
-      "/boat/boats/d (12).jpg",
-      "/boat/boats/d (15).jpg",
-      "/boat/boats/d (20).jpg",
-      "/boat/boats/d (19).jpg",
-    ],
-    type: "Motor Yacht",
-    rating: 4.7,
-    capacity: 8,
-    price: "€750/day",
-    features: [
-      "Bimini Top",
-      "Sound System",
-      "Restroom Onboard",
-      "Deck Shower",
-      "Cockpit Table",
-      "Refrigerator",
-      "GPS/Chartplotter",
-      "VAT included",
-    ],
-  },
+
   // e
   {
     id: "lagoon-450",
@@ -224,33 +143,7 @@ export const boats = [
       "Final Cleaning",
     ],
   },
-  {
-    id: "sunseeker-38",
-    name: "Sunseeker 38",
-    images: [
-      "/boat/boats/e (9).jpg",
-      "/boat/boats/e (12).jpg",
-      "/boat/boats/e (1).jpg",
-      "/boat/boats/e (2).jpg",
-      "/boat/boats/e (6).jpg",
-      "/boat/boats/e (8).jpg",
-      "/boat/boats/e (18).jpg",
-      "/boat/boats/e (17).jpg",
-      "/boat/boats/e (16).jpg",
-    ],
-    type: "Motor Yacht",
-    rating: 4.7,
-    capacity: 9,
-    price: "€690/day",
-    features: [
-      "Fuel included",
-      "Air conditioning",
-      "Bluetooth Sound System",
-      "Restroom Onboard",
-      "Sunbathing Deck",
-      "Final Cleaning",
-    ],
-  },
+
   // f
   {
     id: "algarve-kayak-adventure",
@@ -309,35 +202,7 @@ export const boats = [
       "Final Cleaning",
     ],
   },
-  {
-    id: "pocahontas-42",
-    name: "Pocahontas 42",
-    images: [
-      "/boat/boats/g (15).jpg",
-      "/boat/boats/g (17).jpg",
-      "/boat/boats/g (10).jpg",
-      "/boat/boats/g (15).jpg",
-      "/boat/boats/g (11).jpg",
-      "/boat/boats/g (22).jpg",
-      "/boat/boats/g (26).jpg",
-    ],
-    type: "Luxury Motor Yacht",
-    rating: 4.8,
-    capacity: 10,
-    price: "€1,200/day",
-    features: [
-      "Fuel included",
-      "Air conditioning",
-      "Bluetooth Sound System",
-      "Sunbathing Deck",
-      "Swim Platform",
-      "Shaded Seating Area",
-      "Restroom Onboard",
-      "Complimentary Drinks",
-      "Professional Skipper",
-      "Final Cleaning",
-    ],
-  },
+
   // h
   {
     id: "swift-sea-explorer",
@@ -397,44 +262,25 @@ export const country = [
     country: "Balearic Islands",
     title: [
       {
-        exp: "Sunset Yacht Cruise with Tapas & Cava",
-        duration: "3 hours",
-        city: "Ibiza Port, Ibiza",
+        exp: "3 hours boat trip",
       },
       {
-        exp: "Formentera Hidden Coves Day Tour",
-        duration: "7 hours",
-        city: "Port de Maó, Menorca",
+        exp: "Full day boat trip",
       },
       {
-        exp: "Sail & Snorkel the Crystal Waters",
-        duration: "3 hours",
-        city: "La Savina Port, Formentera",
+        exp: "Romantic sunset boat trip",
       },
       {
-        exp: "Ibiza Beach Club Hop by Boat",
-        duration: "2.5 hours",
-        city: "Ibiza Port, Ibiza",
+        exp: "Snorkeling",
       },
       {
-        exp: "Private Sailing Escape: Cabrera Island",
-        duration: "1 hour",
-        city: "Marina Ibiza, Ibiza",
+        exp: "Fishing trip",
       },
       {
-        exp: "Morning Paddle & Brunch on a Catamaran",
-        duration: "6 hours",
-        city: "Port de Palma, Palma de Mallorca",
+        exp: "6 hours boat trip",
       },
       {
-        exp: "Mediterranean Sunset Cruise",
-        duration: "3 hours",
-        city: "Ibiza Marina, Ibiza",
-      },
-      {
-        exp: "Full-Day Charter to Dragonera Island",
-        duration: "2 hours",
-        city: "La Savina Port, Formentera",
+        exp: "Boat party trip",
       },
     ],
   },
@@ -444,43 +290,27 @@ export const country = [
     title: [
       {
         exp: "Sunset Cruise with BBQ & Music",
-        duration: "7 hours",
-        city: "Mandraki Harbor, Rhodes",
       },
       {
         exp: "Delos Catamaran History Cruise",
-        duration: "5 hours",
-        city: "Tourlos Marina, Mykonos",
       },
       {
         exp: "Romantic Athenian Riviera Cruise",
-        duration: "3 hours",
-        city: "Flisvos Marina, Athens",
       },
       {
         exp: "Shipwreck Cove & Blue Caves Speedboat",
-        duration: "1 hour",
-        city: "Porto Vromi, Zakynthos",
       },
       {
         exp: "Island Hopping to Antiparos",
-        duration: "6 hours",
-        city: "Parikia Port, Paros",
       },
       {
         exp: "Hydra, Poros & Aegina Saronic Gulf Cruise",
-        duration: "2.5 hours",
-        city: "Marina Zeas, Athens",
       },
       {
         exp: "Sunset Catamaran from Rhodes",
-        duration: "10 hours",
-        city: "Kolona Harbor, Rhodes",
       },
       {
         exp: "Full-Day Paxos and Antipaxos Cruise",
-        duration: "6 hours",
-        city: "New Port, Corfu",
       },
     ],
   },
@@ -490,43 +320,27 @@ export const country = [
     title: [
       {
         exp: "Pakleni Islands Private Cruise",
-        duration: "2.5 hours",
-        city: "Port of Hvar, Hvar",
       },
       {
         exp: "Blue Cave & 5 Islands Adventure",
-        duration: "10 hours",
-        city: "Port Authority, Split",
       },
       {
         exp: "Elaphiti Islands Day Cruise",
-        duration: "8 hours",
-        city: "Gruž Port, Dubrovnik",
       },
       {
         exp: "Zadar Archipelago Dolphin Sail",
-        duration: "6 hours",
-        city: "Marina Zadar, Zadar",
       },
       {
         exp: "Twilight Wine Cruise",
-        duration: "8 hours",
-        city: "Rovinj Marina, Rovinj",
       },
       {
         exp: "Brac Island Adventure Cruise",
-        duration: "2 hours",
-        city: "Supetar Harbor, Brač",
       },
       {
         exp: "Mljet National Park Yacht Tour",
-        duration: "8 hours",
-        city: "Gruž Port, Dubrovnik",
       },
       {
         exp: "Split Sunset Chill Sail",
-        duration: "6 hours",
-        city: "ACI Marina Split, Split",
       },
     ],
   },
@@ -536,43 +350,27 @@ export const country = [
     title: [
       {
         exp: "Douro River Wine Cruise",
-        duration: "5 hours",
-        city: "Cais da Ribeira, Porto",
       },
       {
         exp: "Lisbon Sunset Catamaran Tour",
-        duration: "3 hours",
-        city: "Doca de Santo Amaro, Lisbon",
       },
       {
         exp: "Algarve Caves & Coastline by Boat",
-        duration: "8 hours",
-        city: "Marina de Lagos, Algarve",
       },
       {
         exp: "Private Sailing in the Tagus River",
-        duration: "2 hours",
-        city: "Belém Dock, Lisbon",
       },
       {
         exp: "Madeira Whale Watching Adventure",
-        duration: "5 hours",
-        city: "Funchal Marina, Madeira",
       },
       {
         exp: "Full-Day Ria Formosa Island Hopping",
-        duration: "5 hours",
-        city: "Doca de Faro, Faro",
       },
       {
         exp: "Porto Historic Boat Journey",
-        duration: "7 hours",
-        city: "Cais da Estiva, Porto",
       },
       {
         exp: "Lagos Sunset Dolphin Safari",
-        duration: "4 hours",
-        city: "Marina de Lagos, Algarve",
       },
     ],
   },
@@ -582,43 +380,27 @@ export const country = [
     title: [
       {
         exp: "Blue Lagoon Full-Day Catamaran",
-        duration: "2 hours",
-        city: "Cirkewwa Ferry Terminal, Malta",
       },
       {
         exp: "Private Cruise to Gozo & Comino",
-        duration: "4 hours",
-        city: "Grand Harbour Marina, Valletta",
       },
       {
         exp: "Comino Caves & Crystal Lagoon Sail",
-        duration: "2 hours",
-        city: "Mgarr Harbour, Gozo",
       },
       {
         exp: "Sunset Sail around Valletta Harbor",
-        duration: "1 hour",
-        city: "Grand Harbour Marina, Valletta",
       },
       {
         exp: "Gozo Snorkeling & Swim Tour",
-        duration: "7 hours",
-        city: "Mgarr Harbour, Gozo",
       },
       {
         exp: "Historical Harbor Cruise in Valletta",
-        duration: "8 hours",
-        city: "Sliema Ferry Terminal, Valletta",
       },
       {
         exp: "Luxury Yacht Charter from Mellieha",
-        duration: "2 hours",
-        city: "Marfa Jetty, Mellieha",
       },
       {
         exp: "Dingli Cliffs Coastal Cruise",
-        duration: "2 hours",
-        city: "Ghajn Tuffieha Bay, Mellieha",
       },
     ],
   },
@@ -628,43 +410,27 @@ export const country = [
     title: [
       {
         exp: "Kotor Bay Blue Cave Boat Tour",
-        duration: "2 hours",
-        city: "Port of Kotor, Kotor",
       },
       {
         exp: "Private Yacht to Our Lady of the Rocks",
-        duration: "6 hours",
-        city: "Porto Montenegro, Tivat",
       },
       {
         exp: "Sunset Catamaran along Budva Riviera",
-        duration: "3 hours",
-        city: "Dukley Marina, Budva",
       },
       {
         exp: "Skadar Lake Birdwatching Cruise",
-        duration: "2 hours",
-        city: "Virpazar Pier, Skadar Lake",
       },
       {
         exp: "Boka Bay Full-Day Tour",
-        duration: "2 hours",
-        city: "Herceg Novi Marina, Herceg Novi",
       },
       {
         exp: "Tivat Islands Adventure",
-        duration: "2 hours",
-        city: "Porto Montenegro, Tivat",
       },
       {
         exp: "Budva Hidden Beaches Sail",
-        duration: "4 hours",
-        city: "Budva Marina, Budva",
       },
       {
         exp: "Montenegro Coast Sunset Cruise",
-        duration: "5 hours",
-        city: "Herceg Novi Marina, Herceg Novi",
       },
     ],
   },
@@ -674,43 +440,27 @@ export const country = [
     title: [
       {
         exp: "Bodrum Private Gulet Cruise",
-        duration: "7 hours",
-        city: "Bodrum Marina, Bodrum",
       },
       {
         exp: "Fethiye 12 Islands Day Tour",
-        duration: "7 hours",
-        city: "Fethiye Marina, Fethiye",
       },
       {
         exp: "Antalya Coast Sunset Dinner Cruise",
-        duration: "8 hours",
-        city: "Kaleici Harbor, Antalya",
       },
       {
         exp: "Cleopatra Island Excursion by Yacht",
-        duration: "8 hours",
-        city: "Netsel Marina, Marmaris",
       },
       {
         exp: "Pamukkale Hot Springs & River Boat Tour",
-        duration: "4 hours",
-        city: "Bafa Lake Dock, Aydın",
       },
       {
         exp: "Blue Cruise to Butterfly Valley",
-        duration: "4 hours",
-        city: "Fethiye Marina, Fethiye",
       },
       {
         exp: "Marmaris Pirate Ship Experience",
-        duration: "4 hours",
-        city: "Marmaris Marina, Marmaris",
       },
       {
         exp: "Turkish Riviera Blue Lagoon Ride",
-        duration: "7 hours",
-        city: "Ölüdeniz Beach Pier, Fethiye",
       },
     ],
   },
@@ -720,43 +470,27 @@ export const country = [
     title: [
       {
         exp: "Nice Bay Private Yacht Cruise",
-        duration: "7 hours",
-        city: "Port of Nice, Nice",
       },
       {
         exp: "Cannes Lerins Islands Tour",
-        duration: "1 hour",
-        city: "Old Port, Cannes",
       },
       {
         exp: "Sunset Seine River Dinner Cruise",
-        duration: "5 hours",
-        city: "Quai d'Orsay, Paris",
       },
       {
         exp: "Corsica Hidden Beaches Explorer",
-        duration: "5 hours",
-        city: "Port de Bonifacio, Corsica",
       },
       {
         exp: "Marseille Calanques Discovery Sail",
-        duration: "1 hour",
-        city: "Vieux-Port de Marseille, Marseille",
       },
       {
         exp: "Paris Illuminated Night Boat Ride",
-        duration: "7 hours",
-        city: "Quai du Louvre, Paris",
       },
       {
         exp: "French Riviera Romantic Sail",
-        duration: "3 hours",
-        city: "Vieux-Port de Marseille, Marseille",
       },
       {
         exp: "Corsica Gulf of Porto Day Trip",
-        duration: "8 hours",
-        city: "Porto Marine, Corsica",
       },
     ],
   },

@@ -378,8 +378,18 @@ export default function ContactPage() {
 
                     {/* <div>
                       <GooglePlacesAutocomplete
+                        selectProps={{
+                          value: form.pickup
+                            ? { label: form.pickup, value: form.pickup }
+                            : null,
+                          onChange: (option) => {
+                            setForm((prev) => ({
+                              ...prev,
+                              pickup: option?.label || "",
+                            }));
+                          },
+                        }}
                         apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
-                        // apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEYs}
                       />
                     </div> */}
 

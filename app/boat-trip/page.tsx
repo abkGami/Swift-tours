@@ -47,55 +47,209 @@ const getBoatTypes = (boats: Boat[]) => [
   ...new Set(boats.map((boat) => boat.type)),
 ];
 
-const countryNames = countryData.map((c) => c.country);
+// const countryNames = countryData.map((c) => c.country);
 
-function getRandomTitles(titles: any[], count: number) {
-  if (!titles || titles.length === 0) return [];
-  const shuffled = [...titles].sort(() => 0.5 - Math.random());
-  while (shuffled.length < count) {
-    shuffled.push(...titles);
-  }
-  return shuffled.slice(0, count);
-}
+// function getRandomTitles(titles: any[], count: number) {
+//   if (!titles || titles.length === 0) return [];
+//   const shuffled = [...titles].sort(() => 0.5 - Math.random());
+//   while (shuffled.length < count) {
+//     shuffled.push(...titles);
+//   }
+//   return shuffled.slice(0, count);
+// }
 
 export default function BoatsPage() {
   const [slideIndexes, setSlideIndexes] = useState<{ [id: string]: number }>(
     {}
   );
 
-  // Helper to get current slide index for a boat
-  const getCurrentSlide = (boatId: string, images: string[]) =>
-    slideIndexes[boatId] ?? 0;
+  const continents = [
+    {
+      name: "Europe",
+      countries: [
+        "France",
+        "Italy",
+        "Greece",
+        "Spain",
+        "Croatia",
+        "Turkey",
+        "Portugal",
+        "Norway",
+      ],
+    },
+    {
+      name: "Asia",
+      countries: [
+        "Thailand",
+        "Vietnam",
+        "Indonesia",
+        "Philippines",
+        "Japan",
+        "India",
+        "Malaysia",
+      ],
+    },
+    {
+      name: "South America",
+      countries: [
+        "Brazil",
+        "Argentina",
+        "Chile",
+        "Peru",
+        "Colombia",
+        "Ecuador",
+      ],
+    },
+  ];
 
-  // Handler to go to previous image
-  const prevImage = (boatId: string, images: string[]) => {
-    setSlideIndexes((prev) => ({
-      ...prev,
-      [boatId]:
-        prev[boatId] === undefined
-          ? images.length - 1
-          : prev[boatId] === 0
-          ? images.length - 1
-          : prev[boatId] - 1,
-    }));
-  };
+  const country = [
+    {
+      name: "France",
+      cities: ["Monaco", "Paris", "Nice", "Cannes", "Marseille"],
+    },
+    {
+      name: "Italy",
+      cities: ["Venice", "Naples", "Amalfi", "Cinque Terre", "Sicily"],
+    },
+    {
+      name: "Greece",
+      cities: ["Athens", "Santorini", "Mykonos", "Corfu", "Rhodes"],
+    },
+    {
+      name: "Spain",
+      cities: ["Barcelona", "Ibiza", "Valencia", "Palma de Mallorca", "Malaga"],
+    },
+    {
+      name: "Croatia",
+      cities: ["Dubrovnik", "Split", "Hvar", "Zadar", "Rovinj"],
+    },
+    {
+      name: "Turkey",
+      cities: ["Bodrum", "Antalya", "Istanbul", "Fethiye", "Marmaris"],
+    },
+    {
+      name: "Portugal",
+      cities: ["Lisbon", "Porto", "Faro", "Lagos", "Madeira"],
+    },
+    {
+      name: "Norway",
+      cities: ["Bergen", "Geiranger", "Ålesund", "Oslo", "Tromsø"],
+    },
+    {
+      name: "Thailand",
+      cities: ["Phuket", "Krabi", "Bangkok", "Koh Samui", "Phi Phi Islands"],
+    },
+    {
+      name: "Vietnam",
+      cities: ["Halong Bay", "Hoi An", "Da Nang", "Phu Quoc", "Nha Trang"],
+    },
+    {
+      name: "Indonesia",
+      cities: ["Bali", "Lombok", "Jakarta", "Komodo", "Raja Ampat"],
+    },
+    {
+      name: "Philippines",
+      cities: ["Palawan", "Cebu", "Boracay", "Manila", "Bohol"],
+    },
+    {
+      name: "Japan",
+      cities: ["Tokyo Bay", "Hiroshima", "Nagasaki", "Okinawa", "Kobe"],
+    },
+    {
+      name: "India",
+      cities: [
+        "Goa",
+        "Kerala (Backwaters)",
+        "Mumbai",
+        "Andaman Islands",
+        "Chilika Lake",
+      ],
+    },
+    {
+      name: "Malaysia",
+      cities: [
+        "Langkawi",
+        "Kota Kinabalu",
+        "Penang",
+        "Kuala Terengganu",
+        "Tioman Island",
+      ],
+    },
+    {
+      name: "Brazil",
+      cities: [
+        "Rio de Janeiro",
+        "Paraty",
+        "Angra dos Reis",
+        "Salvador",
+        "Manaus (Amazon)",
+      ],
+    },
+    {
+      name: "Argentina",
+      cities: [
+        "Buenos Aires",
+        "Ushuaia",
+        "Puerto Madryn",
+        "Tigre",
+        "Bariloche",
+      ],
+    },
+    {
+      name: "Chile",
+      cities: [
+        "Puerto Montt",
+        "Valparaíso",
+        "Punta Arenas",
+        "Castro",
+        "San Antonio",
+      ],
+    },
+    {
+      name: "Peru",
+      cities: [
+        "Lima",
+        "Iquitos (Amazon)",
+        "Puno (Lake Titicaca)",
+        "Callao",
+        "Paracas",
+      ],
+    },
+    {
+      name: "Colombia",
+      cities: [
+        "Cartagena",
+        "Santa Marta",
+        "San Andrés",
+        "Barranquilla",
+        "Turbo",
+      ],
+    },
+    {
+      name: "Ecuador",
+      cities: [
+        "Galápagos Islands",
+        "Guayaquil",
+        "Manta",
+        "Puerto Ayora",
+        "San Cristóbal",
+      ],
+    },
+  ];
 
-  // Handler to go to next image
-  const nextImage = (boatId: string, images: string[]) => {
-    setSlideIndexes((prev) => ({
-      ...prev,
-      [boatId]:
-        prev[boatId] === undefined
-          ? 1 % images.length
-          : prev[boatId] === images.length - 1
-          ? 0
-          : prev[boatId] + 1,
-    }));
-  };
+  const tripTitles = [
+    "3 hours boat trip",
+    "Full day boat trip",
+    "Romantic sunset boat trip",
+    "Snorkeling",
+    "Fishing trip",
+    "6 hours boat trip",
+    "Boat party trip",
+  ];
 
   const router = useRouter();
-
-  const [searchCountry, setSearchCountry] = useState("");
+  const [selectedCountry, setselectedCountry] = useState("");
+  const [selectedCity, setselectedCity] = useState("");
   const [selectedType, setSelectedType] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
 
@@ -107,27 +261,26 @@ export default function BoatsPage() {
 
   const resultsRef = useRef<HTMLDivElement>(null);
 
-  // Find country object by searchCountry
-  const countryObj = countryData.find(
-    (c) => c.country.toLowerCase() === searchCountry.trim().toLowerCase()
-  );
+  // Find country object by selectedCity
+  // const countryObj = countryData.find(
+  //   (c) => c.country.toLowerCase() === selectedCity.trim().toLowerCase()
+  // );
 
   // Filter boats by selected type
-  const filteredBoats =
-    countryObj && selectedType
-      ? boats.filter((b) => b.type === selectedType)
-      : [];
+  const filteredBoats = selectedType
+    ? boats.filter((b) => b.type === selectedType)
+    : [];
 
   // Randomly pick titles for each boat
-  const randomTitles =
-    countryObj && filteredBoats.length
-      ? getRandomTitles(countryObj.title, filteredBoats.length)
-      : [];
+  // const randomTitles =
+  //   countryObj && filteredBoats.length
+  //     ? getRandomTitles(countryObj.title, filteredBoats.length)
+  //     : [];
 
   // Search handler
   const handleSearch = () => {
     if (
-      !searchCountry ||
+      !selectedCity ||
       !place ||
       !departureDate ||
       !returnDate ||
@@ -171,15 +324,15 @@ export default function BoatsPage() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Country Search */}
-              <div>
+              {/* <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Country
                 </label>
                 <input
                   type="text"
                   list="country-list"
-                  value={searchCountry}
-                  onChange={(e) => setSearchCountry(e.target.value)}
+                  value={selectedCity}
+                  onChange={(e) => setselectedCity(e.target.value)}
                   placeholder="Search country"
                   className="w-full px-3 py-2 border border-gray-300 rounded-md"
                 />
@@ -188,6 +341,115 @@ export default function BoatsPage() {
                     <option key={c} value={c} />
                   ))}
                 </datalist>
+              </div> */}
+
+              <div>
+                {/* <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Country
+                </label>
+                <select
+                  value={selectedCountry}
+                  onChange={(e) => {
+                    setselectedCountry(e.target.value);
+                    setselectedCity(""); // Reset country when continent changes
+                  }}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md mb-3"
+                >
+                  <option value="">Select Country</option>
+                  {country.map((cont) => (
+                    <option key={cont.name} value={cont.name}>
+                      {cont.name}
+                    </option>
+                  ))}
+                </select> */}
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Country
+                </label>
+                <select
+                  value={selectedCountry}
+                  onChange={(e) => {
+                    setselectedCountry(e.target.value);
+                    setselectedCity(""); // Reset city when continent changes
+                  }}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md mb-3"
+                >
+                  <option value="">Select Country</option>
+                  <optgroup label="Europe">
+                    {country
+                      .filter((c) =>
+                        [
+                          "France",
+                          "Italy",
+                          "Greece",
+                          "Spain",
+                          "Croatia",
+                          "Turkey",
+                          "Portugal",
+                          "Norway",
+                        ].includes(c.name)
+                      )
+                      .map((cont) => (
+                        <option key={cont.name} value={cont.name}>
+                          {cont.name}
+                        </option>
+                      ))}
+                  </optgroup>
+                  <optgroup label="Asia">
+                    {country
+                      .filter((c) =>
+                        [
+                          "Thailand",
+                          "Vietnam",
+                          "Indonesia",
+                          "Philippines",
+                          "Japan",
+                          "India",
+                          "Malaysia",
+                        ].includes(c.name)
+                      )
+                      .map((cont) => (
+                        <option key={cont.name} value={cont.name}>
+                          {cont.name}
+                        </option>
+                      ))}
+                  </optgroup>
+                  <optgroup label="South America">
+                    {country
+                      .filter((c) =>
+                        [
+                          "Brazil",
+                          "Argentina",
+                          "Chile",
+                          "Peru",
+                          "Colombia",
+                          "Ecuador",
+                        ].includes(c.name)
+                      )
+                      .map((cont) => (
+                        <option key={cont.name} value={cont.name}>
+                          {cont.name}
+                        </option>
+                      ))}
+                  </optgroup>
+                </select>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  City
+                </label>
+                <select
+                  value={selectedCity}
+                  onChange={(e) => setselectedCity(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  disabled={!selectedCountry}
+                >
+                  <option value="">Select cities</option>
+                  {country
+                    .find((c) => c.name === selectedCountry)
+                    ?.cities.map((country) => (
+                      <option key={country} value={country}>
+                        {country}
+                      </option>
+                    ))}
+                </select>
               </div>
               {/* New text input field below country */}
               <div>
@@ -318,54 +580,60 @@ export default function BoatsPage() {
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                   Our Premium Fleet
                 </h2>
+                {/* <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                  {selectedType
+                    ? `Available ${selectedType}s`
+                    : "Our Premium Fleet"}
+                </h2> */}
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                   Choose from our carefully maintained collection of boats, each
                   equipped with modern amenities and safety equipment
                 </p>
               </motion.div>
 
-              {countryObj && filteredBoats.length > 0 ? (
+              {filteredBoats.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filteredBoats.map((boat, index) => {
-                    const title = randomTitles[index];
-                    const detailsUrl = `/details/${
-                      boat.id
-                    }?country=${encodeURIComponent(
-                      searchCountry
-                    )}&exp=${encodeURIComponent(
-                      title.exp
-                    )}&duration=${encodeURIComponent(
-                      title.duration
-                    )}&city=${encodeURIComponent(title.city)}`;
+                  {filteredBoats.map((boat, index) =>
+                    tripTitles.map((tripTitle, tIdx) => {
+                      const detailsUrl = `/details/${
+                        (boat as any).id
+                      }?country=${encodeURIComponent(
+                        selectedCity
+                      )}&exp=${encodeURIComponent(
+                        tripTitles[tIdx]
+                      )}&type=${encodeURIComponent(
+                        boat.type
+                      )}&place=${encodeURIComponent(
+                        place
+                      )}&departureDate=${encodeURIComponent(
+                        departureDate
+                      )}&returnDate=${encodeURIComponent(
+                        returnDate
+                      )}&withSkipper=${encodeURIComponent(withSkipper)}`;
 
-                    // Use images array for slideshow
-                    const images =
-                      (boat as any).images &&
-                      Array.isArray((boat as any).images)
-                        ? (boat as any).images
-                        : [];
-
-                    const currentSlide = getCurrentSlide(boat.id, images);
-                    return (
-                      <motion.div
-                        key={boat.name + index}
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                        whileHover={{ y: -10, scale: 1.02 }}
-                        className="group"
-                        style={{ cursor: "pointer" }}
-                      >
-                        <a
-                          href={detailsUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{ display: "block", height: "100%" }}
+                      return (
+                        <motion.div
+                          key={boat.name + index + tripTitle}
+                          initial={{ opacity: 0, y: 50 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{
+                            duration: 0.6,
+                            delay: (index + tIdx) * 0.05,
+                          }}
+                          whileHover={{ y: -10, scale: 1.02 }}
+                          className="group"
+                          style={{ cursor: "pointer" }}
                         >
-                          {" "}
-                          <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 shadow-lg">
-                            <div className="relative overflow-hidden">
-                              {images.length > 0 && (
+                          <a
+                            href={detailsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ display: "block", height: "100%" }}
+                          >
+                            {" "}
+                            <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 shadow-lg">
+                              <div className="relative overflow-hidden">
+                                {/* {images.length > 0 && (
                                 <Image
                                   width={1200}
                                   height={300}
@@ -373,67 +641,82 @@ export default function BoatsPage() {
                                   alt={boat.name}
                                   className="w-full h-[420px] object-cover group-hover:scale-110 transition-transform duration-300"
                                 />
-                              )}
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                            </div>
+                              )} */}
+                                {(boat as any).images &&
+                                  Array.isArray((boat as any).images) &&
+                                  (boat as any).images.length > 0 && (
+                                    <Image
+                                      width={1200}
+                                      height={300}
+                                      src={
+                                        (boat as any).images[0] ||
+                                        "/placeholder.svg"
+                                      }
+                                      alt={boat.name}
+                                      className="w-full h-[420px] object-cover group-hover:scale-110 transition-transform duration-300"
+                                    />
+                                  )}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                              </div>
 
-                            <CardHeader className="flex flex-row items-center justify-between">
-                              <CardTitle className="text-xl text-gray-900">
-                                {title.exp}
-                              </CardTitle>
-                              <div className="flex items-center justify-between gap-4">
-                                <div className="flex items-center space-x-1">
-                                  <Star className="h-4 w-4 text-yellow-400 " />
-                                  <span className="text-sm font-medium">
-                                    {boat.rating}
-                                  </span>
-                                </div>
-                                {/* <div className="flex items-center text-gray-600">
+                              <CardHeader className="flex flex-row items-center justify-between">
+                                <CardTitle className="text-xl text-gray-900">
+                                  {tripTitle}
+                                </CardTitle>
+                                <div className="flex items-center justify-between gap-4">
+                                  <div className="flex items-center space-x-1">
+                                    <Star className="h-4 w-4 text-yellow-400 " />
+                                    <span className="text-sm font-medium">
+                                      {boat.rating}
+                                    </span>
+                                  </div>
+                                  {/* <div className="flex items-center text-gray-600">
                                 <Users className="h-4 w-4 mr-1" />
                                 <span className="text-sm">{boat.capacity}</span>
                               </div> */}
-                              </div>
-                            </CardHeader>
+                                </div>
+                              </CardHeader>
 
-                            <CardContent>
-                              <div className="mb-2">
-                                <span className="font-semibold text-gray-600">
-                                  {title.city}
-                                </span>{" "}
-                              </div>
-                              <div className="mb-2">
-                                <span className="font-normal">
-                                  {title.duration}
-                                </span>
-                              </div>
-                              <div className="bg-gray-100 rounded p-3 mt-2 flex flex-row items-center justify-between">
-                                <div>
-                                  <div className="flex flex-row items-center gap-2 md:text-xs">
-                                    <LucideCheck color="blue" size={15} />
-                                    <div>Fuel included</div>
+                              <CardContent>
+                                <div className="mb-2">
+                                  <span className="font-semibold text-gray-600">
+                                    {/* {title.city} */}
+                                  </span>{" "}
+                                </div>
+                                <div className="mb-2">
+                                  <span className="font-normal">
+                                    {/* {title.duration} */}
+                                  </span>
+                                </div>
+                                <div className="bg-gray-100 rounded p-3 mt-2 flex flex-row items-center justify-between">
+                                  <div>
+                                    <div className="flex flex-row items-center gap-2 md:text-xs">
+                                      <LucideCheck color="blue" size={15} />
+                                      <div>Fuel included</div>
+                                    </div>
+                                    <div className="flex flex-row items-center gap-2 md:text-xs">
+                                      <LucideCheck color="blue" size={15} />
+                                      <div>Skipper included</div>
+                                    </div>
                                   </div>
-                                  <div className="flex flex-row items-center gap-2 md:text-xs">
-                                    <LucideCheck color="blue" size={15} />
-                                    <div>Skipper included</div>
+                                  <div className="text-right">
+                                    <div className="font-semibold">
+                                      {boat.price}
+                                    </div>
+                                    <div className="font-medium text-gray-800 md:text-sm">
+                                      For groups of up to {boat.capacity} people
+                                    </div>
                                   </div>
                                 </div>
-                                <div className="text-right">
-                                  <div className="font-semibold">
-                                    {boat.price}
-                                  </div>
-                                  <div className="font-medium text-gray-800 md:text-sm">
-                                    For groups of up to {boat.capacity} people
-                                  </div>
-                                </div>
-                              </div>
-                            </CardContent>
-                          </Card>
-                        </a>
-                      </motion.div>
-                    );
-                  })}
+                              </CardContent>
+                            </Card>
+                          </a>
+                        </motion.div>
+                      );
+                    })
+                  )}
                 </div>
-              ) : hasSearched && searchCountry && selectedType ? (
+              ) : hasSearched && selectedCity && selectedType ? (
                 <div className="text-center text-gray-500 mt-10">
                   No boats found for this country and type.
                 </div>
