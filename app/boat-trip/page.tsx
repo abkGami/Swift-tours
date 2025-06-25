@@ -22,6 +22,7 @@ import { boats } from "@/data/boats/page";
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
 import CustomerSLideshow from "@/components/boatTrip-slideshow";
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
 interface Boat {
   name: string;
@@ -212,6 +213,10 @@ export default function BoatsPage() {
   const router = useRouter();
   const [selectedCountry, setselectedCountry] = useState("");
   const [selectedCity, setselectedCity] = useState("");
+  const [selectedPlace, setselectedPlace] = useState("");
+  const [form, setForm] = useState({
+    pickup: "",
+  });
   const [selectedType, setSelectedType] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
 
@@ -222,7 +227,6 @@ export default function BoatsPage() {
   const [loading, setLoading] = useState(false);
 
   const resultsRef = useRef<HTMLDivElement>(null);
-
   // Find country object by selectedCity
   // const countryObj = countryData.find(
   //   (c) => c.country.toLowerCase() === selectedCity.trim().toLowerCase()
@@ -246,6 +250,7 @@ export default function BoatsPage() {
       !selectedCountry ||
       !departureDate ||
       !returnDate ||
+      !form.pickup ||
       !selectedType ||
       (withSkipper !== "yes" && withSkipper !== "no")
     ) {
@@ -275,12 +280,12 @@ export default function BoatsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
-      {/* Search Card */}
       {
         // !loading
         !hasSearched ? <CustomerSLideshow /> : <div></div>
       }
 
+      {/* Search Card */}
       <section className="pt-24 pb-8 flex justify-center">
         <Card className="w-full max-w-4xl mx-auto shadow-2xl border-0 p-8">
           <CardHeader>
@@ -291,24 +296,6 @@ export default function BoatsPage() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Country Search */}
-              {/* <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Country
-                </label>
-                <input
-                  type="text"
-                  list="country-list"
-                  value={selectedCity}
-                  onChange={(e) => setselectedCity(e.target.value)}
-                  placeholder="Search country"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                />
-                <datalist id="country-list">
-                  {countryNames.map((c) => (
-                    <option key={c} value={c} />
-                  ))}
-                </datalist>
-              </div> */}
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -402,6 +389,45 @@ export default function BoatsPage() {
                     ))}
                 </select>
               </div>
+              {/* pick-up location  */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Pick-up Location
+                </label>
+                <GooglePlacesAutocomplete
+                  selectProps={{
+                    placeholder: "Search for your pick-up location",
+                    value: form.pickup
+                      ? { label: form.pickup, value: form.pickup }
+                      : null,
+                    onChange: (option) => {
+                      setForm((prev) => ({
+                        ...prev,
+                        pickup: option?.label || "",
+                      }));
+                    },
+                  }}
+                  apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+                />
+              </div>
+              {/* Boat type */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Boat Type
+                </label>
+                <select
+                  value={selectedType}
+                  onChange={(e) => setSelectedType(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                >
+                  <option value="">----</option>
+                  {getBoatTypes(boats).map((type) => (
+                    <option key={type} value={type}>
+                      {type}
+                    </option>
+                  ))}
+                </select>
+              </div>
               {/* Date selectors */}
               <div className="flex gap-2">
                 <div className="flex-1">
@@ -427,24 +453,7 @@ export default function BoatsPage() {
                   />
                 </div>
               </div>
-              {/* Boat type */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Boat Type
-                </label>
-                <select
-                  value={selectedType}
-                  onChange={(e) => setSelectedType(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                >
-                  <option value="">----</option>
-                  {getBoatTypes(boats).map((type) => (
-                    <option key={type} value={type}>
-                      {type}
-                    </option>
-                  ))}
-                </select>
-              </div>
+
               {/* Skipper */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">

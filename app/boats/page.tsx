@@ -10,6 +10,7 @@ import Footer from "@/components/footer";
 import SlideshowAlbum from "@/components/slideshow-album";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import CustomerSLideshow from "@/components/chartered-slideshow";
 
 const boats = [
   {
@@ -157,8 +158,10 @@ export default function BoatsPage() {
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
 
+      <CustomerSLideshow />
+
       {/* Hero Section */}
-      <section className="pt-20 pb-16 relative overflow-hidden">
+      {/* <section className="pt-20 pb-16 relative overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/chartered.jpg"
@@ -207,7 +210,7 @@ export default function BoatsPage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Boats Fleet Section */}
       <section className="py-20">
