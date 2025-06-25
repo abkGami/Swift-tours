@@ -18,7 +18,7 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import Image from "next/image";
 import Link from "next/link";
-import { boats, country as countryData } from "@/data/boats/page";
+import { boats } from "@/data/boats/page";
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
 
