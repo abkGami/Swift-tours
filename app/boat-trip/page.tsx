@@ -276,7 +276,11 @@ export default function BoatsPage() {
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
       {/* Search Card */}
-      <CustomerSLideshow />
+      {
+        // !loading
+        !hasSearched ? <CustomerSLideshow /> : <div></div>
+      }
+
       <section className="pt-24 pb-8 flex justify-center">
         <Card className="w-full max-w-4xl mx-auto shadow-2xl border-0 p-8">
           <CardHeader>
