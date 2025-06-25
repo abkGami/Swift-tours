@@ -11,8 +11,27 @@ import SlideshowAlbum from "@/components/slideshow-album";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import CustomerSLideshow from "@/components/chartered-slideshow";
+import { useRef, useState } from "react";
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
-const boats = [
+type Boat = {
+  name: string;
+  type: string;
+  capacity: string;
+  price: string;
+  image: string;
+  features: string[];
+  rating: number;
+  description: string;
+  specifications: {
+    length: string;
+    engine: string;
+    fuel: string;
+    speed: string;
+  };
+};
+
+const boats: Boat[] = [
   {
     name: "Gulet",
     type: "Motorsailer",
@@ -147,11 +166,203 @@ const boats = [
   // },
 ];
 
+const getBoatTypes = (boats: Boat[]) => [
+  ...new Set(boats.map((boat) => boat.type)),
+];
+
 export default function BoatsPage() {
+  const country = [
+    {
+      name: "France",
+      cities: ["Monaco", "Paris", "Nice", "Cannes", "Marseille"],
+    },
+    {
+      name: "Italy",
+      cities: ["Venice", "Naples", "Amalfi", "Cinque Terre", "Sicily"],
+    },
+    {
+      name: "Greece",
+      cities: ["Athens", "Santorini", "Mykonos", "Corfu", "Rhodes"],
+    },
+    {
+      name: "Spain",
+      cities: ["Barcelona", "Ibiza", "Valencia", "Palma de Mallorca", "Malaga"],
+    },
+    {
+      name: "Croatia",
+      cities: ["Dubrovnik", "Split", "Hvar", "Zadar", "Rovinj"],
+    },
+    {
+      name: "Turkey",
+      cities: ["Bodrum", "Antalya", "Istanbul", "Fethiye", "Marmaris"],
+    },
+    {
+      name: "Portugal",
+      cities: ["Lisbon", "Porto", "Faro", "Lagos", "Madeira"],
+    },
+    {
+      name: "Norway",
+      cities: ["Bergen", "Geiranger", "Ålesund", "Oslo", "Tromsø"],
+    },
+    {
+      name: "Thailand",
+      cities: ["Phuket", "Krabi", "Bangkok", "Koh Samui", "Phi Phi Islands"],
+    },
+    {
+      name: "Vietnam",
+      cities: ["Halong Bay", "Hoi An", "Da Nang", "Phu Quoc", "Nha Trang"],
+    },
+    {
+      name: "Indonesia",
+      cities: ["Bali", "Lombok", "Jakarta", "Komodo", "Raja Ampat"],
+    },
+    {
+      name: "Philippines",
+      cities: ["Palawan", "Cebu", "Boracay", "Manila", "Bohol"],
+    },
+    {
+      name: "Japan",
+      cities: ["Tokyo Bay", "Hiroshima", "Nagasaki", "Okinawa", "Kobe"],
+    },
+    {
+      name: "India",
+      cities: [
+        "Goa",
+        "Kerala (Backwaters)",
+        "Mumbai",
+        "Andaman Islands",
+        "Chilika Lake",
+      ],
+    },
+    {
+      name: "Malaysia",
+      cities: [
+        "Langkawi",
+        "Kota Kinabalu",
+        "Penang",
+        "Kuala Terengganu",
+        "Tioman Island",
+      ],
+    },
+    {
+      name: "Brazil",
+      cities: [
+        "Rio de Janeiro",
+        "Paraty",
+        "Angra dos Reis",
+        "Salvador",
+        "Manaus (Amazon)",
+      ],
+    },
+    {
+      name: "Argentina",
+      cities: [
+        "Buenos Aires",
+        "Ushuaia",
+        "Puerto Madryn",
+        "Tigre",
+        "Bariloche",
+      ],
+    },
+    {
+      name: "Chile",
+      cities: [
+        "Puerto Montt",
+        "Valparaíso",
+        "Punta Arenas",
+        "Castro",
+        "San Antonio",
+      ],
+    },
+    {
+      name: "Peru",
+      cities: [
+        "Lima",
+        "Iquitos (Amazon)",
+        "Puno (Lake Titicaca)",
+        "Callao",
+        "Paracas",
+      ],
+    },
+    {
+      name: "Colombia",
+      cities: [
+        "Cartagena",
+        "Santa Marta",
+        "San Andrés",
+        "Barranquilla",
+        "Turbo",
+      ],
+    },
+    {
+      name: "Ecuador",
+      cities: [
+        "Galápagos Islands",
+        "Guayaquil",
+        "Manta",
+        "Puerto Ayora",
+        "San Cristóbal",
+      ],
+    },
+  ];
+
   const router = useRouter();
+  const [selectedCountry, setselectedCountry] = useState("");
+  const [selectedCity, setselectedCity] = useState("");
+  const [form, setForm] = useState({
+    pickup: "",
+  });
+  const [selectedType, setSelectedType] = useState("");
+  const [hasSearched, setHasSearched] = useState(false);
+
+  const [withSkipper, setWithSkipper] = useState("yes");
+  const [place, setPlace] = useState("");
+  const [returnDate, setReturnDate] = useState("");
+  const [departureDate, setDepartureDate] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const resultsRef = useRef<HTMLDivElement>(null);
+
+  // Filter boats by selected type
+  const filteredBoats = selectedType
+    ? boats.filter((b) => b.type === selectedType)
+    : [];
 
   const handleClick = () => {
     router.push("/contact");
+  };
+
+  const handleSearch = () => {
+    if (
+      !selectedCity ||
+      !selectedCountry ||
+      !departureDate ||
+      !returnDate ||
+      !form.pickup ||
+      !selectedType ||
+      (withSkipper !== "yes" && withSkipper !== "no")
+    ) {
+      alert("Please fill all fields correctly.");
+      return;
+    }
+    setLoading(true);
+    setHasSearched(false);
+
+    // Scroll to results section after a short delay to ensure ref is rendered
+    setTimeout(() => {
+      setLoading(false);
+      setHasSearched(true);
+      if (resultsRef.current) {
+        resultsRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 3000);
+
+    // Scroll to loading animation immediately
+    setTimeout(() => {
+      if (resultsRef.current) {
+        resultsRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
   };
 
   return (
@@ -211,6 +422,227 @@ export default function BoatsPage() {
           </motion.div>
         </div>
       </section> */}
+
+      {/* Search Card */}
+      <section className="pt-24 pb-8 flex justify-center">
+        <Card className="w-full max-w-4xl mx-auto shadow-2xl border-0 p-8">
+          <CardHeader>
+            <CardTitle className="text-2xl text-gray-900 mb-4">
+              Find Your Perfect Boat
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Country Search */}
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Country
+                </label>
+                <select
+                  value={selectedCountry}
+                  onChange={(e) => {
+                    setselectedCountry(e.target.value);
+                    setselectedCity(""); // Reset city when continent changes
+                  }}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md mb-3"
+                >
+                  <option value="">Select Country</option>
+                  <optgroup label="Europe">
+                    {country
+                      .filter((c) =>
+                        [
+                          "France",
+                          "Italy",
+                          "Greece",
+                          "Spain",
+                          "Croatia",
+                          "Turkey",
+                          "Portugal",
+                          "Norway",
+                        ].includes(c.name)
+                      )
+                      .map((cont) => (
+                        <option key={cont.name} value={cont.name}>
+                          {cont.name}
+                        </option>
+                      ))}
+                  </optgroup>
+                  <optgroup label="Asia">
+                    {country
+                      .filter((c) =>
+                        [
+                          "Thailand",
+                          "Vietnam",
+                          "Indonesia",
+                          "Philippines",
+                          "Japan",
+                          "India",
+                          "Malaysia",
+                        ].includes(c.name)
+                      )
+                      .map((cont) => (
+                        <option key={cont.name} value={cont.name}>
+                          {cont.name}
+                        </option>
+                      ))}
+                  </optgroup>
+                  <optgroup label="South America">
+                    {country
+                      .filter((c) =>
+                        [
+                          "Brazil",
+                          "Argentina",
+                          "Chile",
+                          "Peru",
+                          "Colombia",
+                          "Ecuador",
+                        ].includes(c.name)
+                      )
+                      .map((cont) => (
+                        <option key={cont.name} value={cont.name}>
+                          {cont.name}
+                        </option>
+                      ))}
+                  </optgroup>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  City
+                </label>
+                <select
+                  value={selectedCity}
+                  onChange={(e) => setselectedCity(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  disabled={!selectedCountry}
+                >
+                  <option value="">Select cities</option>
+                  {country
+                    .find((c) => c.name === selectedCountry)
+                    ?.cities.map((country) => (
+                      <option key={country} value={country}>
+                        {country}
+                      </option>
+                    ))}
+                </select>
+              </div>
+              {/* pick-up location  */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Pick-up Location
+                </label>
+                <GooglePlacesAutocomplete
+                  selectProps={{
+                    placeholder: "Search for your pick-up location",
+                    value: form.pickup
+                      ? { label: form.pickup, value: form.pickup }
+                      : null,
+                    onChange: (option) => {
+                      setForm((prev) => ({
+                        ...prev,
+                        pickup: option?.label || "",
+                      }));
+                    },
+                  }}
+                  apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+                />
+              </div>
+              {/* Boat type */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Boat Type
+                </label>
+                <select
+                  value={selectedType}
+                  onChange={(e) => setSelectedType(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                >
+                  <option value="">----</option>
+                  {getBoatTypes(boats).map((type) => (
+                    <option key={type} value={type}>
+                      {type}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              {/* Date selectors */}
+              <div className="flex gap-2">
+                <div className="flex-1">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Departure Date
+                  </label>
+                  <input
+                    type="date"
+                    value={departureDate}
+                    onChange={(e) => setDepartureDate(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  />
+                </div>
+                <div className="flex-1">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Return Date
+                  </label>
+                  <input
+                    type="date"
+                    value={returnDate}
+                    onChange={(e) => setReturnDate(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  />
+                </div>
+              </div>
+
+              {/* Skipper */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  With Skipper <span className="text-red-500">*</span>
+                </label>
+                <div className="flex gap-2">
+                  <Button
+                    type="button"
+                    className={`flex-1 ${
+                      withSkipper === "yes"
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-100 text-gray-700"
+                    }`}
+                    onClick={() => setWithSkipper("yes")}
+                    variant={withSkipper === "yes" ? "default" : "outline"}
+                  >
+                    With Skipper
+                  </Button>
+                  <Button
+                    type="button"
+                    className={`flex-1 ${
+                      withSkipper === "no"
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-100 text-gray-700"
+                    }`}
+                    onClick={() => setWithSkipper("no")}
+                    variant={withSkipper === "no" ? "default" : "outline"}
+                  >
+                    Without Skipper
+                  </Button>
+                </div>
+                {withSkipper === "any" && (
+                  <div className="text-red-500 text-xs mt-1">
+                    Please select an option.
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="flex justify-end mt-6">
+              <Button
+                className="bg-blue-600 hover:bg-blue-700"
+                size="lg"
+                onClick={handleSearch}
+                type="button"
+              >
+                Search
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
 
       {/* Boats Fleet Section */}
       <section className="py-20">
@@ -348,7 +780,7 @@ export default function BoatsPage() {
                 Contact our team for personalized boat charter solutions
                 tailored to your specific needs.
               </p>
-              <Button variant="secondary" size="lg">
+              <Button onClick={handleClick} variant="secondary" size="lg">
                 Contact Charter Specialist
               </Button>
             </div>
@@ -357,7 +789,7 @@ export default function BoatsPage() {
       </section>
 
       {/* Slideshow Album */}
-      <SlideshowAlbum />
+      {/* <SlideshowAlbum /> */}
 
       <Footer />
     </div>

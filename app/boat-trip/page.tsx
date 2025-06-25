@@ -213,7 +213,6 @@ export default function BoatsPage() {
   const router = useRouter();
   const [selectedCountry, setselectedCountry] = useState("");
   const [selectedCity, setselectedCity] = useState("");
-  const [selectedPlace, setselectedPlace] = useState("");
   const [form, setForm] = useState({
     pickup: "",
   });
@@ -227,21 +226,11 @@ export default function BoatsPage() {
   const [loading, setLoading] = useState(false);
 
   const resultsRef = useRef<HTMLDivElement>(null);
-  // Find country object by selectedCity
-  // const countryObj = countryData.find(
-  //   (c) => c.country.toLowerCase() === selectedCity.trim().toLowerCase()
-  // );
 
   // Filter boats by selected type
   const filteredBoats = selectedType
     ? boats.filter((b) => b.type === selectedType)
     : [];
-
-  // Randomly pick titles for each boat
-  // const randomTitles =
-  //   countryObj && filteredBoats.length
-  //     ? getRandomTitles(countryObj.title, filteredBoats.length)
-  //     : [];
 
   // Search handler
   const handleSearch = () => {

@@ -245,7 +245,7 @@ export default function ContactPage() {
           src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}libraries=places`}
           strategy="beforeInteractive"
         />
-        ;
+        .
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
