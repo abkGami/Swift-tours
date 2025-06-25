@@ -13,6 +13,8 @@ import Image from "next/image";
 import CustomerSLideshow from "@/components/chartered-slideshow";
 import { useRef, useState } from "react";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import { Dialog } from "@headlessui/react";
+import { X } from "lucide-react";
 
 type Boat = {
   name: string;
@@ -308,7 +310,7 @@ export default function BoatsPage() {
 
   const router = useRouter();
   const [selectedCountry, setselectedCountry] = useState("");
-  const [selectedCity, setselectedCity] = useState("");
+  // const [selectedCity, setselectedCity] = useState("");
   const [form, setForm] = useState({
     pickup: "",
   });
@@ -320,6 +322,47 @@ export default function BoatsPage() {
   const [returnDate, setReturnDate] = useState("");
   const [departureDate, setDepartureDate] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedBoat, setSelectedBoat] = useState<Boat | null>(null);
+  const [orderForm, setOrderForm] = useState({
+    country: "",
+    pickup: "",
+    type: "",
+    departureDate: "",
+    returnDate: "",
+    withSkipper: "",
+    boatName: "",
+  });
+
+  // Handle Book Now click
+  const handleBookNow = (boat: Boat) => {
+    setSelectedBoat(boat);
+    setOrderForm({
+      country: selectedCountry,
+      pickup: form.pickup,
+      type: selectedType,
+      departureDate,
+      returnDate,
+      withSkipper,
+      boatName: boat.name,
+    });
+    setModalOpen(true);
+  };
+
+  // Handle order form change
+  const handleOrderChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    setOrderForm({ ...orderForm, [e.target.name]: e.target.value });
+  };
+
+  // Handle place order
+  const handlePlaceOrder = () => {
+    // You can send orderForm data to your backend here
+    alert("Order placed!");
+    setModalOpen(false);
+  };
 
   const resultsRef = useRef<HTMLDivElement>(null);
 
@@ -334,7 +377,7 @@ export default function BoatsPage() {
 
   const handleSearch = () => {
     if (
-      !selectedCity ||
+      // !selectedCity ||
       !selectedCountry ||
       !departureDate ||
       !returnDate ||
@@ -443,7 +486,7 @@ export default function BoatsPage() {
                   value={selectedCountry}
                   onChange={(e) => {
                     setselectedCountry(e.target.value);
-                    setselectedCity(""); // Reset city when continent changes
+                    // setselectedCity(""); // Reset city when continent changes
                   }}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md mb-3"
                 >
@@ -507,7 +550,7 @@ export default function BoatsPage() {
                   </optgroup>
                 </select>
               </div>
-              <div>
+              {/* <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   City
                 </label>
@@ -526,7 +569,7 @@ export default function BoatsPage() {
                       </option>
                     ))}
                 </select>
-              </div>
+              </div> */}
               {/* pick-up location  */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -534,7 +577,7 @@ export default function BoatsPage() {
                 </label>
                 <GooglePlacesAutocomplete
                   selectProps={{
-                    placeholder: "Search for your pick-up location",
+                    placeholder: "Search pick-up location",
                     value: form.pickup
                       ? { label: form.pickup, value: form.pickup }
                       : null,
@@ -781,7 +824,7 @@ export default function BoatsPage() {
 
                             <div className="flex space-x-2">
                               <Button
-                                onClick={handleClick}
+                                onClick={() => handleBookNow(boat)}
                                 className="flex-1 bg-blue-600 hover:bg-blue-700"
                               >
                                 Book Now
@@ -860,6 +903,133 @@ export default function BoatsPage() {
 
       {/* Slideshow Album */}
       {/* <SlideshowAlbum /> */}
+
+      {/* Modal for placing order */}
+      <Dialog
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        className="fixed z-50 inset-0 overflow-y-auto"
+      >
+        <div className="flex items-center justify-center min-h-screen px-4">
+          <div className="fixed inset-0 bg-black bg-opacity-40" />
+          <div className="relative bg-white rounded-lg shadow-xl max-w-lg w-full mx-auto p-8 z-50">
+            <button
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-700"
+              onClick={() => setModalOpen(false)}
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <Dialog.Title className="text-2xl font-bold mb-4 text-gray-900">
+              Place Order for {selectedBoat?.name}
+            </Dialog.Title>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handlePlaceOrder();
+              }}
+              className="space-y-4"
+            >
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Country
+                </label>
+                <input
+                  name="country"
+                  value={orderForm.country}
+                  onChange={handleOrderChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Pick-up Location
+                </label>
+                <input
+                  name="pickup"
+                  value={orderForm.pickup}
+                  onChange={handleOrderChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Boat Type
+                </label>
+                <input
+                  name="type"
+                  value={orderForm.type}
+                  onChange={handleOrderChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  required
+                />
+              </div>
+              <div className="flex gap-2">
+                <div className="flex-1">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Departure Date
+                  </label>
+                  <input
+                    type="date"
+                    name="departureDate"
+                    value={orderForm.departureDate}
+                    onChange={handleOrderChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    required
+                  />
+                </div>
+                <div className="flex-1">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Return Date
+                  </label>
+                  <input
+                    type="date"
+                    name="returnDate"
+                    value={orderForm.returnDate}
+                    onChange={handleOrderChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    required
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  With Skipper
+                </label>
+                <select
+                  name="withSkipper"
+                  value={orderForm.withSkipper}
+                  onChange={handleOrderChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  required
+                >
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+              {/* <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Boat Name
+                </label>
+                <input
+                  name="boatName"
+                  value={orderForm.boatName}
+                  onChange={handleOrderChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  required
+                />
+              </div> */}
+              <Button
+                type="submit"
+                className="w-full bg-blue-600 hover:bg-blue-700 mt-4"
+              >
+                Place Order
+              </Button>
+            </form>
+          </div>
+        </div>
+      </Dialog>
 
       <Footer />
     </div>
