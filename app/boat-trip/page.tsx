@@ -498,7 +498,9 @@ export default function BoatsPage() {
       <div ref={resultsRef}>
         {loading && (
           <div className="flex flex-col items-center justify-center py-20">
-            <Loader2 className="animate-spin h-12 w-12 text-blue-600 mb-4" />
+            {/* <Loader2 className="animate-spin h-12 w-12 text-blue-600 mb-4" /> */}
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-600 border-b-4 "></div>
+
             <div className="text-lg text-blue-700 font-semibold">
               Searching for boats...
             </div>
@@ -660,7 +662,7 @@ export default function BoatsPage() {
               )}
             </div>
           </section>
-        )}{" "}
+        )}
       </div>
 
       <Footer />

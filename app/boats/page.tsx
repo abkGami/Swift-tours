@@ -645,148 +645,218 @@ export default function BoatsPage() {
       </section>
 
       {/* Boats Fleet Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Our Premium Fleet
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose from our carefully maintained collection of boats, each
-              equipped with modern amenities and safety equipment
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {boats.map((boat, index) => (
+      <div ref={resultsRef}>
+        {loading && (
+          <div className="flex items-center justify-center h-64">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-600 border-b-4 "></div>
+            <p className="text-gray-600 ml-4">Loading results...</p>
+          </div>
+        )}
+        {!loading && hasSearched && (
+          // <div className="text-center py-8">
+          //   <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          //     Available Boats
+          //   </h2>
+          //   {filteredBoats.length > 0 ? (
+          //     <p className="text-gray-600">
+          //       Found {filteredBoats.length} boats matching your criteria.
+          //     </p>
+          //   ) : (
+          //     <p className="text-red-500">
+          //       No boats found for the selected criteria.
+          //     </p>
+          //   )}
+          // </div>
+          <section className="py-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <motion.div
-                key={boat.name}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="group"
+                transition={{ duration: 0.8 }}
+                className="text-center mb-16"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <Image //change to img and remove height and width
-                      width={1200}
-                      height={12}
-                      src={boat.image || "/placeholder.svg"}
-                      alt={boat.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    {/* <Badge className="absolute top-3 right-3 bg-blue-600 text-white">
-                      {boat.price}
-                    </Badge> */}
-                    <div className="absolute bottom-3 left-3 text-white">
-                      <div className="flex items-center space-x-1">
-                        <Star className="h-4 w-4 text-yellow-400" />
-                        <span className="text-sm font-medium">
-                          {boat.rating}
-                        </span>
-                      </div>
-                    </div>
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                  Our Premium Fleet
+                </h2>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  Choose from our carefully maintained collection of boats, each
+                  equipped with modern amenities and safety equipment
+                </p>
+              </motion.div>
+              {filteredBoats.length > 0 ? (
+                <>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {filteredBoats.map((boat, index) => (
+                      <motion.div
+                        key={boat.name}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                        whileHover={{ y: -10, scale: 1.02 }}
+                        className="group"
+                      >
+                        <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 shadow-lg">
+                          <div className="relative overflow-hidden">
+                            <Image //change to img and remove height and width
+                              width={1200}
+                              height={12}
+                              src={boat.image || "/placeholder.svg"}
+                              alt={boat.name}
+                              className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                            {/* <Badge className="absolute top-3 right-3 bg-blue-600 text-white">
+                        {boat.price}
+                      </Badge> */}
+                            <div className="absolute bottom-3 left-3 text-white">
+                              <div className="flex items-center space-x-1">
+                                <Star className="h-4 w-4 text-yellow-400" />
+                                <span className="text-sm font-medium">
+                                  {boat.rating}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <CardHeader>
+                            <CardTitle className="text-xl text-gray-900">
+                              {boat.name}
+                            </CardTitle>
+                            <div className="flex items-center justify-between">
+                              <Badge
+                                variant="secondary"
+                                className="bg-blue-100 text-blue-800"
+                              >
+                                {boat.type}
+                              </Badge>
+                              <div className="flex items-center text-gray-600">
+                                <Users className="h-4 w-4 mr-1" />
+                                <span className="text-sm">{boat.capacity}</span>
+                              </div>
+                            </div>
+                          </CardHeader>
+
+                          <CardContent>
+                            <p className="text-gray-600 mb-4">
+                              {boat.description}
+                            </p>
+
+                            <div className="space-y-4 mb-6">
+                              <div>
+                                <h4 className="font-semibold text-gray-900 flex items-center mb-2">
+                                  <Waves className="h-4 w-4 mr-2 text-blue-600" />
+                                  Key Features
+                                </h4>
+                                <div className="grid grid-cols-2 gap-1">
+                                  {boat.features.map((feature) => (
+                                    <div
+                                      key={feature}
+                                      className="text-sm text-gray-600 flex items-center"
+                                    >
+                                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2" />
+                                      {feature}
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+
+                              <div>
+                                <h4 className="font-semibold text-gray-900 mb-2">
+                                  Specifications
+                                </h4>
+                                <div className="grid grid-cols-2 gap-2 text-sm text-gray-600">
+                                  <div>
+                                    Length: {boat.specifications.length}
+                                  </div>
+                                  <div>
+                                    Engine: {boat.specifications.engine}
+                                  </div>
+                                  <div>Fuel: {boat.specifications.fuel}</div>
+                                  <div>
+                                    Max Speed: {boat.specifications.speed}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="flex space-x-2">
+                              <Button
+                                onClick={handleClick}
+                                className="flex-1 bg-blue-600 hover:bg-blue-700"
+                              >
+                                Book Now
+                              </Button>
+                              {/* <Button variant="outline" className="flex-1">
+                          Details
+                        </Button> */}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </motion.div>
+                    ))}
                   </div>
 
-                  <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">
-                      {boat.name}
-                    </CardTitle>
-                    <div className="flex items-center justify-between">
-                      <Badge
-                        variant="secondary"
-                        className="bg-blue-100 text-blue-800"
-                      >
-                        {boat.type}
-                      </Badge>
-                      <div className="flex items-center text-gray-600">
-                        <Users className="h-4 w-4 mr-1" />
-                        <span className="text-sm">{boat.capacity}</span>
-                      </div>
-                    </div>
-                  </CardHeader>
-
-                  <CardContent>
-                    <p className="text-gray-600 mb-4">{boat.description}</p>
-
-                    <div className="space-y-4 mb-6">
-                      <div>
-                        <h4 className="font-semibold text-gray-900 flex items-center mb-2">
-                          <Waves className="h-4 w-4 mr-2 text-blue-600" />
-                          Key Features
-                        </h4>
-                        <div className="grid grid-cols-2 gap-1">
-                          {boat.features.map((feature) => (
-                            <div
-                              key={feature}
-                              className="text-sm text-gray-600 flex items-center"
-                            >
-                              <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2" />
-                              {feature}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">
-                          Specifications
-                        </h4>
-                        <div className="grid grid-cols-2 gap-2 text-sm text-gray-600">
-                          <div>Length: {boat.specifications.length}</div>
-                          <div>Engine: {boat.specifications.engine}</div>
-                          <div>Fuel: {boat.specifications.fuel}</div>
-                          <div>Max Speed: {boat.specifications.speed}</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex space-x-2">
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className="text-center mt-16"
+                  >
+                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
+                      <h3 className="text-2xl font-bold mb-4">
+                        Need a Custom Charter?
+                      </h3>
+                      <p className="text-blue-100 mb-6">
+                        Contact our team for personalized boat charter solutions
+                        tailored to your specific needs.
+                      </p>
                       <Button
                         onClick={handleClick}
-                        className="flex-1 bg-blue-600 hover:bg-blue-700"
+                        variant="secondary"
+                        size="lg"
                       >
-                        Book Now
+                        Contact Charter Specialist
                       </Button>
-                      {/* <Button variant="outline" className="flex-1">
-                        Details
-                      </Button> */}
                     </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Call to Action */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-center mt-16"
-          >
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-4">
-                Need a Custom Charter?
-              </h3>
-              <p className="text-blue-100 mb-6">
-                Contact our team for personalized boat charter solutions
-                tailored to your specific needs.
-              </p>
-              <Button onClick={handleClick} variant="secondary" size="lg">
-                Contact Charter Specialist
-              </Button>
+                  </motion.div>
+                </>
+              ) : (
+                <div className="text-center py-8">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                    Available Boats
+                  </h2>
+                  <p className="text-red-500">
+                    No boats found for the selected criteria.
+                  </p>
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className="text-center mt-16"
+                  >
+                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
+                      <h3 className="text-2xl font-bold mb-4">
+                        Need a Custom Charter?
+                      </h3>
+                      <p className="text-blue-100 mb-6">
+                        Contact our team for personalized boat charter solutions
+                        tailored to your specific needs.
+                      </p>
+                      <Button
+                        onClick={handleClick}
+                        variant="secondary"
+                        size="lg"
+                      >
+                        Contact Charter Specialist
+                      </Button>
+                    </div>
+                  </motion.div>
+                </div>
+              )}
             </div>
-          </motion.div>
-        </div>
-      </section>
+          </section>
+        )}
+      </div>
 
       {/* Slideshow Album */}
       {/* <SlideshowAlbum /> */}
