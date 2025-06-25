@@ -143,8 +143,8 @@ export default function CustomerSLideshow() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-white mt-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -155,8 +155,8 @@ export default function CustomerSLideshow() {
             Amazing Customers Gallery
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Take a visual journey through some of our esteemed customers at the
-            most breathtaking destinations
+            Take a visual journey through some of our esteemed customers using
+            our boat trip service
           </p>
         </motion.div>
 

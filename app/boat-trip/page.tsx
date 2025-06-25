@@ -21,6 +21,7 @@ import Link from "next/link";
 import { boats } from "@/data/boats/page";
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
+import CustomerSLideshow from "@/components/boatTrip-slideshow";
 
 interface Boat {
   name: string;
@@ -275,6 +276,7 @@ export default function BoatsPage() {
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
       {/* Search Card */}
+      <CustomerSLideshow />
       <section className="pt-24 pb-8 flex justify-center">
         <Card className="w-full max-w-4xl mx-auto shadow-2xl border-0 p-8">
           <CardHeader>
