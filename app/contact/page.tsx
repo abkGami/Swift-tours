@@ -258,7 +258,7 @@ export default function ContactPage() {
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
               Ready to start your adventure? Contact our travel experts to plan
-              your perfect journey across Europe and Asia
+              your perfect journey across the world
             </p>
           </motion.div>
         </div>
@@ -270,9 +270,9 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+            // initial={{ opacity: 0, x: 50 }}
+            // whileInView={{ opacity: 1, x: 0 }}
+            // transition={{ duration: 0.8 }}
             >
               <Card className="shadow-xl border-0">
                 <CardHeader>
@@ -423,7 +423,7 @@ export default function ContactPage() {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Travel Interest *
+                        Travel Interest <span className="text-red-500"> *</span>
                       </label>
                       <select
                         name="interest"
@@ -449,7 +449,7 @@ export default function ContactPage() {
                       <div className="grid grid-cols-2 gap-4">
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Start Date
+                            Start Date <span className="text-red-500"> *</span>
                           </label>
                           <Input
                             name="startDate"
@@ -461,7 +461,7 @@ export default function ContactPage() {
                         </div>
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Stop Date
+                            Stop Date <span className="text-red-500"> *</span>
                           </label>
                           <Input
                             name="stopDate"
@@ -476,7 +476,7 @@ export default function ContactPage() {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Budget Range
+                        Budget Range <span className="text-red-500"> *</span>
                       </label>
                       <select
                         name="budget"
@@ -511,7 +511,7 @@ export default function ContactPage() {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Message *
+                        Message <span className="text-red-500"> *</span>
                       </label>
                       <Textarea
                         name="message"
@@ -568,9 +568,9 @@ export default function ContactPage() {
 
             {/* Contact Information */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              // initial={{ opacity: 0, x: -50 }}
+              // whileInView={{ opacity: 1, x: 0 }}
+              // transition={{ duration: 0.8 }}
               className="space-y-8"
             >
               {/* <PaymentsPage /> */}
@@ -721,9 +721,9 @@ export default function ContactPage() {
 
           {/* Map and Additional Info */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            // initial={{ opacity: 0, y: 50 }}
+            // whileInView={{ opacity: 1, y: 0 }}
+            // transition={{ duration: 0.8, delay: 0.3 }}
             className="mt-16"
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
