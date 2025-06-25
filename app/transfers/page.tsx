@@ -351,7 +351,7 @@ export default function TransfersPage() {
                   <div className="text-blue-100 mb-4">
                     Multi-transfer packages
                   </div>
-                  <Button variant="secondary" size="lg">
+                  <Button onClick={handleClick} variant="secondary" size="lg">
                     Contact Us
                   </Button>
                 </div>
