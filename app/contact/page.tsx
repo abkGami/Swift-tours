@@ -588,8 +588,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Phone</h4>
-                      <p className="text-gray-600">+1 (555) 123-4567</p>
-                      <p className="text-gray-600">+1 (555) 987-6543</p>
+                      <p className="text-gray-600">+44 7446 989954</p>
+                      <p className="text-gray-600">+44 7446 161857</p>
                       <p className="text-sm text-gray-500 mt-1">
                         Available 9 AM - 6 PM EST
                       </p>
@@ -605,8 +605,12 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Email</h4>
-                      <p className="text-gray-600">info@swifttours.com</p>
-                      <p className="text-gray-600">bookings@swifttours.com</p>
+                      <p className="text-gray-600">
+                        info.swifttoursandtravels@gmail.com
+                      </p>
+                      <p className="text-gray-600">
+                        info.swifttoursandrentals@gmail.com
+                      </p>
                       <p className="text-sm text-gray-500 mt-1">
                         Response within 24 hours
                       </p>
@@ -621,7 +625,9 @@ export default function ContactPage() {
                       <MapPin className="h-6 w-6 text-blue-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Address</h4>
+                      <h4 className="font-semibold text-gray-900">
+                        Head Office
+                      </h4>
                       <p className="text-gray-600">123 Travel Street</p>
                       <p className="text-gray-600">Adventure City, AC 12345</p>
                       <p className="text-sm text-gray-500 mt-1">
