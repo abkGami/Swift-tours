@@ -235,7 +235,6 @@ export default function BoatsPage() {
   // Search handler
   const handleSearch = () => {
     if (
-      !selectedCity ||
       !selectedCountry ||
       !departureDate ||
       !returnDate ||
@@ -356,26 +355,6 @@ export default function BoatsPage() {
                         </option>
                       ))}
                   </optgroup>
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  City
-                </label>
-                <select
-                  value={selectedCity}
-                  onChange={(e) => setselectedCity(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  disabled={!selectedCountry}
-                >
-                  <option value="">Select cities</option>
-                  {country
-                    .find((c) => c.name === selectedCountry)
-                    ?.cities.map((country) => (
-                      <option key={country} value={country}>
-                        {country}
-                      </option>
-                    ))}
                 </select>
               </div>
               {/* pick-up location  */}
@@ -536,7 +515,7 @@ export default function BoatsPage() {
                     const detailsUrl = `/details/${
                       (boat as any).id
                     }?country=${encodeURIComponent(
-                      selectedCity
+                      selectedCountry
                     )}&type=${encodeURIComponent(
                       boat.type
                     )}&place=${encodeURIComponent(
@@ -651,7 +630,7 @@ export default function BoatsPage() {
                     );
                   })}
                 </div>
-              ) : hasSearched && selectedCity && selectedType ? (
+              ) : hasSearched && selectedCountry && selectedType ? (
                 <div className="text-center text-gray-500 mt-10">
                   No boats found for this country and type.
                 </div>
