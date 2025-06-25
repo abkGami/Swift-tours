@@ -289,7 +289,7 @@ export default function ContactPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          First Name *
+                          First Name <span className="text-red-500"> *</span>
                         </label>
                         <Input
                           name="firstName"
@@ -301,7 +301,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Last Name *
+                          Last Name <span className="text-red-500"> *</span>
                         </label>
                         <Input
                           name="lastName"
@@ -315,7 +315,7 @@ export default function ContactPage() {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Email Address *
+                        Email Address <span className="text-red-500"> *</span>
                       </label>
                       <Input
                         name="email"
@@ -329,7 +329,7 @@ export default function ContactPage() {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone Number
+                        Phone Number <span className="text-red-500"> *</span>
                       </label>
                       <Input
                         name="phone"
@@ -340,9 +340,10 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    <div>
+                    {/* <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Pick-up Location *
+                        Pick-up Location{" "}
+                        <span className="text-red-500"> *</span>
                       </label>
                       <div>
                         <Input
@@ -360,7 +361,8 @@ export default function ContactPage() {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Drop-off Location *
+                        Drop-off Location{" "}
+                        <span className="text-red-500"> *</span>
                       </label>
                       <div>
                         <Input
@@ -374,9 +376,13 @@ export default function ContactPage() {
                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                       </div>
-                    </div>
+                    </div> */}
 
-                    {/* <div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Pick-up Location{" "}
+                        <span className="text-red-500"> *</span>
+                      </label>
                       <GooglePlacesAutocomplete
                         selectProps={{
                           value: form.pickup
@@ -391,7 +397,29 @@ export default function ContactPage() {
                         }}
                         apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
                       />
-                    </div> */}
+                    </div>
+
+                    {/* dropoff  */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Drop-off Location{" "}
+                        <span className="text-red-500"> *</span>
+                      </label>
+                      <GooglePlacesAutocomplete
+                        selectProps={{
+                          value: form.dropoff
+                            ? { label: form.dropoff, value: form.dropoff }
+                            : null,
+                          onChange: (option) => {
+                            setForm((prev) => ({
+                              ...prev,
+                              dropoff: option?.label || "",
+                            }));
+                          },
+                        }}
+                        apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+                      />
+                    </div>
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">

@@ -945,12 +945,20 @@ export default function BoatsPage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Pick-up Location
                 </label>
-                <input
-                  name="pickup"
-                  value={orderForm.pickup}
-                  onChange={handleOrderChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  required
+                <GooglePlacesAutocomplete
+                  selectProps={{
+                    placeholder: "Search pick-up location",
+                    value: form.pickup
+                      ? { label: form.pickup, value: form.pickup }
+                      : null,
+                    onChange: (option) => {
+                      setForm((prev) => ({
+                        ...prev,
+                        pickup: option?.label || "",
+                      }));
+                    },
+                  }}
+                  apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
                 />
               </div>
               <div>
@@ -961,8 +969,9 @@ export default function BoatsPage() {
                   name="type"
                   value={orderForm.type}
                   onChange={handleOrderChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-500"
                   required
+                  disabled
                 />
               </div>
               <div className="flex gap-2">
@@ -1024,7 +1033,7 @@ export default function BoatsPage() {
                 type="submit"
                 className="w-full bg-blue-600 hover:bg-blue-700 mt-4"
               >
-                Place Order
+                Book Now
               </Button>
             </form>
           </div>
