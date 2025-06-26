@@ -527,7 +527,7 @@ export default function BoatsPage() {
       !selectedCountry ||
       !departureDate ||
       !returnDate ||
-      !form.pickup ||
+      // !form.pickup ||
       !selectedType ||
       (withSkipper !== "yes" && withSkipper !== "no")
     ) {

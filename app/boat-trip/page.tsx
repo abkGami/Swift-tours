@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import {
   Anchor,
@@ -19,7 +19,6 @@ import Footer from "@/components/footer";
 import Image from "next/image";
 import Link from "next/link";
 import { boats } from "@/data/boats/page";
-import { useRef } from "react";
 import { useRouter } from "next/navigation";
 import CustomerSLideshow from "@/components/boatTrip-slideshow";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
@@ -65,137 +64,282 @@ export default function BoatsPage() {
     {}
   );
 
+  // const country = [
+  //   {
+  //     name: "France",
+  //     cities: ["Monaco", "Paris", "Nice", "Cannes", "Marseille"],
+  //   },
+  // ];
   const country = [
+    // {
+    //   name: "France",
+    //   cities: ["Monaco", "Paris", "Nice", "Cannes", "Marseille"],
+    // },
     {
-      name: "France",
-      cities: ["Monaco", "Paris", "Nice", "Cannes", "Marseille"],
+      name: "Greece",
+      cities: [
+        { name: "Santorini", snorkeling: true },
+        { name: "Mykonos", snorkeling: true },
+        { name: "Corfu", snorkeling: true },
+        { name: "Rhodes", snorkeling: true },
+        { name: "Crete", snorkeling: true },
+      ],
     },
     {
       name: "Italy",
-      cities: ["Venice", "Naples", "Amalfi", "Cinque Terre", "Sicily"],
-    },
-    {
-      name: "Greece",
-      cities: ["Athens", "Santorini", "Mykonos", "Corfu", "Rhodes"],
+      cities: [
+        { name: "Sardinia", snorkeling: true },
+        { name: "Sicily", snorkeling: true },
+        { name: "Amalfi Coast", snorkeling: true },
+        { name: "Naples", snorkeling: true },
+        { name: "Venice", snorkeling: false },
+      ],
     },
     {
       name: "Spain",
-      cities: ["Barcelona", "Ibiza", "Valencia", "Palma de Mallorca", "Malaga"],
+      cities: [
+        { name: "Ibiza", snorkeling: true },
+        { name: "Mallorca", snorkeling: true },
+        { name: "Menorca", snorkeling: true },
+        { name: "Barcelona", snorkeling: false },
+        { name: "Valencia", snorkeling: false },
+      ],
+    },
+    {
+      name: "France",
+      cities: [
+        { name: "Nice", snorkeling: true },
+        { name: "Cannes", snorkeling: true },
+        { name: "Marseille", snorkeling: true },
+        { name: "Corsica", snorkeling: true },
+        { name: "Monaco", snorkeling: true },
+      ],
     },
     {
       name: "Croatia",
-      cities: ["Dubrovnik", "Split", "Hvar", "Zadar", "Rovinj"],
-    },
-    {
-      name: "Turkey",
-      cities: ["Bodrum", "Antalya", "Istanbul", "Fethiye", "Marmaris"],
+      cities: [
+        { name: "Dubrovnik", snorkeling: true },
+        { name: "Split", snorkeling: true },
+        { name: "Hvar", snorkeling: true },
+        { name: "Zadar", snorkeling: true },
+        { name: "Korčula", snorkeling: true },
+      ],
     },
     {
       name: "Portugal",
-      cities: ["Lisbon", "Porto", "Faro", "Lagos", "Madeira"],
+      cities: [
+        { name: "Lagos", snorkeling: true },
+        { name: "Faro", snorkeling: true },
+        { name: "Madeira", snorkeling: true },
+        { name: "Lisbon", snorkeling: false },
+        { name: "Cascais", snorkeling: true },
+      ],
+    },
+    {
+      name: "Malta",
+      cities: [
+        { name: "Valletta", snorkeling: true },
+        { name: "Comino", snorkeling: true },
+        { name: "Gozo", snorkeling: true },
+        { name: "Sliema", snorkeling: true },
+      ],
+    },
+    {
+      name: "Montenegro",
+      cities: [
+        { name: "Kotor", snorkeling: true },
+        { name: "Budva", snorkeling: true },
+        { name: "Herceg Novi", snorkeling: true },
+        { name: "Tivat", snorkeling: true },
+      ],
+    },
+    {
+      name: "Turkey",
+      cities: [
+        { name: "Bodrum", snorkeling: true },
+        { name: "Fethiye", snorkeling: true },
+        { name: "Antalya", snorkeling: true },
+        { name: "Marmaris", snorkeling: true },
+        { name: "Gocek", snorkeling: true },
+      ],
+    },
+    {
+      name: "United Kingdom",
+      cities: [
+        { name: "Cornwall", snorkeling: false },
+        { name: "Isle of Wight", snorkeling: false },
+        { name: "Devon", snorkeling: false },
+        { name: "Scottish Highlands", snorkeling: false },
+      ],
     },
     {
       name: "Norway",
-      cities: ["Bergen", "Geiranger", "Ålesund", "Oslo", "Tromsø"],
+      cities: [
+        { name: "Bergen", snorkeling: false },
+        { name: "Geiranger", snorkeling: false },
+        { name: "Ålesund", snorkeling: false },
+        { name: "Tromsø", snorkeling: false },
+      ],
+    },
+    {
+      name: "Sweden",
+      cities: [
+        { name: "Stockholm Archipelago", snorkeling: false },
+        { name: "Gothenburg", snorkeling: false },
+        { name: "Visby", snorkeling: false },
+      ],
+    },
+    {
+      name: "Iceland",
+      cities: [
+        { name: "Reykjavik", snorkeling: false },
+        { name: "Akureyri", snorkeling: false },
+        { name: "Húsavík", snorkeling: false },
+      ],
     },
     {
       name: "Thailand",
-      cities: ["Phuket", "Krabi", "Bangkok", "Koh Samui", "Phi Phi Islands"],
-    },
-    {
-      name: "Vietnam",
-      cities: ["Halong Bay", "Hoi An", "Da Nang", "Phu Quoc", "Nha Trang"],
-    },
-    {
-      name: "Indonesia",
-      cities: ["Bali", "Lombok", "Jakarta", "Komodo", "Raja Ampat"],
+      cities: [
+        { name: "Phuket", snorkeling: true },
+        { name: "Krabi", snorkeling: true },
+        { name: "Koh Samui", snorkeling: true },
+        { name: "Phi Phi Islands", snorkeling: true },
+      ],
     },
     {
       name: "Philippines",
-      cities: ["Palawan", "Cebu", "Boracay", "Manila", "Bohol"],
-    },
-    {
-      name: "Japan",
-      cities: ["Tokyo Bay", "Hiroshima", "Nagasaki", "Okinawa", "Kobe"],
-    },
-    {
-      name: "India",
       cities: [
-        "Goa",
-        "Kerala (Backwaters)",
-        "Mumbai",
-        "Andaman Islands",
-        "Chilika Lake",
+        { name: "El Nido", snorkeling: true },
+        { name: "Coron", snorkeling: true },
+        { name: "Cebu", snorkeling: true },
+        { name: "Boracay", snorkeling: true },
+        { name: "Bohol", snorkeling: true },
+      ],
+    },
+    {
+      name: "Indonesia",
+      cities: [
+        { name: "Bali", snorkeling: true },
+        { name: "Komodo", snorkeling: true },
+        { name: "Lombok", snorkeling: true },
+        { name: "Raja Ampat", snorkeling: true },
+      ],
+    },
+    {
+      name: "Vietnam",
+      cities: [
+        { name: "Ha Long Bay", snorkeling: false },
+        { name: "Nha Trang", snorkeling: true },
+        { name: "Phu Quoc", snorkeling: true },
       ],
     },
     {
       name: "Malaysia",
       cities: [
-        "Langkawi",
-        "Kota Kinabalu",
-        "Penang",
-        "Kuala Terengganu",
-        "Tioman Island",
+        { name: "Langkawi", snorkeling: true },
+        { name: "Tioman Island", snorkeling: true },
+        { name: "Perhentian Islands", snorkeling: true },
+      ],
+    },
+    {
+      name: "India",
+      cities: [
+        { name: "Goa", snorkeling: true },
+        { name: "Andaman Islands", snorkeling: true },
+        { name: "Kerala (Alleppey)", snorkeling: false },
+      ],
+    },
+    {
+      name: "Maldives",
+      cities: [
+        { name: "Malé", snorkeling: true },
+        { name: "Maafushi", snorkeling: true },
+        { name: "Addu Atoll", snorkeling: true },
+      ],
+    },
+    {
+      name: "Sri Lanka",
+      cities: [
+        { name: "Mirissa", snorkeling: true },
+        { name: "Trincomalee", snorkeling: true },
+        { name: "Galle", snorkeling: true },
+      ],
+    },
+    {
+      name: "United Arab Emirates",
+      cities: [
+        { name: "Dubai Marina", snorkeling: false },
+        { name: "Abu Dhabi", snorkeling: false },
+      ],
+    },
+    {
+      name: "Oman",
+      cities: [
+        { name: "Musandam", snorkeling: true },
+        { name: "Muscat", snorkeling: true },
       ],
     },
     {
       name: "Brazil",
       cities: [
-        "Rio de Janeiro",
-        "Paraty",
-        "Angra dos Reis",
-        "Salvador",
-        "Manaus (Amazon)",
-      ],
-    },
-    {
-      name: "Argentina",
-      cities: [
-        "Buenos Aires",
-        "Ushuaia",
-        "Puerto Madryn",
-        "Tigre",
-        "Bariloche",
-      ],
-    },
-    {
-      name: "Chile",
-      cities: [
-        "Puerto Montt",
-        "Valparaíso",
-        "Punta Arenas",
-        "Castro",
-        "San Antonio",
-      ],
-    },
-    {
-      name: "Peru",
-      cities: [
-        "Lima",
-        "Iquitos (Amazon)",
-        "Puno (Lake Titicaca)",
-        "Callao",
-        "Paracas",
+        { name: "Rio de Janeiro", snorkeling: true },
+        { name: "Angra dos Reis", snorkeling: true },
+        { name: "Ilhabela", snorkeling: true },
+        { name: "Fernando de Noronha", snorkeling: true },
+        { name: "Paraty", snorkeling: true },
       ],
     },
     {
       name: "Colombia",
       cities: [
-        "Cartagena",
-        "Santa Marta",
-        "San Andrés",
-        "Barranquilla",
-        "Turbo",
+        { name: "Cartagena", snorkeling: true },
+        { name: "Santa Marta", snorkeling: true },
+        { name: "San Andrés", snorkeling: true },
+        { name: "Isla Barú", snorkeling: true },
       ],
     },
     {
       name: "Ecuador",
       cities: [
-        "Galápagos Islands",
-        "Guayaquil",
-        "Manta",
-        "Puerto Ayora",
-        "San Cristóbal",
+        { name: "Galápagos Islands", snorkeling: true },
+        { name: "Puerto Ayora", snorkeling: true },
+      ],
+    },
+    {
+      name: "Chile",
+      cities: [
+        { name: "Patagonia Fjords", snorkeling: false },
+        { name: "Puerto Montt", snorkeling: false },
+        { name: "Chiloé Island", snorkeling: false },
+      ],
+    },
+    {
+      name: "Peru",
+      cities: [
+        { name: "Lake Titicaca", snorkeling: false },
+        { name: "Paracas", snorkeling: false },
+        { name: "Ballestas Islands", snorkeling: false },
+      ],
+    },
+    {
+      name: "Argentina",
+      cities: [
+        { name: "Buenos Aires (Tigre Delta)", snorkeling: false },
+        { name: "Puerto Madryn", snorkeling: true }, // Known for marine life
+      ],
+    },
+    {
+      name: "Uruguay",
+      cities: [
+        { name: "Punta del Este", snorkeling: true },
+        { name: "Montevideo", snorkeling: false },
+      ],
+    },
+    {
+      name: "Venezuela",
+      cities: [
+        { name: "Los Roques", snorkeling: true },
+        { name: "Margarita Island", snorkeling: true },
       ],
     },
   ];
@@ -212,7 +356,6 @@ export default function BoatsPage() {
 
   const router = useRouter();
   const [selectedCountry, setselectedCountry] = useState("");
-  const [selectedCity, setselectedCity] = useState("");
   const [form, setForm] = useState({
     pickup: "",
   });
@@ -238,7 +381,7 @@ export default function BoatsPage() {
       !selectedCountry ||
       !departureDate ||
       !returnDate ||
-      !form.pickup ||
+      // !form.pickup ||
       !selectedType ||
       (withSkipper !== "yes" && withSkipper !== "no")
     ) {
@@ -265,6 +408,63 @@ export default function BoatsPage() {
     }, 100);
   };
 
+  // City search state and dropdown visibility
+  const [citySearch, setCitySearch] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
+  const [showCityOptions, setShowCityOptions] = useState(false);
+  const cityInputRef = useRef<HTMLInputElement>(null);
+
+  // Memoized city options for selected country
+  const cityOptions = useMemo(() => {
+    const found = country.find((c) => c.name === selectedCountry);
+    if (!found) return [];
+    // If cities are objects, map to names
+    return found.cities
+      .map((city: any) => (typeof city === "string" ? city : city.name))
+      .filter((city: string) =>
+        city.toLowerCase().includes(citySearch.toLowerCase())
+      );
+  }, [selectedCountry, citySearch, country]);
+
+  // Hide city options when a city is selected
+  useEffect(() => {
+    if (selectedCity) setShowCityOptions(false);
+  }, [selectedCity]);
+
+  // Hide city options when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        cityInputRef.current &&
+        !cityInputRef.current.contains(event.target as Node)
+      ) {
+        setShowCityOptions(false);
+      }
+    }
+    if (showCityOptions) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showCityOptions]);
+
+  // Validate citySearch on blur
+  const validateCity = () => {
+    const found = country.find((c) => c.name === selectedCountry);
+    if (!found) return;
+    const valid = found.cities.some(
+      (city: any) =>
+        (typeof city === "string" ? city : city.name).toLowerCase() ===
+        citySearch.toLowerCase()
+    );
+    if (!valid && citySearch) {
+      alert("Please select a valid city from the list.");
+      setSelectedCity("");
+      setCitySearch("");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
@@ -284,7 +484,6 @@ export default function BoatsPage() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Country Search */}
-
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Country
@@ -293,7 +492,8 @@ export default function BoatsPage() {
                   value={selectedCountry}
                   onChange={(e) => {
                     setselectedCountry(e.target.value);
-                    setselectedCity(""); // Reset city when continent changes
+                    setSelectedCity("");
+                    setCitySearch("");
                   }}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md mb-3"
                 >
@@ -358,8 +558,58 @@ export default function BoatsPage() {
                   </optgroup>
                 </select>
               </div>
+              {/* City Search */}
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  City
+                </label>
+                <input
+                  ref={cityInputRef}
+                  type="text"
+                  placeholder="Search city"
+                  value={citySearch}
+                  onChange={(e) => {
+                    setCitySearch(e.target.value);
+                    setShowCityOptions(true);
+                    setSelectedCity(""); // Reset selectedCity if user types
+                  }}
+                  onFocus={() => setShowCityOptions(true)}
+                  onBlur={validateCity}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md mb-2"
+                  disabled={!selectedCountry}
+                  autoComplete="off"
+                />
+                {/* Overlay city options */}
+                {showCityOptions && selectedCountry && (
+                  <div className="absolute left-0 right-0 z-30 max-h-40 overflow-y-auto border border-gray-200 rounded-md bg-white shadow-lg">
+                    {cityOptions.length > 0 ? (
+                      cityOptions.map((city) => (
+                        <div
+                          key={city}
+                          className={`px-3 py-2 cursor-pointer hover:bg-blue-100 ${
+                            selectedCity === city
+                              ? "bg-blue-50 font-semibold"
+                              : ""
+                          }`}
+                          onMouseDown={() => {
+                            setSelectedCity(city);
+                            setCitySearch(city);
+                            setShowCityOptions(false);
+                          }}
+                        >
+                          {city}, {selectedCountry}
+                        </div>
+                      ))
+                    ) : (
+                      <div className="px-3 py-2 text-gray-400">
+                        No cities found.
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
               {/* pick-up location  */}
-              <div>
+              {/* <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Pick-up Location
                 </label>
@@ -378,7 +628,8 @@ export default function BoatsPage() {
                   }}
                   apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
                 />
-              </div>
+              </div> */}
+
               {/* Boat type */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -578,6 +829,24 @@ export default function BoatsPage() {
                             <CardHeader className="flex flex-row items-center justify-between">
                               <CardTitle className="text-xl text-gray-900">
                                 {boat.exp}
+                                {/* Add "and snorkeling" if selected city has snorkeling: true */}
+                                {(() => {
+                                  const foundCountry = country.find(
+                                    (c) => c.name === selectedCountry
+                                  );
+                                  const foundCity = foundCountry?.cities.find(
+                                    (city: any) =>
+                                      (typeof city === "string"
+                                        ? city
+                                        : city.name
+                                      ).toLowerCase() ===
+                                      selectedCity.toLowerCase()
+                                  );
+                                  if (foundCity && foundCity.snorkeling) {
+                                    return " and snorkeling";
+                                  }
+                                  return "";
+                                })()}
                               </CardTitle>
                               <div className="flex items-center justify-between gap-4">
                                 <div className="flex items-center space-x-1">
@@ -604,7 +873,7 @@ export default function BoatsPage() {
                                   {/* {title.duration} */}
                                 </span>
                               </div>
-                              <div className="bg-gray-100 rounded p-3 mt-2 flex flex-row items-center justify-between">
+                              <div className="bg-gray-100 rounded p-3 mt-2 ">
                                 <div>
                                   <div className="flex flex-row items-center gap-2 md:text-xs">
                                     <LucideCheck color="blue" size={15} />
@@ -615,7 +884,7 @@ export default function BoatsPage() {
                                     <div>Skipper included</div>
                                   </div>
                                 </div>
-                                <div className="text-right">
+                                <div className="mt-2 flex flex-col items-start">
                                   {/* <div className="font-semibold">
                                     {boat.price}
                                   </div> */}
