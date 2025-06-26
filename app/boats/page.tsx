@@ -21,7 +21,7 @@ type Boat = {
   type: string;
   capacity: string;
   price: string;
-  image: string;
+  image: string[];
   features: string[];
   rating: number;
   description: string;
@@ -39,7 +39,7 @@ const boats: Boat[] = [
     type: "Motorsailer",
     capacity: "Up to 25 guests",
     price: "From $222,008 to $3,017,038",
-    image: "/boat/one.jpg",
+    image: ["/boat/one.jpg", "/boat/five.jpg"],
     features: [
       "Wooden classic yacht",
       "Built in Bodrum or Marmaris",
@@ -61,7 +61,7 @@ const boats: Boat[] = [
     type: "Performance Cruiser",
     capacity: "Up to 6 guests",
     price: "From €310,000 (VAT paid)",
-    image: "/boat/two.jpg",
+    image: ["/boat/two.jpg", "/boat/five.jpg"],
     features: [
       "Sleek aerodynamic form",
       "Carbon-fiber hard-top",
@@ -84,7 +84,7 @@ const boats: Boat[] = [
     type: "Open Yacht",
     capacity: "1 guest cabin",
     price: "Not specified",
-    image: "/boat/three.jpg",
+    image: ["/boat/three.jpg", "/boat/five.jpg"],
     features: [
       "Fiberglass/GRP hull",
       "CE certification class B",
@@ -106,7 +106,7 @@ const boats: Boat[] = [
     type: "Flybridge Yacht",
     capacity: "6-8 guests",
     price: "From $97,010 to $11,243,252",
-    image: "/boat/four.jpg",
+    image: ["/boat/four.jpg", "/boat/five.jpg"],
     features: [
       "Twin MTU engines",
       "3 Cabins",
@@ -128,7 +128,7 @@ const boats: Boat[] = [
     type: "Sailing Catamaran",
     capacity: "10 guests",
     price: "€686,800",
-    image: "/boat/five.jpg",
+    image: ["/boat/five.jpg", "/boat/two.jpg"],
     features: [
       "Fiberglass/GRP hull",
       "CE certification class A",
@@ -307,6 +307,39 @@ export default function BoatsPage() {
       ],
     },
   ];
+
+  // Add slideshow index state for each boat card
+  const [slideIndexes, setSlideIndexes] = useState<{ [key: string]: number }>(
+    {}
+  );
+
+  // Helper to get images array for each boat (fallback to single image if not array)
+  const getBoatImages = (boat: Boat) => {
+    // Use boat.image as the array of images
+    if (Array.isArray(boat.image)) {
+      return boat.image;
+    }
+    // fallback if not array
+    return [boat.image];
+  };
+
+  // Slideshow navigation handlers
+  const handlePrev = (boat: Boat) => {
+    const images = getBoatImages(boat);
+    setSlideIndexes((prev) => ({
+      ...prev,
+      [boat.name]:
+        prev[boat.name] > 0 ? prev[boat.name] - 1 : images.length - 1,
+    }));
+  };
+  const handleNext = (boat: Boat) => {
+    const images = getBoatImages(boat);
+    setSlideIndexes((prev) => ({
+      ...prev,
+      [boat.name]:
+        prev[boat.name] < images.length - 1 ? prev[boat.name] + 1 : 0,
+    }));
+  };
 
   const router = useRouter();
   const [selectedCountry, setselectedCountry] = useState("");
@@ -740,17 +773,62 @@ export default function BoatsPage() {
                       >
                         <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 shadow-lg">
                           <div className="relative overflow-hidden">
-                            <Image //change to img and remove height and width
+                            {/* <Image //change to img and remove height and width
                               width={1200}
                               height={12}
                               src={boat.image || "/placeholder.svg"}
                               alt={boat.name}
                               className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                            />
+                            /> */}
+                            {/* Slideshow */}
+                            <div className="relative w-full h-72">
+                              <img
+                                src={
+                                  getBoatImages(boat)[
+                                    slideIndexes[boat.name] || 0
+                                  ] || "/placeholder.svg"
+                                }
+                                alt={boat.name}
+                                className="w-full h-72 object-cover "
+                              />
+                              {getBoatImages(boat).length > 1 && (
+                                <>
+                                  <button
+                                    type="button"
+                                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 rounded-full p-1 hover:bg-white z-10"
+                                    onClick={() => handlePrev(boat)}
+                                    aria-label="Previous"
+                                  >
+                                    &#8592;
+                                  </button>
+                                  <button
+                                    type="button"
+                                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 rounded-full p-1 hover:bg-white z-10"
+                                    onClick={() => handleNext(boat)}
+                                    aria-label="Next"
+                                  >
+                                    &#8594;
+                                  </button>
+                                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+                                    {getBoatImages(boat).map(
+                                      (_: any, idx: number) => (
+                                        <span
+                                          key={idx}
+                                          className={`inline-block w-2 h-2 rounded-full ${
+                                            idx ===
+                                            (slideIndexes[boat.name] || 0)
+                                              ? "bg-blue-600"
+                                              : "bg-white/70"
+                                          }`}
+                                        />
+                                      )
+                                    )}
+                                  </div>
+                                </>
+                              )}
+                            </div>
+
                             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                            {/* <Badge className="absolute top-3 right-3 bg-blue-600 text-white">
-                        {boat.price}
-                      </Badge> */}
                             <div className="absolute bottom-3 left-3 text-white">
                               <div className="flex items-center space-x-1">
                                 <Star className="h-4 w-4 text-yellow-400" />
@@ -790,7 +868,7 @@ export default function BoatsPage() {
                                   <Waves className="h-4 w-4 mr-2 text-blue-600" />
                                   Key Features
                                 </h4>
-                                <div className="grid grid-cols-2 gap-1">
+                                <div className="grid grid-cols-1 gap-1">
                                   {boat.features.map((feature) => (
                                     <div
                                       key={feature}
