@@ -11,7 +11,7 @@ import SlideshowAlbum from "@/components/slideshow-album";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import CustomerSLideshow from "@/components/chartered-slideshow";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import { Dialog } from "@headlessui/react";
 import { useMemo } from "react";
@@ -368,6 +368,10 @@ export default function BoatsPage() {
     {}
   );
 
+  // Add city search state
+  const [selectedCity, setselectedCity] = useState("");
+  const [citySearch, setCitySearch] = useState("");
+
   // Helper to get images array for each boat (fallback to single image if not array)
   const getBoatImages = (boat: Boat) => {
     // Use boat.image as the array of images
@@ -396,6 +400,47 @@ export default function BoatsPage() {
     }));
   };
 
+  // Add state to control city dropdown visibility
+  const [showCityOptions, setShowCityOptions] = useState(false);
+  const cityInputRef = useRef<HTMLInputElement>(null);
+
+  // Hide city options when a city is selected
+  useEffect(() => {
+    if (selectedCity) setShowCityOptions(false);
+  }, [selectedCity]);
+
+  // Hide city options when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        cityInputRef.current &&
+        !cityInputRef.current.contains(event.target as Node)
+      ) {
+        setShowCityOptions(false);
+      }
+    }
+    if (showCityOptions) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showCityOptions]);
+
+  // Validate citySearch on blur or search
+  const validateCity = () => {
+    const found = country.find((c) => c.name === selectedCountry);
+    if (!found) return;
+    const valid = found.countries.some(
+      (city: string) => city.toLowerCase() === citySearch.toLowerCase()
+    );
+    if (!valid && citySearch) {
+      alert("Please select a valid city from the list.");
+      setselectedCity("");
+      setCitySearch("");
+    }
+  };
+
   const router = useRouter();
   const [selectedCountry, setselectedCountry] = useState("");
   // const [selectedCity, setselectedCity] = useState("");
@@ -404,6 +449,17 @@ export default function BoatsPage() {
   });
   const [selectedType, setSelectedType] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
+
+  // Add city search state
+  // Get the list of cities for the selected country
+  const cityOptions = useMemo(() => {
+    const found = country.find((c) => c.name === selectedCountry);
+    if (!found) return [];
+    // Use .countries for the city list
+    return found.countries.filter((city: string) =>
+      city.toLowerCase().includes(citySearch.toLowerCase())
+    );
+  }, [selectedCountry, citySearch, country]);
 
   const [withSkipper, setWithSkipper] = useState("yes");
   const [place, setPlace] = useState("");
@@ -414,6 +470,7 @@ export default function BoatsPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedBoat, setSelectedBoat] = useState<Boat | null>(null);
   const [orderForm, setOrderForm] = useState({
+    city: "",
     country: "",
     pickup: "",
     type: "",
@@ -427,6 +484,7 @@ export default function BoatsPage() {
   const handleBookNow = (boat: Boat) => {
     setSelectedBoat(boat);
     setOrderForm({
+      city: citySearch,
       country: selectedCountry,
       pickup: form.pickup,
       type: selectedType,
@@ -465,7 +523,7 @@ export default function BoatsPage() {
 
   const handleSearch = () => {
     if (
-      // !selectedCity ||
+      !citySearch ||
       !selectedCountry ||
       !departureDate ||
       !returnDate ||
@@ -538,8 +596,10 @@ export default function BoatsPage() {
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
 
-      <CustomerSLideshow />
-
+      {
+        // !loading
+        !hasSearched ? <CustomerSLideshow /> : <div></div>
+      }
       {/* Hero Section */}
       {/* <section className="pt-20 pb-16 relative overflow-hidden">
         <div className="absolute inset-0">
@@ -686,28 +746,58 @@ export default function BoatsPage() {
                   </optgroup>
                 </select>
               </div>
-              {/* <div>
+              {/* City Search */}
+              <div className="relative">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   City
                 </label>
-                <select
-                  value={selectedCity}
-                  onChange={(e) => setselectedCity(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                <input
+                  ref={cityInputRef}
+                  type="text"
+                  placeholder="Search city"
+                  value={citySearch}
+                  onChange={(e) => {
+                    setCitySearch(e.target.value);
+                    setShowCityOptions(true);
+                    setselectedCity(""); // Reset selectedCity if user types
+                  }}
+                  onFocus={() => setShowCityOptions(true)}
+                  onBlur={validateCity}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md mb-2"
                   disabled={!selectedCountry}
-                >
-                  <option value="">Select cities</option>
-                  {country
-                    .find((c) => c.name === selectedCountry)
-                    ?.cities.map((country) => (
-                      <option key={country} value={country}>
-                        {country}
-                      </option>
-                    ))}
-                </select>
-              </div> */}
+                  autoComplete="off"
+                />
+                {/* Overlay city options */}
+                {showCityOptions && selectedCountry && (
+                  <div className="absolute left-0 right-0 z-30 max-h-40 overflow-y-auto border border-gray-200 rounded-md bg-white shadow-lg">
+                    {cityOptions.length > 0 ? (
+                      cityOptions.map((city) => (
+                        <div
+                          key={city}
+                          className={`px-3 py-2 cursor-pointer hover:bg-blue-100 ${
+                            selectedCity === city
+                              ? "bg-blue-50 font-semibold"
+                              : ""
+                          }`}
+                          onMouseDown={() => {
+                            setselectedCity(city);
+                            setCitySearch(city);
+                            setShowCityOptions(false);
+                          }}
+                        >
+                          {city}, {selectedCountry}
+                        </div>
+                      ))
+                    ) : (
+                      <div className="px-3 py-2 text-gray-400">
+                        No cities found.
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
               {/* pick-up location  */}
-              <div>
+              {/* <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Pick-up Location
                 </label>
@@ -735,7 +825,7 @@ export default function BoatsPage() {
                       : undefined
                   }
                 />
-              </div>
+              </div> */}
               {/* Boat type */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">

@@ -6,111 +6,25 @@ import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 
 const albumImages = [
   {
-    src: "/customer/santorini.jpg",
-    title: "Santorini, Greece",
-    description: "Iconic blue domes and stunning sunsets",
-    location: "Europe",
+    src: "/boat/boats/d (9).jpg",
+  },
+  //   {
+  //     src: "/boat/boats/h (5).jpg",
+  //   },
+  {
+    src: "/boat/boats/i (1).jpg",
   },
   {
-    src: "/customer/tokyo.jpg",
-    title: "Tokyo, Japan",
-    description: "Modern cityscape meets traditional culture",
-    location: "Asia",
+    src: "/boat/snorkeling/a (1).jpg",
   },
   {
-    src: "/customer/bali.jpg",
-    title: "Bali, Indonesia",
-    description: "Tropical paradise with rice terraces",
-    location: "Asia",
+    src: "/boat/snorkeling/a (17).jpg",
   },
   {
-    src: "/customer/paris.jpg",
-    title: "Paris, France",
-    description: "City of Light and romantic atmosphere",
-    location: "Europe",
+    src: "/boat/snorkeling/a (8).jpg",
   },
   {
-    src: "/customer/philippines (1).jpg",
-    title: "Philippines",
-    description:
-      "Tropical islands, white sand beaches, and crystal clear waters",
-    location: "Asia",
-  },
-  {
-    src: "/customer/corfu (2).jpg",
-    title: "Corfu, Greece",
-    description:
-      "Lush green landscapes, turquoise waters, and charming old towns",
-    location: "Europe",
-  },
-  {
-    src: "/customer/iceland (2).jpg",
-    title: "Iceland",
-    description:
-      "Glaciers, volcanoes, waterfalls, and the magical northern lights",
-    location: "Europe",
-  },
-  {
-    src: "/customer/maldives1.jpg",
-    title: "Maldives",
-    description: "Crystal clear waters and overwater villas",
-    location: "Asia",
-  },
-  {
-    src: "/customer/switzerland (1).jpg",
-    title: "Switzerland",
-    description: "Alpine scenery, luxury resorts, and world-class chocolate",
-    location: "Europe",
-  },
-  {
-    src: "/customer/paris1.jpg",
-    title: "Paris, France",
-    description: "City of Light and romantic atmosphere",
-    location: "Europe",
-  },
-  {
-    src: "/customer/rome.jpg",
-    title: "Rome, Italy",
-    description: "Ancient history and architectural marvels",
-    location: "Europe",
-  },
-  {
-    src: "/customer/philippines (4).jpg",
-    title: "Philippines",
-    description:
-      "Tropical islands, white sand beaches, and crystal clear waters",
-    location: "Asia",
-  },
-  {
-    src: "/customer/kyoto.jpg",
-    title: "Kyoto, Japan",
-    description: "Traditional temples and zen gardens",
-    location: "Asia",
-  },
-  {
-    src: "/customer/maldives.jpg",
-    title: "Maldives",
-    description: "Crystal clear waters and overwater villas",
-    location: "Asia",
-  },
-  {
-    src: "/customer/tokyo2.jpg",
-    title: "Tokyo, Japan",
-    description: "Modern cityscape meets traditional culture",
-    location: "Asia",
-  },
-
-  {
-    src: "/customer/rome1.jpg",
-    title: "Rome, Italy",
-    description: "Ancient history and architectural marvels",
-    location: "Europe",
-  },
-  {
-    src: "/customer/kyoto1.jpg",
-    title: "Kyoto, Japan",
-    description: "Traditional temples and zen gardens",
-    location: "Asia",
+    src: "/boat/snorkeling/a (13).jpg",
   },
 ];
 
@@ -174,13 +88,13 @@ export default function CustomerSLideshow() {
               >
                 <img
                   src={albumImages[currentIndex].src || "/placeholder.svg"}
-                  alt={albumImages[currentIndex].title}
+                  alt="Customer Image"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
                 {/* Image Info */}
-                <motion.div
+                {/* <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
@@ -197,7 +111,7 @@ export default function CustomerSLideshow() {
                   <p className="text-gray-200 max-w-md">
                     {albumImages[currentIndex].description}
                   </p>
-                </motion.div>
+                </motion.div> */}
               </motion.div>
             </AnimatePresence>
 
