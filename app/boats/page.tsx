@@ -14,6 +14,7 @@ import CustomerSLideshow from "@/components/chartered-slideshow";
 import { useRef, useState } from "react";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import { Dialog } from "@headlessui/react";
+import { useMemo } from "react";
 import { X } from "lucide-react";
 
 type Boat = {
@@ -176,63 +177,95 @@ export default function BoatsPage() {
   const country = [
     {
       name: "France",
-      cities: ["Monaco", "Paris", "Nice", "Cannes", "Marseille"],
+      countries: ["Nice", "Cannes", "Marseille", "Monaco", "Corsica"],
     },
     {
       name: "Italy",
-      cities: ["Venice", "Naples", "Amalfi", "Cinque Terre", "Sicily"],
-    },
-    {
-      name: "Greece",
-      cities: ["Athens", "Santorini", "Mykonos", "Corfu", "Rhodes"],
-    },
-    {
-      name: "Montenegro",
-      cities: ["Kotor", "Budva", "Herceg Novi ", "Tivat", "Bar"],
+      countries: ["Naples", "Amalfi", "Sicily", "Sardinia", "Venice"],
     },
     {
       name: "Spain",
-      cities: ["Barcelona", "Ibiza", "Valencia", "Palma de Mallorca", "Malaga"],
+      countries: ["Barcelona", "Ibiza", "Mallorca", "Valencia", "Marbella"],
+    },
+    {
+      name: "Greece",
+      countries: ["Athens", "Santorini", "Mykonos", "Corfu", "Rhodes"],
     },
     {
       name: "Croatia",
-      cities: ["Dubrovnik", "Split", "Hvar", "Zadar", "Rovinj"],
+      countries: ["Split", "Dubrovnik", "Zadar", "Hvar", "Pula"],
+    },
+    {
+      name: "Montenegro",
+      countries: ["Kotor", "Budva", "Herceg Novi", "Tivat", "Bar"],
     },
     {
       name: "Turkey",
-      cities: ["Bodrum", "Antalya", "Istanbul", "Fethiye", "Marmaris"],
+      countries: ["Bodrum", "Marmaris", "Fethiye", "Gocek", "Antalya"],
     },
     {
       name: "Portugal",
-      cities: ["Lisbon", "Porto", "Faro", "Lagos", "Madeira"],
+      countries: ["Lisbon", "Faro", "Lagos", "Madeira", "Cascais"],
+    },
+    {
+      name: "Malta",
+      countries: ["Valletta", "Sliema", "Gozo", "Comino"],
     },
     {
       name: "Norway",
-      cities: ["Bergen", "Geiranger", "Ålesund", "Oslo", "Tromsø"],
+      countries: ["Bergen", "Ålesund", "Tromsø", "Oslo", "Geiranger"],
     },
+    {
+      name: "Sweden",
+      countries: ["Stockholm", "Gothenburg", "Malmö", "Visby"],
+    },
+    {
+      name: "United Kingdom",
+      countries: [
+        "Southampton",
+        "Plymouth",
+        "Portsmouth",
+        "Edinburgh",
+        "Cardiff",
+      ],
+    },
+    {
+      name: "Netherlands",
+      countries: ["Amsterdam", "Rotterdam", "The Hague", "Leeuwarden"],
+    }, // end of europe
     {
       name: "Thailand",
-      cities: ["Phuket", "Krabi", "Bangkok", "Koh Samui", "Phi Phi Islands"],
-    },
-    {
-      name: "Vietnam",
-      cities: ["Halong Bay", "Hoi An", "Da Nang", "Phu Quoc", "Nha Trang"],
+      countries: ["Phuket", "Krabi", "Koh Samui", "Pattaya", "Phi Phi Islands"],
     },
     {
       name: "Indonesia",
-      cities: ["Bali", "Lombok", "Jakarta", "Komodo", "Raja Ampat"],
+      countries: ["Bali", "Komodo", "Raja Ampat", "Lombok", "Jakarta"],
     },
     {
       name: "Philippines",
-      cities: ["Palawan", "Cebu", "Boracay", "Manila", "Bohol"],
+      countries: ["Palawan", "Cebu", "Boracay", "Manila", "Bohol"],
+    },
+    {
+      name: "Vietnam",
+      countries: ["Halong Bay", "Da Nang", "Nha Trang", "Phu Quoc", "Hoi An"],
+    },
+    {
+      name: "Malaysia",
+      countries: [
+        "Langkawi",
+        "Penang",
+        "Tioman Island",
+        "Kota Kinabalu",
+        "Kuala Terengganu",
+      ],
     },
     {
       name: "Japan",
-      cities: ["Tokyo Bay", "Hiroshima", "Nagasaki", "Okinawa", "Kobe"],
+      countries: ["Tokyo Bay", "Okinawa", "Hiroshima", "Nagasaki", "Kobe"],
     },
     {
       name: "India",
-      cities: [
+      countries: [
         "Goa",
         "Kerala (Backwaters)",
         "Mumbai",
@@ -241,18 +274,24 @@ export default function BoatsPage() {
       ],
     },
     {
-      name: "Malaysia",
-      cities: [
-        "Langkawi",
-        "Kota Kinabalu",
-        "Penang",
-        "Kuala Terengganu",
-        "Tioman Island",
-      ],
+      name: "Sri Lanka",
+      countries: ["Galle", "Trincomalee", "Mirissa", "Colombo", "Bentota"],
     },
     {
+      name: "Singapore",
+      countries: ["Sentosa", "Marina Bay", "Pulau Ubin"],
+    },
+    {
+      name: "Maldives",
+      countries: ["Male", "Maafushi", "Ari Atoll", "Baa Atoll", "Hulhumale"],
+    },
+    {
+      name: "United Arab Emirates",
+      countries: ["Dubai", "Abu Dhabi", "Fujairah", "Ras Al Khaimah"],
+    }, //end of asia
+    {
       name: "Brazil",
-      cities: [
+      countries: [
         "Rio de Janeiro",
         "Paraty",
         "Angra dos Reis",
@@ -262,7 +301,7 @@ export default function BoatsPage() {
     },
     {
       name: "Argentina",
-      cities: [
+      countries: [
         "Buenos Aires",
         "Ushuaia",
         "Puerto Madryn",
@@ -272,9 +311,9 @@ export default function BoatsPage() {
     },
     {
       name: "Chile",
-      cities: [
-        "Puerto Montt",
+      countries: [
         "Valparaíso",
+        "Puerto Montt",
         "Punta Arenas",
         "Castro",
         "San Antonio",
@@ -282,7 +321,7 @@ export default function BoatsPage() {
     },
     {
       name: "Peru",
-      cities: [
+      countries: [
         "Lima",
         "Iquitos (Amazon)",
         "Puno (Lake Titicaca)",
@@ -292,7 +331,7 @@ export default function BoatsPage() {
     },
     {
       name: "Colombia",
-      cities: [
+      countries: [
         "Cartagena",
         "Santa Marta",
         "San Andrés",
@@ -302,12 +341,24 @@ export default function BoatsPage() {
     },
     {
       name: "Ecuador",
-      cities: [
+      countries: [
         "Galápagos Islands",
         "Guayaquil",
-        "Manta",
         "Puerto Ayora",
+        "Manta",
         "San Cristóbal",
+      ],
+    },
+    {
+      name: "Uruguay",
+      countries: ["Montevideo", "Punta del Este", "Colonia del Sacramento"],
+    },
+    {
+      name: "Venezuela",
+      countries: [
+        "Margarita Island",
+        "Puerto La Cruz",
+        "Morrocoy National Park",
       ],
     },
   ];
@@ -445,6 +496,44 @@ export default function BoatsPage() {
     }, 100);
   };
 
+  const selectedCountryCode = useMemo(() => {
+    // Map country names to ISO country codes for Google Places API
+    const countryMap: Record<string, string> = {
+      France: "fr",
+      Italy: "it",
+      Spain: "es",
+      Montenegro: "me",
+      Greece: "gr",
+      Croatia: "hr",
+      Turkey: "tr",
+      Portugal: "pt",
+      Malta: "mt",
+      Norway: "no",
+      Sweden: "se",
+      "United Kingdom": "gb",
+      Netherlands: "nl",
+      Thailand: "th",
+      Vietnam: "vn",
+      Indonesia: "id",
+      Philippines: "ph",
+      Japan: "jp",
+      India: "in",
+      Malaysia: "my",
+      Singapore: "sg",
+      Maldives: "mv",
+      "United Arab Emirates": "ae",
+      Brazil: "br",
+      Argentina: "ar",
+      Chile: "cl",
+      Peru: "pe",
+      Colombia: "co",
+      Ecuador: "ec",
+      Uruguay: "uy",
+      Venezuela: "ve",
+    };
+    return countryMap[selectedCountry] || undefined;
+  }, [selectedCountry]);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
@@ -508,7 +597,7 @@ export default function BoatsPage() {
         <Card className="w-full max-w-4xl mx-auto shadow-2xl border-0 p-8">
           <CardHeader>
             <CardTitle className="text-2xl text-gray-900 mb-4">
-              Find Your Perfect Boat
+              Find Your Perfect Boat to Charter
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -534,13 +623,16 @@ export default function BoatsPage() {
                         [
                           "France",
                           "Italy",
-                          "Greece",
-                          "Montenegro",
                           "Spain",
+                          "Montenegro",
+                          "Greece",
                           "Croatia",
-                          "Turkey",
                           "Portugal",
+                          "Malta",
                           "Norway",
+                          "Sweden",
+                          "United Kingdom",
+                          "Netherlands",
                         ].includes(c.name)
                       )
                       .map((cont) => (
@@ -560,6 +652,10 @@ export default function BoatsPage() {
                           "Japan",
                           "India",
                           "Malaysia",
+                          "Singapore",
+                          "Maldives",
+                          "Turkey",
+                          "United Arab Emirates",
                         ].includes(c.name)
                       )
                       .map((cont) => (
@@ -578,6 +674,8 @@ export default function BoatsPage() {
                           "Peru",
                           "Colombia",
                           "Ecuador",
+                          "Uruguay",
+                          "Venezuela",
                         ].includes(c.name)
                       )
                       .map((cont) => (
@@ -627,6 +725,15 @@ export default function BoatsPage() {
                     },
                   }}
                   apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+                  autocompletionRequest={
+                    selectedCountryCode
+                      ? {
+                          componentRestrictions: {
+                            country: selectedCountryCode,
+                          },
+                        }
+                      : undefined
+                  }
                 />
               </div>
               {/* Boat type */}
@@ -1042,6 +1149,15 @@ export default function BoatsPage() {
                     },
                   }}
                   apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+                  autocompletionRequest={
+                    selectedCountryCode
+                      ? {
+                          componentRestrictions: {
+                            country: selectedCountryCode,
+                          },
+                        }
+                      : undefined
+                  }
                 />
               </div>
               <div>

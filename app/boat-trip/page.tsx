@@ -278,7 +278,7 @@ export default function BoatsPage() {
         <Card className="w-full max-w-4xl mx-auto shadow-2xl border-0 p-8">
           <CardHeader>
             <CardTitle className="text-2xl text-gray-900 mb-4">
-              Find Your Perfect Boat
+              Find Your Perfect Boat Trip
             </CardTitle>
           </CardHeader>
           <CardContent>
