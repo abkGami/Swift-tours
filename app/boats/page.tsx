@@ -187,6 +187,10 @@ export default function BoatsPage() {
       cities: ["Athens", "Santorini", "Mykonos", "Corfu", "Rhodes"],
     },
     {
+      name: "Montenegro",
+      cities: ["Kotor", "Budva", "Herceg Novi ", "Tivat", "Bar"],
+    },
+    {
       name: "Spain",
       cities: ["Barcelona", "Ibiza", "Valencia", "Palma de Mallorca", "Malaga"],
     },
@@ -531,6 +535,7 @@ export default function BoatsPage() {
                           "France",
                           "Italy",
                           "Greece",
+                          "Montenegro",
                           "Spain",
                           "Croatia",
                           "Turkey",

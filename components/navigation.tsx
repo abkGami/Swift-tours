@@ -38,8 +38,8 @@ export default function Navigation() {
             { name: "Italy", href: "/destinations/europe/rome" },
             { name: "France", href: "/destinations/europe/paris" },
             { name: "Portugal", href: "/destinations/europe/portugal" },
+            { name: "Montenegro", href: "/destinations/europe/montenegro" },
             { name: "United Kingdom", href: "/destinations/europe/england" },
-            // { name: "Swiss Alps", href: "/destinations/europe/swiss-alps" },
             { name: "Greece", href: "/destinations/europe/greece" },
             { name: "Malta", href: "/destinations/europe/malta" },
             {

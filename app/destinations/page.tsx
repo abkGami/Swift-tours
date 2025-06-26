@@ -39,7 +39,19 @@ const destinations = [
         highlights: ["Belém Tower", "Alfama District", "Tram 28"],
         href: "/destinations/europe/portugal",
       },
-      //  from here
+      {
+        name: "Montenegro",
+        description:
+          "Stunning Adriatic coastline, medieval towns, and breathtaking mountain landscapes",
+        rating: 4.8,
+        highlights: [
+          "Bay of Kotor",
+          "Kotor Old Town",
+          "Sveti Stefan",
+          "Durmitor National Park",
+        ],
+        href: "/destinations/europe/montenegro",
+      },
       {
         name: "United Kingdom",
         description:
