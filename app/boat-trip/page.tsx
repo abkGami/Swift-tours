@@ -64,17 +64,20 @@ export default function BoatsPage() {
     {}
   );
 
-  // const country = [
-  //   {
-  //     name: "France",
-  //     cities: ["Monaco", "Paris", "Nice", "Cannes", "Marseille"],
-  //   },
-  // ];
   const country = [
-    // {
-    //   name: "France",
-    //   cities: ["Monaco", "Paris", "Nice", "Cannes", "Marseille"],
-    // },
+    {
+      name: "Italy",
+      cities: [
+        { name: "Venice", snorkeling: false },
+        { name: "Sardinia", snorkeling: true },
+        { name: "Naples", snorkeling: true },
+        { name: "Sicily", snorkeling: true },
+        { name: "Amalfi Coast", snorkeling: true },
+        { name: "Lake Como", snorkeling: false },
+        { name: "Lake Garda", snorkeling: false },
+        { name: "Livorno", snorkeling: true },
+      ],
+    },
     {
       name: "Greece",
       cities: [
@@ -85,16 +88,7 @@ export default function BoatsPage() {
         { name: "Crete", snorkeling: true },
       ],
     },
-    {
-      name: "Italy",
-      cities: [
-        { name: "Sardinia", snorkeling: true },
-        { name: "Sicily", snorkeling: true },
-        { name: "Amalfi Coast", snorkeling: true },
-        { name: "Naples", snorkeling: true },
-        { name: "Venice", snorkeling: false },
-      ],
-    },
+
     {
       name: "Spain",
       cities: [
@@ -103,6 +97,8 @@ export default function BoatsPage() {
         { name: "Menorca", snorkeling: true },
         { name: "Barcelona", snorkeling: false },
         { name: "Valencia", snorkeling: false },
+        { name: "Galicia Coast", snorkeling: true }, // e.g. Vigo, Cíes Islands
+        { name: "Costa Brava", snorkeling: true }, // e.g. Tossa de Mar, Lloret de Mar
       ],
     },
     {
@@ -829,7 +825,7 @@ export default function BoatsPage() {
                             <CardHeader className="flex flex-row items-center justify-between">
                               <CardTitle className="text-xl text-gray-900">
                                 {boat.exp}
-                                {/* Add "and snorkeling" if selected city has snorkeling: true */}
+                                {/* Add "and snorkeling" if selected city has snorkeling: true, but not for certain exp */}
                                 {(() => {
                                   const foundCountry = country.find(
                                     (c) => c.name === selectedCountry
@@ -842,7 +838,16 @@ export default function BoatsPage() {
                                       ).toLowerCase() ===
                                       selectedCity.toLowerCase()
                                   );
-                                  if (foundCity && foundCity.snorkeling) {
+                                  // Only add "and snorkeling" if exp is not in the excluded list
+                                  const excludedExps = [
+                                    "3 hours boat trip",
+                                    "Romantic sunset boat trip",
+                                  ];
+                                  if (
+                                    foundCity &&
+                                    foundCity.snorkeling &&
+                                    !excludedExps.includes(boat.exp)
+                                  ) {
                                     return " and snorkeling";
                                   }
                                   return "";
