@@ -825,7 +825,7 @@ export default function BoatsPage() {
                             <CardHeader className="flex flex-row items-center justify-between">
                               <CardTitle className="text-xl text-gray-900">
                                 {boat.exp}
-                                {/* Add "and snorkeling" if selected city has snorkeling: true, but not for certain exp */}
+                                {/* Add "and snorkeling" if selected city has snorkeling: true, but not for certain exp or tour boat type */}
                                 {(() => {
                                   const foundCountry = country.find(
                                     (c) => c.name === selectedCountry
@@ -838,15 +838,18 @@ export default function BoatsPage() {
                                       ).toLowerCase() ===
                                       selectedCity.toLowerCase()
                                   );
-                                  // Only add "and snorkeling" if exp is not in the excluded list
+                                  // Only add "and snorkeling" if exp is not in the excluded list and type is not "tour boat"
                                   const excludedExps = [
                                     "3 hours boat trip",
                                     "Romantic sunset boat trip",
+                                    "Full day fishing trip",
+                                    "6 hours fishing trip",
                                   ];
                                   if (
                                     foundCity &&
                                     foundCity.snorkeling &&
-                                    !excludedExps.includes(boat.exp)
+                                    !excludedExps.includes(boat.exp) &&
+                                    boat.type.toLowerCase() !== "tour boat"
                                   ) {
                                     return " and snorkeling";
                                   }
@@ -860,10 +863,7 @@ export default function BoatsPage() {
                                     {boat.rating}
                                   </span>
                                 </div>
-                                {/* <div className="flex items-center text-gray-600">
-                                <Users className="h-4 w-4 mr-1" />
-                                <span className="text-sm">{boat.capacity}</span>
-                              </div> */}
+                                {/* ...existing code... */}
                               </div>
                             </CardHeader>
 
