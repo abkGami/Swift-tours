@@ -105,7 +105,7 @@ const boats: Boat[] = [
   // flybridge yatch
   {
     name: "46' Sea Ray Flybridge",
-    type: "Flybridge Yacht",
+    type: "Luxury Yacht",
     capacity: "12 guests",
     price: "From $97,010 to $11,243,252",
     image: [
@@ -134,7 +134,7 @@ const boats: Boat[] = [
   },
   {
     name: "Azimut Flybridge",
-    type: "Flybridge Yacht",
+    type: "Luxury Yacht",
     capacity: "6-8 guests",
     price: "From $97,010 to $11,243,252",
     image: [
@@ -144,25 +144,25 @@ const boats: Boat[] = [
       "/boat/chartered/bc (4).jpg",
     ],
     features: [
-      "Twin MTU engines",
-      "3 Cabins",
-      "High-tech innovation",
+      "Spacious Flybridge with Sun Lounge",
       "Luxury and comfort",
+      "3 Cabins + Crew Quarters",
+      "Panoramic Salon Windows",
     ],
     rating: 4.8,
     description:
-      "The largest yacht ever built by Ferretti Yachts offering maximum comfort and customization.",
+      "The Azimut Flybridge blends Italian design with cutting-edge engineering, offering an elegant yet powerful cruising experience. With luxurious interiors, expansive decks, and refined finishes, it’s a favorite for private charters and high-end leisure cruising.",
     specifications: {
-      length: "64 feet",
-      engine: "Twin MTU engines",
-      fuel: "Not specified",
-      speed: "24-29 knots",
+      length: "15.88 meters",
+      engine: "2 x 670 HP Volvo Penta",
+      fuel: "2,200 L",
+      speed: "24–30 knots (cruising)",
     },
   },
   {
     name: "Azimut Salt Shaker",
-    type: "Flybridge Yacht",
-    capacity: "6-8 guests",
+    type: "Luxury Yacht",
+    capacity: "13 guests",
     price: "From $97,010 to $11,243,252",
     image: [
       "/boat/chartered/bb (1).jpg",
@@ -171,25 +171,27 @@ const boats: Boat[] = [
       "/boat/chartered/bb (4).jpg",
     ],
     features: [
-      "Twin MTU engines",
-      "3 Cabins",
-      "High-tech innovation",
-      "Luxury and comfort",
+      "Expansive Flybridge with Lounging Area",
+      "3 Luxurious Guest Cabins + Crew Quarters",
+      "Air-Conditioned Interior Lounge",
+      "Full Galley with Dining Space",
+      "Bluetooth Sound System & TVs",
+      "Hydraulic Swim Platform",
     ],
     rating: 4.8,
     description:
-      "The largest yacht ever built by Ferretti Yachts offering maximum comfort and customization.",
+      "The Azimut 'Salt Shaker' is a stunning 55-ft motor yacht offering Italian luxury, power, and comfort for unforgettable charters. Ideal for daytime cruising, events, or multi-day escapes, this vessel features open-plan decks, plush interiors, and panoramic sea views from the flybridge.",
     specifications: {
-      length: "64 feet",
-      engine: "Twin MTU engines",
-      fuel: "Not specified",
-      speed: "24-29 knots",
+      length: "16.7 meters",
+      engine: "2 x 730 HP MAN",
+      fuel: "2,500 L",
+      speed: "26–31 knots (cruising)",
     },
   },
   {
     name: "Ferretti Lumar",
-    type: "Flybridge Yacht",
-    capacity: "6-8 guests",
+    type: "Luxury Yacht",
+    capacity: "12 guests",
     price: "From $97,010 to $11,243,252",
     image: [
       "/boat/chartered/bd.jpg",
@@ -198,19 +200,23 @@ const boats: Boat[] = [
       "/boat/chartered/bd (1).jpg",
     ],
     features: [
-      "Twin MTU engines",
-      "3 Cabins",
+      "Elegant Flybridge with Lounge Area",
+      "3 Spacious Guest Cabins + Crew Cabin",
+      "Contemporary Italian Interior Design",
+      "Large Sunbathing Deck & Swim Platform",
+      "Full-Service Galley and Dining Area",
+      "Stabilizers for Smooth Cruising",
       "High-tech innovation",
       "Luxury and comfort",
     ],
     rating: 4.8,
     description:
-      "The largest yacht ever built by Ferretti Yachts offering maximum comfort and customization.",
+      "The Ferretti Lumar is a refined luxury motor yacht built for high-end cruising. Combining world-class Italian craftsmanship with modern performance, it offers an exceptional charter experience for families, groups, or corporate retreats. With expansive decks, elegant interiors, and attentive crew service, 'Lumar' delivers both comfort and style on the sea.",
     specifications: {
-      length: "64 feet",
-      engine: "Twin MTU engines",
-      fuel: "Not specified",
-      speed: "24-29 knots",
+      length: "21.0 meters",
+      engine: "2 x 1100 HP MAN",
+      fuel: "4,000 L",
+      speed: "24–30 knots (cruising)",
     },
   },
   //  cataraman
