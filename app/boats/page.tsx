@@ -102,12 +102,101 @@ const boats: Boat[] = [
       speed: "36 knots",
     },
   },
+  // flybridge yatch
   {
-    name: "Ferretti Yachts 1000",
+    name: "46' Sea Ray Flybridge",
+    type: "Flybridge Yacht",
+    capacity: "12 guests",
+    price: "From $97,010 to $11,243,252",
+    image: [
+      "/boat/chartered/b (1).jpg",
+      "/boat/chartered/b (2).jpg",
+      "/boat/chartered/b (4).jpg",
+      "/boat/chartered/b (5).jpg",
+      "/boat/chartered/b (6).jpg",
+      "/boat/chartered/b (8).jpg",
+    ],
+    features: [
+      "Flybridge with Lounge Seating",
+      "Spacious Salon with Panoramic Views",
+      "2 Cabins + 2 Bathrooms",
+      "Luxury and comfort",
+    ],
+    rating: 4.8,
+    description:
+      "The 46' Sea Ray Flybridge combines elegance and performance with expansive upper-deck views, making it ideal for both luxury day charters and overnight cruising. Whether you're hosting a sunset party or enjoying a relaxed family outing, this yacht offers both comfort and style.",
+    specifications: {
+      length: "14.02 meters",
+      engine: "2 x 550 HP Cummins",
+      fuel: "1,500 L",
+      speed: "20–26 knots (cruising)",
+    },
+  },
+  {
+    name: "Azimut Flybridge",
     type: "Flybridge Yacht",
     capacity: "6-8 guests",
     price: "From $97,010 to $11,243,252",
-    image: ["/boat/four.jpg", "/boat/five.jpg"],
+    image: [
+      "/boat/chartered/bc (1).jpg",
+      "/boat/chartered/bc (2).jpg",
+      "/boat/chartered/bc (3).jpg",
+      "/boat/chartered/bc (4).jpg",
+    ],
+    features: [
+      "Twin MTU engines",
+      "3 Cabins",
+      "High-tech innovation",
+      "Luxury and comfort",
+    ],
+    rating: 4.8,
+    description:
+      "The largest yacht ever built by Ferretti Yachts offering maximum comfort and customization.",
+    specifications: {
+      length: "64 feet",
+      engine: "Twin MTU engines",
+      fuel: "Not specified",
+      speed: "24-29 knots",
+    },
+  },
+  {
+    name: "Azimut Salt Shaker",
+    type: "Flybridge Yacht",
+    capacity: "6-8 guests",
+    price: "From $97,010 to $11,243,252",
+    image: [
+      "/boat/chartered/bb (1).jpg",
+      "/boat/chartered/bb (2).jpg",
+      "/boat/chartered/bb (3).jpg",
+      "/boat/chartered/bb (4).jpg",
+    ],
+    features: [
+      "Twin MTU engines",
+      "3 Cabins",
+      "High-tech innovation",
+      "Luxury and comfort",
+    ],
+    rating: 4.8,
+    description:
+      "The largest yacht ever built by Ferretti Yachts offering maximum comfort and customization.",
+    specifications: {
+      length: "64 feet",
+      engine: "Twin MTU engines",
+      fuel: "Not specified",
+      speed: "24-29 knots",
+    },
+  },
+  {
+    name: "Ferretti Lumar",
+    type: "Flybridge Yacht",
+    capacity: "6-8 guests",
+    price: "From $97,010 to $11,243,252",
+    image: [
+      "/boat/chartered/bd.jpg",
+      "/boat/chartered/bd (4).jpg",
+      "/boat/chartered/bd (5).jpg",
+      "/boat/chartered/bd (1).jpg",
+    ],
     features: [
       "Twin MTU engines",
       "3 Cabins",
