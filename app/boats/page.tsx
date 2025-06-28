@@ -124,12 +124,19 @@ const boats: Boat[] = [
       speed: "24-29 knots",
     },
   },
+  //  cataraman
   {
     name: "Lagoon 46",
     type: "Sailing Catamaran",
     capacity: "10 guests",
     price: "€686,800",
-    image: ["/boat/five.jpg", "/boat/two.jpg"],
+    image: [
+      "/boat/five.jpg",
+      "/boat/chartered/a (4).jpg",
+      "/boat/chartered/a (6).jpg",
+      "/boat/chartered/a (7).jpg",
+      "/boat/chartered/a (11).jpg",
+    ],
     features: [
       "Fiberglass/GRP hull",
       "CE certification class A",
@@ -146,6 +153,188 @@ const boats: Boat[] = [
       speed: "Not specified",
     },
   },
+  {
+    name: "Lagoon 42",
+    type: "Sailing Catamaran",
+    capacity: "10 guests",
+    price: "€686,800",
+    image: [
+      "/boat/chartered/a (3).jpg",
+      "/boat/chartered/a (5).jpg",
+      "/boat/chartered/a (2).jpg",
+      "/boat/chartered/a (10).jpg",
+    ],
+    features: [
+      "Fiberglass/GRP hull",
+      "CE certification class A",
+      "3 Cabins + 3 Bathrooms",
+      "Sail area of 140.1 m²",
+    ],
+    rating: 4.8,
+    description:
+      "A perfect long-term cruising catamaran offering easy responsive performance and functional luxury. The Lagoon 42 blends comfort, style, and seaworthiness in a compact yet spacious design.",
+    specifications: {
+      length: "12.80 meters",
+      engine: "2 x 57 HP Yanmar",
+      fuel: "300 L",
+      speed: "8–9 knots (cruising)",
+    },
+  },
+  {
+    name: "Lagoon 450",
+    type: "Sailing Catamaran",
+    capacity: "12 guests",
+    price: "€740,000",
+    image: [
+      "/boat/chartered/a (16).jpg",
+      "/boat/chartered/a (17).jpg",
+      "/boat/chartered/a (14).jpg",
+      "/boat/chartered/a (13).jpg",
+    ],
+    features: [
+      "Spacious Dual-Hull Design",
+      "4 Cabins with Ensuite Bathrooms",
+      "Onboard Kitchen & Lounge",
+      "Sunbathing Deck and Net",
+      "Shaded Outdoor Seating Area",
+    ],
+    rating: 4.9,
+    description:
+      "The Lagoon 450 is a luxury catamaran combining spacious comfort, top-tier performance, and reliable handling — ideal for family cruising or private charters.",
+    specifications: {
+      length: "13.96 meters",
+      engine: "2 x 45 HP Yanmar",
+      fuel: "2 x 520 L",
+      speed: "8–10 knots (cruising)",
+    },
+  },
+
+  {
+    name: "Lagoon 50",
+    type: "Sailing Catamaran",
+    capacity: "14 guests",
+    price: "€686,800",
+    image: [
+      "/boat/chartered/a (1).jpg",
+      "/boat/chartered/a (8).jpg",
+      "/boat/chartered/a (6).jpg",
+      "/boat/chartered/a (12).jpg",
+    ],
+    features: [
+      "Fiberglass/GRP hull",
+      "CE certification class A",
+      "3 Cabins",
+      "Sail area of 140.1 m²",
+    ],
+    rating: 4.8,
+    description:
+      "The Lagoon 50 strikes the perfect balance between volume, performance, and luxury, offering expansive living spaces and smooth sailing for long voyages or premium charters.",
+    specifications: {
+      length: "14.75 meters",
+      engine: "2 x 57 HP Yanmar",
+      fuel: "2 x 520 L",
+      speed: "9–11 knots (cruising)",
+    },
+  },
+  // fishing boat
+  {
+    name: "Swift Mariner",
+    type: "Fishing Boat",
+    capacity: "10 guests",
+    price: "€686,800",
+    image: [
+      "/fishing/a (1).jpg",
+      "/fishing/d (16).jpg",
+      "/fishing/a (3).jpg",
+      "/fishing/a (5).jpg",
+      "/fishing/a (6).jpg",
+      "/fishing/a (22).jpg",
+      "/fishing/d (9).jpg",
+      "/fishing/b (18).jpg",
+    ],
+    features: [
+      "Fiberglass/GRP hull",
+      "CE certification class A",
+      "3 Cabins for guests or crew",
+      "Sail area of 140.1 m²",
+    ],
+    rating: 4.8,
+    description:
+      "A perfect long-term cruising fishing boat offering easy handling, robust construction, and the functional luxury needed for extended fishing adventures. The Swift Mariner combines performance with comfort, making it ideal for serious anglers and leisure cruises alike.",
+    specifications: {
+      length: "13.99 meters",
+      engine: "Twin diesel engines, 370 HP each",
+      fuel: "1,200 liters",
+      speed: "Up to 24 knots",
+    },
+  },
+  {
+    name: "Swift Sport Fisher",
+    type: "Fishing Boat",
+    capacity: "6 guests",
+    price: "€950/day",
+    image: [
+      "/fishing/c (15).jpg",
+      "/fishing/c (20).jpg",
+      "/fishing/a (7).jpg",
+      "/fishing/a (10).jpg",
+      "/fishing/b (1).jpg",
+      "/fishing/c (16).jpg",
+      "/fishing/d (5).jpg",
+    ],
+    features: [
+      "Spacious cockpit for fishing",
+      "Rod holders and outriggers",
+      "Live bait well",
+      "Comfortable seating",
+      "Swim ladder for easy access",
+      "Sunshade canopy",
+    ],
+    rating: 4.7,
+    description:
+      "Swift Sport Fisher is a versatile fishing boat ideal for exciting offshore trips. Equipped with ample deck space, fishing gear storage, and comfortable seating, it offers both thrilling catches and enjoyable cruising.",
+    specifications: {
+      length: "8.5 meters",
+      engine: "Twin 200 HP outboard engines",
+      fuel: "Petrol",
+      speed: "30 knots max",
+    },
+  },
+  {
+    name: "Swift Offshore Angler",
+    type: "Fishing Boat",
+    capacity: "6 guests",
+    price: "€1,250/day",
+    image: [
+      "/fishing/d (27).jpg",
+      "/fishing/d (1).jpg",
+      "/fishing/c (6).jpg",
+      "/fishing/d (8).jpg",
+      "/fishing/c (8).jpg",
+      "/fishing/b (22).jpg",
+      "/fishing/c (3).jpg",
+      // "/fishing/d (27).jpg",
+    ],
+    features: [
+      "Center console layout",
+      "Large live bait well",
+      "Rod holders and tackle storage",
+      "Integrated fish boxes",
+      "Powerful outboard engines",
+      "Ample deck space for big catches",
+      "Comfortable seating and sunshade",
+    ],
+    rating: 4.9,
+    description:
+      "The Swift Offshore Angler is a premium sportfishing boat, ideal for deep-sea fishing adventures. It combines powerful performance with a spacious deck, making it perfect for reeling in trophy catches while enjoying a smooth and stable ride.",
+    specifications: {
+      length: "9.5 meters",
+      engine: "Twin 250 HP outboards",
+      fuel: "Petrol",
+      speed: "32 knots max",
+    },
+  },
+
   // {
   //   name: "Luxury Yacht Charter",
   //   type: "Luxury Yacht",
@@ -1087,7 +1276,7 @@ export default function BoatsPage() {
                                 <h4 className="font-semibold text-gray-900 mb-2">
                                   Specifications
                                 </h4>
-                                <div className="grid grid-cols-2 gap-2 text-sm text-gray-600">
+                                <div className="grid grid-cols-1 gap-2 text-sm text-gray-600">
                                   <div>
                                     Length: {boat.specifications.length}
                                   </div>
