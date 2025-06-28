@@ -296,6 +296,38 @@ const boats: Boat[] = [
       speed: "7–9 knots cruising under power; higher under sail",
     },
   },
+  {
+    name: "Sailboat Bavaria 50 Cruiser",
+    type: "Sailboat",
+    capacity: "Up to 10 guests",
+    price: "From €160,000 (VAT paid, used market)",
+    image: [
+      "/boat/chartered/dc1.jpg",
+      "/boat/chartered/dc2.jpg",
+      "/boat/chartered/dc3.jpg",
+      "/boat/chartered/dc4.jpg",
+      "/boat/chartered/dc5.jpg",
+      "/boat/chartered/dc6.jpg",
+    ],
+    features: [
+      "Spacious cockpit with twin wheels and large table",
+      "Large saloon with U-shaped seating and navigation station",
+      "5 cabins layout (3 double + 2 bunk cabins)",
+      "3 bathrooms with showers",
+      "Electric anchor windlass",
+      "Wide swim platform for easy water access",
+      "Self-tacking jib and in-mast furling options",
+    ],
+    rating: 4.6,
+    description:
+      "The Bavaria 50 Cruiser is a popular blue-water sailing yacht offering impressive comfort, robust build, and easy handling. Her spacious interior and versatile cabin layouts make her perfect for family holidays or group charters in the Mediterranean and beyond.",
+    specifications: {
+      length: "15.43 meters",
+      engine: "Volvo Penta D2-75 (75 HP)",
+      fuel: "320 L",
+      speed: "7–9 knots cruising under power; higher under sail",
+    },
+  },
 
   // open yacht
   // {
