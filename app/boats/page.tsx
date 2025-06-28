@@ -1476,13 +1476,13 @@ export default function BoatsPage() {
                     {filteredBoats.map((boat, index) => (
                       <motion.div
                         key={boat.name}
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                        whileHover={{ y: -10, scale: 1.02 }}
+                        // initial={{ opacity: 0, y: 50 }}
+                        // whileInView={{ opacity: 1, y: 0 }}
+                        // transition={{ duration: 0.6, delay: index * 0.1 }}
+                        // whileHover={{ y: -10, scale: 1.02 }}
                         className="group"
                       >
-                        <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 shadow-lg">
+                        <Card className="overflow-hidden  border-0 shadow-lg">
                           <div className="relative overflow-hidden">
                             {/* <Image //change to img and remove height and width
                               width={1200}
