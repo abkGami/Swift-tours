@@ -67,7 +67,7 @@ export default function CustomerSLideshow() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Amazing Customers Gallery
+            Amazing Boat Trip Customers
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Take a visual journey through some of our esteemed customers using
@@ -92,7 +92,7 @@ export default function CustomerSLideshow() {
                   alt="Customer Image"
                   className="w-full h-full object-cover md:object-contain"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
                 {/* Image Info */}
                 {/* <motion.div
