@@ -108,7 +108,7 @@ export const boats = [
   },
   //L
   {
-    id: "lagoon-changes-46",
+    id: "lagoon-changes-461",
     name: "Lagoon Changes 46",
     images: [
       "/boat/boats/l (18).jpg",
@@ -131,7 +131,7 @@ export const boats = [
     ],
   },
   {
-    id: "lagoon-changes-46",
+    id: "lagoon-changes-462",
     name: "Lagoon Changes 46",
     images: [
       "/boat/boats/l.jpg",
@@ -156,7 +156,7 @@ export const boats = [
     ],
   },
   {
-    id: "lagoon-changes-46",
+    id: "lagoon-changes-463",
     name: "Lagoon Changes 46",
     images: [
       "/boat/boats/l (13).jpg",
@@ -179,7 +179,7 @@ export const boats = [
     ],
   },
   {
-    id: "lagoon-changes-46",
+    id: "lagoon-changes-464",
     name: "Lagoon Changes 46",
     images: [
       "/boat/boats/l (17).jpg",
@@ -207,7 +207,7 @@ export const boats = [
     ],
   },
   {
-    id: "lagoon-changes-46",
+    id: "lagoon-changes-465",
     name: "Lagoon Changes 46",
     images: [
       "/boat/boats/l (20).jpg",
@@ -350,14 +350,97 @@ export const boats = [
     images: [
       "/boat/boats/k (2).jpg",
       "/boat/boats/k (6).jpg",
-      "/boat/boats/k (7).jpg",
-      "/boat/boats/k (9).jpg",
+      "/boat/boats/k (3).jpg",
+      "/boat/boats/k (1).jpg",
+      "/boat/boats/k (11).jpg",
+      "/boat/boats/k (20).jpg",
     ],
     type: "Sport Cruiser",
     rating: 4.8,
     capacity: 10,
     price: "From €1,600/day",
-    exp: "Day cruises, overnight stays, and coastal tours",
+    exp: "3 hours boat trip",
+    features: [
+      "Twin Volvo Penta D4-260 or D4-300 engines",
+      "Large cockpit with sun lounges",
+      "Electric hardtop for shade or sun",
+      "Convertible saloon and spacious interior",
+      "2 cabins and separate bathroom",
+      "Modern navigation electronics",
+      "Integrated swim platform",
+      "Luxury finishes and modern styling",
+    ],
+  },
+  {
+    id: "jeanneau-leader-36-2",
+    name: "Jeanneau Leader 36",
+    images: [
+      "/boat/boats/k (24).jpg",
+      "/boat/boats/k (13).jpg",
+      "/boat/boats/k (14).jpg",
+      "/boat/boats/k (22).jpg",
+      "/boat/boats/k (23).jpg",
+      "/boat/boats/k (15).jpg",
+    ],
+    type: "Sport Cruiser",
+    rating: 4.8,
+    capacity: 10,
+    price: "From €1,600/day",
+    exp: "Full day boat trip",
+    features: [
+      "Twin Volvo Penta D4-260 or D4-300 engines",
+      "Large cockpit with sun lounges",
+      "Electric hardtop for shade or sun",
+      "Convertible saloon and spacious interior",
+      "2 cabins and separate bathroom",
+      "Modern navigation electronics",
+      "Integrated swim platform",
+      "Luxury finishes and modern styling",
+    ],
+  },
+  {
+    id: "jeanneau-leader-36-3",
+    name: "Jeanneau Leader 36",
+    images: [
+      "/boat/boats/k (19).jpg",
+      "/boat/boats/k (26).jpg",
+      "/boat/boats/k (30).jpg",
+      "/boat/boats/k (17).jpg",
+      "/boat/boats/k (21).jpg",
+      "/boat/boats/k (25).jpg",
+    ],
+    type: "Sport Cruiser",
+    rating: 4.8,
+    capacity: 10,
+    price: "From €1,600/day",
+    exp: "Romantic sunset boat trip",
+    features: [
+      "Twin Volvo Penta D4-260 or D4-300 engines",
+      "Large cockpit with sun lounges",
+      "Electric hardtop for shade or sun",
+      "Convertible saloon and spacious interior",
+      "2 cabins and separate bathroom",
+      "Modern navigation electronics",
+      "Integrated swim platform",
+      "Luxury finishes and modern styling",
+    ],
+  },
+  {
+    id: "jeanneau-leader-36-4",
+    name: "Jeanneau Leader 36",
+    images: [
+      "/boat/boats/k (10).jpg",
+      "/boat/boats/k (31).jpg",
+      "/boat/boats/k (11).jpg",
+      "/boat/boats/k (14).jpg",
+      "/boat/boats/k (17).jpg",
+      "/boat/boats/k (12).jpg",
+    ],
+    type: "Sport Cruiser",
+    rating: 4.8,
+    capacity: 10,
+    price: "From €1,600/day",
+    exp: "6 hours boat trip",
     features: [
       "Twin Volvo Penta D4-260 or D4-300 engines",
       "Large cockpit with sun lounges",
@@ -389,7 +472,6 @@ export const boats = [
     capacity: 8,
     price: "€250/day",
     exp: "3 hours boat trip",
-
     features: [
       "Sound System",
       "Restroom Onboard",
