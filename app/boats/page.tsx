@@ -913,6 +913,10 @@ export default function BoatsPage() {
   const [selectedCity, setselectedCity] = useState("");
   const [citySearch, setCitySearch] = useState("");
 
+  // Add state for budget and number of people
+  const [selectedBudget, setSelectedBudget] = useState(1000);
+  const [numPeople, setNumPeople] = useState(2);
+
   // Helper to get images array for each boat (fallback to single image if not array)
   const getBoatImages = (boat: Boat) => {
     // Use boat.image as the array of images
@@ -1028,12 +1032,14 @@ export default function BoatsPage() {
       city: citySearch,
       country: selectedCountry,
       pickup: form.pickup,
-      type: selectedType,
+      type: boat.type,
       departureDate,
       returnDate,
       withSkipper,
       boatName: boat.name,
     });
+    setSelectedBudget(1000);
+    setNumPeople(2);
     setModalOpen(true);
   };
 
@@ -1741,131 +1747,82 @@ export default function BoatsPage() {
               <X className="w-6 h-6" />
             </button>
             <Dialog.Title className="text-2xl font-bold mb-4 text-gray-900">
-              Place Order for {selectedBoat?.name}
+              Request Quotation
             </Dialog.Title>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handlePlaceOrder();
+            {/* <div className="space-y-4 mb-4">
+              <div>
+                <strong>Boat Name:</strong> {selectedBoat?.name}
+              </div>
+              <div>
+                <strong>Boat Type:</strong> {selectedBoat?.type}
+              </div>
+              <div>
+                <strong>Location:</strong> {orderForm.city}, {orderForm.country}
+              </div>
+              <div>
+                <strong>Departure Date:</strong> {orderForm.departureDate}
+              </div>
+              <div>
+                <strong>Return Date:</strong> {orderForm.returnDate}
+              </div>
+            </div> */}
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Budget (€100 - €5000)
+              </label>
+              <input
+                type="range"
+                min={100}
+                max={5000}
+                step={50}
+                value={selectedBudget}
+                onChange={(e) => setSelectedBudget(Number(e.target.value))}
+                className="w-full"
+              />
+              <div className="text-right text-sm text-gray-600 mt-1">
+                Selected: €{selectedBudget}
+              </div>
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Number of People
+              </label>
+              <input
+                type="number"
+                min={1}
+                max={30}
+                value={numPeople}
+                onChange={(e) => setNumPeople(Number(e.target.value))}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Message
+              </label>
+              <textarea
+                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                rows={4}
+                value={`Hello, I'm interested in the ${
+                  selectedBoat?.name || ""
+                } in ${orderForm.city}, ${orderForm.country}, from ${
+                  orderForm.departureDate
+                } to ${
+                  orderForm.returnDate
+                }. My budget is €${selectedBudget} and there will be ${numPeople} of us on board. Is it possible to make reservation? Thank You`}
+                readOnly
+              />
+            </div>
+            <Button
+              type="button"
+              className="w-full bg-blue-600 hover:bg-blue-700 mt-2"
+              onClick={() => {
+                setModalOpen(false);
+                alert("Quotation request sent!");
               }}
-              className="space-y-4"
             >
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Country
-                </label>
-                <input
-                  name="country"
-                  value={orderForm.country}
-                  onChange={handleOrderChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Pick-up Location
-                </label>
-                <GooglePlacesAutocomplete
-                  selectProps={{
-                    placeholder: "Search pick-up location",
-                    value: form.pickup
-                      ? { label: form.pickup, value: form.pickup }
-                      : null,
-                    onChange: (option) => {
-                      setForm((prev) => ({
-                        ...prev,
-                        pickup: option?.label || "",
-                      }));
-                    },
-                  }}
-                  apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
-                  autocompletionRequest={
-                    selectedCountryCode
-                      ? {
-                          componentRestrictions: {
-                            country: selectedCountryCode,
-                          },
-                        }
-                      : undefined
-                  }
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Boat Type
-                </label>
-                <input
-                  name="type"
-                  value={orderForm.type}
-                  onChange={handleOrderChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-500"
-                  required
-                  disabled
-                />
-              </div>
-              <div className="flex gap-2">
-                <div className="flex-1">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Departure Date
-                  </label>
-                  <input
-                    type="date"
-                    name="departureDate"
-                    value={orderForm.departureDate}
-                    onChange={handleOrderChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                    required
-                  />
-                </div>
-                <div className="flex-1">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Return Date
-                  </label>
-                  <input
-                    type="date"
-                    name="returnDate"
-                    value={orderForm.returnDate}
-                    onChange={handleOrderChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                    required
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  With Skipper
-                </label>
-                <select
-                  name="withSkipper"
-                  value={orderForm.withSkipper}
-                  onChange={handleOrderChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  required
-                >
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
-              </div>
-              {/* <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Boat Name
-                </label>
-                <input
-                  name="boatName"
-                  value={orderForm.boatName}
-                  onChange={handleOrderChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  required
-                />
-              </div> */}
-              <Button
-                type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 mt-4"
-              >
-                Book Now
-              </Button>
-            </form>
+              Submit Request
+            </Button>
           </div>
         </div>
       </Dialog>

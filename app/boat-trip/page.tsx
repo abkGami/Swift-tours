@@ -764,6 +764,8 @@ export default function BoatsPage() {
                       (boat as any).id
                     }?country=${encodeURIComponent(
                       selectedCountry
+                    )}&city=${encodeURIComponent(
+                      selectedCity
                     )}&type=${encodeURIComponent(
                       boat.type
                     )}&place=${encodeURIComponent(
@@ -772,7 +774,9 @@ export default function BoatsPage() {
                       departureDate
                     )}&returnDate=${encodeURIComponent(
                       returnDate
-                    )}&withSkipper=${encodeURIComponent(withSkipper)}`;
+                    )}&withSkipper=${encodeURIComponent(
+                      withSkipper
+                    )}&exp=${encodeURIComponent(boat.exp)}`;
 
                     return (
                       <motion.div
