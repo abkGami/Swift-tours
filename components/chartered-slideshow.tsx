@@ -5,48 +5,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 
 const albumImages = [
-  {
-    src: "/boat/boats/g (11).jpg",
-  },
-  {
-    src: "/boat/boats/g (7).jpg",
-  },
-  {
-    src: "/boat/boats/g (5).jpg",
-  },
-  {
-    src: "/boat/boats/g (18).jpg",
-  },
-  {
-    src: "/boat/boats/g (14).jpg",
-  },
-  {
-    src: "/boat/boats/g (15).jpg",
-  },
-  {
-    src: "/fishing/a (20).jpg",
-  },
-  {
-    src: "/fishing/a (40).jpg",
-  },
-  {
-    src: "/fishing/a (44).jpg",
-  },
-  {
-    src: "/fishing/a (28).jpg",
-  },
-  {
-    src: "/boat/boats/g (20).jpg",
-  },
-  {
-    src: "/boat/boats/f (1).jpg",
-  },
-  // {
-  //   src: "/boat/boats/d (16).jpg",
-  // },
-  {
-    src: "/boat/boats/g (21).jpg",
-  },
+  "/boat/chartered/a (3).jpg",
+  "/boat/chartered/a (6).jpg",
+  "/boat/chartered/bb (4).jpg",
+  "/boat/chartered/bd (4).jpg",
+  "/boat/chartered/ca (1).jpg",
+  "/boat/chartered/cd (1).jpg",
+  "/boat/chartered/d.jpg",
+  "/boat/chartered/db.jpg",
+  "/boat/chartered/da.jpg",
+  "/boat/chartered/dc2.jpg",
+  "/boat/chartered/bc (5).jpg",
 ];
 
 export default function CustomerSLideshow() {
@@ -105,14 +74,14 @@ export default function CustomerSLideshow() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.7, ease: "easeInOut" }}
-                className="absolute inset-0"
+                className="absolute inset-0 bg-[#3293C3] "
               >
                 <img
-                  src={albumImages[currentIndex].src || "/placeholder.svg"}
+                  src={albumImages[currentIndex] || "/placeholder.svg"}
                   alt="Customer Image"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover md:object-contain"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
                 {/* Image Info */}
                 {/* <motion.div
