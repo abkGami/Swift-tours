@@ -35,6 +35,14 @@ export default function BoatDetailPage() {
   const type = searchParams.get("type");
   const owner = searchParams.get("owner");
 
+  const [selectedBudget, setSelectedBudget] = useState(1000);
+  const [numPeople, setNumPeople] = useState(2);
+  const [departureDate, setDepartureDate] = useState(
+    searchParams.get("departureDate") || ""
+  );
+  const [returnDate, setReturnDate] = useState(
+    searchParams.get("returnDate") || ""
+  );
   const [current, setCurrent] = useState(0);
 
   if (!boat) {
@@ -210,7 +218,7 @@ export default function BoatDetailPage() {
       </div>
 
       {/* Modal for placing order */}
-      {/* <Dialog
+      <Dialog
         open={modalOpen}
         onClose={() => setModalOpen(false)}
         className="fixed z-50 inset-0 overflow-y-auto"
@@ -225,29 +233,108 @@ export default function BoatDetailPage() {
               <X className="w-6 h-6" />
             </button>
             <Dialog.Title className="text-2xl font-bold mb-4 text-gray-900">
-              Request Quotation for {boat.name}
+              Request Quotation
             </Dialog.Title>
-            <div className="space-y-4">
+            <div className="space-y-4 mb-4">
               <div>
-                <strong>Boat:</strong> {boat.name}
+                <strong>Departure Date:</strong>{" "}
+                <input
+                  type="date"
+                  className="border border-gray-300 rounded px-2 py-1 ml-2"
+                  value={departureDate}
+                  min={new Date().toISOString().split("T")[0]}
+                  onChange={(e) => setDepartureDate(e.target.value)}
+                />
               </div>
               <div>
-                <strong>Experience:</strong> {exp}
+                <strong>Return Date:</strong>{" "}
+                <input
+                  type="date"
+                  className="border border-gray-300 rounded px-2 py-1 ml-2"
+                  value={returnDate}
+                  min={new Date().toISOString().split("T")[0]}
+                  onChange={(e) => setReturnDate(e.target.value)}
+                />
               </div>
-              <div>
-                <strong>City:</strong> {city}
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Budget (€100 - €5000)
+              </label>
+              <input
+                type="range"
+                min={100}
+                max={5000}
+                step={50}
+                value={selectedBudget}
+                onChange={(e) => setSelectedBudget(Number(e.target.value))}
+                className="w-full"
+              />
+              <div className="text-right text-sm text-gray-600 mt-1">
+                Selected: €{selectedBudget}
               </div>
-              <div>
-                <strong>Country:</strong> {country}
-              </div>
-              <div>
-                <strong>With Skipper:</strong>{" "}
-                {withSkipper === "yes" ? "Yes" : "No"}
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Number of People
+              </label>
+              <input
+                type="number"
+                min={1}
+                max={30}
+                value={numPeople}
+                onChange={(e) => setNumPeople(Number(e.target.value))}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Message
+              </label>
+              {/* <textarea
+                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                rows={4}
+                value={`Hello ${owner}, I'm interested in the ${exp} in ${city}, ${country}, on the ${
+                  boat.type
+                } from ${searchParams.get(
+                  "departureDate"
+                )} to ${searchParams.get(
+                  "returnDate"
+                )}. My budget is €${selectedBudget} and there will be ${numPeople} of us on board. Is it possible to make reservation? Thank You`}
+                readOnly
+              /> */}
+              <div
+                className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white"
+                style={{ minHeight: 120, whiteSpace: "pre-line" }}
+                contentEditable={false}
+                suppressContentEditableWarning
+              >
+                {`Hello `}
+                <b>{owner}</b>
+                {`, I'm interested in the `}
+                <b>{exp}</b>
+                {` at `}
+                <b>{city}</b>
+                {`, `}
+                <b>{country}</b>
+                {`, on the `}
+                <b>{boat.type}</b>
+                {` from `}
+                <b>{departureDate}</b>
+                {` to `}
+                <b>{returnDate}</b>
+                {`. My budget is `}
+                <b>{`€${selectedBudget}`}</b>
+                {` and there will be `}
+                <b>{numPeople}</b>
+                {` of us on board. Is it possible to make reservation? `}
+                <br />
+                {` Thank You. `}
               </div>
             </div>
             <Button
               type="button"
-              className="w-full bg-blue-600 hover:bg-blue-700 mt-6"
+              className="w-full bg-blue-600 hover:bg-blue-700 mt-2"
               onClick={() => {
                 setModalOpen(false);
                 alert("Quotation request sent!");
@@ -257,7 +344,7 @@ export default function BoatDetailPage() {
             </Button>
           </div>
         </div>
-      </Dialog> */}
+      </Dialog>
       <Footer />
     </div>
   );

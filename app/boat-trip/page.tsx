@@ -653,6 +653,7 @@ export default function BoatsPage() {
                   <input
                     type="date"
                     value={departureDate}
+                    min={new Date().toISOString().split("T")[0]}
                     onChange={(e) => setDepartureDate(e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md"
                   />
@@ -664,6 +665,7 @@ export default function BoatsPage() {
                   <input
                     type="date"
                     value={returnDate}
+                    min={new Date().toISOString().split("T")[0]}
                     onChange={(e) => setReturnDate(e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md"
                   />
