@@ -730,7 +730,17 @@ export default function BoatsPage() {
     },
     {
       name: "Greece",
-      countries: ["Athens", "Santorini", "Mykonos", "Corfu", "Rhodes"],
+      countries: [
+        "Athens",
+        "Santorini",
+        "Mykonos",
+        "Corfu",
+        "Rhodes",
+        "Crete",
+        "Zakynthos",
+        "Thessaloniki",
+        "Paros",
+      ],
     },
     {
       name: "Croatia",
@@ -768,6 +778,16 @@ export default function BoatsPage() {
         "Portsmouth",
         "Edinburgh",
         "Cardiff",
+        "London (Thames River)",
+        "Brighton",
+        "Aberdeen",
+        "Dundee",
+        "Edinburgh",
+        "Glasgow",
+        "Dublin",
+        "Galway",
+        "Cork",
+        "Wexford",
       ],
     },
     {
@@ -1768,6 +1788,37 @@ export default function BoatsPage() {
                 <strong>Return Date:</strong> {orderForm.returnDate}
               </div>
             </div> */}
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Departure Date
+              </label>
+              <input
+                type="date"
+                value={orderForm.departureDate}
+                min={new Date().toISOString().split("T")[0]}
+                onChange={(e) =>
+                  setOrderForm({ ...orderForm, departureDate: e.target.value })
+                }
+                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Return Date
+              </label>
+              <input
+                type="date"
+                value={orderForm.returnDate}
+                min={
+                  orderForm.departureDate ||
+                  new Date().toISOString().split("T")[0]
+                }
+                onChange={(e) =>
+                  setOrderForm({ ...orderForm, returnDate: e.target.value })
+                }
+                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              />
+            </div>
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Budget (€100 - €5000)
