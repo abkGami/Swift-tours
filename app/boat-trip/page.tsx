@@ -162,10 +162,20 @@ export default function BoatsPage() {
     {
       name: "United Kingdom",
       cities: [
-        { name: "Cornwall", snorkeling: false },
+        { name: "London (Thames River)", snorkeling: false },
         { name: "Isle of Wight", snorkeling: false },
-        { name: "Devon", snorkeling: false },
+        { name: "Brighton", snorkeling: true },
+        { name: "Portsmouth", snorkeling: true },
+        { name: "Southampton", snorkeling: true },
         { name: "Scottish Highlands", snorkeling: false },
+        { name: "Aberdeen", snorkeling: false },
+        { name: "Dundee", snorkeling: false },
+        { name: "Edinburgh", snorkeling: false },
+        { name: "Glasgow", snorkeling: false },
+        { name: "Dublin", snorkeling: false },
+        { name: "Galway", snorkeling: false },
+        { name: "Cork", snorkeling: true },
+        { name: "Wexford", snorkeling: true },
       ],
     },
     {
@@ -237,14 +247,14 @@ export default function BoatsPage() {
         { name: "Perhentian Islands", snorkeling: true },
       ],
     },
-    {
-      name: "India",
-      cities: [
-        { name: "Goa", snorkeling: true },
-        { name: "Andaman Islands", snorkeling: true },
-        { name: "Kerala (Alleppey)", snorkeling: false },
-      ],
-    },
+    // {
+    //   name: "India",
+    //   cities: [
+    //     { name: "Goa", snorkeling: true },
+    //     { name: "Andaman Islands", snorkeling: true },
+    //     { name: "Kerala (Alleppey)", snorkeling: false },
+    //   ],
+    // },
     {
       name: "Maldives",
       cities: [
@@ -266,13 +276,6 @@ export default function BoatsPage() {
       cities: [
         { name: "Dubai Marina", snorkeling: false },
         { name: "Abu Dhabi", snorkeling: false },
-      ],
-    },
-    {
-      name: "Oman",
-      cities: [
-        { name: "Musandam", snorkeling: true },
-        { name: "Muscat", snorkeling: true },
       ],
     },
     {
@@ -498,15 +501,19 @@ export default function BoatsPage() {
                     {country
                       .filter((c) =>
                         [
-                          "France",
                           "Italy",
                           "Greece",
-                          "Montenegro",
                           "Spain",
+                          "France",
                           "Croatia",
-                          "Turkey",
                           "Portugal",
+                          "Malta",
+                          "Montenegro",
+                          "Turkey",
+                          "United Kingdom",
                           "Norway",
+                          "Sweden",
+                          "Iceland",
                         ].includes(c.name)
                       )
                       .map((cont) => (
@@ -520,12 +527,13 @@ export default function BoatsPage() {
                       .filter((c) =>
                         [
                           "Thailand",
-                          "Vietnam",
-                          "Indonesia",
                           "Philippines",
-                          "Japan",
-                          "India",
+                          "United Arab Emirates",
+                          "Indonesia",
+                          "Vietnam",
                           "Malaysia",
+                          "Maldives",
+                          "Sri Lanka",
                         ].includes(c.name)
                       )
                       .map((cont) => (
@@ -539,11 +547,13 @@ export default function BoatsPage() {
                       .filter((c) =>
                         [
                           "Brazil",
-                          "Argentina",
-                          "Chile",
-                          "Peru",
                           "Colombia",
                           "Ecuador",
+                          "Chile",
+                          "Peru",
+                          "Argentina",
+                          "Uruguay",
+                          "Venezuela",
                         ].includes(c.name)
                       )
                       .map((cont) => (
