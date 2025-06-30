@@ -32,6 +32,8 @@ export default function BoatDetailPage() {
   const city = searchParams.get("city");
   const country = searchParams.get("country");
   const withSkipper = searchParams.get("withSkipper");
+  const type = searchParams.get("type");
+  const owner = searchParams.get("owner");
 
   const [current, setCurrent] = useState(0);
 
@@ -143,25 +145,26 @@ export default function BoatDetailPage() {
           </div>
 
           <div>
-            {withSkipper == "yes" && (
-              <div className="flex items-center space-x-2 mb-4">
-                <Languages />
-                <div className="flex flex-col">
-                  <strong>With Skipper</strong>
-                  <span className="text-md text-gray-600">
-                    You will be accompanied by a skipper speaking French,
-                    English, Spanish
-                  </span>
+            {type?.toLowerCase() !== "rigid inflatable boat (kayak)" &&
+              withSkipper === "yes" && (
+                <div className="flex items-center space-x-2 mb-4">
+                  <Languages />
+                  <div className="flex flex-col">
+                    <strong>With Skipper</strong>
+                    <span className="text-md text-gray-600">
+                      You will be accompanied by a skipper speaking French,
+                      English, Spanish
+                    </span>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
             <div className="flex items-center space-x-2 mb-4">
               <Trophy className="" />
               <div className="flex flex-col">
                 <strong>Super Owner</strong>
                 <span className="text-md text-gray-600">
-                  Daniel is an experienced boat renter with excellent reviews
+                  {owner} is an experienced boat renter with excellent reviews
                   and is committed to providing quality services
                 </span>
               </div>
@@ -207,7 +210,7 @@ export default function BoatDetailPage() {
       </div>
 
       {/* Modal for placing order */}
-      <Dialog
+      {/* <Dialog
         open={modalOpen}
         onClose={() => setModalOpen(false)}
         className="fixed z-50 inset-0 overflow-y-auto"
@@ -241,7 +244,6 @@ export default function BoatDetailPage() {
                 <strong>With Skipper:</strong>{" "}
                 {withSkipper === "yes" ? "Yes" : "No"}
               </div>
-              {/* Add more fields as needed */}
             </div>
             <Button
               type="button"
@@ -255,7 +257,7 @@ export default function BoatDetailPage() {
             </Button>
           </div>
         </div>
-      </Dialog>
+      </Dialog> */}
       <Footer />
     </div>
   );
