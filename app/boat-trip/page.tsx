@@ -884,14 +884,19 @@ export default function BoatsPage() {
                               </div>
                               <div className="bg-gray-100 rounded p-3 mt-2 ">
                                 <div>
-                                  <div className="flex flex-row items-center gap-2 md:text-xs">
-                                    <LucideCheck color="blue" size={15} />
-                                    <div>Fuel included</div>
-                                  </div>
-                                  <div className="flex flex-row items-center gap-2 md:text-xs">
-                                    <LucideCheck color="blue" size={15} />
-                                    <div>Skipper included</div>
-                                  </div>
+                                  {boat.type.toLowerCase() !==
+                                    "rigid inflatable boat (kayak)" && (
+                                    <>
+                                      <div className="flex flex-row items-center gap-2 md:text-xs">
+                                        <LucideCheck color="blue" size={15} />
+                                        <div>Fuel included</div>
+                                      </div>
+                                      <div className="flex flex-row items-center gap-2 md:text-xs">
+                                        <LucideCheck color="blue" size={15} />
+                                        <div>Skipper included</div>
+                                      </div>
+                                    </>
+                                  )}
                                 </div>
                                 <div className="mt-2 flex flex-col items-start">
                                   {/* <div className="font-semibold">
@@ -901,6 +906,14 @@ export default function BoatsPage() {
                                     For groups of up to {boat.capacity} people
                                   </div>
                                 </div>
+                              </div>
+                              <div className="mt-4">
+                                <Button
+                                  className="bg-blue-600 hover:bg-blue-700 w-full"
+                                  size="lg"
+                                >
+                                  View Details
+                                </Button>
                               </div>
                             </CardContent>
                           </Card>
