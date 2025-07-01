@@ -646,25 +646,6 @@ export default function ContactPage() {
                     className="flex items-start space-x-4 p-4 bg-white rounded-lg shadow-md"
                   >
                     <div className="bg-blue-100 p-3 rounded-lg">
-                      <MapPin className="h-6 w-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">
-                        Head Office
-                      </h4>
-                      <p className="text-gray-600">123 Travel Street</p>
-                      <p className="text-gray-600">Adventure City, AC 12345</p>
-                      <p className="text-sm text-gray-500 mt-1">
-                        Visit by appointment
-                      </p>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="flex items-start space-x-4 p-4 bg-white rounded-lg shadow-md"
-                  >
-                    <div className="bg-blue-100 p-3 rounded-lg">
                       <Clock className="h-6 w-6 text-blue-600" />
                     </div>
                     <div>
