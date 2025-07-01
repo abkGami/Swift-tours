@@ -81,10 +81,11 @@ const transferOptions = [
     icon: Plane,
     description: "VIP helicopter transfers for ultimate luxury and speed",
     features: [
-      "Scenic routes",
-      "Time-saving",
-      "Exclusive experience",
-      "Professional pilots",
+      "COA IT.AOC.0167",
+      "CAMO IT.MG.0167",
+      "AMO IT.145.0377",
+      "ATO IT.ATO.0098",
+      "UNI EN ISO 9001:2015",
     ],
     vehicles: ["Airbus H125", "Bell 407", "Robinson R44", "Luxury helicopters"],
     price: "From $1,200/hour",
@@ -257,9 +258,15 @@ export default function TransfersPage() {
                     <CardContent className="flex-1">
                       <div className="space-y-4">
                         <div>
-                          <h4 className="font-semibold text-gray-900 mb-2">
-                            Features
-                          </h4>
+                          {option.title === "Helicopter Transfers" ? (
+                            <h4 className="font-semibold text-gray-900 mb-2">
+                              Ceritifications
+                            </h4>
+                          ) : (
+                            <h4 className="font-semibold text-gray-900 mb-2">
+                              Features
+                            </h4>
+                          )}
                           <div className="space-y-1">
                             {option.features.map((feature) => (
                               <div

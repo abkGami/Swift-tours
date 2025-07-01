@@ -1788,36 +1788,27 @@ export default function BoatsPage() {
                 <strong>Return Date:</strong> {orderForm.returnDate}
               </div>
             </div> */}
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Departure Date
-              </label>
-              <input
-                type="date"
-                value={orderForm.departureDate}
-                min={new Date().toISOString().split("T")[0]}
-                onChange={(e) =>
-                  setOrderForm({ ...orderForm, departureDate: e.target.value })
-                }
-                className="w-full px-3 py-2 border border-gray-300 rounded-md"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Return Date
-              </label>
-              <input
-                type="date"
-                value={orderForm.returnDate}
-                min={
-                  orderForm.departureDate ||
-                  new Date().toISOString().split("T")[0]
-                }
-                onChange={(e) =>
-                  setOrderForm({ ...orderForm, returnDate: e.target.value })
-                }
-                className="w-full px-3 py-2 border border-gray-300 rounded-md"
-              />
+            <div className="space-y-4 mb-4">
+              <div>
+                <strong>Departure Date:</strong>{" "}
+                <input
+                  type="date"
+                  className="border border-gray-300 rounded px-2 py-1 ml-2"
+                  value={departureDate}
+                  min={new Date().toISOString().split("T")[0]}
+                  onChange={(e) => setDepartureDate(e.target.value)}
+                />
+              </div>
+              <div>
+                <strong>Return Date:</strong>{" "}
+                <input
+                  type="date"
+                  className="border border-gray-300 rounded px-2 py-1 ml-2"
+                  value={returnDate}
+                  min={new Date().toISOString().split("T")[0]}
+                  onChange={(e) => setReturnDate(e.target.value)}
+                />
+              </div>
             </div>
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -1853,7 +1844,7 @@ export default function BoatsPage() {
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Message
               </label>
-              <textarea
+              {/* <textarea
                 className="w-full px-3 py-2 border border-gray-300 rounded-md"
                 rows={4}
                 value={`Hello, I'm interested in the ${
@@ -1864,7 +1855,32 @@ export default function BoatsPage() {
                   orderForm.returnDate
                 }. My budget is €${selectedBudget} and there will be ${numPeople} of us on board. Is it possible to make reservation? Thank You`}
                 readOnly
-              />
+              /> */}
+              <div
+                className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white"
+                style={{ minHeight: 120, whiteSpace: "pre-line" }}
+                contentEditable={false}
+                suppressContentEditableWarning
+              >
+                {`Hello`}
+                {`, I'm interested in the `}
+                <b>{selectedBoat?.name || ""}</b>
+                {` at `}
+                <b>{orderForm.city}</b>
+                {`, `}
+                <b>{orderForm.country}</b>
+                {` from `}
+                <b>{departureDate}</b>
+                {` to `}
+                <b>{returnDate}</b>
+                {`. My budget is `}
+                <b>{`€${selectedBudget}`}</b>
+                {` and there will be `}
+                <b>{numPeople}</b>
+                {` of us on board. Is it possible to make reservation? `}
+                <br />
+                {` Thank You. `}
+              </div>
             </div>
             <Button
               type="button"
