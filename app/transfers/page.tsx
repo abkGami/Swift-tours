@@ -19,6 +19,7 @@ import Footer from "@/components/footer";
 import SlideshowAlbum from "@/components/slideshow-album";
 import { useRouter } from "next/navigation";
 import ContactPage from "./booking/[id]";
+import { useState } from "react";
 
 const transferOptions = [
   {
@@ -143,9 +144,16 @@ const transferOptions = [
 
 export default function TransfersPage() {
   const router = useRouter();
+  const [selectedTransfer, setSelectedTransfer] = useState<string | null>(null);
 
-  const handleClick = () => {
-    router.push("transfers/booking");
+  const handleClick = (optionTitle: string) => {
+    setSelectedTransfer(optionTitle);
+    // Pass the selected transfer title as a query param
+    router.push(`/transfers/booking/${encodeURIComponent(optionTitle)}`);
+  };
+
+  const handleClick1 = () => {
+    router.push("/contact");
   };
 
   return (
@@ -307,14 +315,11 @@ export default function TransfersPage() {
 
                       <div className="flex space-x-2 mt-6">
                         <Button
-                          onClick={handleClick}
+                          onClick={() => handleClick(option.title)}
                           className="flex-1 bg-blue-600 hover:bg-blue-700"
                         >
                           Book Ride{" "}
                         </Button>
-                        {/* <Button variant="outline" className="flex-1">
-                          Learn More
-                        </Button> */}
                       </div>
                     </CardContent>
                   </Card>
@@ -360,7 +365,7 @@ export default function TransfersPage() {
                   <div className="text-blue-100 mb-4">
                     Multi-transfer packages
                   </div>
-                  <Button onClick={handleClick} variant="secondary" size="lg">
+                  <Button onClick={handleClick1} variant="secondary" size="lg">
                     Contact Us
                   </Button>
                 </div>
