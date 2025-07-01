@@ -18,7 +18,6 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import SlideshowAlbum from "@/components/slideshow-album";
 import { useRouter } from "next/navigation";
-import ContactPage from "./booking/[id]";
 import { useState } from "react";
 
 const transferOptions = [
@@ -149,7 +148,7 @@ export default function TransfersPage() {
   const handleClick = (optionTitle: string) => {
     setSelectedTransfer(optionTitle);
     // Use absolute path for navigation
-    router.push(`/bookings/${encodeURIComponent(optionTitle)}`);
+    router.push(`/transfers/booking/${encodeURIComponent(optionTitle)}`);
   };
 
   const handleClick1 = () => {

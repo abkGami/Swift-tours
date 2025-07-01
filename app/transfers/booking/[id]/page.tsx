@@ -21,7 +21,7 @@ import Script from "next/script";
 import { useRef, useEffect } from "react";
 import Link from "next/link";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
-import { useRouter } from "next/router"; // or useSearchParams if using app router
+import { useParams } from "next/navigation";
 
 // import PaymentsPage from "../Payment";
 
@@ -33,8 +33,8 @@ declare global {
 }
 
 export default function ContactPage() {
-  const router = useRouter();
-  const { id } = router.query; // id will be the transfer option title
+  const params = useParams();
+  const id = decodeURIComponent(params.id as string);
 
   const [flightNumber, setFlightNumber] = useState("");
 
@@ -449,21 +449,9 @@ export default function ContactPage() {
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Travel Interest <span className="text-red-500"> *</span>
                       </label>
-                      <select
-                        name="interest"
-                        value={form.interest}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        required
-                      >
-                        <option value="">Select your interest</option>
-                        <option value="boats">Chartered Boats</option>
-                        <option value="Tours">Tours</option>
-                        <option value="boat">Boats Trip</option>
-                        <option value="transfers">Luxury Transfers</option>
-                        <option value="custom">Custom Package</option>
-                        <option value="group">Private Driver</option>
-                      </select>
+                      <div className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white">
+                        <h1 className="font-medium text-gray-700">{id}</h1>
+                      </div>
                     </div>
 
                     <div>
