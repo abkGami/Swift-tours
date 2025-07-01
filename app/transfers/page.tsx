@@ -18,6 +18,7 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import SlideshowAlbum from "@/components/slideshow-album";
 import { useRouter } from "next/navigation";
+import ContactPage from "./booking/[id]";
 
 const transferOptions = [
   {
@@ -144,12 +145,13 @@ export default function TransfersPage() {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push("/contact");
+    router.push("transfers/booking");
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
       <Navigation />
+      {/* <ContactPage /> */}
 
       {/* Hero Section */}
       <section className="pt-20 pb-16 relative overflow-hidden">
@@ -369,7 +371,7 @@ export default function TransfersPage() {
       </section>
 
       {/* Slideshow Album */}
-      <SlideshowAlbum />
+      {/* <SlideshowAlbum /> */}
 
       <Footer />
     </div>
