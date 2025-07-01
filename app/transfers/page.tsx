@@ -148,8 +148,8 @@ export default function TransfersPage() {
 
   const handleClick = (optionTitle: string) => {
     setSelectedTransfer(optionTitle);
-    // Pass the selected transfer title as a query param
-    router.push(`/transfers/booking/${encodeURIComponent(optionTitle)}`);
+    // Use absolute path for navigation
+    router.push(`/bookings/${encodeURIComponent(optionTitle)}`);
   };
 
   const handleClick1 = () => {
