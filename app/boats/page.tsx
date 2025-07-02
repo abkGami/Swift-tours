@@ -924,6 +924,15 @@ export default function BoatsPage() {
     },
   ];
 
+  const [modalOpen, setModalOpen] = useState(false);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [contactForm, setContactForm] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+  });
+
   // Add slideshow index state for each boat card
   const [slideIndexes, setSlideIndexes] = useState<{ [key: string]: number }>(
     {}
@@ -1032,7 +1041,7 @@ export default function BoatsPage() {
   const [departureDate, setDepartureDate] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const [modalOpen, setModalOpen] = useState(false);
+  // const [modalOpen, setModalOpen] = useState(false);
   const [selectedBoat, setSelectedBoat] = useState<Boat | null>(null);
   const [orderForm, setOrderForm] = useState({
     city: "",
@@ -1887,11 +1896,106 @@ export default function BoatsPage() {
               className="w-full bg-blue-600 hover:bg-blue-700 mt-2"
               onClick={() => {
                 setModalOpen(false);
-                alert("Quotation request sent!");
+                // alert("Quotation request sent!");
+                                setContactModalOpen(true);
+
               }}
             >
               Submit Request
             </Button>
+          </div>
+        </div>
+      </Dialog>
+
+        {/* Contact Info Modal */}
+      <Dialog
+        open={contactModalOpen}
+        onClose={() => setContactModalOpen(false)}
+        className="fixed z-50 inset-0 overflow-y-auto"
+      >
+        <div className="flex items-center justify-center min-h-screen px-4">
+          <div className="fixed inset-0 bg-black bg-opacity-40" />
+          <div className="relative bg-white rounded-lg shadow-xl max-w-lg w-full mx-auto p-8 z-50">
+            <button
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-700"
+              onClick={() => setContactModalOpen(false)}
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <Dialog.Title className="text-2xl font-bold mb-4 text-gray-900">
+              Enter Your Contact Details
+            </Dialog.Title>
+            <form
+              className="space-y-4"
+              onSubmit={e => {
+                e.preventDefault();
+                setContactModalOpen(false);
+                alert("Thank you! Your request has been submitted.");
+              }}
+            >
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  value={contactForm.firstName}
+                  onChange={e =>
+                    setContactForm({ ...contactForm, firstName: e.target.value })
+                  }
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  value={contactForm.lastName}
+                  onChange={e =>
+                    setContactForm({ ...contactForm, lastName: e.target.value })
+                  }
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  value={contactForm.phone}
+                  onChange={e =>
+                    setContactForm({ ...contactForm, phone: e.target.value })
+                  }
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  value={contactForm.email}
+                  onChange={e =>
+                    setContactForm({ ...contactForm, email: e.target.value })
+                  }
+                />
+              </div>
+              <Button
+                type="submit"
+                className="w-full bg-blue-600 hover:bg-blue-700 mt-2"
+              >
+                Submit
+              </Button>
+            </form>
           </div>
         </div>
       </Dialog>
