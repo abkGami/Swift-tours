@@ -1301,6 +1301,20 @@ export default function BoatsPage() {
                         </option>
                       ))}
                   </optgroup>
+                  <optgroup label="Oceania">
+                    {country
+                      .filter((c) =>
+                        [
+                          "Tahiti",
+                          "Hawaii",
+                        ].includes(c.name)
+                      )
+                      .map((cont) => (
+                        <option key={cont.name} value={cont.name}>
+                          {cont.name}
+                        </option>
+                      ))}
+                  </optgroup>
                   <optgroup label="Asia">
                     {country
                       .filter((c) =>
