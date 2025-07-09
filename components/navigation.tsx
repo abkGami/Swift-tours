@@ -79,6 +79,11 @@ export default function Navigation() {
           subItems: [
             { name: "Egypt", href: "/destinations/africa/egypt" },
             { name: "Morocco", href: "/destinations/africa/morocco" },
+            { name: "Kenya", href: "/destinations/africa/kenya" },
+            { name: "Tanzania", href: "/destinations/africa/tanzania" },
+            { name: "South Africa", href: "/destinations/africa/south-africa" },
+            { name: "Seychelles", href: "/destinations/africa/seychelles" },
+            { name: "Tunisia", href: "/destinations/africa/tunisia" },
           ],
         },
         {
