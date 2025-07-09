@@ -64,8 +64,8 @@ const countryAssignments: Record<string, { emails: string[]; cities: string[] }>
     cities: ["London", "Manchester", "Edinburgh", "Glasgow"],
   },
   Italy: {
-    emails: ["emilypedro347@outlook.com", "ivanaivetic@outlook.com"],
-    cities: ["Venice", "Rome"],
+    emails: ["emilypedro347@outlook.com", "ivanaivetic@outlook.com", "sofiagerald037@outlook.com", "captainmartin267@gmail.com",],
+    cities: ["Venice", "Rome", ],
   },
   Germany: {
     emails: ["sandranedcit@gmail.com", "isabella7hunters@gmail.com"],
