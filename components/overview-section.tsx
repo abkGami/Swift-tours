@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 
 const overviewCards = [
   {
-    title: "Tours",
+    title: "Tour Destinations",
     description:
       "Explore vibrant cities, cultural landmarks, and hidden gems with our expertly guided tours. ",
     icon: MapPin,

@@ -95,17 +95,20 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
               {[
-                "Tours",
-                "Boat Trip",
-                "Luxury Transfers",
-                "Boat Charters",
-                "Custom Packages",
-                "Group Travel",
+                { label: "Tour Destinations", href: "/destinations" },
+                { label: "Boat Trip", href: "/boat-trip" },
+                { label: "Chartered Boats", href: "/boats" },
+                { label: "Transfers", href: "/transfers" },
+                { label: "Contact Us", href: "/contact" },
+                { label: "Customer Reviews", href: "/reviews" },
               ].map((service) => (
-                <li key={service}>
-                  <span className="text-gray-400 hover:text-white transition-colors duration-200">
-                    {service}
-                  </span>
+                <li key={service.label}>
+                  <a
+                    href={service.href}
+                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                  >
+                    {service.label}
+                  </a>
                 </li>
               ))}
             </ul>

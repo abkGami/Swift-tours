@@ -26,7 +26,7 @@ export default function Navigation() {
 
   const navItems = [
     {
-      name: "Destinations",
+      name: "Tour Destinations",
       href: "/destinations",
       hasDropdown: true,
       dropdownItems: [
