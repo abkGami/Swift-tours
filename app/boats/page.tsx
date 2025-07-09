@@ -992,6 +992,48 @@ export default function BoatsPage() {
     "Lamu",
   ],
 },
+{
+  name: "Tanzania",
+  countries: [
+    "Zanzibar",
+    "Dar es Salaam",
+    "Pemba Island",
+    "Mafia Island",
+    "Bagamoyo",
+  ],
+},
+{
+  name: "South Africa",
+  countries: [
+    "Cape Town",
+    "Durban",
+    "Port Elizabeth",
+    "Knysna",
+    "Mossel Bay",
+  ],
+},
+{
+  name: "Egypt",
+  countries: [
+    "Sharm El Sheikh",
+    "Hurghada",
+    "Marsa Alam",
+    "Dahab",
+    "Alexandria",
+  ],
+},
+{
+  name: "Tunisia",
+  countries: [
+    "Djerba",
+    "Hammamet",
+    "Sousse",
+    "Monastir",
+    "Bizerte",
+  ],
+},
+
+
 ];
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -1403,6 +1445,10 @@ export default function BoatsPage() {
                         [
                           "Seychelles",
                           "Kenya",
+                          "Tanzania",
+                           "South Africa",
+                           "Egypt",
+                           "Tunisia",
                         ].includes(c.name)
                       )
                       .map((cont) => (

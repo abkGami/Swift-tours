@@ -419,6 +419,47 @@ export default function BoatsPage() {
     { name: "Lamu", snorkeling: true },
   ],
 },
+{
+  name: "Tanzania",
+  cities: [
+    { name: "Zanzibar", snorkeling: true },
+    { name: "Dar es Salaam", snorkeling: true },
+    { name: "Pemba Island", snorkeling: true },
+    { name: "Mafia Island", snorkeling: true },
+    { name: "Bagamoyo", snorkeling: false },
+  ],
+},
+{
+  name: "South Africa",
+  cities: [
+    { name: "Cape Town", snorkeling: true },
+    { name: "Durban", snorkeling: true },
+    { name: "Port Elizabeth", snorkeling: true },
+    { name: "Knysna", snorkeling: false },
+    { name: "Mossel Bay", snorkeling: false },
+  ],
+},
+{
+  name: "Egypt",
+  cities: [
+    { name: "Sharm El Sheikh", snorkeling: true },
+    { name: "Hurghada", snorkeling: true },
+    { name: "Marsa Alam", snorkeling: true },
+    { name: "Dahab", snorkeling: true },
+    { name: "Alexandria", snorkeling: false },
+  ],
+},
+{
+  name: "Tunisia",
+  cities: [
+    { name: "Djerba", snorkeling: true },
+    { name: "Hammamet", snorkeling: true },
+    { name: "Sousse", snorkeling: true },
+    { name: "Monastir", snorkeling: true },
+    { name: "Bizerte", snorkeling: false },
+  ],
+},
+
   ];
 
   const tripTitles = [
@@ -649,6 +690,10 @@ export default function BoatsPage() {
                         [
                           "Seychelles",
                           "Kenya",
+                          "Tanzania",
+                          "South Africa",
+                          "Egypt",
+                          "Tunisia",
                         ].includes(c.name)
                       )
                       .map((cont) => (
