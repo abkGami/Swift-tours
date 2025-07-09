@@ -373,6 +373,52 @@ export default function BoatsPage() {
         { name: "Molokai", snorkeling: true },
       ],
     },
+    {
+  name: "Costa Rica",
+  cities: [
+    { name: "Quepos", snorkeling: true },
+    { name: "Tamarindo", snorkeling: true },
+    { name: "Jaco", snorkeling: false },
+    { name: "Gulf of Papagayo", snorkeling: true },
+    { name: "Cahuita", snorkeling: true },
+    { name: "Puntarenas", snorkeling: false },
+  ],
+},
+
+{
+  name: "Mexico",
+  cities: [
+    { name: "Cabo San Lucas", snorkeling: true },
+    { name: "Cancun", snorkeling: true },
+    { name: "Puerto Vallarta", snorkeling: true },
+    { name: "Playa del Carmen", snorkeling: true },
+    { name: "Mazatlán", snorkeling: true },
+    { name: "Acapulco", snorkeling: true },
+    { name: "La Paz", snorkeling: true },
+  ],
+},
+
+{
+  name: "Seychelles",
+  cities: [
+    { name: "Mahé", snorkeling: true },
+    { name: "Praslin", snorkeling: true },
+    { name: "La Digue", snorkeling: true },
+    { name: "Silhouette Island", snorkeling: true },
+    { name: "Fregate Island", snorkeling: true },
+  ],
+},
+
+{
+  name: "Kenya",
+  cities: [
+    { name: "Mombasa", snorkeling: true },
+    { name: "Diani Beach", snorkeling: true },
+    { name: "Watamu", snorkeling: true },
+    { name: "Malindi", snorkeling: true },
+    { name: "Lamu", snorkeling: true },
+  ],
+},
   ];
 
   const tripTitles = [
@@ -575,6 +621,34 @@ export default function BoatsPage() {
                           "Malaysia",
                           "Maldives",
                           "Sri Lanka",
+                        ].includes(c.name)
+                      )
+                      .map((cont) => (
+                        <option key={cont.name} value={cont.name}>
+                          {cont.name}
+                        </option>
+                      ))}
+                  </optgroup>
+                  <optgroup label="North America">
+                    {country
+                      .filter((c) =>
+                        [
+                          "Costa Rica",
+                          "Mexico",
+                        ].includes(c.name)
+                      )
+                      .map((cont) => (
+                        <option key={cont.name} value={cont.name}>
+                          {cont.name}
+                        </option>
+                      ))}
+                  </optgroup>
+                  <optgroup label="Africa">
+                    {country
+                      .filter((c) =>
+                        [
+                          "Seychelles",
+                          "Kenya",
                         ].includes(c.name)
                       )
                       .map((cont) => (

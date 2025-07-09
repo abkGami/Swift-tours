@@ -946,6 +946,52 @@ export default function BoatsPage() {
     "Molokai",
   ],
 },
+{
+  name: "Costa Rica",
+  countries: [
+    "Quepos",
+    "Tamarindo",
+    "Jaco",
+    "Gulf of Papagayo",
+    "Cahuita",
+    "Puntarenas",
+  ],
+},
+
+{
+  name: "Mexico",
+  countries: [
+    "Cabo San Lucas",
+    "Cancun",
+    "Puerto Vallarta",
+    "Playa del Carmen",
+    "Mazatlán",
+    "Acapulco",
+    "La Paz",
+  ],
+},
+
+{
+  name: "Seychelles",
+  countries: [
+    "Mahé",
+    "Praslin",
+    "La Digue",
+    "Silhouette Island",
+    "Fregate Island",
+  ],
+},
+
+{
+  name: "Kenya",
+  countries: [
+    "Mombasa",
+    "Diani Beach",
+    "Watamu",
+    "Malindi",
+    "Lamu",
+  ],
+},
 ];
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -1330,6 +1376,33 @@ export default function BoatsPage() {
                           "Maldives",
                           "Turkey",
                           "United Arab Emirates",
+                        ].includes(c.name)
+                      )
+                      .map((cont) => (
+                        <option key={cont.name} value={cont.name}>
+                          {cont.name}
+                        </option>
+                      ))}
+                  </optgroup>
+                    <optgroup label="North America">
+                    {country
+                      .filter((c) =>
+                        [
+                          "Costa Rica",
+                          "Mexico",
+                        ].includes(c.name)
+                      )
+                      .map((cont) => (
+                        <option key={cont.name} value={cont.name}>
+                          {cont.name}
+                        </option>
+                      ))}
+                  </optgroup>  <optgroup label="Oceania">
+                    {country
+                      .filter((c) =>
+                        [
+                          "Seychelles",
+                          "Kenya",
                         ].includes(c.name)
                       )
                       .map((cont) => (
