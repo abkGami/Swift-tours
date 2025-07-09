@@ -9,139 +9,139 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { useRouter } from "next/navigation";
 
-const egyptCities = [
+const southAfricaCities = [
   {
-    name: "Cairo",
+    name: "Cape Town",
     description:
-      "Egypt's bustling capital, home to ancient wonders like the Pyramids of Giza and a vibrant modern culture.",
-    image: "/placeholder.svg?height=300&width=400",
+      "A vibrant city nestled between mountains and sea, famous for Table Mountain, Robben Island, and stunning beaches.",
+    image: "/south-africa/cape-town.jpg",
     rating: 4.9,
-    duration: "3-4 days",
-    category: "Historical Metropolis",
+    duration: "3-5 days",
+    category: "Scenic City",
     highlights: [
-      "pyramids of giza",
-      "egyptian museum",
-      "khan el-khalili bazaar",
-      "cairo tower",
+      "table mountain",
+      "v&a waterfront",
+      "robben island",
+      "boulders beach penguins",
     ],
   },
   {
-    name: "Luxor",
+    name: "Johannesburg",
     description:
-      "Often referred to as the world's greatest open-air museum, Luxor is filled with ancient temples and royal tombs.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.8,
+      "South Africa’s largest city, a dynamic metropolis known for its history, culture, and vibrant urban life.",
+    image: "/south-africa/johannesburg.jpg",
+    rating: 4.7,
     duration: "2-3 days",
-    category: "Ancient City",
+    category: "Urban & Heritage",
     highlights: [
-      "karnak temple",
-      "valley of the kings",
-      "luxor temple",
-      "hatshepsut temple",
+      "apartheid museum",
+      "mandela house",
+      "maboneng precinct",
+      "gold reef city",
     ],
   },
   {
-    name: "Aswan",
+    name: "Durban",
     description:
-      "A serene city on the Nile known for its beautiful islands, Nubian culture, and the majestic Philae Temple.",
-    image: "/placeholder.svg?height=300&width=400",
+      "A coastal city with golden beaches, a warm subtropical climate, and a unique blend of Zulu, Indian, and colonial influences.",
+    image: "/south-africa/durban.jpg",
+    rating: 4.7,
+    duration: "2-4 days",
+    category: "Beach & Culture",
+    highlights: [
+      "umhlanga rocks",
+      "golden mile",
+      "ushaka marine world",
+      "indian quarter",
+    ],
+  },
+  {
+    name: "Kruger National Park",
+    description:
+      "One of Africa’s largest game reserves, renowned for its Big Five safaris and diverse wildlife experiences.",
+    image: "/south-africa/kruger.jpg",
+    rating: 4.9,
+    duration: "2-4 days",
+    category: "Safari Destination",
+    highlights: [
+      "big five safari",
+      "panorama route",
+      "guided bush walks",
+      "birdwatching",
+    ],
+  },
+  {
+    name: "Garden Route",
+    description:
+      "A breathtaking stretch of coastline with forests, lagoons, and adventure activities, perfect for road trips.",
+    image: "/south-africa/garden-route.jpg",
+    rating: 4.8,
+    duration: "3-5 days",
+    category: "Road Trip & Nature",
+    highlights: [
+      "knysna heads",
+      "tsitsikamma national park",
+      "plettenberg bay",
+      "stormsrivier bridge",
+    ],
+  },
+  {
+    name: "Stellenbosch",
+    description:
+      "A charming university town in the heart of wine country, known for its Cape Dutch architecture and vineyards.",
+    image: "/south-africa/stellenbosch.jpg",
     rating: 4.7,
     duration: "1-2 days",
-    category: "Nile Getaway",
+    category: "Wine & Culture",
     highlights: [
-      "philae temple",
-      "nubian village",
-      "aswan high dam",
-      "elephantine island",
-    ],
-  },
-  {
-    name: "Alexandria",
-    description:
-      "A Mediterranean city rich in Greco-Roman history, beautiful coastline, and cosmopolitan atmosphere.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.6,
-    duration: "2-3 days",
-    category: "Coastal Heritage",
-    highlights: [
-      "citadel of qaitbay",
-      "alexandria library",
-      "roman amphitheater",
-      "montaza palace",
-    ],
-  },
-  {
-    name: "Sharm El Sheikh",
-    description:
-      "A resort town on the Red Sea famed for its diving spots, coral reefs, and luxurious beaches.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "3-4 days",
-    category: "Beach Paradise",
-    highlights: [
-      "ras mohamed park",
-      "naama bay",
-      "soho square",
-      "diving in red sea",
-    ],
-  },
-  {
-    name: "Siwa Oasis",
-    description:
-      "A remote and mystical desert oasis with Berber culture, salt lakes, and ancient ruins.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.6,
-    duration: "2 days",
-    category: "Desert Retreat",
-    highlights: [
-      "temple of the oracle",
-      "cleopatra spring",
-      "salt lakes",
-      "shali fortress",
+      "wine tasting",
+      "historic town center",
+      "jonkershoek nature reserve",
+      "art galleries",
     ],
   },
 ];
 
-const egyptAttractions = [
+const southAfricaAttractions = [
   {
-    name: "Pyramids of Giza",
+    name: "Table Mountain",
     description:
-      "The last surviving wonder of the ancient world, a majestic and awe-inspiring testament to Egypt's ancient civilization.",
-    image: "/placeholder.svg?height=300&width=400",
+      "An iconic flat-topped mountain offering panoramic views of Cape Town and the Atlantic Ocean. Accessible by cable car or hiking.",
+    image: "/south-africa/table-mountain.jpg",
   },
   {
-    name: "Valley of the Kings",
+    name: "Kruger National Park",
     description:
-      "A burial ground for pharaohs, filled with richly decorated tombs including that of Tutankhamun.",
-    image: "/placeholder.svg?height=300&width=400",
+      "World-famous for its Big Five safaris, guided bush walks, and diverse wildlife in a vast natural setting.",
+    image: "/south-africa/kruger-attraction.jpg",
   },
   {
-    name: "Abu Simbel Temples",
+    name: "Robben Island",
     description:
-      "Massive rock temples built by Ramses II, relocated to save them from the rising waters of Lake Nasser.",
-    image: "/placeholder.svg?height=300&width=400",
+      "A UNESCO World Heritage Site where Nelson Mandela was imprisoned, now a symbol of freedom and reconciliation.",
+    image: "/south-africa/robben-island.jpg",
   },
   {
-    name: "Nile River Cruise",
+    name: "Boulders Beach",
     description:
-      "A scenic and relaxing way to experience ancient Egypt, sailing between Luxor and Aswan.",
-    image: "/placeholder.svg?height=300&width=400",
+      "A sheltered beach near Simon’s Town, home to a colony of African penguins and crystal-clear waters.",
+    image: "/south-africa/boulders-beach.jpg",
   },
   {
-    name: "White Desert",
+    name: "Garden Route",
     description:
-      "A surreal landscape of chalk rock formations shaped by wind and sand, perfect for adventure and stargazing.",
-    image: "/placeholder.svg?height=300&width=400",
+      "A scenic drive along South Africa’s southern coast, featuring forests, lagoons, and charming towns.",
+    image: "/south-africa/garden-route-attraction.jpg",
   },
   {
-    name: "Cairo Citadel",
+    name: "V&A Waterfront",
     description:
-      "A historic fortress offering panoramic views of Cairo, home to mosques, museums, and rich Islamic architecture.",
-    image: "/placeholder.svg?height=300&width=400",
+      "A lively harbor area in Cape Town with shops, restaurants, entertainment, and views of Table Mountain.",
+    image: "/south-africa/va-waterfront.jpg",
   },
 ];
 
-export default function EgyptPage() {
+export default function SouthAfricaPage() {
   const router = useRouter();
   const handleClick = () => {
     router.push("/contact");
@@ -168,10 +168,12 @@ export default function EgyptPage() {
               <MapPin className="h-8 w-8 mr-3" />
               <span className="text-xl">Africa</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Egypt</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              South Africa
+            </h1>
             <p className="text-xl text-gray-100 max-w-3xl mx-auto mb-8">
-              Discover Egypt's ancient treasures, timeless deserts, and vibrant
-              Nile culture.
+              Explore South Africa’s diverse landscapes, vibrant cities, world-class
+              safaris, and rich cultural heritage.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -181,11 +183,11 @@ export default function EgyptPage() {
               </div>
               <div className="flex items-center">
                 <Users className="h-5 w-5 mr-2" />
-                <span>Perfect for History & Adventure</span>
+                <span>Perfect for Adventure & Culture</span>
               </div>
               <div className="flex items-center">
                 <Calendar className="h-5 w-5 mr-2" />
-                <span>Best in Winter & Spring</span>
+                <span>Best in Spring & Autumn</span>
               </div>
             </div>
 
@@ -195,7 +197,7 @@ export default function EgyptPage() {
               size="lg"
               className="bg-white text-gray-900 hover:bg-gray-100 mt-6"
             >
-              Book Egypt Tour
+              Book South Africa Tour
             </Button>
           </motion.div>
         </div>
@@ -205,21 +207,21 @@ export default function EgyptPage() {
       <section className="py-16 bg-yellow-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-12">
-            Top Cities to Visit
+            Top Cities & Destinations
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {egyptCities.map((city, idx) => (
+            {southAfricaCities.map((city, idx) => (
               <motion.div
                 key={city.name}
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
                 <Card className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                  <img
+                  {/* <img
                     src={city.image}
                     alt={city.name}
                     className="w-full h-48 object-cover"
-                  />
+                  /> */}
                   <CardHeader>
                     <CardTitle className="text-xl">{city.name}</CardTitle>
                     <p className="text-sm text-gray-500">{city.category}</p>
@@ -257,18 +259,18 @@ export default function EgyptPage() {
             Top Attractions
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {egyptAttractions.map((attraction) => (
+            {southAfricaAttractions.map((attraction) => (
               <motion.div
                 key={attraction.name}
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
                 <Card className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                  <img
+                  {/* <img
                     src={attraction.image}
                     alt={attraction.name}
                     className="w-full h-48 object-cover"
-                  />
+                  /> */}
                   <CardHeader>
                     <CardTitle className="text-xl">{attraction.name}</CardTitle>
                   </CardHeader>
