@@ -9,6 +9,94 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import Image from "next/image";
 
+// Assign emails and cities for each country
+const countryAssignments: Record<string, { emails: string[]; cities: string[] }> = {
+  "Saudi Arabia": {
+    emails: ["sandranedcit@gmail.com", "isabella7hunters@gmail.com"],
+    cities: ["Riyadh", "Jeddah"],
+  },
+  Egypt: {
+    emails: ["marmahlulu@yahoo.com", "rerheem7r2@gmail.com"],
+    cities: ["Nile", "Cairo"],
+  },
+  Morocco: {
+    emails: ["charityomeh553@gmail.com", "benkohle7@gmail.com"],
+    cities: ["Marrakech", "Casablanca"],
+  },
+  Hawaii: {
+    emails: ["Elizabethlinconk@gmail.com", "matteo7alessandro@gmail.com"],
+    cities: ["Honolulu", "Maui"],
+  },
+  Tahiti: {
+    emails: ["annie07frank@gmail.com", "sofiagerald037@outlook.com"],
+    cities: ["Papeete", "Moorea"],
+  },
+  Argentina: {
+    emails: ["captainmartin267@gmail.com", "Charlottehamzel@hotmail.com"],
+    cities: ["Buenos Aires", "Patagonia"],
+  },
+  Malta: {
+    emails: ["thomasssteve30@gmail.com", "oliviazerch@outlook.com"],
+    cities: ["Valletta", "Sliema"],
+  },
+  Montenegro: {
+    emails: ["monicahjefferson@hotmail.com", "tiffany.malvin@hotmail.com"],
+    cities: ["Kotor", "Podgorica"],
+  },
+  Portugal: {
+    emails: ["emilypedro347@outlook.com", "ivanaivetic@outlook.com", "sandranedcit@gmail.com"],
+    cities: ["Lisbon", "Porto", "Madeira"],
+  },
+  Japan: {
+    emails: ["isabella7hunters@gmail.com", "marmahlulu@yahoo.com", "rerheem7r2@gmail.com"],
+    cities: ["Tokyo", "Osaka", "Kyoto"],
+  },
+  Spain: {
+    emails: ["charityomeh553@gmail.com", "benkohle7@gmail.com", "Elizabethlinconk@gmail.com", "matteo7alessandro@gmail.com"],
+    cities: ["Barcelona", "Madrid", "Ibiza", "Mallorca"],
+  },
+  France: {
+    emails: ["annie07frank@gmail.com", "sofiagerald037@outlook.com", "captainmartin267@gmail.com", "Charlottehamzel@hotmail.com"],
+    cities: ["Paris", "Nice", "Cannes", "Marseille"],
+  },
+  "United Kingdom": {
+    emails: ["thomasssteve30@gmail.com", "oliviazerch@outlook.com", "monicahjefferson@hotmail.com", "tiffany.malvin@hotmail.com"],
+    cities: ["London", "Manchester", "Edinburgh", "Glasgow"],
+  },
+  Italy: {
+    emails: ["emilypedro347@outlook.com", "ivanaivetic@outlook.com"],
+    cities: ["Venice", "Rome"],
+  },
+  Germany: {
+    emails: ["sandranedcit@gmail.com", "isabella7hunters@gmail.com"],
+    cities: ["Berlin", "Rhine"],
+  },
+  Australia: {
+    emails: ["marmahlulu@yahoo.com", "rerheem7r2@gmail.com"],
+    cities: ["Sydney", "Melbourne"],
+  },
+  Turkey: {
+    emails: ["charityomeh553@gmail.com", "benkohle7@gmail.com"],
+    cities: ["Istanbul", "Ankara"],
+  },
+  Thailand: {
+    emails: ["Elizabethlinconk@gmail.com", "matteo7alessandro@gmail.com"],
+    cities: ["Bangkok", "Phuket"],
+  },
+  Croatia: {
+    emails: ["annie07frank@gmail.com", "sofiagerald037@outlook.com"],
+    cities: ["Dubrovnik", "Split"],
+  },
+  "United Arab Emirates": {
+    emails: ["captainmartin267@gmail.com", "Charlottehamzel@hotmail.com", ],
+    cities: ["Dubai", "Abu Dhabi", ],
+  },
+  Brazil: {
+    emails: ["oliviazerch@outlook.com"],
+    cities: ["Rio de Janeiro"],
+  },
+};
+
 // Dummy reviews data
 // Add a `country` field to each review for filtering
 const reviews = [
@@ -778,31 +866,18 @@ const reviews = [
   },
 ];
 
-const randomEmails = [
-  "sandranedcit@gmail.com",
-  "isabella7hunters@gmail.com",
-  "marmahlulu@yahoo.com",
-  "rerheem7r2@gmail.com",
-  "charityomeh553@gmail.com",
-  "benkohle7@gmail.com",
-  "Elizabethlinconk@gmail.com",
-  "matteo7alessandro@gmail.com",
-  "annie07frank@gmail.com",
-  "sofiagerald037@outlook.com",
-  "captainmartin267@gmail.com",
-  "Charlottehamzel@hotmail.com",
-  "thomasssteve30@gmail.com",
-  "oliviazerch@outlook.com",
-  "monicahjefferson@hotmail.com",
-  "tiffany.malvin@hotmail.com",
-  "emilypedro347@outlook.com",
-  "ivanaivetic@outlook.com",
-];
-
-// Helper to pick a random email
-function getRandomEmail() {
-  return randomEmails[Math.floor(Math.random() * randomEmails.length)];
-}
+// Assign city and email to each review
+const reviewsWithAssignments = reviews.map((review, idx) => {
+  const assignment = countryAssignments[review.country];
+  let city = "";
+  let email = "";
+  if (assignment) {
+    // Use idx % length to cycle if more reviews than assignments
+    city = assignment.cities[idx % assignment.cities.length];
+    email = assignment.emails[idx % assignment.emails.length];
+  }
+  return { ...review, city, email };
+});
 
 function formatDate(dateStr: string) {
   const date = new Date(dateStr);
@@ -819,10 +894,10 @@ export default function ReviewsPage() {
   const [query, setQuery] = useState("");
   // Filter reviews by country (case-insensitive, partial match)
   const filteredReviews = query
-    ? reviews.filter((r) =>
+    ? reviewsWithAssignments.filter((r) =>
         r.country && r.country.toLowerCase().includes(query.trim().toLowerCase())
       )
-    : reviews;
+    : reviewsWithAssignments;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
@@ -891,11 +966,18 @@ export default function ReviewsPage() {
                       className="rounded-full object-cover border-2 border-blue-200"
                     />
                     <div>
-                    <div className="font-semibold text-lg text-gray-900">
+                      <div className="font-semibold text-lg text-gray-900">
                         {review.name}
                       </div>
                       <div className="text-xs text-gray-400 mb-1">
-                        {getRandomEmail()}
+                        {review.email ? (
+                          <a
+                            href={`mailto:${review.email}`}
+                            className="underline hover:text-blue-600 transition"
+                          >
+                            {review.email}
+                          </a>
+                        ) : null}
                       </div>
                       <div className="text-xs text-gray-500">
                         {formatDate(review.date)}
@@ -904,6 +986,7 @@ export default function ReviewsPage() {
                         {review.service}
                       </div>
                       <div className="text-xs text-gray-500 mt-1">
+                        {review.city ? `${review.city}, ` : ""}
                         {review.country}
                       </div>
                     </div>
