@@ -378,7 +378,7 @@ export default function ContactPage() {
                       </div>
                     </div> */}
 
-                    <div>
+                    {/* <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Pick-up Location{" "}
                         <span className="text-red-500"> *</span>
@@ -397,10 +397,10 @@ export default function ContactPage() {
                         }}
                         apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
                       />
-                    </div>
+                    </div> */}
 
                     {/* dropoff  */}
-                    <div>
+                    {/* <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Drop-off Location{" "}
                         <span className="text-red-500"> *</span>
@@ -419,9 +419,9 @@ export default function ContactPage() {
                         }}
                         apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
                       />
-                    </div>
+                    </div> */}
 
-                    <div>
+                    {/* <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Travel Interest <span className="text-red-500"> *</span>
                       </label>
@@ -440,8 +440,8 @@ export default function ContactPage() {
                         <option value="custom">Custom Package</option>
                         <option value="group">Private Driver</option>
                       </select>
-                    </div>
-
+                    </div> */}
+{/* 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Preferred Travel Date
@@ -472,9 +472,9 @@ export default function ContactPage() {
                           />
                         </div>
                       </div>
-                    </div>
+                    </div> */}
 
-                    <div>
+                    {/* <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Budget Range <span className="text-red-500"> *</span>
                       </label>
@@ -500,14 +500,14 @@ export default function ContactPage() {
                               {label}
                             </option>
                           );
-                        })} */}
+                        })}  end of comment
                         <option value="100-500"> €100 - €500 </option>
                         <option value="500-1500"> €500 - €1500 </option>
                         <option value="1500-2500"> €1500 - €2500 </option>
                         <option value="500-1500"> €2500 - €3500 </option>
                         <option value="500-1500"> €3500 - €5000 </option>
                       </select>
-                    </div>
+                    </div> */}
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
