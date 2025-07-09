@@ -349,6 +349,30 @@ export default function BoatsPage() {
         { name: "Margarita Island", snorkeling: true },
       ],
     },
+    {
+      name: "Tahiti",
+      cities: [
+        { name: "Papeete", snorkeling: true },
+        { name: "Moorea", snorkeling: true },
+        { name: "Bora Bora", snorkeling: true },
+        { name: "Raiatea", snorkeling: true },
+        { name: "Huahine", snorkeling: true },
+        { name: "Taha'a", snorkeling: true },
+        { name: "Fakarava", snorkeling: true },
+      ],
+    },
+    {
+      name: "Hawaii",
+      cities: [
+        { name: "Honolulu", snorkeling: true },
+        { name: "Maui", snorkeling: true },
+        { name: "Kauai", snorkeling: true },
+        { name: "Kailua-Kona", snorkeling: true },
+        { name: "Hilo", snorkeling: true },
+        { name: "Lanai", snorkeling: true },
+        { name: "Molokai", snorkeling: true },
+      ],
+    },
   ];
 
   const tripTitles = [
@@ -524,6 +548,15 @@ export default function BoatsPage() {
                           "Iceland",
                         ].includes(c.name)
                       )
+                      .map((cont) => (
+                        <option key={cont.name} value={cont.name}>
+                          {cont.name}
+                        </option>
+                      ))}
+                  </optgroup>
+                  <optgroup label="Oceania">
+                    {country
+                      .filter((c) => ["Tahiti", "Hawaii"].includes(c.name))
                       .map((cont) => (
                         <option key={cont.name} value={cont.name}>
                           {cont.name}
