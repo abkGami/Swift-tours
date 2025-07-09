@@ -291,174 +291,162 @@ export default function ContactPage() {
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <form className="space-y-6" onSubmit={handleSubmit}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
+                  <form className="space-y-8" onSubmit={handleSubmit}>
+                    {/* Personal Information */}
+                    <div>
+                      <h2 className="text-lg font-semibold text-blue-700 mb-4">
+                        Personal Information
+                      </h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            First Name <span className="text-red-500"> *</span>
+                          </label>
+                          <Input
+                            name="firstName"
+                            value={form.firstName}
+                            onChange={handleChange}
+                            placeholder=""
+                            required
+                            className="focus:ring-2 focus:ring-blue-400"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Last Name <span className="text-red-500"> *</span>
+                          </label>
+                          <Input
+                            name="lastName"
+                            value={form.lastName}
+                            onChange={handleChange}
+                            placeholder=""
+                            required
+                            className="focus:ring-2 focus:ring-blue-400"
+                          />
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Email Address <span className="text-red-500"> *</span>
+                          </label>
+                          <Input
+                            name="email"
+                            value={form.email}
+                            onChange={handleChange}
+                            type="email"
+                            placeholder=""
+                            required
+                            className="focus:ring-2 focus:ring-blue-400"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Phone Number <span className="text-red-500"> *</span>
+                          </label>
+                          <Input
+                            name="phone"
+                            value={form.phone}
+                            onChange={handleChange}
+                            type="tel"
+                            placeholder="+1 (555) 123-4567"
+                            className="focus:ring-2 focus:ring-blue-400"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <hr className="my-6 border-blue-100" />
+
+                    {/* Travel Details */}
+                    <div>
+                      <h2 className="text-lg font-semibold text-blue-700 mb-4">
+                        Travel Details
+                      </h2>
+                      {(id === "Helicopter Transfers" ||
+                        id === "Airport Concierge" ||
+                        id === "Helicopter%20Transfers" ||
+                        id === "Airport%20Concierge") && (
+                        <div className="mb-4">
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Flight Number <span className="text-red-500">*</span>
+                          </label>
+                          <Input
+                            name="flightNumber"
+                            value={flightNumber}
+                            onChange={(e) => setFlightNumber(e.target.value)}
+                            placeholder="e.g. BA1234"
+                            required
+                            className="focus:ring-2 focus:ring-blue-400"
+                          />
+                        </div>
+                      )}
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Pick-up Location <span className="text-red-500"> *</span>
+                          </label>
+                          <GooglePlacesAutocomplete
+                            selectProps={{
+                              value: form.pickup
+                                ? { label: form.pickup, value: form.pickup }
+                                : null,
+                              onChange: (option) => {
+                                setForm((prev) => ({
+                                  ...prev,
+                                  pickup: option?.label || "",
+                                }));
+                              },
+                              styles: {
+                                control: (base) => ({
+                                  ...base,
+                                  borderColor: "#3b82f6",
+                                  boxShadow: "0 0 0 1px #3b82f6",
+                                }),
+                              },
+                            }}
+                            apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Drop-off Location <span className="text-red-500"> *</span>
+                          </label>
+                          <GooglePlacesAutocomplete
+                            selectProps={{
+                              value: form.dropoff
+                                ? { label: form.dropoff, value: form.dropoff }
+                                : null,
+                              onChange: (option) => {
+                                setForm((prev) => ({
+                                  ...prev,
+                                  dropoff: option?.label || "",
+                                }));
+                              },
+                              styles: {
+                                control: (base) => ({
+                                  ...base,
+                                  borderColor: "#3b82f6",
+                                  boxShadow: "0 0 0 1px #3b82f6",
+                                }),
+                              },
+                            }}
+                            apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="mt-4">
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          First Name <span className="text-red-500"> *</span>
+                          Travel Interest <span className="text-red-500"> *</span>
                         </label>
-                        <Input
-                          name="firstName"
-                          value={form.firstName}
-                          onChange={handleChange}
-                          placeholder=""
-                          required
-                        />
+                        <div className="w-full px-3 py-2 border border-gray-300 rounded-md bg-blue-50">
+                          <h1 className="font-medium text-gray-700">{id}</h1>
+                        </div>
                       </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Last Name <span className="text-red-500"> *</span>
-                        </label>
-                        <Input
-                          name="lastName"
-                          value={form.lastName}
-                          onChange={handleChange}
-                          placeholder=""
-                          required
-                        />
-                      </div>
-                    </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Email Address <span className="text-red-500"> *</span>
-                      </label>
-                      <Input
-                        name="email"
-                        value={form.email}
-                        onChange={handleChange}
-                        type="email"
-                        placeholder=""
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone Number <span className="text-red-500"> *</span>
-                      </label>
-                      <Input
-                        name="phone"
-                        value={form.phone}
-                        onChange={handleChange}
-                        type="tel"
-                        placeholder="+1 (555) 123-4567"
-                      />
-                    </div>
-
-                    {/* <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Pick-up Location{" "}
-                        <span className="text-red-500"> *</span>
-                      </label>
-                      <div>
-                        <Input
-                          ref={pickupRef}
-                          name="pickup"
-                          value={form.pickup}
-                          onChange={handleChange}
-                          placeholder="Enter pick-up location"
-                          required
-                          autoComplete="off"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Drop-off Location{" "}
-                        <span className="text-red-500"> *</span>
-                      </label>
-                      <div>
-                        <Input
-                          ref={dropoffRef}
-                          name="dropoff"
-                          value={form.dropoff}
-                          onChange={handleChange}
-                          placeholder="Enter drop-off location"
-                          required
-                          autoComplete="off"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                      </div>
-                    </div> */}
-
-                    {(id === "Helicopter Transfers" ||
-                      id === "Airport Concierge" ||
-                      id === "Helicopter%20Transfers" ||
-                      id === "Airport%20Concierge") && (
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Flight Number <span className="text-red-500">*</span>
-                        </label>
-                        <Input
-                          name="flightNumber"
-                          value={flightNumber}
-                          onChange={(e) => setFlightNumber(e.target.value)}
-                          placeholder="e.g. BA1234"
-                          required
-                        />
-                      </div>
-                    )}
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Pick-up Location{" "}
-                        <span className="text-red-500"> *</span>
-                      </label>
-                      <GooglePlacesAutocomplete
-                        selectProps={{
-                          value: form.pickup
-                            ? { label: form.pickup, value: form.pickup }
-                            : null,
-                          onChange: (option) => {
-                            setForm((prev) => ({
-                              ...prev,
-                              pickup: option?.label || "",
-                            }));
-                          },
-                        }}
-                        apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
-                      />
-                    </div>
-
-                    {/* dropoff  */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Drop-off Location{" "}
-                        <span className="text-red-500"> *</span>
-                      </label>
-                      <GooglePlacesAutocomplete
-                        selectProps={{
-                          value: form.dropoff
-                            ? { label: form.dropoff, value: form.dropoff }
-                            : null,
-                          onChange: (option) => {
-                            setForm((prev) => ({
-                              ...prev,
-                              dropoff: option?.label || "",
-                            }));
-                          },
-                        }}
-                        apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Travel Interest <span className="text-red-500"> *</span>
-                      </label>
-                      <div className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white">
-                        <h1 className="font-medium text-gray-700">{id}</h1>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Preferred Travel Date
-                      </label>
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
                             Start Date <span className="text-red-500"> *</span>
@@ -469,6 +457,7 @@ export default function ContactPage() {
                             onChange={handleChange}
                             type="date"
                             required
+                            className="focus:ring-2 focus:ring-blue-400"
                           />
                         </div>
                         <div>
@@ -481,84 +470,85 @@ export default function ContactPage() {
                             onChange={handleChange}
                             type="date"
                             required
+                            className="focus:ring-2 focus:ring-blue-400"
                           />
                         </div>
                       </div>
                     </div>
 
+                    <hr className="my-6 border-blue-100" />
+
+                    {/* Preferences */}
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Budget Range <span className="text-red-500"> *</span>
-                      </label>
-                      <select
-                        name="budget"
-                        value={form.budget}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      >
-                        <option value="">Select budget range</option>
-                        {/* {budgetOptions.map((opt) => {
-                          const minConverted = Math.round(
-                            opt.min * conversionRate
-                          );
-                          const maxConverted = opt.max
-                            ? Math.round(opt.max * conversionRate)
-                            : null;
-                          const label = maxConverted
-                            ? `$${opt.min} - $${opt.max}  (${currencySymbol}${minConverted} - ${currencySymbol}${maxConverted}) `
-                            : ` $${opt.min}+  (${currencySymbol}${minConverted}+) `;
-                          return (
-                            <option key={opt.value} value={opt.value}>
-                              {label}
-                            </option>
-                          );
-                        })} */}
-                        <option value="100-500"> €100 - €500 </option>
-                        <option value="500-1500"> €500 - €1500 </option>
-                        <option value="1500-2500"> €1500 - €2500 </option>
-                        <option value="500-1500"> €2500 - €3500 </option>
-                        <option value="500-1500"> €3500 - €5000 </option>
-                      </select>
+                      <h2 className="text-lg font-semibold text-blue-700 mb-4">
+                        Preferences
+                      </h2>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Budget Range <span className="text-red-500"> *</span>
+                        </label>
+                        <select
+                          name="budget"
+                          value={form.budget}
+                          onChange={handleChange}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                        >
+                          <option value="">Select budget range</option>
+                          <option value="100-500"> €100 - €500 </option>
+                          <option value="500-1500"> €500 - €1500 </option>
+                          <option value="1500-2500"> €1500 - €2500 </option>
+                          <option value="2500-3500"> €2500 - €3500 </option>
+                          <option value="3500-5000"> €3500 - €5000 </option>
+                        </select>
+                      </div>
+
+                      <div className="mt-4">
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Message <span className="text-red-500"> *</span>
+                        </label>
+                        <Textarea
+                          name="message"
+                          value={form.message}
+                          onChange={handleChange}
+                          placeholder="Tell us about your dream vacation, special requirements, or any questions you have..."
+                          rows={4}
+                          required
+                          className="focus:ring-2 focus:ring-blue-400"
+                        />
+                      </div>
+
+                      <div className="flex items-center space-x-2 mt-4">
+                        <input
+                          name="newsletter"
+                          checked={form.newsletter}
+                          onChange={handleChange}
+                          type="checkbox"
+                          id="newsletter"
+                          className="rounded focus:ring-2 focus:ring-blue-400"
+                        />
+                        <label
+                          htmlFor="newsletter"
+                          className="text-sm text-gray-600"
+                        >
+                          Subscribe to our newsletter for travel tips and exclusive
+                          offers
+                        </label>
+                      </div>
                     </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Message <span className="text-red-500"> *</span>
-                      </label>
-                      <Textarea
-                        name="message"
-                        value={form.message}
-                        onChange={handleChange}
-                        placeholder="Tell us about your dream vacation, special requirements, or any questions you have..."
-                        rows={4}
-                        required
-                      />
-                    </div>
-
-                    <div className="flex items-center space-x-2">
-                      <input
-                        name="newsletter"
-                        checked={form.newsletter}
-                        onChange={handleChange}
-                        type="checkbox"
-                        id="newsletter"
-                        className="rounded"
-                      />
-                      <label
-                        htmlFor="newsletter"
-                        className="text-sm text-gray-600"
-                      >
-                        Subscribe to our newsletter for travel tips and
-                        exclusive offers
-                      </label>
-                    </div>
+                    {/* Success Message */}
+                    {sent && (
+                      <div className="text-green-600 mt-2 text-center font-medium">
+                        Message sent successfully!
+                      </div>
+                    )}
 
                     <motion.div
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
                       <Button
-                        className="w-full bg-blue-600 hover:bg-blue-700"
+                        className="w-full bg-blue-600 hover:bg-blue-700 mt-4"
                         size="lg"
                         type="submit"
                         disabled={sending}
@@ -567,211 +557,11 @@ export default function ContactPage() {
                         {sending ? "Sending..." : "Send Message"}
                       </Button>
                     </motion.div>
-
-                    {sent && (
-                      <div className="text-green-600 mt-2">
-                        Message sent successfully!
-                      </div>
-                    )}
                   </form>
                 </CardContent>
               </Card>
             </motion.div>
-
-            {/* Contact Information */}
-            <motion.div
-              // initial={{ opacity: 0, x: -50 }}
-              // whileInView={{ opacity: 1, x: 0 }}
-              // transition={{ duration: 0.8 }}
-              className="space-y-8"
-            >
-              {/* <PaymentsPage /> */}
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Contact Information
-                </h3>
-                <div className="space-y-6">
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="flex items-start space-x-4 p-4 bg-white rounded-lg shadow-md"
-                  >
-                    <div className="bg-blue-100 p-3 rounded-lg">
-                      <Phone className="h-6 w-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Phone</h4>
-                      <p className="text-gray-600">+44 7446 989954</p>
-                      <p className="text-gray-600">+44 7446 161857</p>
-                      <p className="text-sm text-gray-500 mt-1">
-                        Available 9 AM - 6 PM EST
-                      </p>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="flex items-start space-x-4 p-4 bg-white rounded-lg shadow-md"
-                  >
-                    <div className="bg-blue-100 p-3 rounded-lg">
-                      <Mail className="h-6 w-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Email</h4>
-                      <p className="text-gray-600">
-                        info.swifttoursandtravels@gmail.com
-                      </p>
-                      <p className="text-gray-600">
-                        info.swifttoursandrentals@gmail.com
-                      </p>
-                      <p className="text-sm text-gray-500 mt-1">
-                        Response within 24 hours
-                      </p>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="flex items-start space-x-4 p-4 bg-white rounded-lg shadow-md"
-                  >
-                    <div className="bg-blue-100 p-3 rounded-lg">
-                      <Clock className="h-6 w-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">
-                        Business Hours
-                      </h4>
-                      <p className="text-gray-600">
-                        Monday - Friday: 9:00 AM - 6:00 PM
-                      </p>
-                      <p className="text-gray-600">
-                        Saturday: 10:00 AM - 4:00 PM
-                      </p>
-                      <p className="text-gray-600">Sunday: Closed</p>
-                    </div>
-                  </motion.div>
-                </div>
-              </div>
-
-              {/* Emergency Contact */}
-              <motion.div whileHover={{ scale: 1.02 }}>
-                <Card className="bg-red-50 border-red-200">
-                  <CardHeader>
-                    <CardTitle className="text-red-800 flex items-center">
-                      <MessageCircle className="h-5 w-5 mr-2" />
-                      24/7 Emergency Support
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-red-700 mb-2">
-                      For urgent travel assistance:
-                    </p>
-                    <p className="font-semibold text-red-800 text-lg">
-                      +1 (555) 911-HELP
-                    </p>
-                    <p className="text-sm text-red-600 mt-2">
-                      Available for travelers currently on Swift Tours packages
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              {/* Additional Services */}
-              <motion.div whileHover={{ scale: 1.02 }}>
-                <Card className="bg-green-50 border-green-200">
-                  <CardHeader>
-                    <CardTitle className="text-green-800 flex items-center">
-                      <Globe className="h-5 w-5 mr-2" />
-                      Global Support
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-green-700 mb-2">
-                      We have local representatives in:
-                    </p>
-                    <div className="grid grid-cols-4 gap-2 text-sm text-green-600">
-                      <div>• France</div>
-                      <div>• Italy</div>
-                      <div>• Portugal</div>
-                      <div>• London</div>
-                      <div>• Greece</div>
-                      <div>• Spain</div>
-                      <div>• Malta</div>
-                      <div>• Sweden</div>
-                      <div>• Croatia</div>
-                      <div>• Austria</div>
-                      <div>• Mongolia</div>
-                      <div>• Japan</div>
-                      <div>• Maldives</div>
-                      <div>• Bhutan</div>
-                      <div>• Morocco</div>
-                      <div>• Egypt</div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </motion.div>
           </div>
-
-          {/* Map and Additional Info */}
-          <motion.div
-            // initial={{ opacity: 0, y: 50 }}
-            // whileInView={{ opacity: 1, y: 0 }}
-            // transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-16"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Map Placeholder */}
-              {/* <div className="bg-gray-200 rounded-2xl h-64 flex items-center justify-center">
-                <div className="text-center text-gray-600">
-                  <MapPin className="h-12 w-12 mx-auto mb-4" />
-                  <p className="text-lg font-medium">Interactive Map</p>
-                  <p className="text-sm">Find our office location</p>
-                </div>
-              </div> */}
-
-              {/* FAQ Section */}
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Frequently Asked Questions
-                </h3>
-                <div className="space-y-4">
-                  <Card>
-                    <CardContent className="p-4">
-                      <h4 className="font-semibold text-gray-900 mb-2">
-                        How far in advance should I book?
-                      </h4>
-                      <p className="text-gray-600 text-sm">
-                        We recommend booking 2-3 months in advance for the best
-                        availability and rates.
-                      </p>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardContent className="p-4">
-                      <h4 className="font-semibold text-gray-900 mb-2">
-                        Do you offer travel insurance?
-                      </h4>
-                      <p className="text-gray-600 text-sm">
-                        Yes, we partner with leading insurance providers to
-                        offer comprehensive travel protection.
-                      </p>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardContent className="p-4">
-                      <h4 className="font-semibold text-gray-900 mb-2">
-                        Can you arrange custom itineraries?
-                      </h4>
-                      <p className="text-gray-600 text-sm">
-                        We specialize in creating personalized travel
-                        experiences tailored to your preferences.
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 
@@ -779,3 +569,20 @@ export default function ContactPage() {
     </div>
   );
 }
+//                       <div className="text-green-600 mt-2">
+//                         Message sent successfully!
+//                       </div>
+//                     )}
+//                   </form>
+//                 </CardContent>
+//               </Card>
+//             </motion.div>
+//           </div>
+
+//         </div>
+//       </section>
+
+//       <Footer />
+//     </div>
+//   );
+// }
