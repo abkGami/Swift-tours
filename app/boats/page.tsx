@@ -1397,7 +1397,7 @@ export default function BoatsPage() {
                           {cont.name}
                         </option>
                       ))}
-                  </optgroup>  <optgroup label="Oceania">
+                  </optgroup>  <optgroup label="Africa">
                     {country
                       .filter((c) =>
                         [

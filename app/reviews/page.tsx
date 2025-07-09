@@ -15,7 +15,6 @@ const reviews = [
   // --- Saudi Arabia ---
   {
     name: "Ahmed Al-Fahad",
-    email: "ahmed.alfahad@gmail.com",
     date: "2025-06-10",
     service: "Tour Service",
     stars: 5,
@@ -26,7 +25,6 @@ const reviews = [
   },
   {
     name: "Fatima Al-Saud",
-    email: "fatima.alsaud@gmail.com",
     date: "2025-05-22",
     service: "Private Transfer",
     stars: 4,
@@ -38,7 +36,6 @@ const reviews = [
   // --- Egypt ---
   {
     name: "Omar Hassan",
-    email: "omar.hassan@gmail.com",
     date: "2025-06-15",
     service: "Boat Trip",
     stars: 5,
@@ -49,7 +46,6 @@ const reviews = [
   },
   {
     name: "Layla Mostafa",
-    email: "layla.mostafa@gmail.com",
     date: "2025-05-30",
     service: "Tour Service",
     stars: 5,
@@ -61,7 +57,6 @@ const reviews = [
   // --- Morocco ---
   {
     name: "Youssef Benali",
-    email: "youssef.benali@gmail.com",
     date: "2025-06-12",
     service: "Tour Service",
     stars: 5,
@@ -72,7 +67,6 @@ const reviews = [
   },
   {
     name: "Salma Idrissi",
-    email: "salma.idrissi@gmail.com",
     date: "2025-05-27",
     service: "Boat Trip",
     stars: 4,
@@ -84,7 +78,6 @@ const reviews = [
   // --- Hawaii ---
   {
     name: "Jessica Lee",
-    email: "jessica.lee@gmail.com",
     date: "2025-06-18",
     service: "Boat Trip",
     stars: 5,
@@ -95,7 +88,6 @@ const reviews = [
   },
   {
     name: "Michael Kim",
-    email: "michael.kim@gmail.com",
     date: "2025-05-29",
     service: "Tour Service",
     stars: 5,
@@ -107,7 +99,6 @@ const reviews = [
   // --- Tahiti ---
   {
     name: "Sophie Martin",
-    email: "sophie.martin@gmail.com",
     date: "2025-06-20",
     service: "Boat Chartered",
     stars: 5,
@@ -118,7 +109,6 @@ const reviews = [
   },
   {
     name: "Paul Dupont",
-    email: "paul.dupont@gmail.com",
     date: "2025-05-25",
     service: "Tour Service",
     stars: 4,
@@ -130,7 +120,6 @@ const reviews = [
   // --- Argentina ---
   {
     name: "Lucia Fernandez",
-    email: "lucia.fernandez@gmail.com",
     date: "2025-06-14",
     service: "Tour Service",
     stars: 5,
@@ -141,7 +130,6 @@ const reviews = [
   },
   {
     name: "Mateo Gomez",
-    email: "mateo.gomez@gmail.com",
     date: "2025-05-31",
     service: "Boat Trip",
     stars: 4,
@@ -153,7 +141,6 @@ const reviews = [
   // --- Malta ---
   {
     name: "Maria Grech",
-    email: "maria.grech@gmail.com",
     date: "2025-06-16",
     service: "Boat Trip",
     stars: 5,
@@ -164,7 +151,6 @@ const reviews = [
   },
   {
     name: "David Borg",
-    email: "david.borg@gmail.com",
     date: "2025-05-28",
     service: "Tour Service",
     stars: 5,
@@ -176,7 +162,6 @@ const reviews = [
   // --- Montenegro ---
   {
     name: "Jovana Petrovic",
-    email: "jovana.petrovic@gmail.com",
     date: "2025-06-13",
     service: "Boat Trip",
     stars: 5,
@@ -187,7 +172,6 @@ const reviews = [
   },
   {
     name: "Marko Vukovic",
-    email: "marko.vukovic@gmail.com",
     date: "2025-05-26",
     service: "Tour Service",
     stars: 4,
@@ -199,7 +183,6 @@ const reviews = [
   // --- Portugal ---
   {
     name: "Lucas Pereira",
-    email: "lucas.pereira@gmail.com",
     date: "2025-07-01",
     service: "Boat Trip",
     stars: 5,
@@ -210,7 +193,6 @@ const reviews = [
   },
   {
     name: "Ana Silva",
-    email: "ana.silva@gmail.com",
     date: "2025-06-15",
     service: "Tour Service",
     stars: 4,
@@ -222,7 +204,6 @@ const reviews = [
   // --- Japan ---
   {
     name: "Emily Johnson",
-    email: "emily.johnson@gmail.com",
     date: "2025-05-20",
     service: "Tour Service",
     stars: 5,
@@ -233,7 +214,6 @@ const reviews = [
   },
   {
     name: "Takashi Ito",
-    email: "takashi.ito@gmail.com",
     date: "2025-05-10",
     service: "Boat Chartered",
     stars: 5,
@@ -245,7 +225,6 @@ const reviews = [
   // --- Spain ---
   {
     name: "Carlos Martinez",
-    email: "carlos.martinez@gmail.com",
     date: "2025-06-05",
     service: "Boat Trip",
     stars: 5,
@@ -256,7 +235,6 @@ const reviews = [
   },
   {
     name: "Sarah Lee",
-    email: "sarah.lee@gmail.com",
     date: "2025-05-28",
     service: "Private Transfer",
     stars: 4,
@@ -268,7 +246,6 @@ const reviews = [
   // --- France ---
   {
     name: "Marie Dubois",
-    email: "marie.dubois@gmail.com",
     date: "2025-06-10",
     service: "Boat Chartered",
     stars: 5,
@@ -279,7 +256,6 @@ const reviews = [
   },
   {
     name: "John Smith",
-    email: "john.smith@gmail.com",
     date: "2025-05-30",
     service: "Tour Service",
     stars: 5,
@@ -291,7 +267,6 @@ const reviews = [
   // --- United Kingdom ---
   {
     name: "Olivia Brown",
-    email: "olivia.brown@gmail.com",
     date: "2025-06-18",
     service: "Tour Service",
     stars: 5,
@@ -302,7 +277,6 @@ const reviews = [
   },
   {
     name: "James Wilson",
-    email: "james.wilson@gmail.com",
     date: "2025-06-12",
     service: "Private Transfer",
     stars: 5,
@@ -314,7 +288,6 @@ const reviews = [
   // --- Italy ---
   {
     name: "Giovanni Bianchi",
-    email: "giovanni.bianchi@gmail.com",
     date: "2025-06-07",
     service: "Boat Chartered",
     stars: 5,
@@ -325,7 +298,6 @@ const reviews = [
   },
   {
     name: "Emma Rossi",
-    email: "emma.rossi@gmail.com",
     date: "2025-05-25",
     service: "Tour Service",
     stars: 4,
@@ -337,7 +309,6 @@ const reviews = [
   // --- Germany ---
   {
     name: "Max Müller",
-    email: "max.muller@gmail.com",
     date: "2025-06-14",
     service: "Private Transfer",
     stars: 5,
@@ -348,7 +319,6 @@ const reviews = [
   },
   {
     name: "Sophie Schneider",
-    email: "sophie.schneider@gmail.com",
     date: "2025-05-22",
     service: "Boat Trip",
     stars: 5,
@@ -360,7 +330,6 @@ const reviews = [
   // --- Australia ---
   {
     name: "Jack Thompson",
-    email: "jack.thompson@gmail.com",
     date: "2025-06-25",
     service: "Boat Trip",
     stars: 5,
@@ -371,7 +340,6 @@ const reviews = [
   },
   {
     name: "Samantha White",
-    email: "samantha.white@gmail.com",
     date: "2025-06-20",
     service: "Tour Service",
     stars: 4,
@@ -383,7 +351,6 @@ const reviews = [
   // --- Turkey ---
   {
     name: "Aylin Kaya",
-    email: "aylin.kaya@gmail.com",
     date: "2025-06-03",
     service: "Boat Trip",
     stars: 5,
@@ -394,7 +361,6 @@ const reviews = [
   },
   {
     name: "David Clark",
-    email: "david.clark@gmail.com",
     date: "2025-05-18",
     service: "Tour Service",
     stars: 5,
@@ -406,7 +372,6 @@ const reviews = [
   // --- Thailand ---
   {
     name: "Ben Harris",
-    email: "ben.harris@gmail.com",
     date: "2025-06-11",
     service: "Boat Chartered",
     stars: 5,
@@ -417,7 +382,6 @@ const reviews = [
   },
   {
     name: "Lisa Evans",
-    email: "lisa.evans@gmail.com",
     date: "2025-05-29",
     service: "Tour Service",
     stars: 4,
@@ -429,7 +393,6 @@ const reviews = [
   // --- Croatia ---
   {
     name: "Marko Horvat",
-    email: "marko.horvat@gmail.com",
     date: "2025-06-09",
     service: "Boat Trip",
     stars: 5,
@@ -440,7 +403,6 @@ const reviews = [
   },
   {
     name: "Jessica Taylor",
-    email: "jessica.taylor@gmail.com",
     date: "2025-05-19",
     service: "Tour Service",
     stars: 4,
@@ -466,7 +428,6 @@ const reviews = [
     name: "Pierre Laurent",
     date: "2025-01-10",
     service: "Boat Trip",
-    email: "pierre.laurent@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -478,7 +439,6 @@ const reviews = [
     name: "Maria González",
     date: "2025-01-18",
     service: "Tour Service",
-    email: "maria.gonzalez@gmail.com",
     stars: 4,
     image: "/profile.jpg",
     review:
@@ -490,7 +450,6 @@ const reviews = [
     name: "Yuki Tanaka",
     date: "2025-01-25",
     service: "Boat Chartered",
-    email: "yuki.tanaka@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -503,7 +462,6 @@ const reviews = [
     country: "Spain",
     date: "2025-02-02",
     service: "Private Transfer",
-    email: "sven.eriksson@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -515,7 +473,6 @@ const reviews = [
     country: "Croatia",
     date: "2025-02-09",
     service: "Boat Trip",
-    email: "giulia.rossi@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -527,7 +484,6 @@ const reviews = [
     country: "Portugal",
     date: "2025-02-16",
     service: "Tour Service",
-    email: "hans.mueller@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -539,7 +495,6 @@ const reviews = [
     country: "Spain",
     date: "2025-02-23",
     service: "Boat Chartered",
-    email: "mateusz.kowalski@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -551,7 +506,6 @@ const reviews = [
     country: "United Kingdom",
     date: "2025-03-01",
     service: "Private Transfer",
-    email: "elena.petrova@gmail.com",
     stars: 4,
     image: "/profile.jpg",
     review:
@@ -563,7 +517,6 @@ const reviews = [
     country: "Turkey",
     date: "2025-03-08",
     service: "Boat Trip",
-    email: "lucas.moreira@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -575,7 +528,6 @@ const reviews = [
     country: "Spain",
     date: "2025-03-15",
     service: "Tour Service",
-    email: "anna.nowak@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -587,7 +539,6 @@ const reviews = [
     country: "Italy",
     date: "2025-03-22",
     service: "Boat Chartered",
-    email: "jorge.castillo@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -599,7 +550,6 @@ const reviews = [
     country: "United Arab Emirates",
     date: "2025-03-29",
     service: "Private Transfer",
-    email: "linda.svensson@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -611,7 +561,6 @@ const reviews = [
     country: "Italy",
     date: "2025-04-05",
     service: "Boat Trip",
-    email: "andreas.papadopoulos@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -623,7 +572,6 @@ const reviews = [
     country: "Japan",
     date: "2025-04-12",
     service: "Tour Service",
-    email: "isabella.rossi@gmail.com",
     stars: 4,
     image: "/profile.jpg",
     review:
@@ -635,7 +583,6 @@ const reviews = [
     country: "United Arab Emirates",
     date: "2025-04-19",
     service: "Boat Chartered",
-    email: "marta.nowak@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -647,7 +594,6 @@ const reviews = [
     country: "France",
     date: "2025-04-26",
     service: "Private Transfer",
-    email: "hiroshi.sato@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -659,7 +605,6 @@ const reviews = [
     country: "Brazil",
     date: "2025-05-03",
     service: "Boat Trip",
-    email: "emma.johansson@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -671,7 +616,6 @@ const reviews = [
     country: "United Kingdom",
     date: "2025-05-10",
     service: "Tour Service",
-    email: "miguel.torres@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -683,7 +627,6 @@ const reviews = [
     country: "Thailand",
     date: "2025-05-17",
     service: "Boat Chartered",
-    email: "charlotte.dubois@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -695,7 +638,6 @@ const reviews = [
     country: "Germany",
     date: "2025-05-24",
     service: "Private Transfer",
-    email: "ivan.ivanov@gmail.com",
     stars: 4,
     image: "/profile.jpg",
     review:
@@ -707,7 +649,6 @@ const reviews = [
     country: "Portugal",
     date: "2025-06-01",
     service: "Boat Trip",
-    email: "laura.garcia@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -719,7 +660,6 @@ const reviews = [
     country: "Japan",
     date: "2025-06-08",
     service: "Tour Service",
-    email: "nina.mueller@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -731,7 +671,6 @@ const reviews = [
     country: "France",
     date: "2025-06-15",
     service: "Boat Chartered",
-    email: "pedro.silva@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -743,7 +682,6 @@ const reviews = [
     country: "United Kingdom",
     date: "2025-06-22",
     service: "Private Transfer",
-    email: "sofia.petrova@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -755,7 +693,6 @@ const reviews = [
     country: "Australia",
     date: "2025-06-29",
     service: "Boat Trip",
-    email: "daniela.costa@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -767,7 +704,6 @@ const reviews = [
     country: "South Korea",
     date: "2025-02-06",
     service: "Tour Service",
-    email: "alejandro.ruiz@gmail.com",
     stars: 4,
     image: "/profile.jpg",
     review:
@@ -779,7 +715,6 @@ const reviews = [
     country: "Spain",
     date: "2025-04-13",
     service: "Boat Chartered",
-    email: "maja.novak@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -791,7 +726,6 @@ const reviews = [
     country: "Japan",
     date: "2025-05-20",
     service: "Private Transfer",
-    email: "lars.hansen@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -803,7 +737,6 @@ const reviews = [
     country: "Turkey",
     date: "2025-01-27",
     service: "Boat Trip",
-    email: "irina.popescu@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -815,7 +748,6 @@ const reviews = [
     country: "United Kingdom",
     date: "2025-06-03",
     service: "Tour Service",
-    email: "jinwoo.park@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -827,7 +759,6 @@ const reviews = [
     country: "Spain",
     date: "2025-04-10",
     service: "Boat Chartered",
-    email: "olga.ivanova@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -839,7 +770,6 @@ const reviews = [
     country: "France",
     date: "2025-02-17",
     service: "Private Transfer",
-    email: "camila.souza@gmail.com",
     stars: 5,
     image: "/profile.jpg",
     review:
@@ -847,6 +777,32 @@ const reviews = [
     language: "pt",
   },
 ];
+
+const randomEmails = [
+  "sandranedcit@gmail.com",
+  "isabella7hunters@gmail.com",
+  "marmahlulu@yahoo.com",
+  "rerheem7r2@gmail.com",
+  "charityomeh553@gmail.com",
+  "benkohle7@gmail.com",
+  "Elizabethlinconk@gmail.com",
+  "matteo7alessandro@gmail.com",
+  "annie07frank@gmail.com",
+  "sofiagerald037@outlook.com",
+  "captainmartin267@gmail.com",
+  "Charlottehamzel@hotmail.com",
+  "thomasssteve30@gmail.com",
+  "oliviazerch@outlook.com",
+  "monicahjefferson@hotmail.com",
+  "tiffany.malvin@hotmail.com",
+  "emilypedro347@outlook.com",
+  "ivanaivetic@outlook.com",
+];
+
+// Helper to pick a random email
+function getRandomEmail() {
+  return randomEmails[Math.floor(Math.random() * randomEmails.length)];
+}
 
 function formatDate(dateStr: string) {
   const date = new Date(dateStr);
@@ -938,11 +894,9 @@ export default function ReviewsPage() {
                     <div className="font-semibold text-lg text-gray-900">
                         {review.name}
                       </div>
-                      {review.email && (
-                        <div className="text-xs text-gray-400 mb-1">
-                          {review.email}
-                        </div>
-                      )}
+                      <div className="text-xs text-gray-400 mb-1">
+                        {getRandomEmail()}
+                      </div>
                       <div className="text-xs text-gray-500">
                         {formatDate(review.date)}
                       </div>
