@@ -37,12 +37,12 @@ export default function ContactPage() {
     lastName: "",
     email: "",
     phone: "",
-    interest: "",
-    pickup: "",
-    dropoff: "",
-    startDate: "",
-    stopDate: "",
-    budget: "",
+    // interest: "",
+    // pickup: "",
+    // dropoff: "",
+    // startDate: "",
+    // stopDate: "",
+    // budget: "",
     message: "",
     newsletter: false,
   });
@@ -56,12 +56,12 @@ export default function ContactPage() {
     lastName: string;
     email: string;
     phone: string;
-    interest: string;
-    pickup: string;
-    dropoff: string;
-    startDate: string;
-    stopDate: string;
-    budget: string;
+    // interest: string;
+    // pickup: string;
+    // dropoff: string;
+    // startDate: string;
+    // stopDate: string;
+    // budget: string;
     message: string;
     newsletter: boolean;
   }
@@ -86,12 +86,12 @@ export default function ContactPage() {
     lastName: string;
     email: string;
     phone: string;
-    interest: string;
-    pickup: string;
-    dropoff: string;
-    startDate: string;
-    stopDate: string;
-    budget: string;
+    // interest: string;
+    // pickup: string;
+    // dropoff: string;
+    // startDate: string;
+    // stopDate: string;
+    // budget: string;
     message: string;
     newsletter: string;
     to_email: string;
@@ -109,12 +109,12 @@ export default function ContactPage() {
           lastName: form.lastName,
           email: form.email,
           phone: form.phone,
-          interest: form.interest,
-          pickup: form.pickup,
-          dropoff: form.dropoff,
-          startDate: form.startDate,
-          stopDate: form.stopDate,
-          budget: form.budget,
+          // interest: form.interest,
+          // pickup: form.pickup,
+          // dropoff: form.dropoff,
+          // startDate: form.startDate,
+          // stopDate: form.stopDate,
+          // budget: form.budget,
           message: form.message,
           newsletter: form.newsletter ? "Yes" : "No",
           to_email: "yahabubakar2504@gmail.com", // recipient
