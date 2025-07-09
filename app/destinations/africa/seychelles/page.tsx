@@ -9,139 +9,140 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { useRouter } from "next/navigation";
 
-const egyptCities = [
+// Seychelles cities/islands
+const seychellesCities = [
   {
-    name: "Cairo",
+    name: "Mahé",
     description:
-      "Egypt's bustling capital, home to ancient wonders like the Pyramids of Giza and a vibrant modern culture.",
-    image: "/placeholder.svg?height=300&width=400",
+      "The largest island and cultural heart of Seychelles, home to the capital Victoria, beautiful beaches, and lush mountains.",
+    image: "/seychelles/mahe.jpg",
     rating: 4.9,
     duration: "3-4 days",
-    category: "Historical Metropolis",
+    category: "Island Capital",
     highlights: [
-      "pyramids of giza",
-      "egyptian museum",
-      "khan el-khalili bazaar",
-      "cairo tower",
+      "beau vallon beach",
+      "morne seychellois national park",
+      "victoria market",
+      "anse major trail",
     ],
   },
   {
-    name: "Luxor",
+    name: "Praslin",
     description:
-      "Often referred to as the world's greatest open-air museum, Luxor is filled with ancient temples and royal tombs.",
-    image: "/placeholder.svg?height=300&width=400",
+      "A paradise island known for its stunning beaches and the UNESCO-listed Vallée de Mai, home to the rare coco de mer palm.",
+    image: "/seychelles/praslin.jpg",
     rating: 4.8,
     duration: "2-3 days",
-    category: "Ancient City",
+    category: "Nature & Relaxation",
     highlights: [
-      "karnak temple",
-      "valley of the kings",
-      "luxor temple",
-      "hatshepsut temple",
+      "anse lazio",
+      "vallée de mai",
+      "anse georgette",
+      "cote d'or beach",
     ],
   },
   {
-    name: "Aswan",
+    name: "La Digue",
     description:
-      "A serene city on the Nile known for its beautiful islands, Nubian culture, and the majestic Philae Temple.",
-    image: "/placeholder.svg?height=300&width=400",
+      "A tranquil island famous for its granite boulders, cycling culture, and the world-renowned Anse Source d’Argent beach.",
+    image: "/seychelles/ladigue.jpg",
+    rating: 4.8,
+    duration: "2-3 days",
+    category: "Scenic Escape",
+    highlights: [
+      "anse source d'argent",
+      "grand anse",
+      "l'union estate",
+      "veuve nature reserve",
+    ],
+  },
+  {
+    name: "Silhouette Island",
+    description:
+      "A pristine, mountainous island with untouched rainforests, rare wildlife, and secluded luxury resorts.",
+    image: "/seychelles/silhouette.jpg",
     rating: 4.7,
     duration: "1-2 days",
-    category: "Nile Getaway",
+    category: "Wild Nature",
     highlights: [
-      "philae temple",
-      "nubian village",
-      "aswan high dam",
-      "elephantine island",
+      "silhouette national park",
+      "anse la passe",
+      "giant tortoises",
+      "mount daunier",
     ],
   },
   {
-    name: "Alexandria",
+    name: "Fregate Island",
     description:
-      "A Mediterranean city rich in Greco-Roman history, beautiful coastline, and cosmopolitan atmosphere.",
-    image: "/placeholder.svg?height=300&width=400",
+      "An exclusive private island sanctuary, renowned for its conservation efforts and ultra-luxury eco-resort.",
+    image: "/seychelles/fregate.jpg",
+    rating: 4.7,
+    duration: "1-2 days",
+    category: "Private Luxury",
+    highlights: [
+      "private beaches",
+      "nature walks",
+      "giant aldabra tortoises",
+      "eco luxury villas",
+    ],
+  },
+  {
+    name: "Cousin Island",
+    description:
+      "A small granitic island and nature reserve, famous for birdwatching and conservation of rare species.",
+    image: "/seychelles/cousin.jpg",
     rating: 4.6,
-    duration: "2-3 days",
-    category: "Coastal Heritage",
+    duration: "Half-day",
+    category: "Wildlife Reserve",
     highlights: [
-      "citadel of qaitbay",
-      "alexandria library",
-      "roman amphitheater",
-      "montaza palace",
-    ],
-  },
-  {
-    name: "Sharm El Sheikh",
-    description:
-      "A resort town on the Red Sea famed for its diving spots, coral reefs, and luxurious beaches.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.5,
-    duration: "3-4 days",
-    category: "Beach Paradise",
-    highlights: [
-      "ras mohamed park",
-      "naama bay",
-      "soho square",
-      "diving in red sea",
-    ],
-  },
-  {
-    name: "Siwa Oasis",
-    description:
-      "A remote and mystical desert oasis with Berber culture, salt lakes, and ancient ruins.",
-    image: "/placeholder.svg?height=300&width=400",
-    rating: 4.6,
-    duration: "2 days",
-    category: "Desert Retreat",
-    highlights: [
-      "temple of the oracle",
-      "cleopatra spring",
-      "salt lakes",
-      "shali fortress",
+      "bird sanctuary",
+      "hawksbill turtles",
+      "guided nature tours",
+      "pristine beaches",
     ],
   },
 ];
 
-const egyptAttractions = [
+const seychellesAttractions = [
   {
-    name: "Pyramids of Giza",
+    name: "Anse Source d’Argent",
     description:
-      "The last surviving wonder of the ancient world, a majestic and awe-inspiring testament to Egypt's ancient civilization.",
-    image: "/placeholder.svg?height=300&width=400",
+      "One of the world’s most photographed beaches, famous for its pink sand, turquoise water, and dramatic granite boulders.",
+    image: "/seychelles/anse-source-dargent.jpg",
   },
   {
-    name: "Valley of the Kings",
+    name: "Vallée de Mai",
     description:
-      "A burial ground for pharaohs, filled with richly decorated tombs including that of Tutankhamun.",
-    image: "/placeholder.svg?height=300&width=400",
+      "A UNESCO World Heritage Site on Praslin, home to the legendary coco de mer palm and rare black parrots.",
+    image: "/seychelles/vallee-de-mai.jpg",
   },
   {
-    name: "Abu Simbel Temples",
+    name: "Aldabra Atoll",
     description:
-      "Massive rock temples built by Ramses II, relocated to save them from the rising waters of Lake Nasser.",
-    image: "/placeholder.svg?height=300&width=400",
+      "The world’s largest raised coral atoll, a UNESCO site and sanctuary for giant tortoises and unique marine life.",
+    image: "/seychelles/aldabra.jpg",
   },
   {
-    name: "Nile River Cruise",
+    name: "Beau Vallon Beach",
     description:
-      "A scenic and relaxing way to experience ancient Egypt, sailing between Luxor and Aswan.",
-    image: "/placeholder.svg?height=300&width=400",
+      "A lively and scenic beach on Mahé, perfect for swimming, water sports, and sunset views.",
+    image: "/seychelles/beau-vallon.jpg",
   },
   {
-    name: "White Desert",
+    name: "Curieuse Island",
     description:
-      "A surreal landscape of chalk rock formations shaped by wind and sand, perfect for adventure and stargazing.",
-    image: "/placeholder.svg?height=300&width=400",
+      "A protected island near Praslin, known for its red earth, giant tortoises, and mangrove forests.",
+    image: "/seychelles/curieuse.jpg",
   },
   {
-    name: "Cairo Citadel",
+    name: "Victoria Market",
     description:
-      "A historic fortress offering panoramic views of Cairo, home to mosques, museums, and rich Islamic architecture.",
-    image: "/placeholder.svg?height=300&width=400",
+      "The bustling heart of Seychelles’ capital, offering local produce, spices, crafts, and a taste of Creole culture.",
+    image: "/seychelles/victoria-market.jpg",
   },
 ];
 
-export default function EgyptPage() {
+export default function SeychellesPage() {
   const router = useRouter();
   const handleClick = () => {
     router.push("/contact");
@@ -168,10 +169,10 @@ export default function EgyptPage() {
               <MapPin className="h-8 w-8 mr-3" />
               <span className="text-xl">Africa</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Egypt</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">Seychelles</h1>
             <p className="text-xl text-gray-100 max-w-3xl mx-auto mb-8">
-              Discover Egypt's ancient treasures, timeless deserts, and vibrant
-              Nile culture.
+              Discover Seychelles’ idyllic islands, crystal-clear waters, unique
+              wildlife, and world-class beaches.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -181,11 +182,11 @@ export default function EgyptPage() {
               </div>
               <div className="flex items-center">
                 <Users className="h-5 w-5 mr-2" />
-                <span>Perfect for History & Adventure</span>
+                <span>Perfect for Honeymoon & Nature</span>
               </div>
               <div className="flex items-center">
                 <Calendar className="h-5 w-5 mr-2" />
-                <span>Best in Winter & Spring</span>
+                <span>Best in April–May & October–November</span>
               </div>
             </div>
 
@@ -195,7 +196,7 @@ export default function EgyptPage() {
               size="lg"
               className="bg-white text-gray-900 hover:bg-gray-100 mt-6"
             >
-              Book Egypt Tour
+              Book Seychelles Tour
             </Button>
           </motion.div>
         </div>
@@ -205,21 +206,21 @@ export default function EgyptPage() {
       <section className="py-16 bg-yellow-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-12">
-            Top Cities to Visit
+            Top Islands to Visit
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {egyptCities.map((city, idx) => (
+            {seychellesCities.map((city, idx) => (
               <motion.div
                 key={city.name}
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
                 <Card className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                  <img
+                  {/* <img
                     src={city.image}
                     alt={city.name}
                     className="w-full h-48 object-cover"
-                  />
+                  /> */}
                   <CardHeader>
                     <CardTitle className="text-xl">{city.name}</CardTitle>
                     <p className="text-sm text-gray-500">{city.category}</p>
@@ -257,18 +258,18 @@ export default function EgyptPage() {
             Top Attractions
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {egyptAttractions.map((attraction) => (
+            {seychellesAttractions.map((attraction) => (
               <motion.div
                 key={attraction.name}
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
                 <Card className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                  <img
+                  {/* <img
                     src={attraction.image}
                     alt={attraction.name}
                     className="w-full h-48 object-cover"
-                  />
+                  /> */}
                   <CardHeader>
                     <CardTitle className="text-xl">{attraction.name}</CardTitle>
                   </CardHeader>

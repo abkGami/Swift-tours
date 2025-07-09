@@ -216,11 +216,11 @@ export default function KenyaPage() {
                 transition={{ duration: 0.3 }}
               >
                 <Card className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                  <img
+                  {/* <img
                     src={city.image}
                     alt={city.name}
                     className="w-full h-48 object-cover"
-                  />
+                  /> */}
                   <CardHeader>
                     <CardTitle className="text-xl">{city.name}</CardTitle>
                     <p className="text-sm text-gray-500">{city.category}</p>
@@ -265,11 +265,11 @@ export default function KenyaPage() {
                 transition={{ duration: 0.3 }}
               >
                 <Card className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                  <img
+                  {/* <img
                     src={attraction.image}
                     alt={attraction.name}
                     className="w-full h-48 object-cover"
-                  />
+                  /> */}
                   <CardHeader>
                     <CardTitle className="text-xl">{attraction.name}</CardTitle>
                   </CardHeader>
