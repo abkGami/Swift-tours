@@ -922,7 +922,31 @@ export default function BoatsPage() {
         "Morrocoy National Park",
       ],
     },
-  ];
+{
+  name: "Tahiti",
+  countries: [
+    "Papeete",
+    "Moorea",
+    "Bora Bora",
+    "Raiatea",
+    "Taha'a",
+    "Huahine",
+    "Rangiroa",
+    "Fakarava"
+  ],
+},
+{
+  name: "Hawaii",
+  countries: [
+    "Oahu",
+    "Maui",
+    "Kauai",
+    "Big Island (Hawaii Island)",
+    "Lanai",
+    "Molokai",
+  ],
+},
+];
 
   const [modalOpen, setModalOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
