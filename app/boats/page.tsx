@@ -922,119 +922,105 @@ export default function BoatsPage() {
         "Morrocoy National Park",
       ],
     },
-{
-  name: "Tahiti",
-  countries: [
-    "Papeete",
-    "Moorea",
-    "Bora Bora",
-    "Raiatea",
-    "Taha'a",
-    "Huahine",
-    "Rangiroa",
-    "Fakarava"
-  ],
-},
-{
-  name: "Hawaii",
-  countries: [
-    "Oahu",
-    "Maui",
-    "Kauai",
-    "Big Island (Hawaii Island)",
-    "Lanai",
-    "Molokai",
-  ],
-},
-{
-  name: "Costa Rica",
-  countries: [
-    "Quepos",
-    "Tamarindo",
-    "Jaco",
-    "Gulf of Papagayo",
-    "Cahuita",
-    "Puntarenas",
-  ],
-},
+    {
+      name: "Tahiti",
+      countries: [
+        "Papeete",
+        "Moorea",
+        "Bora Bora",
+        "Raiatea",
+        "Taha'a",
+        "Huahine",
+        "Rangiroa",
+        "Fakarava",
+      ],
+    },
+    {
+      name: "Hawaii",
+      countries: [
+        "Oahu",
+        "Maui",
+        "Kauai",
+        "Big Island (Hawaii Island)",
+        "Lanai",
+        "Molokai",
+      ],
+    },
+    {
+      name: "Costa Rica",
+      countries: [
+        "Quepos",
+        "Tamarindo",
+        "Jaco",
+        "Gulf of Papagayo",
+        "Cahuita",
+        "Puntarenas",
+      ],
+    },
 
-{
-  name: "Mexico",
-  countries: [
-    "Cabo San Lucas",
-    "Cancun",
-    "Puerto Vallarta",
-    "Playa del Carmen",
-    "Mazatlán",
-    "Acapulco",
-    "La Paz",
-  ],
-},
+    {
+      name: "Mexico",
+      countries: [
+        "Cabo San Lucas",
+        "Cancun",
+        "Puerto Vallarta",
+        "Playa del Carmen",
+        "Mazatlán",
+        "Acapulco",
+        "La Paz",
+      ],
+    },
 
-{
-  name: "Seychelles",
-  countries: [
-    "Mahé",
-    "Praslin",
-    "La Digue",
-    "Silhouette Island",
-    "Fregate Island",
-  ],
-},
+    {
+      name: "Seychelles",
+      countries: [
+        "Mahé",
+        "Praslin",
+        "La Digue",
+        "Silhouette Island",
+        "Fregate Island",
+      ],
+    },
 
-{
-  name: "Kenya",
-  countries: [
-    "Mombasa",
-    "Diani Beach",
-    "Watamu",
-    "Malindi",
-    "Lamu",
-  ],
-},
-{
-  name: "Tanzania",
-  countries: [
-    "Zanzibar",
-    "Dar es Salaam",
-    "Pemba Island",
-    "Mafia Island",
-    "Bagamoyo",
-  ],
-},
-{
-  name: "South Africa",
-  countries: [
-    "Cape Town",
-    "Durban",
-    "Port Elizabeth",
-    "Knysna",
-    "Mossel Bay",
-  ],
-},
-{
-  name: "Egypt",
-  countries: [
-    "Sharm El Sheikh",
-    "Hurghada",
-    "Marsa Alam",
-    "Dahab",
-    "Alexandria",
-  ],
-},
-{
-  name: "Tunisia",
-  countries: [
-    "Djerba",
-    "Hammamet",
-    "Sousse",
-    "Monastir",
-    "Bizerte",
-  ],
-},
-
-
-];
+    {
+      name: "Kenya",
+      countries: ["Mombasa", "Diani Beach", "Watamu", "Malindi", "Lamu"],
+    },
+    {
+      name: "Tanzania",
+      countries: [
+        "Zanzibar",
+        "Dar es Salaam",
+        "Pemba Island",
+        "Mafia Island",
+        "Bagamoyo",
+      ],
+    },
+    {
+      name: "South Africa",
+      countries: [
+        "Cape Town",
+        "Durban",
+        "Port Elizabeth",
+        "Knysna",
+        "Mossel Bay",
+      ],
+    },
+    {
+      name: "Egypt",
+      countries: [
+        "Sharm El Sheikh",
+        "Hurghada",
+        "Marsa Alam",
+        "Dahab",
+        "Alexandria",
+      ],
+    },
+    {
+      name: "Tunisia",
+      countries: ["Djerba", "Hammamet", "Sousse", "Monastir", "Bizerte"],
+    },
+  ];
 
   const [modalOpen, setModalOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
@@ -1044,6 +1030,9 @@ export default function BoatsPage() {
     phone: "",
     email: "",
   });
+
+
+    const [message, setMessage] = useState('');
 
   // Add slideshow index state for each boat card
   const [slideIndexes, setSlideIndexes] = useState<{ [key: string]: number }>(
@@ -1391,12 +1380,7 @@ export default function BoatsPage() {
                   </optgroup>
                   <optgroup label="Oceania">
                     {country
-                      .filter((c) =>
-                        [
-                          "Tahiti",
-                          "Hawaii",
-                        ].includes(c.name)
-                      )
+                      .filter((c) => ["Tahiti", "Hawaii"].includes(c.name))
                       .map((cont) => (
                         <option key={cont.name} value={cont.name}>
                           {cont.name}
@@ -1426,29 +1410,25 @@ export default function BoatsPage() {
                         </option>
                       ))}
                   </optgroup>
-                    <optgroup label="North America">
+                  <optgroup label="North America">
                     {country
-                      .filter((c) =>
-                        [
-                          "Costa Rica",
-                          "Mexico",
-                        ].includes(c.name)
-                      )
+                      .filter((c) => ["Costa Rica", "Mexico"].includes(c.name))
                       .map((cont) => (
                         <option key={cont.name} value={cont.name}>
                           {cont.name}
                         </option>
                       ))}
-                  </optgroup>  <optgroup label="Africa">
+                  </optgroup>{" "}
+                  <optgroup label="Africa">
                     {country
                       .filter((c) =>
                         [
                           "Seychelles",
                           "Kenya",
                           "Tanzania",
-                           "South Africa",
-                           "Egypt",
-                           "Tunisia",
+                          "South Africa",
+                          "Egypt",
+                          "Tunisia",
                         ].includes(c.name)
                       )
                       .map((cont) => (
@@ -2054,8 +2034,16 @@ export default function BoatsPage() {
               onClick={() => {
                 setModalOpen(false);
                 // alert("Quotation request sent!");
-                                setContactModalOpen(true);
-
+                setContactModalOpen(true);
+                setMessage(
+                  `Hello, I'm interested in the ${
+                    selectedBoat?.name || ""
+                  } at ${orderForm.city}, ${
+                    orderForm.country
+                  } from ${departureDate} to ${returnDate}. My budget is €${selectedBudget} and there will be ${numPeople} of us on board. Is it possible to make reservation? Thank You.`
+                )
+                // Log the message to the console
+             
               }}
             >
               Submit Request
@@ -2064,7 +2052,7 @@ export default function BoatsPage() {
         </div>
       </Dialog>
 
-        {/* Contact Info Modal */}
+      {/* Contact Info Modal */}
       <Dialog
         open={contactModalOpen}
         onClose={() => setContactModalOpen(false)}
@@ -2084,7 +2072,7 @@ export default function BoatsPage() {
             </Dialog.Title>
             <form
               className="space-y-4"
-              onSubmit={e => {
+              onSubmit={(e) => {
                 e.preventDefault();
                 setContactModalOpen(false);
                 alert("Thank you! Your request has been submitted.");
@@ -2099,8 +2087,11 @@ export default function BoatsPage() {
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md"
                   value={contactForm.firstName}
-                  onChange={e =>
-                    setContactForm({ ...contactForm, firstName: e.target.value })
+                  onChange={(e) =>
+                    setContactForm({
+                      ...contactForm,
+                      firstName: e.target.value,
+                    })
                   }
                 />
               </div>
@@ -2113,7 +2104,7 @@ export default function BoatsPage() {
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md"
                   value={contactForm.lastName}
-                  onChange={e =>
+                  onChange={(e) =>
                     setContactForm({ ...contactForm, lastName: e.target.value })
                   }
                 />
@@ -2127,7 +2118,7 @@ export default function BoatsPage() {
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md"
                   value={contactForm.phone}
-                  onChange={e =>
+                  onChange={(e) =>
                     setContactForm({ ...contactForm, phone: e.target.value })
                   }
                 />
@@ -2141,7 +2132,7 @@ export default function BoatsPage() {
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md"
                   value={contactForm.email}
-                  onChange={e =>
+                  onChange={(e) =>
                     setContactForm({ ...contactForm, email: e.target.value })
                   }
                 />
@@ -2149,6 +2140,7 @@ export default function BoatsPage() {
               <Button
                 type="submit"
                 className="w-full bg-blue-600 hover:bg-blue-700 mt-2"
+                onClick={() => console.log(message)}
               >
                 Submit
               </Button>
