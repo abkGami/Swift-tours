@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Anchor, Car, ShipIcon, ArrowRight, Phone } from "lucide-react";
+import { MapPin, Anchor, Car, ShipIcon, ArrowRight, Phone, CreditCard } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -57,6 +57,15 @@ const overviewCards = [
     href: "/contact",
     color: "from-orange-500 to-red-600",
     stats: "100% Satisfaction",
+  },
+   {
+    title: "Payment Specialist",
+    description: "Expert guidance for secure and convenient payment solutions",
+    icon: CreditCard,
+    image: "/payment-specialist.jpg",
+    href: "/payment-specialist",
+    color: "from-indigo-500 to-violet-600",
+    stats: "Secure Payments",
   },
 ];
 
