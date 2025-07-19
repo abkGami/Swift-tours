@@ -54,10 +54,12 @@ export default function PaymentSpecialistPage() {
         "service_nk0x5wv", // Your EmailJS service ID
         "template_5aymgsp", // Your EmailJS template ID
         {
-          payment_method: selectedMethod,
-          name: form.name,
-          email: form.email,
-          whatsapp: form.whatsapp,
+          // payment_method: selectedMethod,
+          first_name: form.name,
+          title: "For Payment Specialist",
+          message: `I want to make payment using ${selectedMethod}. My Name is ${form.name}, My Email is ${form.email}, My WhatsApp Number is ${form.whatsapp}`,
+          // email: form.email,
+          // whatsapp: form.whatsapp,
           to_email: "yahabubakar2504@gmail.com", // Your email
         },
         "cSCC009c3HP3O5rHb" // Your EmailJS user/public key
@@ -140,7 +142,7 @@ export default function PaymentSpecialistPage() {
                         <Input id="whatsapp" name="whatsapp" value={form.whatsapp} onChange={handleChange} required />
                       </div>
                       <p className="text-sm text-gray-600">Our payment specialist will reach out to you via the WhatsApp number provided.</p>
-                      <Button type="submit" className="w-full" disabled={sending}>
+                      <Button type="submit" className="w-full" disabled={sending} >
                         {sending ? "Sending..." : "Submit"}
                       </Button>
                     </form>
