@@ -16,6 +16,7 @@ import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import { Dialog } from "@headlessui/react";
 import { useMemo } from "react";
 import { X } from "lucide-react";
+import emailjs from "emailjs-com";
 
 type Boat = {
   name: string;
@@ -1030,9 +1031,7 @@ export default function BoatsPage() {
     phone: "",
     email: "",
   });
-
-
-    const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
   // Add slideshow index state for each boat card
   const [slideIndexes, setSlideIndexes] = useState<{ [key: string]: number }>(
@@ -1268,6 +1267,33 @@ export default function BoatsPage() {
     };
     return countryMap[selectedCountry] || undefined;
   }, [selectedCountry]);
+
+  // EmailJS send handler for contact modal
+  // const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   setSending(true);
+  //   try {
+  //     await emailjs.send(
+  //       "service_nk0x5wv", // replace with your EmailJS service ID
+  //       "template_5aymgsp", // replace with your EmailJS template ID
+  //       {
+  //         firstName: contactForm.firstName,
+  //         lastName: contactForm.lastName,
+  //         phone: contactForm.phone,
+  //         email: contactForm.email,
+  //         message: message,
+  //         to_email: "yahabubakar2504@gmail.com", // recipient
+  //       } as Record<string, unknown>,
+  //       "cSCC009c3HP3O5rHb" // replace with your EmailJS user/public key
+  //     );
+  //     setSent(true);
+  //   } catch (err) {
+  //     alert("Failed to send message. Please try again.");
+  //   }
+  //   setSending(false);
+  //   setContactModalOpen(false);
+  //   alert("Thank you! Your request has been submitted.");
+  // };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
@@ -2153,3 +2179,5 @@ export default function BoatsPage() {
     </div>
   );
 }
+
+

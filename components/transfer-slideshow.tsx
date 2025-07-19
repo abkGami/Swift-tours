@@ -6,10 +6,26 @@ import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 
 const albumImages = [
   "/transfers/a.jpg",
+  "/transfers/a1.jpg",
+  "/transfers/a2.jpg",
   "/transfers/b.jpg",
+  "/transfers/b1.jpg",
+  "/transfers/b2.jpg",
+  "/transfers/b3.jpg",
   "/transfers/c.jpg",
+  "/transfers/c1.jpg",
+  "/transfers/c2.jpg",
   "/transfers/d.jpg",
+  "/transfers/d4.jpg",
   "/transfers/e.jpg",
+  "/transfers/e1.jpg",
+  "/transfers/f.jpg",
+  "/transfers/g.jpg",
+  "/transfers/h.jpg",
+  "/transfers/i.jpg",
+  "/transfers/j.jpg",
+  "/transfers/k.jpg",
+  "/transfers/l.jpg",
 
 ];
 
@@ -55,7 +71,7 @@ export default function CustomerSLideshow() {
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Take a visual journey through some of our esteemed customers
-            chartering our boats
+            that have used our Private Transfer services
           </p>
         </motion.div>
 
@@ -69,7 +85,7 @@ export default function CustomerSLideshow() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.7, ease: "easeInOut" }}
-                className="absolute inset-0 bg-[#3293C3] "
+                className="absolute inset-0 bg-[#ebebeb] "
               >
                 <img
                   src={albumImages[currentIndex] || "/placeholder.svg"}
