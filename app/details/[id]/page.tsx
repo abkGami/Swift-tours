@@ -7,6 +7,7 @@ import { boats } from "@/data/boats/page";
 import { Dialog } from "@headlessui/react";
 import { X } from "lucide-react";
 import { Fragment, useState } from "react";
+import emailjs from "emailjs-com";
 
 import {
   CalendarX2Icon,
@@ -376,8 +377,50 @@ export default function BoatDetailPage() {
               className="space-y-4"
               onSubmit={(e) => {
                 e.preventDefault();
-                setContactModalOpen(false);
-                alert("Thank you! Your request has been submitted.");
+
+                const templateParams = {
+                  owner: owner,
+                  exp: exp,
+                  city: city,
+                  country: country,
+                  boat_type: boat.type,
+                  departure_date: departureDate,
+                  return_date: returnDate,
+                  budget: `€${selectedBudget}`,
+                  num_people: numPeople,
+                  first_name: contactForm.firstName,
+                  last_name: contactForm.lastName,
+                  phone: contactForm.phone,
+                  email: contactForm.email,
+                  message: `Hello ${owner}, 
+                  I'm interested in the ${exp} in ${city}, ${country} on the ${boat.type} 
+                  from ${departureDate} to ${returnDate}. My budget is €${selectedBudget} and there will be ${numPeople} of us on board. 
+                  Is it possible to make reservation? Thank You. My name is ${contactForm.firstName} ${contactForm.lastName}, 
+                  my phone number is ${contactForm.phone}, and my email is ${contactForm.email}`,
+                };
+
+                emailjs
+                  .send(
+                    "YOUR_SERVICE_ID",
+                    "YOUR_TEMPLATE_ID",
+                    templateParams,
+                    "YOUR_USER_ID"
+                  )
+                  .then((response) => {
+                    console.log(
+                      "Email sent successfully!",
+                      response.status,
+                      response.text
+                    );
+                    setContactModalOpen(false);
+                    alert("Thank you! Your request has been submitted.");
+                  })
+                  .catch((error) => {
+                    console.error("Failed to send email:", error);
+                    alert(
+                      "There was an error sending your request. Please try again."
+                    );
+                  });
               }}
             >
               <div>
@@ -442,6 +485,12 @@ export default function BoatDetailPage() {
               <Button
                 type="submit"
                 className="w-full bg-blue-600 hover:bg-blue-700 mt-2"
+                //   onClick={ () => console.log(
+                //     `Hello ${owner} , I'm interested in the ${exp} in ${city}, ${country} on the ${boat.type} from ${departureDate} to ${returnDate}. My budget is €${selectedBudget} and there will be ${numPeople} of us on board. Is it possible to make reservation? Thank You. ` +
+                // "My name is " + contactForm.firstName + " " + contactForm.lastName +
+                // ", my phone number is " + contactForm.phone +
+                // ", and my email is " + contactForm.email
+                // )}
               >
                 Submit
               </Button>

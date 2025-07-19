@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Apple, CreditCard, Globe, Phone } from "lucide-react"; // Add more icons as needed
+import { Apple, CreditCard, Globe, Phone } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,6 +10,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Label } from "@/components/ui/label";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
+import emailjs from "emailjs-com";
 
 const paymentMethods = [
   {
@@ -38,17 +39,34 @@ const paymentMethods = [
 export default function PaymentSpecialistPage() {
   const [selectedMethod, setSelectedMethod] = useState<string | null>(null);
   const [form, setForm] = useState({ name: "", email: "", whatsapp: "" });
+  const [sending, setSending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Add actual submission logic (e.g., emailjs or API call)
-    console.log("Submitted:", { method: selectedMethod, ...form });
-    setSubmitted(true);
+    setSending(true);
+    try {
+      await emailjs.send(
+        "service_nk0x5wv", // Your EmailJS service ID
+        "template_5aymgsp", // Your EmailJS template ID
+        {
+          payment_method: selectedMethod,
+          name: form.name,
+          email: form.email,
+          whatsapp: form.whatsapp,
+          to_email: "yahabubakar2504@gmail.com", // Your email
+        },
+        "cSCC009c3HP3O5rHb" // Your EmailJS user/public key
+      );
+      setSubmitted(true);
+    } catch (err) {
+      alert("Failed to send message. Please try again.");
+    }
+    setSending(false);
     setTimeout(() => {
       setSelectedMethod(null);
       setSubmitted(false);
@@ -122,7 +140,9 @@ export default function PaymentSpecialistPage() {
                         <Input id="whatsapp" name="whatsapp" value={form.whatsapp} onChange={handleChange} required />
                       </div>
                       <p className="text-sm text-gray-600">Our payment specialist will reach out to you via the WhatsApp number provided.</p>
-                      <Button type="submit" className="w-full">Submit</Button>
+                      <Button type="submit" className="w-full" disabled={sending}>
+                        {sending ? "Sending..." : "Submit"}
+                      </Button>
                     </form>
                   ) : (
                     <p className="text-center text-green-600">Thank you! Our specialist will contact you soon.</p>
