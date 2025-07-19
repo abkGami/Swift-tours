@@ -52,7 +52,7 @@ export default function PaymentSpecialistPage() {
     try {
       await emailjs.send(
         "service_nk0x5wv", // Your EmailJS service ID
-        "template_5aymgsp", // Your EmailJS template ID
+        "template_ihrbiim", // Your EmailJS template ID
         {
           // payment_method: selectedMethod,
           first_name: form.name,
