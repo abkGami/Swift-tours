@@ -60,7 +60,7 @@ export default function PaymentSpecialistPage() {
           message: `I want to make payment using ${selectedMethod}. My Name is ${form.name}, My Email is ${form.email}, My WhatsApp Number is ${form.whatsapp}`,
           // email: form.email,
           // whatsapp: form.whatsapp,
-          to_email: "yahabubakar2504@gmail.com", // Your email
+          // to_email: "yahabubakar2504@gmail.com", // Your email
         },
         "cSCC009c3HP3O5rHb" // Your EmailJS user/public key
       );
