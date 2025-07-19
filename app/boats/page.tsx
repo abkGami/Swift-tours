@@ -2096,14 +2096,39 @@ export default function BoatsPage() {
             <Dialog.Title className="text-2xl font-bold mb-4 text-gray-900">
               Enter Your Contact Details
             </Dialog.Title>
-            <form
-              className="space-y-4"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setContactModalOpen(false);
-                alert("Thank you! Your request has been submitted.");
-              }}
-            >
+          <form
+    className="space-y-4"
+    onSubmit={(e) => {
+      e.preventDefault();
+
+      const templateParams = {
+        // boat_name: selectedBoat?.name || '',
+        // city: orderForm.city,
+        // country: orderForm.country,
+        // departure_date: departureDate,
+        // return_date: returnDate,
+        // budget: `€${selectedBudget}`,
+        // num_people: numPeople,
+        first_name: contactForm.firstName,
+        last_name: contactForm.lastName,
+        title: "Swift Travels Chartered Boat",
+        // phone: contactForm.phone,
+        // email: contactForm.email,
+        message: `${message} My name is ${contactForm.firstName} ${contactForm.lastName}, my phone number is ${contactForm.phone}, and my email is ${contactForm.email}`
+      };
+
+      emailjs.send('service_nk0x5wv', 'template_ihrbiim', templateParams, 'cSCC009c3HP3O5rHb')
+        .then((response) => {
+          console.log('Email sent successfully!', response.status, response.text);
+          setContactModalOpen(false);
+          alert("Thank you! Your request has been submitted.");
+        })
+        .catch((error) => {
+          console.error('Failed to send email:', error);
+          alert('There was an error sending your request. Please try again.');
+        });
+    }}
+  >
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   First Name
@@ -2166,7 +2191,7 @@ export default function BoatsPage() {
               <Button
                 type="submit"
                 className="w-full bg-blue-600 hover:bg-blue-700 mt-2"
-                onClick={() => console.log(message)}
+                onClick={() => console.log(message + `My name is ${contactForm.firstName} ${contactForm.lastName} my phone number is ${contactForm.phone}, and my email is ${contactForm.email}`)}
               >
                 Submit
               </Button>

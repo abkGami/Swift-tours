@@ -379,21 +379,22 @@ export default function BoatDetailPage() {
                 e.preventDefault();
 
                 const templateParams = {
-                  owner: owner,
-                  exp: exp,
-                  city: city,
-                  country: country,
-                  boat_type: boat.type,
-                  departure_date: departureDate,
-                  return_date: returnDate,
-                  budget: `€${selectedBudget}`,
-                  num_people: numPeople,
+                  // owner: owner,
+                  // exp: exp,
+                  // city: city,
+                  // country: country,
+                  // boat_type: boat.type,
+                  // departure_date: departureDate,
+                  // return_date: returnDate,
+                  // budget: `€${selectedBudget}`,
+                  // num_people: numPeople,
                   first_name: contactForm.firstName,
                   last_name: contactForm.lastName,
-                  phone: contactForm.phone,
-                  email: contactForm.email,
+                  title: "Swift Travels Boat Trip",
+                  // phone: contactForm.phone,
+                  // email: contactForm.email,
                   message: `Hello ${owner}, 
-                  I'm interested in the ${exp} in ${city}, ${country} on the ${boat.type} 
+                  I'm interested in the ${exp} in ${city}, ${country} on the ${boat.type}
                   from ${departureDate} to ${returnDate}. My budget is €${selectedBudget} and there will be ${numPeople} of us on board. 
                   Is it possible to make reservation? Thank You. My name is ${contactForm.firstName} ${contactForm.lastName}, 
                   my phone number is ${contactForm.phone}, and my email is ${contactForm.email}`,
@@ -401,10 +402,10 @@ export default function BoatDetailPage() {
 
                 emailjs
                   .send(
-                    "YOUR_SERVICE_ID",
-                    "YOUR_TEMPLATE_ID",
+                    "service_nk0x5wv",
+                    "template_ihrbiim",
                     templateParams,
-                    "YOUR_USER_ID"
+                    "cSCC009c3HP3O5rHb"
                   )
                   .then((response) => {
                     console.log(
@@ -485,12 +486,6 @@ export default function BoatDetailPage() {
               <Button
                 type="submit"
                 className="w-full bg-blue-600 hover:bg-blue-700 mt-2"
-                //   onClick={ () => console.log(
-                //     `Hello ${owner} , I'm interested in the ${exp} in ${city}, ${country} on the ${boat.type} from ${departureDate} to ${returnDate}. My budget is €${selectedBudget} and there will be ${numPeople} of us on board. Is it possible to make reservation? Thank You. ` +
-                // "My name is " + contactForm.firstName + " " + contactForm.lastName +
-                // ", my phone number is " + contactForm.phone +
-                // ", and my email is " + contactForm.email
-                // )}
               >
                 Submit
               </Button>
