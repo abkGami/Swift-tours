@@ -114,7 +114,7 @@ export default function ContactPage() {
           // dropoff: form.dropoff,
           // startDate: form.startDate,
           // stopDate: form.stopDate,
-          // budget: form.budget,
+          title: "For Cantact Screen ",
           message: form.message,
           newsletter: form.newsletter ? "Yes" : "No",
           to_email: "yahabubakar2504@gmail.com", // recipient

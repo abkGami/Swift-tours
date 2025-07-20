@@ -100,7 +100,7 @@ export default function ContactPage() {
     budget: string;
     message: string;
     flightNumber: string;
-    // newsletter: string;
+    title: string;
     // to_email: string;
   }
 
@@ -124,7 +124,7 @@ export default function ContactPage() {
           budget: form.budget,
           message: form.message,
           flightNumber: flightNumber,
-          // newsletter: form.newsletter ? "Yes" : "No",
+          title: "For Private transfers Contact screen"
           // to_email: "yahabubakar2504@gmail.com", // recipient
         } as Record<string, unknown>,
         "cSCC009c3HP3O5rHb" // replace with your EmailJS user/public key
