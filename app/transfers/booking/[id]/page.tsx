@@ -50,7 +50,7 @@ export default function ContactPage() {
     stopDate: "",
     budget: "",
     message: "",
-    newsletter: false,
+    // newsletter: false,
   });
 
   const [sending, setSending] = useState(false);
@@ -69,7 +69,7 @@ export default function ContactPage() {
     stopDate: string;
     budget: string;
     message: string;
-    newsletter: boolean;
+    // newsletter: boolean;
   }
 
   interface HandleChangeEvent
@@ -99,8 +99,9 @@ export default function ContactPage() {
     stopDate: string;
     budget: string;
     message: string;
-    newsletter: string;
-    to_email: string;
+    flightNumber: string;
+    // newsletter: string;
+    // to_email: string;
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -122,8 +123,9 @@ export default function ContactPage() {
           stopDate: form.stopDate,
           budget: form.budget,
           message: form.message,
-          newsletter: form.newsletter ? "Yes" : "No",
-          to_email: "yahabubakar2504@gmail.com", // recipient
+          flightNumber: flightNumber,
+          // newsletter: form.newsletter ? "Yes" : "No",
+          // to_email: "yahabubakar2504@gmail.com", // recipient
         } as Record<string, unknown>,
         "cSCC009c3HP3O5rHb" // replace with your EmailJS user/public key
       );
@@ -273,7 +275,7 @@ export default function ContactPage() {
       {/* Contact Content */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className=" gap-12">
             {/* Contact Form */}
             <motion.div
             // initial={{ opacity: 0, x: 50 }}
@@ -520,7 +522,7 @@ export default function ContactPage() {
                       <div className="flex items-center space-x-2 mt-4">
                         <input
                           name="newsletter"
-                          checked={form.newsletter}
+                          // checked={checked}
                           onChange={handleChange}
                           type="checkbox"
                           id="newsletter"
