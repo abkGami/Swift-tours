@@ -13,6 +13,8 @@ import { useRef, useState, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
 import { X } from "lucide-react";
 import emailjs from "emailjs-com";
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import Script from "next/script";
 
 type CarRental = {
   id: number;
@@ -260,6 +262,10 @@ export default function CarRentalPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
+        <Script
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}libraries=places`}
+          strategy="beforeInteractive"
+        />
       <Navigation />
 
       {/* Hero Section */}
@@ -319,16 +325,32 @@ export default function CarRentalPage() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
               {/* Pickup Location */}
+                        {/* Pickup Location */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Pickup Location
                 </label>
-                <input
-                  type="text"
-                  placeholder="Enter pickup location"
-                  value={pickupLocation}
-                  onChange={(e) => setPickupLocation(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                <GooglePlacesAutocomplete
+                  selectProps={{
+                    placeholder: "Search pickup location",
+                    value: pickupLocation
+                      ? { label: pickupLocation, value: pickupLocation }
+                      : null,
+                    onChange: (option) => {
+                      setPickupLocation(option?.label || "");
+                    },
+                    styles: {
+                      control: (provided) => ({
+                        ...provided,
+                        width: '100%',
+                        padding: '2px',
+                        border: '1px solid #d1d5db',
+                        borderRadius: '6px',
+                        minHeight: '42px'
+                      })
+                    }
+                  }}
+                  apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
                 />
               </div>
 
