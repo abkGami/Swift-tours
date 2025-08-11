@@ -107,7 +107,7 @@ export default function Navigation() {
     },
     { name: "Boat Trip", href: "/boat-trip" },
     { name: "Chartered Boats", href: "/boats" },
-    { name: "Transfers", href: "/transfers" },
+    { name: "Rentals & Transfers", href: "/transfers" },
     // { name: "Payment", href: "/payment" },
     { name: "Contact", href: "/contact" },
     { name: "Reviews", href: "/reviews" },

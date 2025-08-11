@@ -98,7 +98,7 @@ export default function Footer() {
                 { label: "Tour Destinations", href: "/destinations" },
                 { label: "Boat Trip", href: "/boat-trip" },
                 { label: "Chartered Boats", href: "/boats" },
-                { label: "Transfers", href: "/transfers" },
+                { label: "Rentals & Transfers", href: "/transfers" },
                 { label: "Contact Us", href: "/contact" },
                 { label: "Customer Reviews", href: "/reviews" },
               ].map((service) => (

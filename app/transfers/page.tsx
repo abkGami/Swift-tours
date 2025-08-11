@@ -182,7 +182,7 @@ export default function TransfersPage() {
               <Car className="h-12 w-12 mr-3" />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Premium Transfers
+             Car Rentals & Premium Transfers
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
               Travel in style and comfort with our comprehensive transfer
