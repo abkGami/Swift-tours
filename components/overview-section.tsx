@@ -40,7 +40,7 @@ const overviewCards = [
     stats: "15+ Boats Available",
   },
   {
-    title: "Premium Transfers",
+    title: "Rentals & Transfers",
     description:
       "Travel in style with our luxury vehicles and professional transfer services",
     icon: Car,

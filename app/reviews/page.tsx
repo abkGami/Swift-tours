@@ -133,6 +133,15 @@ const countryAssignments: Record<
     emails: ["marmahlulu@yahoo.com", "rerheem7r2@gmail.com"],
     cities: ["Seoul", "Busan"],
   },
+  "Puerto Rico": {
+    emails: [
+      "benkohle7@gmail.com",
+      "isabella7hunters@gmail.com",
+      "thomasssteve30@gmail.com",
+      "oliviazerch@outlook.com",
+    ],
+    cities: [],
+  },
 };
 
 const reviews = [
@@ -142,7 +151,7 @@ const reviews = [
     date: "2025-07-01",
     service: "Boat Trip",
     stars: 5,
-    image: "/profile.jpg",
+    image: "/reviews/a (23).jpg",
     review:
       "Amazing boat trip in Lisbon! The staff was super friendly and the views were breathtaking. Highly recommend Swift Tours and Travels!",
     language: "en",
@@ -153,7 +162,7 @@ const reviews = [
     date: "2025-06-29",
     service: "Boat Trip",
     stars: 5,
-    image: "/profile.jpg",
+    image: "/reviews/g.jpg",
     review:
       "¡El paseo en barco en Sydney fue inolvidable! Gracias Swift Tours and Travels por la experiencia increíble.",
     language: "es",
@@ -164,7 +173,7 @@ const reviews = [
     date: "2025-06-25",
     service: "Boat Trip",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/a (21).jpg",
     review:
       "Sydney boat trip was unforgettable! Highly recommend Swift Tours and Travels for anyone visiting Australia.",
     language: "en",
@@ -175,7 +184,7 @@ const reviews = [
     date: "2025-06-25",
     service: "Tour Service",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/a.jpg",
     review:
       "Swift Tours and Travels planned our Puerto Rico trip flawlessly! Samuel customized our itinerary, booked tours, and arranged transportation. Everything ran smoothly, and we loved the desert experience. Highly recommend!",
     language: "en",
@@ -186,18 +195,18 @@ const reviews = [
     date: "2025-06-20",
     service: "Boat Chartered",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/b.jpg",
     review:
       "Chartering a boat in Tahiti with Swift Tours and Travels was a dream come true!",
     language: "en",
     country: "Tahiti",
   },
   {
-    name: "Samantha White", // European
+    name: "Gabriel White", // European
     date: "2025-06-20",
     service: "Tour Service",
     stars: 4,
-    image: "/profile.jpg",
+image: "/reviews/a1.jpg",
     review:
       "Great tour in Melbourne. Learned a lot and had fun! Thanks to Swift Tours and Travels!",
     language: "en",
@@ -208,7 +217,7 @@ const reviews = [
     date: "2025-06-18",
     service: "Tour Service",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/b (3).jpg",
     review:
       "London tour was excellent. Our guide from Swift Tours and Travels was friendly and knowledgeable.",
     language: "en",
@@ -219,18 +228,18 @@ const reviews = [
     date: "2025-06-18",
     service: "Boat Trip",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/b (4).jpg",
     review:
       "The boat trip in Honolulu was the highlight of our trip. Swift Tours and Travels made it perfect!",
     language: "en",
     country: "Hawaii",
   },
   {
-    name: "Maria Grech", // European
+    name: "Marco Grech", // European
     date: "2025-06-16",
     service: "Boat Trip",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/c (5).jpg",
     review:
       "The boat trip around Malta was amazing. Swift Tours and Travels provided excellent service!",
     language: "en",
@@ -241,18 +250,18 @@ const reviews = [
     date: "2025-06-15",
     service: "Boat Chartered",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/b (19).jpg",
     review:
       "Renting a boat in Paris was an incredible experience. Thank you Swift Tours and Travels for making it memorable!",
     language: "en",
     country: "France",
   },
   {
-    name: "Ana Costa", // European
+    name: "Anatoly Costa", // European
     date: "2025-06-15",
     service: "Tour Service",
     stars: 4,
-    image: "/profile.jpg",
+image: "/reviews/b (24).jpg",
     review:
       "Great city tour in Porto. Learned a lot and had fun! Thank you Swift Tours and Travels for the wonderful experience!",
     language: "en",
@@ -263,7 +272,7 @@ const reviews = [
     date: "2025-06-15",
     service: "Boat Trip",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/i.jpg",
     review:
       "The Nile boat trip was unforgettable. Swift Tours and Travels provided excellent service!",
     language: "en",
@@ -274,7 +283,7 @@ const reviews = [
     date: "2025-06-15",
     service: "Tour Service",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/i3.jpg",
     review:
       "Swift Tours and Travels planned our Puerto Rico trip flawlessly! Samuel customized our itinerary, booked tours, and arranged transportation. Everything ran smoothly, and we loved the desert experience. Highly recommend!",
     language: "en",
@@ -285,7 +294,7 @@ const reviews = [
     date: "2025-06-14",
     service: "Private Transfer",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/c (8).jpg",
     review:
       "Transfer in Berlin was quick and easy. Great service from Swift Tours and Travels!",
     language: "en",
@@ -296,7 +305,7 @@ const reviews = [
     date: "2025-06-14",
     service: "Tour Service",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/c.jpg",
     review:
       "Buenos Aires city tour was fantastic. Swift Tours and Travels made it so much fun!",
     language: "en",
@@ -307,7 +316,7 @@ const reviews = [
     date: "2025-06-13",
     service: "Boat Trip",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/c (14).jpg",
     review:
       "The boat trip in Kotor Bay was stunning. Swift Tours and Travels made it unforgettable!",
     language: "en",
@@ -318,7 +327,7 @@ const reviews = [
     date: "2025-06-12",
     service: "Private Transfer",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/d.jpg",
     review:
       "Very convenient transfer service in Manchester. Will use Swift Tours and Travels again!",
     language: "en",
@@ -329,7 +338,7 @@ const reviews = [
     date: "2025-06-12",
     service: "Tour Service",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/corfu (2).jpg",
     review:
       "Exploring Marrakech with Swift Tours and Travels was a fantastic experience!",
     language: "en",
@@ -340,7 +349,7 @@ const reviews = [
     date: "2025-06-11",
     service: "Boat Chartered",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/h1.jpg",
     review:
       "Chartered a boat in Bangkok with Swift Tours and Travels. Fantastic experience!",
     language: "en",
@@ -351,7 +360,7 @@ const reviews = [
     date: "2025-06-10",
     service: "Boat Chartered",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/h2.jpg",
     review:
       "Chartering a boat in Paris was a dream come true. Thank you Swift Tours and Travels for the amazing service!",
     language: "en",
@@ -362,7 +371,7 @@ const reviews = [
     date: "2025-06-10",
     service: "Tour Service",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/e.jpg",
     review:
       "The Riyadh city tour was amazing! Swift Tours and Travels made everything easy and enjoyable.",
     language: "en",
@@ -373,7 +382,7 @@ const reviews = [
     date: "2025-06-09",
     service: "Boat Trip",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/h3.jpg",
     review:
       "Dubrovnik boat trip was the best part of our holiday! Thank you Swift Tours and Travels for making it so special!",
     language: "en",
@@ -384,7 +393,7 @@ const reviews = [
     date: "2025-06-07",
     service: "Boat Chartered",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/h4.jpg",
     review:
       "Amazing boat charter in Venice. The crew from Swift Tours and Travels was fantastic!",
     language: "en",
@@ -396,7 +405,7 @@ const reviews = [
     date: "2025-06-07",
     service: "Tour Service",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/h5.jpg",
     review:
       "Swift Tours and Travels took us to Puerto Rico's top spots, including Flamenco Beach in Culebra and El Yunque National Forest in Río Grande. Excellent service, transportation, and accommodations. Highly recommend!",
     language: "en",
@@ -407,7 +416,7 @@ const reviews = [
     date: "2025-06-05",
     service: "Boat Trip",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/h6.jpg",
     review:
       "The boat trip in Barcelona was the highlight of our vacation. Everything was perfect thanks to Swift Tours and Travels!",
     language: "en",
@@ -418,7 +427,7 @@ const reviews = [
     date: "2025-06-03",
     service: "Tour Service",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/h7.jpg",
     review:
       "The London tour was really enjoyable. Thanks to Swift Tours and Travels for the great memories!",
     language: "en",
@@ -429,7 +438,7 @@ const reviews = [
     date: "2025-06-01",
     service: "Boat Trip",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/h8.jpg",
     review:
       "El paseo en barco por Lisboa fue maravilloso. Gracias Swift Tours and Travels por la experiencia increíble.",
     language: "es",
@@ -440,7 +449,7 @@ const reviews = [
     date: "2025-05-31",
     service: "Boat Trip",
     stars: 4,
-    image: "/profile.jpg",
+image: "/reviews/i1.jpg",
     review:
       "The boat trip in Patagonia was breathtaking. Thank you Swift Tours and Travels!",
     language: "en",
@@ -451,7 +460,7 @@ const reviews = [
     date: "2025-05-30",
     service: "Tour Service",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/g.jpg",
     review:
       "The Paris city tour was very informative and enjoyable. Would book again with Swift Tours and Travels!",
     language: "en",
@@ -462,7 +471,7 @@ const reviews = [
     date: "2025-05-30",
     service: "Tour Service",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/h8.jpg",
     review:
       "Cairo city tour was very informative. Thank you Swift Tours and Travels for a wonderful day!",
     language: "en",
@@ -473,7 +482,7 @@ const reviews = [
     date: "2025-05-29",
     service: "Tour Service",
     stars: 4,
-    image: "/profile.jpg",
+image: "/reviews/i2.jpg",
     review:
       "Bangkok city tour was fun and informative. Would recommend Swift Tours and Travels!",
     language: "en",
@@ -484,7 +493,7 @@ const reviews = [
     date: "2025-05-29",
     service: "Tour Service",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/j1.jpg",
     review:
       "Great tour of Maui! Thank you Swift Tours and Travels for the amazing experience.",
     language: "en",
@@ -495,7 +504,7 @@ const reviews = [
     date: "2025-05-28",
     service: "Private Transfer",
     stars: 4,
-    image: "/profile.jpg",
+image: "/reviews/h.jpg",
     review:
       "Private transfer from the airport was smooth and comfortable. Highly recommend Swift Tours and Travels for transfers in Spain!",
     language: "en",
@@ -506,7 +515,7 @@ const reviews = [
     date: "2025-05-28",
     service: "Private Transfer",
     stars: 4,
-    image: "/profile.jpg",
+image: "/reviews/i4.jpg",
     review:
       "We just returned from an incredible trip to Puerto Rico, thanks to Swift Tours and Travels! From the moment we arrived, Samuel took care of everything - arranging transportation, booking tours, and even recommending the best local eats. The desert experience was breathtaking, and our driver, Carlos, was knowledgeable and friendly.",
     language: "en",
@@ -517,7 +526,7 @@ const reviews = [
     date: "2025-05-28",
     service: "Tour Service",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/j1.jpg",
     review:
       "Great tour of Valletta. Thank you Swift Tours and Travels for a memorable day!",
     language: "en",
@@ -528,7 +537,7 @@ const reviews = [
     date: "2025-05-27",
     service: "Boat Trip",
     stars: 4,
-    image: "/profile.jpg",
+image: "/reviews/i6.jpg",
     review:
       "The boat trip in Casablanca was beautiful. Thanks to Swift Tours and Travels for the great memories!",
     language: "en",
@@ -539,7 +548,7 @@ const reviews = [
     date: "2025-05-26",
     service: "Tour Service",
     stars: 4,
-    image: "/profile.jpg",
+image: "/reviews/i7.jpg",
     review:
       "Loved the city tour in Podgorica. Thank you Swift Tours and Travels for the great experience!",
     language: "en",
@@ -550,7 +559,7 @@ const reviews = [
     date: "2025-05-25",
     service: "Tour Service",
     stars: 4,
-    image: "/profile.jpg",
+image: "/reviews/i8.jpg",
     review:
       "Rome city tour was very interesting and well organized by Swift Tours and Travels.",
     language: "en",
@@ -561,7 +570,7 @@ const reviews = [
     date: "2025-05-25",
     service: "Tour Service",
     stars: 4,
-    image: "/profile.jpg",
+image: "/reviews/h8.jpg",
     review:
       "The island tour in Tahiti was wonderful. Thank you Swift Tours and Travels for the great service!",
     language: "en",
@@ -572,7 +581,7 @@ const reviews = [
     date: "2025-05-24",
     service: "Private Transfer",
     stars: 4,
-    image: "/profile.jpg",
+image: "/reviews/i9.jpg",
     review:
       "Le transfert à Berlin était très pratique et rapide. Merci Swift Tours and Travels!",
     language: "fr",
@@ -583,7 +592,7 @@ const reviews = [
     date: "2025-05-22",
     service: "Boat Trip",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/j3.jpg",
     review:
       "Loved the boat trip on the Rhine. Beautiful scenery and excellent staff from Swift Tours and Travels.",
     language: "en",
@@ -594,7 +603,7 @@ const reviews = [
     date: "2025-05-22",
     service: "Private Transfer",
     stars: 4,
-    image: "/profile.jpg",
+image: "/reviews/j4.jpg",
     review:
       "Great transfer service in Jeddah. Thank you Swift Tours and Travels for the comfort and reliability!",
     language: "en",
@@ -605,7 +614,7 @@ const reviews = [
     date: "2025-05-20",
     service: "Tour Service",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/j7.jpg",
     review:
       "Tokyo city tour was fantastic! Our guide from Swift Tours and Travels was knowledgeable and very helpful.",
     language: "en",
@@ -616,7 +625,7 @@ const reviews = [
     date: "2025-05-20",
     service: "Private Transfer",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/j.jpg",
     review:
       "Very comfortable transfer in Tokyo. Thanks to Swift Tours and Travels for the excellent service.",
     language: "en",
@@ -627,7 +636,7 @@ const reviews = [
     date: "2025-05-19",
     service: "Tour Service",
     stars: 4,
-    image: "/profile.jpg",
+image: "/reviews/f.jpg",
     review:
       "Loved the walking tour in Split. Great guide and beautiful city. Thanks Swift Tours and Travels!",
     language: "en",
@@ -638,18 +647,18 @@ const reviews = [
     date: "2025-05-17",
     service: "Boat Chartered",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/france (1).jpg",
     review:
       "J'ai adoré la journée en bateau à Bangkok, service impeccable de Swift Tours and Travels.",
     language: "fr",
     country: "Thailand",
   },
   {
-    name: "Sophie Elliot", // European
+    name: "Winston Elliot", // European
     date: "2025-05-12",
     service: "Boat Trip",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/k.jpg",
     review:
       "Swift Tours and Travels really helped and made my trip unforgettable! The boat trip to Madeira Island was amazing!",
     language: "en",
@@ -660,7 +669,7 @@ const reviews = [
     date: "2025-05-10",
     service: "Boat Chartered",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/paris.jpg",
     review:
       "Wonderful boat charter experience in Osaka. Thank you Swift Tours and Travels for making it memorable!",
     language: "en",
@@ -671,7 +680,7 @@ const reviews = [
     date: "2025-05-10",
     service: "Tour Service",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/k21.jpg",
     review:
       "El tour por Londres fue excelente, aprendí mucho sobre la ciudad. Gracias Swift Tours and Travels.",
     language: "es",
@@ -682,18 +691,18 @@ const reviews = [
     date: "2025-05-03",
     service: "Boat Trip",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/paris1.jpg",
     review:
       "The boat trip in Rio de Janeiro was fantastic! Thanks Swift Tours and Travels for the amazing experience.",
     language: "en",
     country: "Brazil",
   },
   {
-    name: "Marie Leclerc", // European
+    name: "Mariel Leclerc", // European
     date: "2025-04-26",
     service: "Private Transfer",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/j9.jpg",
     review:
       "Le service de transfert à Paris était très pratique. Merci à Swift Tours and Travels pour l'excellent service!",
     language: "fr",
@@ -704,7 +713,7 @@ const reviews = [
     date: "2025-04-19",
     service: "Boat Chartered",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/j8.jpg",
     review:
       "Yacht charter in Dubai was a great adventure! Thanks Swift Tours and Travels for the amazing experience.",
     language: "en",
@@ -715,7 +724,7 @@ const reviews = [
     date: "2025-04-13",
     service: "Boat Chartered",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/k4.jpg",
     review:
       "Chartering a boat in Barcelona was an amazing experience! Thank you Swift Tours and Travels for the excellent service.",
     language: "en",
@@ -726,7 +735,7 @@ const reviews = [
     date: "2025-04-12",
     service: "Tour Service",
     stars: 4,
-    image: "/profile.jpg",
+image: "/reviews/k5.jpg",
     review:
       "Guided tour in Tokyo very interesting and well organized by Swift Tours and Travels.",
     language: "en",
@@ -737,7 +746,7 @@ const reviews = [
     date: "2025-04-10",
     service: "Boat Chartered",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/k6.jpg",
     review:
       "Alquilar un yate en Barcelona fue la mejor decisión de nuestro viaje. ¡Gracias Swift Tours and Travels!",
     language: "es",
@@ -748,7 +757,7 @@ const reviews = [
     date: "2025-04-05",
     service: "Boat Trip",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/k5a.jpg",
     review:
       "The boat trip in Venice was magical! Thank you Swift Tours and Travels for the wonderful experience.",
     language: "en",
@@ -759,7 +768,7 @@ const reviews = [
     date: "2025-03-29",
     service: "Private Transfer",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/k3.jpg",
     review:
       "Comfortable transfer in Dubai. Highly recommended! Thanks Swift Tours and Travels.",
     language: "en",
@@ -770,7 +779,7 @@ const reviews = [
     date: "2025-03-22",
     service: "Boat Chartered",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/c (5).jpg",
     review:
       "Alquilar un barco en Roma fue la mejor decisión de nuestro viaje. ¡Gracias Swift Tours and Travels!",
     language: "es",
@@ -781,67 +790,67 @@ const reviews = [
     date: "2025-03-15",
     service: "Tour Service",
     stars: 5,
-    image: "/profile.jpg",
+image: "/reviews/h9.jpg",
     review:
       "La excursión por Barcelona fue perfectamente organizada por Swift Tours and Travels. ¡Excelente servicio!",
     language: "es",
     country: "Spain",
   },
-  {
-    name: "Min-jun Kim", // Asian
-    date: "2025-02-06",
-    service: "Tour Service",
-    stars: 4,
-    image: "/profile.jpg",
-    review:
-      "The tour in Seoul was very fun and educational. Thanks to Swift Tours and Travels for the great experience.",
-    language: "en",
-    country: "South Korea",
-  },
-  {
-    name: "Lucia Santos", // South American
-    date: "2025-02-17",
-    service: "Private Transfer",
-    stars: 5,
-    image: "/profile.jpg",
-    review:
-      "Transfert à Paris rapide et sécurisé. Merci Swift Tours and Travels pour le service impeccable!",
-    language: "fr",
-    country: "France",
-  },
-  {
-    name: "Adriana Vargas", // South American
-    date: "2025-01-27",
-    service: "Boat Trip",
-    stars: 5,
-    image: "/profile.jpg",
-    review:
-      "La excursión en barco por Estambul fue maravillosa! Gracias Swift Tours and Travels por la experiencia.",
-    language: "es",
-    country: "Turkey",
-  },
-  {
-    name: "Pavel Novák", // European
-    date: "2025-01-18",
-    service: "Tour Service",
-    stars: 4,
-    image: "/profile.jpg",
-    review:
-      "The tour in Prague was very fun and educational. Thanks Swift Tours and Travels for making it possible!",
-    language: "en",
-    country: "Czech Republic",
-  },
-  {
-    name: "Pierre Laurent", // European
-    date: "2025-01-10",
-    service: "Boat Trip",
-    stars: 5,
-    image: "/profile.jpg",
-    review:
-      "Le voyage en bateau à Istanbul était fantastique! Merci Swift Tours and Travels pour cette expérience.",
-    language: "fr",
-    country: "Turkey",
-  },
+//   {
+//     name: "Min-jun Kim", // Asian
+//     date: "2025-02-06",
+//     service: "Tour Service",
+//     stars: 4,
+// image: "/reviews/a (21).jpg",
+//     review:
+//       "The tour in Seoul was very fun and educational. Thanks to Swift Tours and Travels for the great experience.",
+//     language: "en",
+//     country: "South Korea",
+//   },
+//   {
+//     name: "Lucia Santos", // South American
+//     date: "2025-02-17",
+//     service: "Private Transfer",
+//     stars: 5,
+// image: "/reviews/a (21).jpg",
+//     review:
+//       "Transfert à Paris rapide et sécurisé. Merci Swift Tours and Travels pour le service impeccable!",
+//     language: "fr",
+//     country: "France",
+//   },
+//   {
+//     name: "Adriana Vargas", // South American
+//     date: "2025-01-27",
+//     service: "Boat Trip",
+//     stars: 5,
+// image: "/reviews/a (21).jpg",
+//     review:
+//       "La excursión en barco por Estambul fue maravillosa! Gracias Swift Tours and Travels por la experiencia.",
+//     language: "es",
+//     country: "Turkey",
+//   },
+//   {
+//     name: "Pavel Novák", // European
+//     date: "2025-01-18",
+//     service: "Tour Service",
+//     stars: 4,
+// image: "/reviews/a (21).jpg",
+//     review:
+//       "The tour in Prague was very fun and educational. Thanks Swift Tours and Travels for making it possible!",
+//     language: "en",
+//     country: "Czech Republic",
+//   },
+//   {
+//     name: "Pierre Laurent", // European
+//     date: "2025-01-10",
+//     service: "Boat Trip",
+//     stars: 5,
+// image: "/reviews/a (21).jpg",
+//     review:
+//       "Le voyage en bateau à Istanbul était fantastique! Merci Swift Tours and Travels pour cette expérience.",
+//     language: "fr",
+//     country: "Turkey",
+//   },
 ];
 
 // ... existing code ...

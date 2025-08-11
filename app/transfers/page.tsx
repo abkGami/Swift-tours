@@ -23,7 +23,7 @@ import CustomerSLideshow from "@/components/transfer-slideshow";
 
 const transferOptions = [
   {
-    title: "Luxury Vehicles",
+    title: "Car Rentals",
     icon: Crown,
     description: "Premium comfort with Mercedes-Benz V-Class and BMW 7 Series",
     features: [
@@ -148,8 +148,13 @@ export default function TransfersPage() {
 
   const handleClick = (optionTitle: string) => {
     setSelectedTransfer(optionTitle);
-    // Use absolute path for navigation
-    router.push(`/transfers/booking/${encodeURIComponent(optionTitle)}`);
+      if (optionTitle === "Car Rentals") {
+      router.push("/transfers/car-rental");
+    } else {
+      // Use absolute path for navigation for other options
+      router.push(`/transfers/booking/${encodeURIComponent(optionTitle)}`);
+    }
+    // router.push(`/transfers/booking/${encodeURIComponent(optionTitle)}`);
   };
 
   const handleClick1 = () => {
