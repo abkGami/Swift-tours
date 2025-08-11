@@ -22,28 +22,28 @@ import { useState } from "react";
 import CustomerSLideshow from "@/components/transfer-slideshow";
 
 const transferOptions = [
-  {
-    title: "Car Rentals",
-    icon: Crown,
-    description: "Premium comfort with Mercedes-Benz V-Class and BMW 7 Series",
-    features: [
-      "Professional chauffeur",
-      "Wi-Fi & refreshments",
-      "Airport meet & greet",
-      "Flexible scheduling",
-    ],
-    vehicles: [
-      "Mercedes-Benz V-Class",
-      "BMW 7 Series",
-      "Audi A8",
-      "Range Rover",
-    ],
-    price: "From $89/hour",
-    image: "/placeholder.svg?height=200&width=300",
-    color: "from-yellow-400 to-orange-500",
-    capacity: "1-7 passengers",
-    availability: "24/7",
-  },
+{
+  title: "Car Rentals",
+  icon: Car,
+  description: "Self-drive premium vehicles for independent travel",
+  features: [
+    "24/7 roadside assistance",
+    "GPS navigation included",
+    "Comprehensive insurance",
+    "Flexible pickup/drop-off",
+  ],
+  vehicles: [
+    "Toyota Yaris",
+    "Kia picanto",
+    "Peugeot 2008",
+    "Tesla Model 3",
+  ],
+  price: "From $45/day",
+  image: "/placeholder.svg?height=200&width=300",
+  color: "from-yellow-400 to-orange-500",
+  capacity: "4-5 passengers",
+  availability: "24/7",
+},
   {
     title: "Private Drivers",
     icon: Users,

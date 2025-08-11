@@ -958,7 +958,7 @@ export default function ReviewsPage() {
                       <div className="font-semibold text-lg text-gray-900">
                         {review.name}
                       </div>
-                      <div className="text-xs text-gray-400 mb-1">
+                      {/* <div className="text-xs text-gray-400 mb-1">
                         {review.email ? (
                           <a
                             href={`mailto:${review.email}`}
@@ -967,7 +967,7 @@ export default function ReviewsPage() {
                             {review.email}
                           </a>
                         ) : null}
-                      </div>
+                      </div> */}
                       <div className="text-xs text-gray-500">
                         {formatDate(review.date)}
                       </div>
