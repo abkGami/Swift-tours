@@ -42,7 +42,7 @@ const overviewCards = [
   {
     title: "Rentals & Transfers",
     description:
-      "Travel in style with our luxury vehicles and professional transfer services",
+      "Travel in style with our Rental Services and professional transfer services",
     icon: Car,
     image: "/transfer.jpg",
     href: "/transfers",
