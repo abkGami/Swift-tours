@@ -32,158 +32,7 @@ type CarRental = {
   description: string;
 };
 
-const carRentals: CarRental[] = [
-  {
-    id: 1,
-    name: "BMW 3 Series",
-    brand: "BMW",
-    type: "Sedan",
-    seats: 5,
-    transmission: "Automatic",
-    price: "From $89/day",
-    image: "/placeholder.svg?height=200&width=300",
-    features: ["GPS Navigation", "Bluetooth", "Air Conditioning", "Leather Seats"],
-    rating: 4.8,
-    fuelType: "Petrol",
-    year: 2023,
-    description: "Luxury sedan perfect for business trips and comfortable city driving."
-  },
-  {
-    id: 2,
-    name: "Mercedes-Benz C-Class",
-    brand: "Mercedes-Benz",
-    type: "Sedan",
-    seats: 5,
-    transmission: "Automatic",
-    price: "From $95/day",
-    image: "/placeholder.svg?height=200&width=300",
-    features: ["Premium Sound", "Sunroof", "Heated Seats", "Cruise Control"],
-    rating: 4.9,
-    fuelType: "Petrol",
-    year: 2023,
-    description: "Premium luxury sedan with exceptional comfort and performance."
-  },
-  {
-    id: 3,
-    name: "Audi A4",
-    brand: "Audi",
-    type: "Sedan",
-    seats: 5,
-    transmission: "Automatic",
-    price: "From $85/day",
-    image: "/placeholder.svg?height=200&width=300",
-    features: ["Quattro AWD", "Virtual Cockpit", "LED Headlights", "Parking Sensors"],
-    rating: 4.7,
-    fuelType: "Petrol",
-    year: 2023,
-    description: "Sporty sedan with advanced technology and all-wheel drive."
-  },
-  {
-    id: 4,
-    name: "Range Rover Evoque",
-    brand: "Land Rover",
-    type: "SUV",
-    seats: 5,
-    transmission: "Automatic",
-    price: "From $120/day",
-    image: "/placeholder.svg?height=200&width=300",
-    features: ["4WD", "Terrain Response", "Panoramic Roof", "Premium Audio"],
-    rating: 4.6,
-    fuelType: "Petrol",
-    year: 2023,
-    description: "Compact luxury SUV perfect for both city and off-road adventures."
-  },
-  {
-    id: 5,
-    name: "Porsche Macan",
-    brand: "Porsche",
-    type: "SUV",
-    seats: 5,
-    transmission: "Automatic",
-    price: "From $150/day",
-    image: "/placeholder.svg?height=200&width=300",
-    features: ["Sport Suspension", "Bose Audio", "Sport Seats", "Launch Control"],
-    rating: 4.9,
-    fuelType: "Petrol",
-    year: 2023,
-    description: "High-performance luxury SUV with sports car DNA."
-  },
-  {
-    id: 6,
-    name: "Tesla Model 3",
-    brand: "Tesla",
-    type: "Electric Sedan",
-    seats: 5,
-    transmission: "Automatic",
-    price: "From $110/day",
-    image: "/placeholder.svg?height=200&width=300",
-    features: ["Autopilot", "Supercharging", "Premium Interior", "Over-the-air Updates"],
-    rating: 4.8,
-    fuelType: "Electric",
-    year: 2023,
-    description: "Revolutionary electric sedan with cutting-edge technology."
-  },
-  {
-    id: 7,
-    name: "Volkswagen Golf",
-    brand: "Volkswagen",
-    type: "Hatchback",
-    seats: 5,
-    transmission: "Manual",
-    price: "From $45/day",
-    image: "/placeholder.svg?height=200&width=300",
-    features: ["Fuel Efficient", "Digital Cockpit", "Apple CarPlay", "Safety Assist"],
-    rating: 4.5,
-    fuelType: "Petrol",
-    year: 2023,
-    description: "Reliable and economical hatchback perfect for city driving."
-  },
-  {
-    id: 8,
-    name: "Ford Mustang",
-    brand: "Ford",
-    type: "Sports Car",
-    seats: 4,
-    transmission: "Manual",
-    price: "From $130/day",
-    image: "/placeholder.svg?height=200&width=300",
-    features: ["V8 Engine", "Sport Mode", "Premium Audio", "Performance Tires"],
-    rating: 4.7,
-    fuelType: "Petrol",
-    year: 2023,
-    description: "Iconic American muscle car with thrilling performance."
-  },
-  {
-    id: 9,
-    name: "Toyota Prius",
-    brand: "Toyota",
-    type: "Hybrid",
-    seats: 5,
-    transmission: "Automatic",
-    price: "From $55/day",
-    image: "/placeholder.svg?height=200&width=300",
-    features: ["Hybrid Engine", "Eco Mode", "Spacious Interior", "Advanced Safety"],
-    rating: 4.4,
-    fuelType: "Hybrid",
-    year: 2023,
-    description: "Eco-friendly hybrid with exceptional fuel economy."
-  },
-  {
-    id: 10,
-    name: "Jeep Wrangler",
-    brand: "Jeep",
-    type: "SUV",
-    seats: 5,
-    transmission: "Automatic",
-    price: "From $95/day",
-    image: "/placeholder.svg?height=200&width=300",
-    features: ["4x4 Capability", "Removable Doors", "Off-road Tires", "Rock Rails"],
-    rating: 4.6,
-    fuelType: "Petrol",
-    year: 2023,
-    description: "Ultimate off-road vehicle for adventure seekers."
-  }
-];
+
 
 export default function CarRentalPage() {
   const router = useRouter();
@@ -200,6 +49,7 @@ export default function CarRentalPage() {
   const [loading, setLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const [filteredCars, setFilteredCars] = useState<CarRental[]>([]);
+  const [regionalPreference, setRegionalPreference] = useState<string>("");
   
   // Modal state
   const [modalOpen, setModalOpen] = useState(false);
@@ -215,7 +65,412 @@ export default function CarRentalPage() {
     email: ""
   });
 
-  const handleSearch = () => {
+  const carRentals: CarRental[] = [
+    {
+      id: 1,
+      name: "BMW 3 Series",
+      brand: "BMW",
+      type: "Luxury Sedan",
+      seats: 5,
+      transmission: "Automatic",
+      price: "$89/day",
+      image: "/cars/bmw-3-series.jpg",
+      features: ["Leather Seats", "Navigation", "Bluetooth", "Climate Control", "Premium Sound"],
+      rating: 4.8,
+      fuelType: "Gasoline",
+      year: 2023,
+      description: "Premium luxury sedan with exceptional comfort and performance"
+    },
+    {
+      id: 2,
+      name: "Mercedes C-Class",
+      brand: "Mercedes-Benz",
+      type: "Luxury Sedan",
+      seats: 5,
+      transmission: "Automatic",
+      price: "$95/day",
+      image: "/cars/mercedes-c-class.jpg",
+      features: ["Leather Seats", "Sunroof", "Advanced Safety", "Premium Audio", "Heated Seats"],
+      rating: 4.9,
+      fuelType: "Gasoline",
+      year: 2023,
+      description: "Elegant luxury sedan with cutting-edge technology"
+    },
+    {
+      id: 3,
+      name: "Audi A4",
+      brand: "Audi",
+      type: "Luxury Sedan",
+      seats: 5,
+      transmission: "Automatic",
+      price: "$85/day",
+      image: "/cars/audi-a4.jpg",
+      features: ["Quattro AWD", "Virtual Cockpit", "Bang & Olufsen Audio", "LED Headlights"],
+      rating: 4.7,
+      fuelType: "Gasoline",
+      year: 2023,
+      description: "Sophisticated sedan with all-wheel drive capability"
+    },
+    {
+      id: 4,
+      name: "Range Rover Evoque",
+      brand: "Land Rover",
+      type: "Luxury SUV",
+      seats: 5,
+      transmission: "Automatic",
+      price: "$120/day",
+      image: "/cars/range-rover-evoque.jpg",
+      features: ["4WD", "Terrain Response", "Premium Interior", "Panoramic Roof", "Meridian Audio"],
+      rating: 4.6,
+      fuelType: "Gasoline",
+      year: 2023,
+      description: "Compact luxury SUV with exceptional off-road capabilities"
+    },
+    {
+      id: 5,
+      name: "Jeep Wrangler",
+      brand: "Jeep",
+      type: "Heavy Off-Road SUV",
+      seats: 4,
+      transmission: "Manual",
+      price: "$75/day",
+      image: "/cars/jeep-wrangler.jpg",
+      features: ["4x4 Capability", "Removable Doors", "Rock-Trac 4WD", "Skid Plates", "Tow Hooks"],
+      rating: 4.5,
+      fuelType: "Gasoline",
+      year: 2023,
+      description: "Ultimate off-road vehicle for adventure enthusiasts"
+    },
+    {
+      id: 6,
+      name: "Tesla Model 3",
+      brand: "Tesla",
+      type: "Electric Sedan",
+      seats: 5,
+      transmission: "Automatic",
+      price: "$95/day",
+      image: "/cars/tesla-model-3.jpg",
+      features: ["Autopilot", "Supercharging", "Glass Roof", "Premium Connectivity", "Over-the-Air Updates"],
+      rating: 4.8,
+      fuelType: "Electric",
+      year: 2023,
+      description: "Revolutionary electric sedan with cutting-edge technology"
+    },
+    {
+      id: 7,
+      name: "Toyota Prius",
+      brand: "Toyota",
+      type: "Hybrid Sedan",
+      seats: 5,
+      transmission: "CVT",
+      price: "$55/day",
+      image: "/cars/toyota-prius.jpg",
+      features: ["Hybrid Engine", "Fuel Efficient", "Toyota Safety Sense", "Wireless Charging"],
+      rating: 4.4,
+      fuelType: "Hybrid",
+      year: 2023,
+      description: "Eco-friendly hybrid with outstanding fuel economy"
+    },
+    {
+      id: 8,
+      name: "Tesla Model Y",
+      brand: "Tesla",
+      type: "Electric SUV",
+      seats: 7,
+      transmission: "Automatic",
+      price: "$110/day",
+      image: "/cars/tesla-model-y.jpg",
+      features: ["Dual Motor AWD", "Autopilot", "Third Row Seating", "Glass Roof", "Supercharging"],
+      rating: 4.7,
+      fuelType: "Electric",
+      year: 2023,
+      description: "Spacious electric SUV with advanced autonomous features"
+    },
+    {
+      id: 9,
+      name: "Nissan Leaf",
+      brand: "Nissan",
+      type: "Electric Compact",
+      seats: 5,
+      transmission: "Automatic",
+      price: "$65/day",
+      image: "/cars/nissan-leaf.jpg",
+      features: ["Zero Emissions", "e-Pedal", "ProPILOT Assist", "Quick Charging"],
+      rating: 4.3,
+      fuelType: "Electric",
+      year: 2023,
+      description: "Affordable electric vehicle perfect for city driving"
+    },
+    {
+      id: 10,
+      name: "Chevrolet Bolt EV",
+      brand: "Chevrolet",
+      type: "Electric Compact",
+      seats: 5,
+      transmission: "Automatic",
+      price: "$60/day",
+      image: "/cars/chevrolet-bolt.jpg",
+      features: ["Long Range Battery", "Fast Charging", "Teen Driver", "4G LTE Wi-Fi"],
+      rating: 4.2,
+      fuelType: "Electric",
+      year: 2023,
+      description: "Practical electric car with impressive range"
+    },
+    {
+      id: 11,
+      name: "Honda Fit",
+      brand: "Honda",
+      type: "Compact Hatchback",
+      seats: 5,
+      transmission: "CVT",
+      price: "$45/day",
+      image: "/cars/honda-fit.jpg",
+      features: ["Magic Seats", "Fuel Efficient", "Honda Sensing", "Cargo Space"],
+      rating: 4.1,
+      fuelType: "Gasoline",
+      year: 2023,
+      description: "Versatile compact car perfect for urban environments"
+    },
+    {
+      id: 12,
+      name: "Toyota Yaris",
+      brand: "Toyota",
+      type: "Compact Sedan",
+      seats: 5,
+      transmission: "Manual",
+      price: "$40/day",
+      image: "/cars/toyota-yaris.jpg",
+      features: ["Fuel Efficient", "Toyota Safety Sense", "Compact Design", "Easy Parking"],
+      rating: 4.0,
+      fuelType: "Gasoline",
+      year: 2023,
+      description: "Economical compact sedan ideal for city navigation"
+    },
+    {
+      id: 13,
+      name: "Suzuki Swift",
+      brand: "Suzuki",
+      type: "Compact Hatchback",
+      seats: 5,
+      transmission: "Manual",
+      price: "$38/day",
+      image: "/cars/suzuki-swift.jpg",
+      features: ["Lightweight", "Agile Handling", "Fuel Efficient", "Compact Size"],
+      rating: 3.9,
+      fuelType: "Gasoline",
+      year: 2023,
+      description: "Nimble and efficient hatchback for tight city streets"
+    },
+    {
+      id: 14,
+      name: "Ford F-150 Raptor",
+      brand: "Ford",
+      type: "Heavy Off-Road Truck",
+      seats: 5,
+      transmission: "Automatic",
+      price: "$150/day",
+      image: "/cars/ford-f150-raptor.jpg",
+      features: ["Twin-Turbo V6", "Fox Racing Shocks", "Terrain Management", "Skid Plates", "Towing Capacity"],
+      rating: 4.8,
+      fuelType: "Gasoline",
+      year: 2023,
+      description: "High-performance off-road truck built for extreme terrain"
+    },
+    {
+      id: 15,
+      name: "Chevrolet Tahoe",
+      brand: "Chevrolet",
+      type: "Heavy SUV",
+      seats: 8,
+      transmission: "Automatic",
+      price: "$130/day",
+      image: "/cars/chevrolet-tahoe.jpg",
+      features: ["4WD", "Towing Package", "Third Row Seating", "Cargo Space", "Advanced Safety"],
+      rating: 4.5,
+      fuelType: "Gasoline",
+      year: 2023,
+      description: "Full-size SUV with maximum passenger and cargo capacity"
+    },
+    {
+      id: 16,
+      name: "Toyota Land Cruiser",
+      brand: "Toyota",
+      type: "Heavy Off-Road SUV",
+      seats: 8,
+      transmission: "Automatic",
+      price: "$140/day",
+      image: "/cars/toyota-land-cruiser.jpg",
+      features: ["Multi-Terrain Select", "Crawl Control", "Safari Ready", "Rock Protection", "Water Crossing"],
+      rating: 4.7,
+      fuelType: "Gasoline",
+      year: 2023,
+      description: "Legendary off-road SUV perfect for safari adventures"
+    },
+    {
+      id: 17,
+      name: "Nissan Patrol",
+      brand: "Nissan",
+      type: "Heavy Off-Road SUV",
+      seats: 7,
+      transmission: "Automatic",
+      price: "$125/day",
+      image: "/cars/nissan-patrol.jpg",
+      features: ["Intelligent 4WD", "Hill Start Assist", "Desert Capable", "Robust Build", "High Ground Clearance"],
+      rating: 4.4,
+      fuelType: "Gasoline",
+      year: 2023,
+      description: "Rugged SUV designed for challenging terrains and long expeditions"
+    },
+    {
+      id: 18,
+      name: "BMW i3",
+      brand: "BMW",
+      type: "Electric Compact",
+      seats: 4,
+      transmission: "Automatic",
+      price: "$70/day",
+      image: "/cars/bmw-i3.jpg",
+      features: ["Carbon Fiber Body", "Sustainable Materials", "Urban Mobility", "Quick Charging"],
+      rating: 4.2,
+      fuelType: "Electric",
+      year: 2023,
+      description: "Innovative electric city car with sustainable design"
+    },
+    {
+      id: 19,
+      name: "Volkswagen Golf",
+      brand: "Volkswagen",
+      type: "Compact Hatchback",
+      seats: 5,
+      transmission: "Manual",
+      price: "$50/day",
+      image: "/cars/volkswagen-golf.jpg",
+      features: ["German Engineering", "Efficient Engine", "Advanced Safety", "Quality Interior"],
+      rating: 4.3,
+      fuelType: "Gasoline",
+      year: 2023,
+      description: "Classic compact hatchback with refined European engineering"
+    },
+    {
+      id: 20,
+      name: "Hyundai Kona Electric",
+      brand: "Hyundai",
+      type: "Electric SUV",
+      seats: 5,
+      transmission: "Automatic",
+      price: "$75/day",
+      image: "/cars/hyundai-kona-electric.jpg",
+      features: ["Long Range", "Fast Charging", "SmartSense Safety", "Wireless Phone Charging"],
+      rating: 4.4,
+      fuelType: "Electric",
+      year: 2023,
+      description: "Versatile electric SUV with impressive range and features"
+    }
+  ];
+
+  // Regional vehicle preference logic
+const getRegionalVehiclePreference = (location: string): string => {
+  const locationLower = location.toLowerCase();
+  
+  // EV-heavy regions (Europe + strong EV adoption countries)
+  if (
+    locationLower.includes('norway') || locationLower.includes('oslo') || locationLower.includes('bergen') ||
+    locationLower.includes('iceland') || locationLower.includes('reykjavik') ||
+    locationLower.includes('sweden') || locationLower.includes('stockholm') || locationLower.includes('gothenburg') ||
+    locationLower.includes('netherlands') || locationLower.includes('amsterdam') || locationLower.includes('rotterdam') ||
+    locationLower.includes('denmark') || locationLower.includes('copenhagen') ||
+    locationLower.includes('finland') || locationLower.includes('helsinki') ||
+    locationLower.includes('switzerland') || locationLower.includes('zurich') || locationLower.includes('geneva') ||
+    locationLower.includes('germany') || locationLower.includes('berlin') || locationLower.includes('munich') ||
+    locationLower.includes('canada') || locationLower.includes('vancouver') || locationLower.includes('toronto')
+  ) {
+    return 'electric';
+  }
+  
+  // Small car regions (Asia + small urban nations)
+  if (
+    locationLower.includes('japan') || locationLower.includes('tokyo') || locationLower.includes('osaka') ||
+    locationLower.includes('singapore') || locationLower.includes('hong kong') ||
+    locationLower.includes('south korea') || locationLower.includes('seoul') ||
+    locationLower.includes('taiwan') || locationLower.includes('taipei') ||
+    locationLower.includes('monaco') || locationLower.includes('malta') ||
+    locationLower.includes('thailand') || locationLower.includes('bangkok') ||
+    locationLower.includes('philippines') || locationLower.includes('manila') ||
+    locationLower.includes('vietnam') || locationLower.includes('hanoi') || locationLower.includes('ho chi minh')
+  ) {
+    return 'compact';
+  }
+  
+  // Heavy vehicle regions (Off-road, mountainous, safari, rural terrains)
+  if (
+    locationLower.includes('kenya') || locationLower.includes('nairobi') || locationLower.includes('mombasa') ||
+    locationLower.includes('tanzania') || locationLower.includes('arusha') || locationLower.includes('dar es salaam') ||
+    locationLower.includes('botswana') || locationLower.includes('namibia') || locationLower.includes('south africa') ||
+    locationLower.includes('zimbabwe') || locationLower.includes('zambia') ||
+    locationLower.includes('nepal') || locationLower.includes('bhutan') ||
+    locationLower.includes('mongolia') || locationLower.includes('patagonia') ||
+    locationLower.includes('alaska') || locationLower.includes('yukon') ||
+    locationLower.includes('outback') || locationLower.includes('safari') ||
+    locationLower.includes('serengeti') || locationLower.includes('masai mara') ||
+    locationLower.includes('andes') || locationLower.includes('rockies') || locationLower.includes('himalaya')
+  ) {
+    return 'heavy';
+  }
+  
+  // Default to mixed/standard selection
+  return 'standard';
+};
+
+
+  // Filter cars based on regional preferences
+  const filterCarsByRegion = (cars: CarRental[], preference: string): CarRental[] => {
+    if (preference === 'standard') return cars;
+    
+    // Separate cars by type
+    const electricCars = cars.filter(car => car.fuelType === 'Electric');
+    const compactCars = cars.filter(car => 
+      car.type.includes('Compact') || 
+      car.type === 'Hatchback' || 
+      (car.name === 'Volkswagen Golf' || car.name === 'Honda Fit' || car.name === 'Toyota Yaris' || car.name === 'Suzuki Swift')
+    );
+    const heavyCars = cars.filter(car => 
+      car.type.includes('Heavy') || 
+      car.features.some(feature => feature.includes('4x4') || feature.includes('Safari') || feature.includes('Off-road'))
+    );
+    const otherCars = cars.filter(car => 
+      !electricCars.includes(car) && 
+      !compactCars.includes(car) && 
+      !heavyCars.includes(car)
+    );
+
+    // Priority filtering based on regional preference
+    switch (preference) {
+      case 'electric':
+        return [...electricCars, ...otherCars];
+      case 'compact':
+        return [...compactCars, ...otherCars];
+      case 'heavy':
+        return [...heavyCars, ...otherCars];
+      default:
+        return cars;
+    }
+  };
+
+  // Get regional information for display
+  const getRegionInfo = (preference: string) => {
+    switch (preference) {
+      case 'electric':
+        return { icon: '⚡', text: 'EV-friendly region - Electric vehicles prioritized', color: 'text-green-600' };
+      case 'compact':
+        return { icon: '🚗', text: 'Dense urban area - Compact cars recommended', color: 'text-blue-600' };
+      case 'heavy':
+        return { icon: '🚙', text: 'Adventure destination - Off-road vehicles featured', color: 'text-orange-600' };
+      default:
+        return { icon: '🌍', text: 'Standard selection - All vehicle types available', color: 'text-gray-600' };
+    }
+  };
+
+ const handleSearch = () => {
     if (!pickupLocation || !pickupDate || !pickupTime || !returnDate || !returnTime) {
       alert("Please fill all fields correctly.");
       return;
@@ -226,9 +481,15 @@ export default function CarRentalPage() {
 
     // Simulate search delay
     setTimeout(() => {
+      const preference = getRegionalVehiclePreference(pickupLocation);
+      setRegionalPreference(preference);
+      
+      // Use the actual car rentals data instead of empty array
+      const filtered = filterCarsByRegion(carRentals, preference);
+      
       setLoading(false);
       setHasSearched(true);
-      setFilteredCars(carRentals);
+      setFilteredCars(filtered);
       if (resultsRef.current) {
         resultsRef.current.scrollIntoView({ behavior: "smooth" });
       }
@@ -262,10 +523,10 @@ export default function CarRentalPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
-        <Script
-          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}libraries=places`}
-          strategy="beforeInteractive"
-        />
+      <Script
+        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
+        strategy="beforeInteractive"
+      />
       <Navigation />
 
       {/* Hero Section */}
@@ -295,11 +556,11 @@ export default function CarRentalPage() {
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               <div className="flex items-center">
                 <Car className="h-5 w-5 mr-2" />
-                <span>10+ Premium Vehicles</span>
+                <span>20+ Premium Vehicles</span>
               </div>
               <div className="flex items-center">
                 <Users className="h-5 w-5 mr-2" />
-                <span>4-5 Passengers</span>
+                <span>4-8 Passengers</span>
               </div>
               <div className="flex items-center">
                 <Calendar className="h-5 w-5 mr-2" />
@@ -307,7 +568,7 @@ export default function CarRentalPage() {
               </div>
               <div className="flex items-center">
                 <MapPin className="h-5 w-5 mr-2" />
-                <span>Multiple Pickup Locations</span>
+                <span>Regional Recommendations</span>
               </div>
             </div>
           </motion.div>
@@ -325,7 +586,6 @@ export default function CarRentalPage() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
               {/* Pickup Location */}
-                        {/* Pickup Location */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Pickup Location
@@ -352,6 +612,15 @@ export default function CarRentalPage() {
                   }}
                   apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
                 />
+                {/* Regional Preference Indicator */}
+                {pickupLocation && (
+                  <div className="mt-2 text-sm flex items-center">
+                    <span className="mr-1">{getRegionInfo(getRegionalVehiclePreference(pickupLocation)).icon}</span>
+                    <span className={getRegionInfo(getRegionalVehiclePreference(pickupLocation)).color}>
+                      {getRegionInfo(getRegionalVehiclePreference(pickupLocation)).text}
+                    </span>
+                  </div>
+                )}
               </div>
 
               {/* Pickup Date */}
@@ -465,6 +734,29 @@ export default function CarRentalPage() {
               <p className="text-xl text-gray-600">
                 {filteredCars.length} cars found for your search
               </p>
+              
+              {/* Regional Information Card */}
+              {regionalPreference && regionalPreference !== 'standard' && (
+                <div className="mt-6 max-w-2xl mx-auto">
+                  <Card className="border-l-4 border-blue-500 bg-blue-50">
+                    <CardContent className="p-4">
+                      <div className="flex items-center justify-center">
+                        <span className="text-2xl mr-3">{getRegionInfo(regionalPreference).icon}</span>
+                        <div>
+                          <h3 className="font-semibold text-gray-900">Regional Vehicle Selection</h3>
+                          <p className={`text-sm ${getRegionInfo(regionalPreference).color}`}>
+                            Based on your location "{pickupLocation}", we've prioritized {
+                              regionalPreference === 'electric' ? 'electric vehicles' :
+                              regionalPreference === 'compact' ? 'compact cars' :
+                              'heavy-duty vehicles'
+                            } that are popular in this region.
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              )}
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -542,10 +834,10 @@ export default function CarRentalPage() {
                               {car.type}
                             </Badge>
                           </div>
-                          <div>
+                          {/* <div>
                             <span className="text-sm text-gray-500">Year:</span>
                             <span className="ml-2 font-medium">{car.year}</span>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
 
