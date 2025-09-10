@@ -9,6 +9,7 @@ import Hero from "@/components/hero";
 import OverviewSection from "@/components/overview-section";
 import Footer from "@/components/footer";
 import CustomerSLideshow from "@/components/customer-slideshow";
+import { Analytics } from "@vercel/analytics/next"
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
@@ -81,6 +82,7 @@ export default function Home() {
         ref={containerRef}
         className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50 overflow-hidden"
       >
+        <Analytics />
         <Navigation />
         <Hero />
         <CustomerSLideshow />
