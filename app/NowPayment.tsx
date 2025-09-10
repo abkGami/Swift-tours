@@ -33,7 +33,7 @@ function NowPaymentsButton({
         onClick={handleNowPayments}
         disabled={loading}
       >
-        {loading ? "Processing..." : "Pay with Crypto (NOWPayments)"}
+        {loading ? "Processing..." : "Pay with Crypto"}
       </Button>
     </div>
   );

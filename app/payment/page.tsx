@@ -8,6 +8,7 @@ import { Coins, CreditCard, Gift } from "lucide-react";
 import IbanPaymentInfo from "../IBAN";
 import GiftCardPayment from "../Giftcaerd";
 import NowPaymentsButton from "../NowPayment";
+import { Button } from "@/components/ui/button";
 
 export default function PaymentsPage() {
   return (
@@ -44,12 +45,12 @@ export default function PaymentsPage() {
               >
                 <Coins className="h-5 w-5" /> Crypto
               </TabsTrigger>
-              <TabsTrigger
+              {/* <TabsTrigger
                 value="iban"
                 className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-blue-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white transition"
               >
                 <CreditCard className="h-5 w-5" /> IBAN
-              </TabsTrigger>
+              </TabsTrigger> */}
               {/* <TabsTrigger
                 value="giftcard"
                 className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-blue-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white transition"
@@ -71,7 +72,14 @@ export default function PaymentsPage() {
                   </p>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center w-full">
-                  <NowPaymentsButton price={100} currency="EUR" />
+                  {/* <NowPaymentsButton price={0.00001} currency="EUR" /> */}
+                  <a href="https://nowpayments.io/payment/?iid=4820398060&source=button" target="_blank" rel="noreferrer noopener">
+                    <Button
+                      className=" w-full mt-2 bg-blue-600 hover:bg-blue-700 mb-6"
+                    >
+                      Pay with Crypto
+                    </Button>
+                  </a>
                   <p className="text-xs text-gray-400 mt-4">
                     You will be redirected to a secure crypto checkout.
                   </p>
